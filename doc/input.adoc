@@ -1,0 +1,181 @@
+
+[[input_]]
+==== input_
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Input__.html++[Fl_Input_]. +
+Inherits from: <<widget, widget>>. +
+RTTI: '_normal_', '_float_', '_int_', '_hidden_', '_multiline_', '_secret_'. +
+No constructor (abstract class).#
+
+* *input_:copy* (_clipboard_) +
+-> _boolean_ +
+[small]#_clipboard_: 0 for current text selection, 1 for cut&paste clipboard.#
+
+* *input_:copy_cuts* ( ) +
+-> _boolean_
+
+* *input_:cursor_color* (<<color, _color_>>) +
+* *input_:cursor_color* ( ) +
+-> <<color, _color_>>
+
+* *input_:cut* ( ) +
+*input_:cut* (_n_) +
+*input_:cut* (_n1_, _n2_) +
+-> _boolean_
+
+* *input_:* (_n_) +
+-> _ucs4_
+
+* *input_:input_type* (<<rtti, _rtti_>>) +
+* *input_:input_type* ( ) +
+-> <<rtti, _rtti_>>
+
+* *input_:insert* (_text_) +
+-> _boolean_
+
+* *input_:mark* (_m_) +
+-> _boolean_ +
+* *input_:mark* ( ) +
+-> _m_
+
+* *input_:maximum_size* (_nchars_) +
+* *input_:maximum_size* ( ) +
+-> _nchars_
+
+* *input_:position* (_pos_) +
+* *input_:position* (_pos_, _m_) +
+-> _boolean_ +
+* *input_:position* ( ) +
+-> _pos_
+
+* *input_:readonly* (_boolean_) +
+* *input_:readonly* ( ) +
+-> _boolean_
+
+* *input_:replace* (_begin_, _end_, _text_) +
+-> _boolean_
+
+* *input_:shortcut* (_shortcut_) +
+* *input_:shortcut* ( ) +
+-> _shortcut_
+
+* *input_:size* (_w_, _h_) +
+* *input_:size* ( ) +
+-> _nbytes_
+
+* *input_:tab_nav* (_boolean_) +
+* *input_:tab_nav* ( ) +
+-> _boolean_
+
+* *input_:textcolor* (<<color, _color_>>) +
+* *input_:textcolor* ( ) +
+-> <<color, _color_>>
+
+* *input_:textfont* (<<font, _font_>>) +
+* *input_:textfont* ( ) +
+-> <<font, _font_>>
+
+* *input_:textsize* (_fontsize_) +
+* *input_:textsize* ( ) +
+-> _fontsize_
+
+* *input_undo:* ( ) +
+-> _boolean_
+
+* *input_:value* (_text_) +
+-> _boolean_ +
+* *input_:value* ( ) +
+-> _text_
+
+* *input_:wrap* (_boolean_) +
+* *input_:wrap* ( ) +
+-> _boolean_
+
+
+[[input]]
+==== input
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Input.html++[Fl_Input]. +
+Inherits from: <<widget, widget>>, <<input_, input_>>.#
+
+* *fl.input* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _input_
+
+
+
+[[file_input]]
+==== file_input
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__File__Input.html++[Fl_File_Input]. +
+Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
+
+* *fl.file_input* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _file_input_
+
+* *file_input:down_box* (<<boxtype, _boxtype_>>) +
+* *file_input:down_box* ( ) +
+-> <<boxtype, _boxtype_>>
+
+* *file_input:errorcolor* (<<color, _color_>>) +
+* *file_input:errorcolor* ( ) +
+-> <<color, _color_>>
+
+* *file_input:value* (_text_) +
+-> _boolean_ +
+* *file_input:value* ( ) +
+-> _text_
+
+
+[[float_input]]
+==== float_input
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Float__Input.html++[Fl_Float_Input]. +
+Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
+
+* *fl.float_input* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _float_input_
+
+
+[[int_input]]
+==== int_input
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Int__Input.html++[Fl_Int_Input]. +
+Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
+
+* *fl.int_input* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _int_input_
+
+
+[[multiline_input]]
+==== multiline_input
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Multiline__Input.html++[Fl_Multiline_Input]. +
+Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
+
+* *fl.multiline_input* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _multiline_input_
+
+
+
+[[output]]
+==== output
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Output.html++[Fl_Output]. +
+Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
+
+* *fl.output* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _output_
+
+
+[[multiline_output]]
+==== multiline_output
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Multiline__Output.html++[Fl_Multiline_Output]. +
+Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>, <<output, output>>.#
+
+* *fl.multiline_output* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _multiline_output_
+
+
+
+[[secret_input]]
+==== secret_input
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Secret__Input.html++[Fl_Secret_Input]. +
+Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
+
+* *fl.secret_input* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _secret_input_
+
+

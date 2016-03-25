@@ -1,0 +1,12 @@
+
+[[box]]
+==== box
+
+[small]#Rfr: http://www.fltk.org/doc-1.3/classFl__Box.html[Fl_Box]. +
+Inherits from: <<widget, widget>>.#
+
+* *fl.box* (_x_, _y_, _w_, _h_ [, _label_]) +
+*fl.box* (<<boxtype, _boxtype_>>, _x_, _y_, _w_, _h_ [, _label_]) +
+-> _box_
+
+

@@ -1,0 +1,23 @@
+
+
+=== Other classes
+
+.Other classes
+****
+[small]#<<help_dialog, help_dialog>> +
+<<native_file_chooser, native_file_chooser>> +
+<<text_buffer, text_buffer>>#
+****
+
+include::help_dialog.adoc[]
+
+include::native_file_chooser.adoc[]
+
+include::text_buffer.adoc[]
+
+
+// preferences NO
+// file_chooser
+// file_icon
+
+

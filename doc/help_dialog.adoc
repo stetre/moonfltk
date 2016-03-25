@@ -1,0 +1,60 @@
+
+[[help_dialog]]
+==== help_dialog
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Help__Dialog.html++[Fl_Help_Dialog]. +
+Inherits from: - .#
+
+* *fl.help_dialog* ( ) +
+-> _help_dialog_
+
+* *help_dialog:h* ( ) +
+-> _h_
+
+* *help_dialog:hide* ( )
+
+* *help_dialog:load* (_filename_)
+
+* *help_dialog:position* (_x_, _y_)
+
+* *help_dialog:resize* (_x_, _y_, _w_, _h_)
+
+* *help_dialog:show* ( ) +
+*help_dialog:show* (_progname_) +
+*help_dialog:show* (_args_) +
+*help_dialog:show* (_progname_ [, _args_]) +
+[small]#Same as <<window:show, window:show()>>( ).#
+
+* *help_dialog:textsize* (_fontsize_) +
+* *help_dialog:textsize* ( ) +
+-> _fontsize_
+
+* *help_dialog:topline* (_name_) +
+*help_dialog:topline* (_n_)
+
+* *help_dialog:value* (_text_) +
+* *help_dialog:value* ( ) +
+-> _text_
+
+* *help_dialog:visible* ( ) +
+-> _boolean_
+
+* *help_dialog:w* ( ) +
+-> _w_
+
+* *help_dialog:x* ( ) +
+-> _x_
+
+* *help_dialog:y* ( ) +
+-> _y_
+
+////
+* *help_dialog:* ( )
+
+* *help_dialog:* (__) +
+* *help_dialog:* ( ) +
+-> __
+
+boolean
+////
+
+

@@ -1,0 +1,43 @@
+
+== Implementation notes
+
+The following FLTK (1.3.3) features are not - or not yet - implemented in MoonFLTK:
+
+* link:++http://www.fltk.org/doc-1.3/group__fl__unicode.html++[Unicode and UTF-8 functions]
+(notice however that Lua already provides basic 
+http://www.lua.org/manual/5.3/manual.html#6.5[UTF-8 Support]).
+
+* link:++http://www.fltk.org/doc-1.3/group__fl__multithread.html++[Multithreading support functions] 
+(MoonFLTK does not support multithreading and is not thread-safe).
+
+* link:++http://www.fltk.org/doc-1.3/group__fl__del__widget.html++[Safe widget deletion support functions].
+
+* link:++http://www.fltk.org/doc-1.3/group__group__cairo.html++[Cairo support functions and classes].
+
+* link:++http://www.fltk.org/doc-1.3/group__group__macosx.html++[Mac OS X-specific stuff].
+
+* link:++http://www.fltk.org/doc-1.3/glut.html++[GLUT compatibility].
+
+* link:++http://www.fltk.org/doc-1.3/forms.html++[Forms compatibility] and most forms classes.
+
+* The link:++http://www.fltk.org/doc-1.3/classFl__Preferences.html++[Fl_Preferences] class
+(Lua itself is good at handling configuration files).
+
+* The following classes:
+link:++http://www.fltk.org/doc-1.3/classFl__File__Icon.html++[Fl_File_Icon], 
+link:++http://www.fltk.org/doc-1.3/classFl__File__Chooser.html++[Fl_File_Chooser], 
+link:++http://www.fltk.org/doc-1.3/classFl__Device.html++[Fl_Device] and descendants.
+
+* The following functionalities of the
+link:++http://www.fltk.org/doc-1.3/classFl.html++[Fl] class:
+the command line argument parser (Fl::args( )),
+the Fl::readqueue( ) callback mechanism,
+Fl::set/get_boxtype( ),
+Fl::set/get_labeltype(), 
+system handlers (Fl::add_system_handler( )),
+Fl::default_at_close( ), Fl::warning/error/fatal( ).
+
+* Fl_Tooltip::enter_area( ).
+
+* A few other things here and there (that is, this list is not exhaustive).
+

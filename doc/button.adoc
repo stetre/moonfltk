@@ -1,0 +1,121 @@
+
+[[button]]
+==== button
+
+[small]#Rfr: http://www.fltk.org/doc-1.3/classFl__Button.html[Fl_Button]. +
+Inherits from: <<widget, widget>>. +
+RTTI: '_normal_', '_toggle_', '_radio_', '_hidden_'.#
+
+* *fl.button* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _button_
+
+* *button:clear* ( ) +
+-> _boolean_
+
+* *button:down_box* (<<boxtype, _boxtype_>>) +
+* *button:down_box* ( ) +
+-> <<boxtype, _boxtype_>>
+
+* *button:set* ( ) +
+-> _boolean_
+
+* *button:setonly* ( )
+
+* *button:shortcut* (<<shortcut, _shortcut_>>) +
+* *button:shortcut* ( ) +
+-> <<shortcut, _shortcut_>>
+
+* *button:value* (_boolean_) +
+* *button:value* ( ) +
+-> _boolean_
+
+
+[[light_button]]
+==== light_button
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Light__Button.html++[Fl_Light_Button]. +
+Inherits from: <<widget, widget>>, <<button, button>>.#
+
+* *fl.light_button* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _light_button_
+
+
+[[check_button]]
+==== check_button
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Check__Button.html++[Fl_Check_Button]. +
+Inherits from: <<widget, widget>>, <<button, button>>, <<light_button, light_button>>.#
+
+* *fl.check_button* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _check_button_
+
+
+[[radio_light_button]]
+==== radio_light_button
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Radio__Light__Button.html++[Fl_Radio_Light_Button]. +
+Inherits from: <<widget, widget>>, <<button, button>>, <<light_button, light_button>>.#
+
+* *fl.radio_light_button* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _radio_light_button_
+
+[[round_button]]
+==== round_button
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Round__Button.html++[Fl_Round_Button]. +
+Inherits from: <<widget, widget>>, <<button, button>>, <<light_button, light_button>>.#
+
+* *fl.round_button* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _round_button_
+
+
+[[radio_round_button]]
+==== radio_round_button
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Radio__Round__Button.html++[Fl_Radio_Round_Button]. +
+Inherits from: <<widget, widget>>, <<button, button>>, <<light_button, light_button>>, 
+<<round_button, round_button>>.#
+
+* *fl.radio_round_button* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _radio_round_button_
+
+
+[[radio_button]]
+==== radio_button
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Radio__Button.html++[Fl_Radio_Button]. +
+Inherits from: <<widget, widget>>, <<button, button>>.#
+
+* *fl.radio_button* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _radio_button_
+
+[[repeat_button]]
+==== repeat_button
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Repeat__Button.html++[Fl_Repeat_Button]. +
+Inherits from: <<widget, widget>>, <<button, button>>.#
+
+* *fl.repeat_button* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _repeat_button_
+
+* *repeat_button:deactivate* ( )
+
+[[return_button]]
+==== return_button
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Return__Button.html++[Fl_Return_Button]. +
+Inherits from: <<widget, widget>>, <<button, button>>.#
+
+* *fl.return_button* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _return_button_
+
+[[toggle_button]]
+==== toggle_button
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Toggle__Button.html++[Fl_Toggle_Button]. +
+Inherits from: <<widget, widget>>, <<button, button>>.#
+
+* *fl.toggle_button* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _toggle_button_
+
+

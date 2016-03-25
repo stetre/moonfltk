@@ -1,0 +1,48 @@
+
+[[input_choice]]
+==== input_choice
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Input__Choice.html++[Fl_Input_Choice]. +
+Inherits from: <<widget, widget>>, <<group, group>>.#
+
+* *fl.input_choice* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _input_choice_
+
+* *input_choice:add* (_item_) +
+[small]#_item_: a string.#
+
+* *input_choice:changed* ( ) +
+-> _boolean_
+
+* *input_choice:clear* ( )
+
+* *input_choice:clear_changed* ( )
+
+* *input_choice:down_box* (<<boxtype, _boxtype_>>) +
+* *input_choice:down_box* ( ) +
+-> <<boxtype, _boxtype_>>
+
+* *input_choice:input* ( ) +
+-> <<input, _input_>>
+
+* *input_choice:menubutton* ( ) +
+-> <<menu_button, _menu_button_>>
+
+* *input_choice:set_changed* ( )
+
+* *input_choice:textcolor* (<<color, _color_>>) +
+* *input_choice:textcolor* ( ) +
+-> <<color, _color_>>
+
+* *input_choice:textfont* (<<font, _font_>>) +
+* *input_choice:textfont* ( ) +
+-> <<font, _font_>>
+
+* *input_choice:textsize* (_fontsize_) +
+* *input_choice:textsize* ( ) +
+-> _fontsize_
+
+* *input_choice:value* (_index_) +
+* *input_choice:value* (_item_) +
+* *input_choice:value* ( ) +
+-> _item_
+

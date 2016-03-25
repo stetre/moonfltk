@@ -1,0 +1,170 @@
+
+<<<
+
+== Class index
+
+*A*
+[small]#<<adjuster, adjuster>>#
+
+*B*
+[small]#<<bitmap, bitmap>> -
+<<bmp_image, bmp_image>> -
+<<box, box>> -
+<<browser_, browser_>> -
+<<browser, browser>> -
+<<button, button>>#
+
+//<<cairo, cairo>> -
+//<<cairo_window, cairo_window>> -
+*C*
+[small]#<<chart, chart>> - 
+<<check_browser, check_browser>> -
+<<check_button, check_button>> -
+<<choice, choice>> -
+<<clock, clock>> -
+<<clock_output, clock_output>> -
+<<color_chooser, color_chooser>> -
+//<<copy_surface, copy_surface>> -
+<<counter, counter>>#
+
+//<<device, device>> -
+*D*
+[small]#<<dial, dial>> -
+<<double_window, double_window>>#
+
+////
+*E*
+[small]#<<export, export>>#
+////
+
+*F*
+[small]#<<file_browser, file_browser>> -
+//<<file_chooser, file_chooser>> -
+//<<file_icon, file_icon>> -
+<<file_input, file_input>> -
+<<fill_dial, fill_dial>> -
+<<fill_slider, fill_slider>> -
+<<float_input, float_input>>#
+//<<formsbitmap, formsbitmap>> -
+//<<formspixmap, formspixmap>> -
+//<<formstext , formstext >> -
+//<<free, free>>#
+
+*G*
+[small]#<<gif_image, gif_image>> -
+<<gl_window, gl_window>> -
+//<<glut_window, glut_window>> -
+<<group, group>>#
+
+*H*
+[small]#<<help_dialog, help_dialog>> -
+<<help_view, help_view>> -
+<<hold_browser, hold_browser>> -
+<<hor_fill_slider, hor_fill_slider>> -
+<<hor_nice_slider, hor_nice_slider>> -
+<<hor_slider, hor_slider>> -
+<<hor_value_slider, hor_value_slider>>#
+
+*I*
+[small]#<<image, image>> -
+//<<image_surface, image_surface>> -
+<<input_choice, input_choice>> -
+<<input_, input_>> -
+<<input, input>> -
+<<int_input, int_input>>#
+
+*J*
+[small]#<<jpeg_image, jpeg_image>>#
+
+*L*
+[small]#<<light_button, light_button>> -
+<<line_dial, line_dial>>#
+
+*M*
+[small]#<<menu_bar, menu_bar>> -
+<<menu_button, menu_button>> -
+<<menu_, menu_>> -
+<<menu_, menu_item>> -
+<<menu_window, menu_window>> -
+<<multi_browser, multi_browser>> -
+//<<multi_label, multi_label>> -
+<<multiline_input, multiline_input>> -
+<<multiline_output, multiline_output>>#
+
+*N*
+[small]#<<native_file_chooser, native_file_chooser>> -
+<<nice_slider, nice_slider>>#
+
+*O*
+[small]#<<output, output>> -
+<<overlay_window, overlay_window>>#
+
+*P*
+[small]#<<pack, pack>> -
+//<<paged_device, paged_device>> -
+<<pixmap, pixmap>> -
+//<<plugin, plugin>> -
+<<png_image, png_image>> -
+<<pnm_image, pnm_image>> -
+//<<positioner, positioner>> -
+//<<postscript, postscript>> -
+//<<preferences, preferences>> -
+//<<printer, printer>> -
+<<progress, progress>>#
+
+*R*
+[small]#<<radio_button, radio_button>> -
+<<radio_light_button, radio_light_button>> -
+<<radio_round_button, radio_round_button>> -
+<<repeat_button, repeat_button>> -
+<<return_button, return_button>> -
+<<rgb_image, rgb_image>> -
+<<roller, roller>> -
+<<round_button, round_button>> -
+<<round_clock, round_clock>>#
+
+*S*
+[small]#<<scrollbar, scrollbar>> -
+<<scroll, scroll>> -
+<<secret_input, secret_input>> -
+<<select_browser, select_browser>> -
+<<shared_image, shared_image>> -
+<<simple_counter, simple_counter>> -
+<<single_window, single_window>> -
+<<slider, slider>> -
+<<spinner, spinner>>#
+//<<sys_menu_bar, sys_menu_bar>>#
+
+*T*
+[small]#<<table, table>> -
+<<table_row, table_row>> -
+<<tabs, tabs>> -
+<<text_buffer, text_buffer>> -
+<<text_display, text_display>> -
+<<text_editor, text_editor>> -
+<<tiled_image, tiled_image>> -
+<<tile, tile>> -
+//<<timer, timer>> -
+<<toggle_button, toggle_button>> -
+<<tooltip, tooltip>> -
+<<tree, tree>>#
+//<<tree_item_array, tree_item_array>> -
+//<<tree_item, tree_item>> -
+//<<tree_prefs, tree_prefs>>#
+
+*V*
+[small]#<<valuator, valuator>> -
+<<value_input, value_input>> -
+<<value_output, value_output>> -
+<<value_slider, value_slider>>#
+
+*W*
+[small]#<<widget, widget>> -
+<<window, window>> -
+<<wizard, wizard>>#
+
+*X*
+[small]#<<xbm_image, xbm_image>> -
+<<xpm_image, xpm_image>>#
+
+

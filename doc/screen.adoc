@@ -1,0 +1,51 @@
+
+=== Screen
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/group__fl__screen.html++[Screen functions].#
+
+NOTE: Screens are numbered from 1 to *fl.screen_count*( ) inclusive.
+
+* *fl.h* ( ) +
+-> _h_
+
+* *fl.screen_count* ( ) +
+-> _nscreens_
+
+* *fl.screen_dpi* ([_screen_ = 1]) +
+-> _h_, _v_
+
+* *fl.screen_num* (_x_, _y_ [,_w_, _h_]) +
+-> _screen_
+
+* *fl.screen_work_area* (_mx_, _my_) +
+*fl.screen_work_area* (_screen_) +
+*fl.screen_work_area* ( ) +
+-> _x_, _y_, _w_, _h_
+
+* *fl.screen_xywh* ( ) +
+*fl.screen_xywh* (_mx_, _my_) +
+*fl.screen_xywh* (_screen_) +
+*fl.screen_xywh* (_mx_, _my_, _mw_, _mh_) +
+-> _x_, _y_, _w_, _h_
+
+* *fl.w* ( ) +
+-> _w_
+
+* *fl.x* ( ) +
+-> _x_
+
+* *fl.y* ( ) +
+-> _y_
+
+* *fl.xywh* ( ) +
+-> _x_, _y_, _w_, _h_
+
+////
+* *fl.* ( )
+
+* *fl.* (__) +
+* *fl.* ( ) +
+-> __
+
+boolean
+////
+

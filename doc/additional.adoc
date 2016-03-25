@@ -1,0 +1,122 @@
+
+[[additional]]
+=== Additional utilities
+
+[[fl.alignment]]
+* *fl.alignment* (_s1_, _..._, _sN_) +
+-> _code_ +
+* *fl.alignment* (_code_) +
+-> _s1_, _..._, _sN_ +
+[small]#Encodes/decodes the FLTK <<alignment, alignment>> _code_ from/to 
+the string values _s1_, ..., _sN_.#
+
+[[fl.damagebits]]
+* *fl.damagebits* (_s1_, _..._, _sN_) +
+-> _code_ +
+* *fl.damagebits* (_code_) +
+-> _s1_, _..._, _sN_ +
+[small]#Encodes/decodes the FLTK <<damagebits, damagebits>> _code_ from/to 
+the string values _s1_, ..., _sN_.#
+
+[[fl.fileno]]
+* *fl.fileno* (_file_) +
+-> _fd_ +
+[small]#Returns the file descriptor for the Lua
+http://www.lua.org/manual/5.3/manual.html#6.8[io library] _file_ handle.#
+
+[[fl.gettime]]
+* *fl.gettime* ( ) +
+-> _seconds_ +
+[small]#Returns the current time in seconds.#
+
+* *fl.key* (_s_) +
+-> _code_ +
+* *fl.key* (_code_) +
+-> _s_ +
+[small]#Translates the FLTK <<key, _key_>> _code_ to/from the corresponding string value _s_.#
+
+[[fl.linestyle]]
+* *fl.linestyle* (_s1_, _..._, _sN_) +
+-> _code_ +
+* *fl.linestyle* (_code_) +
+-> _s1_, _..._, _sN_ +
+[small]#Encodes/decodes the FLTK <<linestyle, linestyle>> _code_ from/to 
+the string values _s1_, ..., _sN_.#
+
+[[fl.menuitemflags]]
+* *fl.menuitemflags* (_s1_, _..._, _sN_) +
+-> _code_ +
+* *fl.menuitemflags* (_code_) +
+-> _s1_, _..._, _sN_ +
+[small]#Encodes/decodes the FLTK <<menuitemflags, menuitemflags>> _code_ from/to 
+the string values _s1_, ..., _sN_.#
+
+[[fl.mode]]
+* *fl.mode* (_s1_, _..._, _sN_) +
+-> _code_ +
+* *fl.mode* (_code_) +
+-> _s1_, _..._, _sN_ +
+[small]#Encodes/decodes the FLTK <<mode, mode>> _code_ from/to 
+the string values _s1_, ..., _sN_.#
+
+[[fl.modifiers]]
+* *fl.modifiers* (_s1_, _..._, _sN_) +
+-> _code_ +
+* *fl.modifiers* (_code_) +
+-> _s1_, _..._, _sN_ +
+[small]#Encodes/decodes the FLTK <<modifiers, modifiers>> _code_ from/to 
+the string values _s1_, ..., _sN_.#
+
+* *fl.new_uuid* ( ) +
+-> _uuid_ +
+[small]#Binding to 
+link:++http://www.fltk.org/doc-1.3/classFl__Preferences.html++[Fl_Preferences::newUUID]( ), 
+returns an universally unique identifier.#
+
+[[trace_object]]
+* *trace_object* (_boolean_) +
+[small]#Enables/disables tracing on stdout of objects creation and deletion
+(default is disabled).#
+
+
+[[fl.shortcut]]
+* *fl.shortcut* (_s1_, _..._, _sN_) +
+-> _code_ +
+[small]#Encodes an FLTK <<shortcut, _shortcut_>> _code_ by combining the string values
+_s1_, _..._, _sN_, which must comprise one (and only one) <<key, _key_>> and zero or more
+<<modifiers,_modifiers_>>. For example, this produces the code for the 'Ctrl+S' shortcut: 
+_code = fl.shortcut('Ctrl', 's')_. Beware that the '_Shift_' modifier is implicit
+in upper-case keys, so passing '_S_' instead of '_s_' would produce the code for
+the shortcut 'Ctrl+Shift+S'.#
+
+* *fl.shortcut* (_code_) +
+-> _s1_, _..._, _sN_ +
+[small]#Decodes an FLTK <<shortcut, _shortcut_>>.#
+
+* *fl.sleep* (_seconds_) +
+[small]# Sleep for _seconds_. This function should not be used, it has been added
+only to emulate work in progress in the examples.#
+
+[[fl.unreference]]
+* *fl.unreference* (_object_) +
+[small]#Remove the anchor of the MoonFLTK _object_ to the Lua registry
+(see <<unreference, "Unreferencing objects">>).#
+
+[[fl.whenflags]]
+* *fl.whenflags* (_s1_, _..._, _sN_) +
+-> _code_ +
+* *fl.whenflags* (_code_) +
+-> _s1_, _..._, _sN_ +
+[small]#Encodes/decodes the FLTK <<whenflags, whenflags>> _code_ from/to 
+the string values _s1_, ..., _sN_.#
+
+////
+* *fl.* ( )
+
+* *fl.* (__) +
+* *fl.* ( ) +
+-> __
+
+boolean
+////
+

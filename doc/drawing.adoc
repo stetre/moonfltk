@@ -1,0 +1,162 @@
+
+=== Drawing
+[small]#Rfr: 
+link:++http://www.fltk.org/doc-1.3/group__fl__drawings.html++[Drawing functions] -
+link:++http://www.fltk.org/doc-1.3/classFl.html++[Fl].#
+
+* *fl.arc* (_x_, _y_, _w_, _h_, _a1_, _a2_) +
+*fl.arc* (_x_, _y_, _r_, _start_, _end_)
+
+* *fl.begin_complex_polygon* ( ) +
+*fl.begin_line* ( ) +
+*fl.begin_loop* ( ) +
+*fl.begin_points* ( ) +
+*fl.begin_polygon* ( ) +
+
+* *fl.box_dh* (<<boxtype, _boxtype_>>) +
+*fl.box_dw* (<<boxtype, _boxtype_>>) +
+*fl.box_dy* (<<boxtype, _boxtype_>>) +
+*fl.box_dz* (<<boxtype, _boxtype_>>) +
+-> _offset_
+
+* *fl.can_do_alpha_blending* ( ) +
+-> _boolean_
+
+* *fl.circle* (_x_, _y_, _r_)
+
+* *fl.clip_box* (_x_, _y_, _w_, _h_) +
+-> _x_, _y_, _w_, _h_
+
+* *fl.cursor* (<<cursortype, _cursortype_>> [, <<color, _fgcolor_>> [, <<color, _bgcolor_>>]])
+
+* *fl.curve* (_x0_, _y0_, _x1_, _y1_, _x2_, _y2_, _x3_, _y3_)
+
+* *fl.draw* (_deg_, _text_, _x_, _y_) +
+*fl.draw* (_text_, _x_, _y_) +
+*fl.draw* (_text_, _x_, _y_, _w_, _h_, <<alignment, _alignment_>> [, <<image, _image_>> [, _drawsymbols_ [, _func_]]]) +
+[small]#Only the integer code form for <<alignment, _alignment_>> is admitted here. +
+The _func_ text drawing callback, if any, is executed as *func(text, x, y)*.#
+
+* *fl.draw_box* (<<boxtype, _boxtype_>>, _x_, _y_, _w_, _h_, <<color, _color_>>)
+
+* *fl.draw_box_active* ( ) +
+-> _boolean_
+
+* *fl.draw_image* (_data_, _x_, _y_, _w_, _h_, _depth_, _linedata_) +
+*fl.draw_image_mono* (_data_, _x_, _y_, _w_, _h_, _depth_, _linedata_) +
+[small]#_data_: a binary string.#
+
+* *fl.draw_pixmap* (_data_, _x_, _y_ [, <<color, _color_>>]) +
+[small]#_data_: a table containing, in its array part, the strings defining the pixmap image.#
+
+* *fl.draw_symbol* (_label_, _x_, _y_, _w_, _h_, <<color, _color_>>) +
+-> _boolean_
+
+* *fl.end_complex_polygon* ( ) +
+*fl.end_line* ( ) +
+*fl.end_loop* ( ) +
+*fl.end_points* ( ) +
+*fl.end_polygon* ( )
+
+* *fl.frame* (_s_, _x_, _y_, _w_, _h_) +
+*fl.frame2* (_s_, _x_, _y_, _w_, _h_)
+
+* *fl.gap* ( )
+
+* *fl.line* (_x_, _y_, _x1_, _y1_ [, _x2_, _y2_])
+
+* *fl.line_style* (<<linestyle, _linestyle_>> [, _width_ [, _dashlen1_, _dashlen2_, _..._]]) +
+[small]#Only the integer code form for <<linestyle, _linestyle_>> is admitted here.#
+
+* *fl.loop* (_x_, _y_, _x1_, _y1_, _x2_, _y2_ [, _x3_, _y3_])
+
+* *fl.measure* (_text_ [, _w_ [, _drawsymbols_]] ) +
+-> _w_, _h_
+
+* *fl.measure_pixmap* (_data_) +
+-> _w_, _h_ +
+[small]#_data_: a table containing, in its array part, the strings defining the pixmap image.#
+
+* *fl.mult_matrix* (_a_, _b_, _c_, _d_, _x_, _y_)
+
+* *fl.not_clipped* (_s_, _x_, _y_, _w_, _h_) +
+-> _boolean_
+
+* *fl.overlay_clear* ( ) +
+*fl.overlay_rect* (_x_, _y_, _w_, _h_)
+
+* *fl.pie* (_x_, _y_, _w_, _h_, _a1_, _a2_)
+
+* *fl.point* (_x_, _y_)
+
+* *fl.polygon* (_x_, _y_, _x1_, _y1_, _x2_, _y2_ [, _x3_, _y3_])
+
+* *fl.pop_clip* ( ) +
+*fl.pop_matrix* ( )
+
+* *fl.push_clip* (_x_, _y_, _w_, _h_) +
+*fl.push_matrix* ( ) +
+*fl.push_no_clip* ( )
+
+* *fl.read_image* (_x_, _y_, _w_, _h_ [, _alpha_]) +
+-> _data_ +
+[small]#_data_: binary string containing the RGB or RGBA values.#
+
+* *fl.rect* (_x_, _y_, _w_, _h_ [, <<color, _color_>>])
+
+* *fl.rectf* (_x_, _y_, _w_, _h_ [, <<color, _color_>>]) +
+*fl.rectf* (_x_, _y_, _w_, _h_, _r_, _g_, _b_)
+
+* *fl.reset_spot* ( )
+
+* *fl.restore_clip* ( )
+
+* *fl.rotate* (_deg_)
+
+* *fl.rtl_draw* (_text_, _x_, _y_)
+
+* *fl.scale* (_x_ [, _y_])
+
+* *fl.scroll* (_x_, _y_, _w_, _h_ , _dx_, _dy_, _func_) +
+[small]#The _func_ area drawing callback is executed as *func(x, y, w, h)*.#
+
+[[fl.scrollbar_size]]
+* *fl.scrollbar_size* (_pixels_) +
+* *fl.scrollbar_size* ( ) +
+-> _pixels_
+
+* *fl.set_spot* (<<font, _font_>>, _size_, _x_, _y_, _w_, _h_ [, <<window, _window_>>])
+
+* *fl.set_status* (_x_, _y_, _w_, _h_)
+
+* *fl.shortcut_label* (<<shortcut, _shortcut_>>) +
+-> _text_
+
+* *fl.transform_dx* (_x_, _y_) +
+*fl.transform_dy* (_x_, _y_) +
+*fl.transform_x* (_x_, _y_) +
+*fl.transform_y* (_x_, _y_) +
+-> _val_
+
+* *fl.transformed_vertex* (_x_, _y_)
+
+* *fl.translate* (_x_, _y_)
+
+* *fl.vertex* (_x_, _y_)
+
+* *fl.xyline* (_x_, _y_, _x1_ [, _y2_ [, _x3_]]))
+
+* *fl.yxline* (_x_, _y_, _y1_ [, _x2_ [, _y3_]]))
+
+////
+* *fl.* ( )
+
+* *fl.* (__) +
+* *fl.* ( ) +
+-> __
+
+_x_, _y_, _w_, _h_
+-> _boolean_
+boolean
+////
+

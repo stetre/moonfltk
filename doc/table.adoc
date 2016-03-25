@@ -1,0 +1,174 @@
+
+[[table]]
+==== table
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Table.html++[Fl_Table]. +
+Inherits from: <<widget, widget>>, <<group, group>>.#
+
+* *fl.table* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _table_
+
+NOTE: Row and column numbers, as well as children indices, are 1-based (Lua-style).
+
+* *table:callback_context* ( ) +
+-> <<tablecontext, _tablecontext_>>
+
+* *table:callback_col* ( ) +
+-> _col_
+
+* *table:callback_row* ( ) +
+-> _row_
+
+* *table:col_header* (_boolean_) +
+* *table:col_header* ( ) +
+-> _boolean_
+
+* *table:col_header_color* (<<color, _color_>>) +
+* *table:col_header_color* ( ) +
+-> <<color, _color_>>
+
+* *table:col_header_height* (_h_) +
+* *table:col_header_height* ( ) +
+-> _h_
+
+* *table:col_position* (_col_) +
+* *table:col_position* ( ) +
+-> _col_
+
+* *table:col_resize* (_boolean_) +
+* *table:col_resize* ( ) +
+-> _boolean_
+
+* *table:col_resize_min* (_val_) +
+* *table:col_resize_min* ( ) +
+-> _val_
+
+* *table:col_width* (_col_, _w_) +
+* *table:col_width* (_col_) +
+-> _w_
+
+* *table:col_width_all* (_w_)
+
+* *table:cols* ( ) +
+-> _ncols_
+
+[[table.draw_cell]]
+* *table:draw_cell* (<<tablecontext, _tablecontext_>>, _r_, _c_, _x_, _y_, _w_, _h_)
+
+* *table:find_cell* (<<tablecontext, _tablecontext_>>, _row_, _col_) +
+-> _x_, _y_, _w_, _h_
+
+* *table:get_selection* ( ) +
+-> _row_top_, _col_left_, _row_bottom_, _col_right_
+
+* *table:is_interactive_resize* ( ) +
+-> _boolean_
+
+* *table:is_selected* (_row_, _col_) +
+-> _boolean_
+
+* *table:move_cursor* (_row_, _col_ [, _shiftselect_]) +
+-> _boolean_
+
+
+* *table:row_header* (_boolean_) +
+* *table:row_header* ( ) +
+-> _boolean_
+
+* *table:row_header_color* (<<color, _color_>>) +
+* *table:row_header_color* ( ) +
+-> <<color, _color_>>
+
+* *table:row_header_width* (_w_) +
+* *table:row_header_width* ( ) +
+-> _w_
+
+* *table:row_height* (_row_, _h_) +
+* *table:row_height* (_row_) +
+-> _h_
+
+* *table:row_height_all* (_h_)
+
+* *table:row_position* (_row_) +
+* *table:row_position* ( ) +
+-> _row_
+
+* *table:row_resize* (_boolean_) +
+* *table:row_resize* ( ) +
+-> _boolean_
+
+* *table:row_resize_min* (_val_) +
+* *table:row_resize_min* ( ) +
+-> _val_
+
+* *table:rows* ( ) +
+-> _nrows_
+
+* *table:scrollbar_size* (_val_) +
+* *table:scrollbar_size* ( ) +
+-> _val_
+
+* *table:set_selection* (_row_top_, _col_left_, _row_bottom_, _col_right_) 
+
+* *table:table_box* (<<boxtype, _boxtype_>>) +
+* *table:table_box* ( ) +
+-> <<boxtype, _boxtype_>>
+
+* *table:tab_cell_nav* (_boolean_) +
+* *table:tab_cell_nav* ( ) +
+-> _boolean_
+
+* *table:visible_cells* ( ) +
+-> _row1_, _row2_, _col1_, _col2_
+
+
+////
+* *table:* ( )
+
+* *table:* (__) +
+* *table:* ( ) +
+-> __
+
+boolean
+////
+
+
+// -------------------------------------
+[[table_row]]
+==== table_row
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Table__Row.html++[Fl_Table_Row]. +
+Inherits from: <<widget, widget>>, <<group, group>>, <<table, table>>. +
+RTTI: 'none', 'single', 'multi'.#
+
+* *fl.table_row* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _table_row_
+
+NOTE: Row and column numbers, as well as children indices, are 1-based (Lua-style).
+
+* *table_row:row_selected* (_row_) +
+-> _boolean_ +
+[small]#Returns _nil_, _errmsg_ if _row_ is out of range.#
+
+* *table_row:rows* (_nrows_) +
+* *table_row:rows* ( ) +
+-> _nrows_
+
+* *table_row:select_all_rows* ([_option_]) +
+[small]#_option_ = '_deselect_', '_select_' (default), '_toggle_'.#
+
+* *table_row:select_row* (_row_ [, _option_]) +
+-> _boolean_ +
+[small]#_option_ = '_deselect_', '_select_' (default), '_toggle_'. +
+Returns _nil_, _errmsg_ if _row_ is out of range.#
+
+////
+* *table_row:* ( )
+
+* *table_row:* (__) +
+* *table_row:* ( ) +
+-> __
+
+boolean
+////
+
+

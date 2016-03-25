@@ -1,0 +1,220 @@
+
+[[group]]
+==== group
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Group.html++[Fl_Group]. +
+Inherits from: <<widget, widget>>.#
+
+* *fl.group* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _group_
+
+* *group:add* (_widget_)
+
+* *group:add_resizable* (_widget_)
+
+* *group:begin* ( )
+
+* *group:child* (_n_) +
+-> _widget_
+
+* *group:children* ( ) +
+-> _nchildren_
+
+NOTE: Children are indexed from 1 to group:children() inclusive.
+
+* *group:clear* ( )
+
+* *group:clip_children* (_boolean_) +
+* *group:clip_children* ( ) +
+-> _boolean_
+
+NOTE: *group:end* is replaced by *group:done* ('_end_' is a reserved keyword in Lua).
+
+* *group:done* ( )
+
+* *group:find* (_widget_) +
+-> _n_ +
+[small]#Returns _group:children()+1_ if _widget_ is _nil_ or not found.#
+
+* *group:init_sizes* ( )
+
+* *group:insert* (_widget_, _n_) +
+*group:insert* (_widget_, _beforewidget_)
+
+* *group:remove* (_widget_)
+
+* *group:resizable* (_widget_)
+* *group:resizable* ( ) +
+-> _widget_ +
+[small]#If _widget_ is _nil_, then all widget remain a fixed size and distance from the
+top-left corner. +
+(Note that resizable() differs from resizable(_nil_): the former is a 'get', while the latter is a 'set' operation.)#
+
+'''
+
+The following are (un)protected methods to be used only when <<subclassing, subclassing>>.
+
+* *group:draw_child* (<<widget, _widget_>>)  
+
+* *group:draw_children* ( )  
+
+* *group:draw_outside_label* (<<widget, _widget_>>)  
+
+* *group:update_child* (<<widget, _widget_>>)  
+
+// SUBGROUPS ------------------------------------------------------------------
+
+// -------------------------------------
+// Browser subtree
+include::browser.adoc[]
+
+// -------------------------------------
+include::color_chooser.adoc[]
+
+// -------------------------------------
+include::help_view.adoc[]
+
+// -------------------------------------
+include::input_choice.adoc[]
+
+[[pack]]
+==== pack
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Pack.html++[Fl_Pack]. +
+Inherits from: <<widget, widget>>, <<group, group>>. +
+RTTI: '_horizontal_', '_vertical_'.#
+
+* *fl.pack* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _pack_
+
+* *pack:spacing* (_pixels_) +
+* *pack:spacing* ( ) +
+-> _pixels_
+
+// -------------------------------------
+[[scroll]]
+==== scroll
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Scroll.html++[Fl_Scroll]. +
+Inherits from: <<widget, widget>>, <<group, group>>. +
+RTTI: '_no scrollbar_', '_horizontal_', '_vertical_', '_both_', '_always on_' 
+'_horizontal always_', '_vertical always_', '_both always_'.#
+
+* *fl.scroll* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _scroll_
+
+* *scroll:clear* ( )
+
+* *scroll:hscrollbar* ( ) +
+-> <<scrollbar, _scrollbar_>> +
+[small]#Returns a reference to the horizontal scrollbar widget.#
+
+* *scroll:scrollbar* ( ) +
+-> <<scrollbar, _scrollbar_>> +
+[small]#Returns a reference to the vertical scrollbar widget.#
+
+* *scroll:scrollbar_size* (_pixels_) +
+* *scroll:scrollbar_size* ( ) +
+-> _pixels_
+
+* *scroll:scroll_to* (_x_, _y_)
+
+* *scroll:xposition* ( ) +
+-> _x_
+
+* *scroll:yposition* ( ) +
+-> _y_
+
+// -------------------------------------
+include::spinner.adoc[]
+
+// -------------------------------------
+include::table.adoc[]
+
+// -------------------------------------
+[[tabs]]
+==== tabs
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Tabs.html++[Fl_Tabs]. +
+Inherits from: <<widget, widget>>, <<group, group>>.#
+
+* *fl.tabs* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _tabs_
+
+* *tabs:client_area* ([_tabh_]) +
+-> _x_, _y_, _w_, _h_
+
+* *tabs:push* ( ) +
+-> _widget_
+
+////
+* *tabs:push* (_widget_) +
+-> _boolean_
+////
+
+* *tabs:value* ( ) +
+-> _widget_
+
+* *tabs:value* (_widget_) +
+-> _boolean_
+
+* *tabs:which* (_event_x_, _event_y_) +
+-> _widget_
+
+
+// -------------------------------------
+include::text_display.adoc[]
+include::text_editor.adoc[]
+
+// -------------------------------------
+[[tile]]
+==== tile
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Tile.html++[Fl_Tile]. +
+Inherits from: <<widget, widget>>, <<group, group>>.#
+
+* *fl.tile* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _tile_
+
+* *tile:position* (_oldx_, _oldy_, _newx_, _newy_)
+
+// -------------------------------------
+include::tree.adoc[]
+
+// -------------------------------------
+// Window subtree
+include::window.adoc[]
+
+// -------------------------------------
+[[wizard]]
+==== wizard
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Wizard.html++[Fl_Wizard]. +
+Inherits from: <<widget, widget>>, <<group, group>>.#
+
+* *fl.wizard* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _wizard_
+
+* *wizard:next* ( )
+
+* *wizard:prev* ( )
+
+* *wizard:value* (_widget_) +
+* *wizard:value* ( ) +
+-> _widget_
+
+
+
+
+////
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Zzz.html++[Fl_Zzz]. +
+Inherits from: <<widget, widget>>, <<group, group>>.#
+
+* *fl.zzz* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _zzz_
+
+@@TODO
+
+* *zzz:* ( )
+
+* *zzz:* (__) +
+* *zzz:* ( ) +
+-> __
+
+boolean
+////
+

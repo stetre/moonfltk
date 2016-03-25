@@ -1,0 +1,61 @@
+
+=== Tooltips
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Tooltip.html++[Fl_Tooltip].#
+
+* *fl.tooltip_color* (<<color, _color_>>) +
+* *fl.tooltip_color* ( ) +
+-> <<color, _color_>>
+
+* *fl.tooltip_current* (<<widget, _widget_>>) +
+* *fl.tooltip_current* ( ) +
+-> <<widget, _widget_>>
+
+* *fl.tooltip_delay* (_seconds_) +
+* *fl.tooltip_delay* ( ) +
+-> _seconds_
+
+* *fl.tooltip_disable* ( )
+
+* *fl.tooltip_enable* ([_boolean_])
+
+* *fl.tooltip_enabled* ( ) +
+-> _boolean_
+
+* *fl.tooltip_font* (<<font, _font_>>) +
+* *fl.tooltip_font* ( ) +
+-> <<font, _font_>>
+
+* *fl.tooltip_hoverdelay* (_seconds_) +
+* *fl.tooltip_hoverdelay* ( ) +
+-> _seconds_
+
+* *fl.tooltip_margin_height* (_pixels_) +
+* *fl.tooltip_margin_height* ( ) +
+-> _pixels_
+
+* *fl.tooltip_margin_width* (_pixels_) +
+* *fl.tooltip_margin_width* ( ) +
+-> _pixels_
+
+* *fl.tooltip_size* (_fontsize_) +
+* *fl.tooltip_size* ( ) +
+-> _fontsize_
+
+* *fl.tooltip_textcolor* (<<color, _color_>>) +
+* *fl.tooltip_textcolor* ( ) +
+-> <<color, _color_>>
+
+* *fl.tooltip_wrap_width* (_pixels_) +
+* *fl.tooltip_wrap_width* ( ) +
+-> _pixels_
+
+////
+* *fl.tooltip_* ( )
+
+* *fl.tooltip_* (__) +
+* *fl.tooltip_* ( ) +
+-> __
+
+////
+

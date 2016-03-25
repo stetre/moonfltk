@@ -1,0 +1,74 @@
+
+[[text_editor]]
+==== text_editor
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Text__Editor.html++[Fl_Text_Editor]. +
+Inherits from: <<widget, widget>>, <<group, group>>, <<text_display, text_display>>.#
+
+* *fl.text_editor* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _text_editor_
+
+* *text_editor:insert_mode* (_boolean_) +
+* *text_editor:insert_mode* ( ) +
+-> _boolean_
+
+[[text_editor:key_callback]]
+* *text_editor:key_callback* (_func_) +
+[small]#Registers _func_ as the callback for key bindings.
+A _text_editor_ may have only one key callback, and this will handle all the
+(<<key, _key_>>, <<modifiers, _modifiers_>>) combinations bound with the 
+<<text_editor:key_bind, key_bind>>( ) method.
+The callback is executed as *func(editor, key, modifiers)* and must return a boolean
+(the _modifiers_ argument is passed as integer code).#
+
+[[text_editor:key_bind]]
+* *text_editor:key_bind* (<<key, _key_>>, <<modifiers, _modifiers_>>) +
+[small]#Binds (_key_, _modifiers_) to the <<text_editor:key_callback, key callback>>.#
+
+* *text_editor:key_unbind* (<<key, _key_>>, <<modifiers, _modifiers_>>) +
+[small]#Unbinds (_key_, _modifiers_). This method can be used also to unbind default key bindings,
+not only for keys bound to the <<text_editor:key_callback, key callback>>.#
+
+* *text_editor:remove_all_key_bindings* ( )
+
+'''
+
+Built-in key handling functions are available as members of the *fl* table and may be
+used in the  <<text_editor:key_callback, key callback>>:
+
+* *fl.kf_default* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_ignore* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_backspace* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_enter* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_move* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_shift_move* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_ctrl_move* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_c_s_move* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_meta_move* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_m_s_move* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_home* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_end* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_left* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_up* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_right* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_down* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_page_up* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_page_down* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_insert* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_delete* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_copy* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_cut* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_paste* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_select_all* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+*fl.kf_undo* (<<key, _key_>>, <<text_editor, _text_editor_>>) +
+-> _boolean_
+
+////
+* *text_editor:* ( )
+
+* *text_editor:* (__) +
+* *text_editor:* ( ) +
+-> __
+
+boolean
+////
+

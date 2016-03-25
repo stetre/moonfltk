@@ -1,0 +1,87 @@
+
+=== Colors
+[small]#Rfr: 
+link:++http://www.fltk.org/doc-1.3/group__fl__attributes.html++[Color & Font functions] -
+link:++http://www.fltk.org/doc-1.3/classFl.html++[Fl].#
+
+* *fl.background* (_r_, _g_, _b_)
+
+* *fl.background2* (_r_, _g_, _b_)
+
+* *fl.color* (<<color, _color_>>) +
+*fl.color* (_r_, _g_, _b_) +
+* *fl.color* ( ) +
+-> <<color, _color_>>
+
+* *fl.color_average* (<<color, _color1_>>, <<color, _color2_>>, _weight_) +
+-> <<color, _color_>>
+
+// see Enumerations.H
+* *fl.color_cube* (_r_, _g_, _b_) +
+-> <<color, _color_>> +
+[small]#_r_, _g_, _b_: 0 .. fl.NUM_RED/GREEN/BLUE - 1. See FL/Enumerations.H.#
+
+* *fl.contrast* (<<color, _fgcolor_>>, <<color, _bgcolor_>>) +
+-> <<color, _color_>>
+
+* *fl.darker* (<<color, _color_>>) +
+-> <<color, _color_>>
+
+* *fl.free_color* (_index_ [, _overlay_]
+
+* *fl.foreground* (_r_, _g_, _b_)
+
+* *fl.get_color* (_index_) +
+-> <<color, _color_>>, _r_, _g_, _b_
+
+* *fl.get_system_colors* ( )
+
+* *fl.gray_ramp* (_n_) +
+-> <<color, _color_>> +
+[small]#_n_: 0 .. fl.NUM_GRAY - 1. See FL/Enumerations.H.#
+
+* *fl.hsv2rgb* (_h_, _s_, _v_) +
+-> _r_, _g_, _b_ +
+[small]#Binding to 
+link:++http://www.fltk.org/doc-1.3/classFl__Color__Chooser.html++[Fl_Color_Chooser]::hsv2rgb().#
+
+* *fl.inactive* (<<color, _color_>>) +
+-> <<color, _color_>>
+
+* *fl.lighter* (<<color, _color_>>) +
+-> <<color, _color_>>
+
+* *fl.own_colormap* ( )
+
+* *fl.rgb_color* (_r_, _g_, _b_) +
+*fl.rgb_color* (_n_) +
+-> <<color, _color_>> +
+[small]#Returns the color value closer to (_r_,_g_,_b_), or to _n_ (grayscale). See FL/Enumerations.H.#
+
+* *fl.rgb2hsv* (_r_, _g_, _b_) +
+-> _h_, _s_, _v_ +
+[small]#Binding to 
+link:++http://www.fltk.org/doc-1.3/classFl__Color__Chooser.html++[Fl_Color_Chooser]::rgb2hsv().#
+
+* *fl.set_color* (_index_, _fromindex_) +
+*fl.set_color* (_r_, _g_, _b_)
+
+* *fl.show_colormap* (<<color, _oldcolor_>>) +
+-> <<color, _color_>>
+
+* *fl.xpixel* (_index_) +
+*fl.xpixel* (_r_, _g_, _b_) +
+-> _xpixel_
+
+
+
+////
+* *fl.* ( )
+
+* *fl.* (__) +
+* *fl.* ( ) +
+-> __
+
+boolean
+////
+

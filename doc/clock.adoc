@@ -1,0 +1,42 @@
+
+[[clock_output]]
+==== clock_output
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Clock__Output.html++[Fl_Clock_Output]. +
+Inherits from: <<widget, widget>>.#
+
+* *fl.clock_output* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _clock_output_
+
+* *clock_output:hour* ( ) +
+-> _hour_
+
+* *clock_output:minute* ( ) +
+-> _minute_
+
+* *clock_output:* ( ) +
+-> _second_
+
+* *clock_output:value* (_sec_since_epoch_) +
+* *clock_output:value* ( ) +
+-> _sec_since_epoch_
+
+[[clock]]
+==== clock
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Clock.html++[Fl_Clock]. +
+Inherits from: <<widget, widget>>, <<clock_output, clock_output>>.#
+
+* *fl.clock* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _clock_
+
+
+[[round_clock]]
+==== round_clock
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Round__Clock.html++[Fl_Round_Clock]. +
+Inherits from: <<widget, widget>>, <<clock_output, clock_output>>, <<clock, clock>>.#
+
+* *fl.round_clock* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _round_clock_
+

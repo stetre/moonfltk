@@ -1,0 +1,212 @@
+[[images]]
+=== Images
+
+.Image hierarchy
+****
+[small]#<<image, image>> +
+{tH}<<bitmap, bitmap>> +
+{tI}{tL}<<xbm_image, xbm_image>> +
+{tH}<<pixmap, pixmap>> +
+{tI}{tH}<<gif_image, gif_image>> +
+{tI}{tL}<<xpm_image, xpm_image>> +
+{tH}<<rgb_image, rgb_image>> +
+{tI}{tH}<<bmp_image, bmp_image>> +
+{tI}{tH}<<jpeg_image, jpeg_image>> +
+{tI}{tH}<<png_image, png_image>> +
+{tI}{tL}<<pnm_image, pnm_image>> +
+{tH}<<shared_image, shared_image>> +
+{tL}<<tiled_image, tiled_image>>#
+****
+
+[[image]]
+==== image
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Image.html++[Fl_Image]. +
+Inherits from: - .#
+
+* *fl.image* (_w_, _h_, _d_) +
+-> _image_
+
+* *fl.rgb_scaling* (<<rgbscaling, _rgbscaling_>>) +
+* *fl.rgb_scaling* ( ) +
+-> <<rgbscaling, _rgbscaling_>>
+
+* *pass:[image:color_average]* (<<color, _color_>>, _amount_) +
+[small]#_amount_: 0.0 to 1.0.#
+
+* *pass:[image:copy]* ([_w_, _h_]) +
+-> _image_
+
+* *pass:[image:count]* ( ) +
+-> _count_
+
+* *pass:[image:d]* ( ) +
+-> _depth_
+
+* *pass:[image:desaturate]* ( )
+
+* *pass:[image:draw]* (_x_, _y_, [, _w_, _h_ [, _cx_, _cy_]])
+
+* *pass:[image:h]* ( ) +
+-> _height_
+
+* *pass:[image:inactive]* ( )
+
+* *pass:[image:label]* (<<widget, _widget_>>) +
+* *pass:[image:label]* (<<menu_, _menu_>>, _pathname_) +
+[small]#The couple (<<menu_, _menu_>>, _pathname_) identifies a menu item.#
+
+* *pass:[image:ld]* ( ) +
+-> _size_
+
+* *pass:[image:uncache]* ( )
+
+* *pass:[image:w]* ( ) +
+-> _width_
+
+
+[[bitmap]]
+==== bitmap
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Bitmap.html++[Fl_Bitmap]. +
+Inherits from: <<image, image>>.#
+
+* *fl.bitmap* (_data_, _w_, _h_) +
+-> _bitmap_
+
+
+[[xbm_image]]
+==== xbm_image
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__XBM__Image.html++[Fl_XBM_Image]. +
+Inherits from: <<image, image>>, <<bitmap, bitmap>>.#
+
+* *fl.xbm_image* (_filename_) +
+-> _xbm_image_
+
+
+[[pixmap]]
+==== pixmap
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Pixmap.html++[Fl_Pixmap]. +
+Inherits from: <<image, image>>.#
+
+* *fl.pixmap* (_data_) +
+-> _pixmap_ +
+[small]#_data_: a table containing, in its array part, the strings defining the pixmap image.#
+
+
+[[gif_image]]
+==== gif_image
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__GIF__Image.html++[Fl_GIF_Image]. +
+Inherits from: <<image, image>>, <<pixmap, pixmap>>.#
+
+* *fl.gif_image* (_filename_) +
+-> _gif_image_
+
+[[xpm_image]]
+==== xpm_image
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__XPM__Image.html++[Fl_XPM_Image]. +
+Inherits from: <<image, image>>, <<pixmap, pixmap>>.#
+
+* *fl.xpm_image* (_filename_) +
+-> _xpm_image_
+
+
+[[rgb_image]]
+==== rgb_image
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__RGB__Image.html++[Fl_RGB_Image]. +
+Inherits from: <<image, image>>.#
+
+* *fl.rgb_image* (<<pixmap, _pixmap_>> [, <<color, _bgcolor_>>]) +
+* *fl.rgb_image* (_bits_, _w_, _h_ [, _d_=3 [, _ld_=0]]) +
+-> _rgb_image_ +
+[small]#_bits_: a binary string.#
+
+* *fl.rgb_max_size* (_size_) +
+* *fl.rgb_max_size* ( ) +
+-> _size_
+
+[[bmp_image]]
+==== bmp_image
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__BMP__Image.html++[Fl_BMP_Image]. +
+Inherits from: <<image, image>>, <<rgb_image, rgb_image>>.#
+
+* *fl.bmp_image* (_filename_) +
+-> _bmp_image_
+
+[[jpeg_image]]
+==== jpeg_image
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__JPEG__Image.html++[Fl_JPEG_Image]. +
+Inherits from: <<image, image>>, <<rgb_image, rgb_image>>.#
+
+* *fl.jpeg_image* (_filename_) +
+-> _jpeg_image_
+
+
+[[png_image]]
+==== png_image
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__PNG__Image.html++[Fl_PNG_Image]. +
+Inherits from: <<image, image>>, <<rgb_image, rgb_image>>.#
+
+* *fl.png_image* (_filename_) +
+-> _png_image_
+
+
+[[pnm_image]]
+==== pnm_image
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__PNM__Image.html++[Fl_PNM_Image]. +
+Inherits from: <<image, image>>, <<rgb_image, rgb_image>>.#
+
+* *fl.pnm_image* (_filename_) +
+-> _pnm_image_
+
+
+[[shared_image]]
+==== shared_image
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Shared__Image.html++[Fl_Shared_Image]. +
+Inherits from: <<image, image>>.#
+
+* *fl.shared_image_get* (_name_ [, _w_ [, _h_ ]]) +
+* *fl.shared_image_find* (_name_ [, _w_ [, _h_ ]]) +
+-> _shared_image_
+
+* *pass:[shared_image:copy]* ([_w_, _h_]) +
+-> _shared_image_
+
+* *shared_image:name* ( ) +
+-> _name_
+
+* *shared_image:refcount* ( ) +
+-> _refcount_
+
+NOTE: The *release*() method is not exposed. It is automatically called when the shared_image
+object is garbage collected (to release a shared_image, just unreference it).
+
+* *shared_reload:* ( )
+
+////
+@@TODO
+
+* *shared_image:* ( )
+
+* *shared_image:* (__) +
+* *shared_image:* ( ) +
+-> __
+
+boolean
+////
+
+
+
+[[tiled_image]]
+==== tiled_image
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Tiled__Image.html++[Fl_Tiled_Image]. +
+Inherits from: <<image, image>>.#
+
+* *fl.tiled_image* (_image_ [, _w_ , _h_]) +
+-> _tiled_image_
+
+* *tiled_image:image* ( ) +
+-> _image_
+
+
+
+<<<

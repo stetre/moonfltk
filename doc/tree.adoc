@@ -1,0 +1,327 @@
+
+[[tree]]
+==== tree
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Tree.html++[Fl_Tree]. +
+Inherits from: <<widget, widget>>, <<group, group>>. +
+RTTI: see <<treeselect, _treeselect_>>.#
+
+NOTE: In MoonFLTK, tree items are identified by their pathname and the tree they
+belong to (orphaned items are not supported).
+The link:++http://www.fltk.org/doc-1.3/classFl__Tree__Item.html++[Fl_Tree_Item] class
+in not directly exposed, while its methods are exposed as methods of the <<tree, fl.tree>>
+object (renamed with a leading *item_* prefix, and accepting the item's _pathname_
+as first argument). Children items' indices are 1-based.
+
+* *fl.tree* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _tree_
+
+* *tree:add* (_pathname_)
+
+* *tree:argument* (_arg_) +
+* *tree:argument* ( ) +
+-> _arg_ +
+[small]#_arg_: any Lua value.#
+
+* *tree:callback* (_func_ [, _arg_]) +
+* *tree:callback* ( ) +
+-> _func_ +
+[small]#The _func_ callback (a Lua function) is executed as *func(tree, pathname, reason, arg)*,
+where _pathname_ is the affected item and _reason_ is the reason for calling back
+(see <<treereason, _treereason_>>). The optional argument _arg_ may be any Lua value.#
+
+* *tree:clear* ([_pathname_]) +
+[small]#If _pathname_ is passed, clears the item's subtree, otherwise clears the whole tree.#
+
+* *tree:closeicon* (<<image, _image_>>) +
+* *tree:closeicon* ( ) +
+-> <<image, _image_>>
+
+* *tree:connectorcolor* (<<color, _color_>>) +
+* *tree:connectorcolor* ( ) +
+-> <<color, _color_>>
+
+* *tree:connectorstyle* (<<treeconnector, _treeconnector_>>) +
+* *tree:connectorstyle* ( ) +
+-> <<treeconnector, _treeconnector_>>
+
+* *tree:connectorwidth* (_pixels_) +
+* *tree:connectorwidth* ( ) +
+-> _pixels_
+
+* *tree:extend_selection_up* (_from_, _to_ [, _op_ [, _visible_]]) +
+*tree:extend_selection_down* (_from_, _to_ [, _op_ [, _visible_]]) +
+-> _n_ +
+[small]#_from_, _to_: items pathnames. +
+_op_: '_select_' (default), '_deselect_', '_toggle_'. +
+_visible_: boolean (default=_false_).#
+
+* *tree:first* ( ) +
+*tree:first_selected_item* ( ) +
+*tree:first_visible_item* ( ) +
+-> _pathname_
+
+* *tree:get_item_focus* ( ) +
+-> _pathname_
+
+* *tree:hposition* (_h_) +
+* *tree:hposition* ( ) +
+-> _h_
+
+* *tree:insert_above* (_above_, _name_) +
+-> _pathname_ +
+[small]#_above_: pathname of the item above which the new item has to be inserted. +
+_name_: name of the new item. +
+Returns the _pathname_ of the newly inserted item.#
+
+* *tree:insert* (_parent_, _name_, _index_) +
+-> _pathname_ +
+[small]#_parent_: pathname of the parent item. +
+_name_: name of the new item. +
+Returns the _pathname_ of the newly inserted item.#
+
+* *tree:is_hscroll_visible* ( ) +
+*tree:is_vscroll_visible* ( ) +
+-> _boolean_
+
+* *tree:labelmarginleft* (_pixels_) +
+* *tree:labelmarginleft* ( ) +
+-> _pixels_
+
+* *tree:last* ( ) +
+*tree:last_selected_item* ( ) +
+*tree:last_visible_item* ( ) +
+-> _pathname_
+
+* *tree:linespacing* (_pixels_) +
+* *tree:linespacing* ( ) +
+-> _pixels_
+
+* *tree:marginleft* (_pixels_) +
+* *tree:marginleft* ( ) +
+-> _pixels_
+
+* *tree:margintop* (_pixels_) +
+* *tree:margintop* ( ) +
+-> _pixels_
+
+* *tree:next* (_pathname_) +
+*tree:next_selected_item* (_pathname_) +
+*tree:next_visible_item* (_pathname_) +
+-> _pathname_
+
+* *tree:openicon* (<<image, _image_>>) +
+* *tree:openicon* ( ) +
+-> <<image, _image_>>
+
+* *tree:openchild_margintop* (_pixels_) +
+* *tree:openchild_margintop* ( ) +
+-> _pixels_
+
+* *tree:prev* (_pathname_) +
+*tree:prev_selected_item* (_pathname_) +
+*tree:prev_visible_item* (_pathname_) +
+-> _pathname_
+
+* *tree:remove* (_pathname_)
+
+* *tree:root_label* (_name_)
+
+* *tree:root* ( ) +
+-> _name_
+
+* *tree:scrollbar_size* (_pixels_) +
+* *tree:scrollbar_size* ( ) +
+-> _pixels_
+
+* *tree:show_item* ([_pathname_ [, _yoffset_]])
+
+* *tree:show_item_bottom* ([_pathname_]) +
+*tree:show_item_middle* ([_pathname_]) +
+*tree:show_item_top* ([_pathname_])
+
+* *tree:selectbox* (<<boxtype, _boxtype_>>) +
+* *tree:selectbox* ( ) +
+-> <<boxtype, _boxtype_>>
+
+* *tree:selectmode* (<<treeselect, _treeselect_>>) +
+* *tree:selectmode* ( ) +
+-> <<treeselect, _treeselect_>>
+
+* *tree:set_item_focus* ([_pathname_])
+
+* *tree:showcollapse* (_boolean_) +
+* *tree:showcollapse* ( ) +
+-> _boolean_
+
+* *tree:showroot* (_boolean_) +
+* *tree:showroot* ( ) +
+-> _boolean_
+
+* *tree:show_self* ( )
+
+* *tree:sortorder* (<<treesort, _treesort_>>) +
+* *tree:sortorder* ( ) +
+-> <<treesort, _treesort_>>
+
+* *tree:usericon* (<<image, _image_>>) +
+* *tree:usericon* ( ) +
+-> <<image, _image_>>
+
+* *tree:usericon_marginleft* (_pixels_) +
+* *tree:usericon_marginleft* ( ) +
+-> _pixels_
+
+* *tree:vposition* (_v_) +
+* *tree:vposition* ( ) +
+-> _v_
+
+* *tree:item_activate* (_pathname_)
+
+* *tree:item_child* (_pathname_, _index_) +
+-> _pathname_ 
+
+* *tree:item_children* (_pathname_) +
+-> _n_
+
+* *tree:item_close* (_pathname_ [, _docallback_]) +
+-> _boolean_
+
+* *tree:item_deactivate* (_pathname_)
+
+* *tree:item_depth* (_pathname_) +
+-> _n_
+
+* *tree:item_deselect* ([_pathname_ [, _docallback_]]) +
+*tree:item_deselect_all* ([_pathname_ [, _docallback_]]) +
+-> _boolean_
+
+* *tree:item_display* ([_pathname_])
+
+* *tree:item_displayed* ([_pathname_]) +
+-> _boolean_
+
+* *tree:item_find_child* (_pathname_, _name_) +
+-> _index_ +
+[small]#Returns _nil_ if the item _pathname_ has no child named _name_, otherwise
+returns its index (1-based).#
+
+* *tree:item_h* (_pathname_) +
+-> _h_
+
+* *tree:item_has_children* (_pathname_) +
+*tree:item_is_active* (_pathname_) +
+*tree:item_is_activated* (_pathname_) +
+*tree:item_is_close* (_pathname_) +
+*tree:item_is_open* (_pathname_) +
+*tree:item_is_root* (_pathname_) +
+*tree:item_is_selected* (_pathname_) +
+*tree:item_is_visible* (_pathname_) +
+-> _boolean_
+
+* *tree:item_label* (_pathname_, _label_) +
+* *tree:item_label* (_pathname_) +
+-> _label_
+
+* *tree:item_label_h* (_pathname_) +
+-> _h_
+
+* *tree:item_label_w* (_pathname_) +
+-> _w_
+
+* *tree:item_label_x* (_pathname_) +
+-> _x_
+
+* *tree:item_label_y* (_pathname_) +
+-> _y_
+
+* *tree:item_labelbgcolor* ([_pathname_], <<color, _color_>>) +
+* *tree:item_labelbgcolor* ([_pathname_]) +
+-> <<color, _color_>> +
+[small]#_pathname_=_nil_ to set/get the default color.#
+
+* *tree:item_labelfgcolor* ([_pathname_], <<color, _color_>>) +
+* *tree:item_labelfgcolor* ([_pathname_]) +
+-> <<color, _color_>> +
+[small]#_pathname_=_nil_ to set/get the default color.#
+
+* *tree:item_labelcolor*: alias for *tree:item_labelfgcolor*.
+
+* *tree:item_labelfont* ([_pathname_], <<font, _font_>>) +
+* *tree:item_labelfont* ([_pathname_]) +
+-> <<font, _font_>> +
+[small]#_pathname_=_nil_ to set/get the default font.#
+
+
+* *tree:item_labelsize* ([_pathname_], _fontsize_) +
+* *tree:item_labelsize* ([_pathname_]) +
+-> _fontsize_ +
+[small]#_pathname_=_nil_ to set/get the default font size.#
+
+* *tree:item_open* (_pathname_ [, _docallback_]) +
+-> _boolean_
+
+* *tree:item_open_toggle* (_pathname_ [, _docallback_]) +
+-> _boolean_
+
+* *tree:item_parent* (_pathname_) +
+-> _pathname_
+
+* *tree:item_show_self* (_pathname_ [, _indent_])
+
+* *tree:item_select* ([_pathname_ [, _docallback_]]) +
+*tree:item_select_all* ([_pathname_ [, _docallback_]]) +
+*tree:item_select_only* ([_pathname_ [, _docallback_]]) +
+*tree:item_select_toggle* ([_pathname_ [, _docallback_]]) +
+-> _boolean_
+
+* *tree:item_swap_children* (_pathname_, _name1_, _name2_)
+
+* *tree:item_user_data* (_pathname_, _val_) +
+*tree:item_user_data* (_pathname_) +
+-> _val_ +
+[small]#_val_: integer value to associate with the item (may be used to index
+a Lua table containing more complex data).#
+
+
+* *tree:item_usericon* (_pathname_, <<image, _image_>>) +
+* *tree:item_usericon* (_pathname_) +
+-> <<image, _image_>>
+
+* *tree:item_visible* (_pathname_) +
+*tree:item_visible_r* (_pathname_) +
+-> _boolean_
+
+* *tree:item_w* (_pathname_) +
+-> _w_
+
+* *tree:item_widget* (_pathname_, <<widget, _widget_>>) +
+* *tree:item_widget* (_pathname_) +
+-> <<widget, _widget_>>
+
+* *tree:item_x* (_pathname_) +
+-> _x_
+
+* *tree:item_y* (_pathname_) +
+-> _y_
+
+
+////
+* *tree:item_* ([_pathname_])
+* *tree:item_* (_pathname_)
+
+* *tree:* ( )
+
+* *tree:* (__) +
+* *tree:* ( ) +
+-> __
+
+-> _boolean_
+
+boolean
+////
+
+
+
+
+

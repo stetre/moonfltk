@@ -1,0 +1,44 @@
+
+[[spinner]]
+==== spinner
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Spinner.html++[Fl_Spinner]. +
+Inherits from: <<widget, widget>>, <<group, group>>. +
+RTTI: '_float_', '_int_'.#
+
+* *fl.spinner* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _spinner_
+
+* *spinner:format* (_fmt_) +
+* *spinner:format* ( ) +
+-> _fmt_
+
+* *spinner:maximum* (_number_) +
+* *spinner:maximum* ( ) +
+-> _number_
+
+* *spinner:minimum* (_number_) +
+* *spinner:minimum* ( ) +
+-> _number_
+
+* *spinner:range* (_min_, _max_)
+
+* *spinner:step* (_number_) +
+* *spinner:step* ( ) +
+-> _number_
+
+* *spinner:textcolor* (<<color, _color_>>) +
+* *spinner:textcolor* ( ) +
+-> <<color, _color_>>
+
+* *spinner:textfont* (<<font, _font_>>) +
+* *spinner:textfont* ( ) +
+-> <<font, _font_>>
+
+* *spinner:textsize* (_fontsize_) +
+* *spinner:textsize* ( ) +
+-> _fontsize_
+
+* *spinner:value* (_number_) +
+* *spinner:value* ( ) +
+-> _number_
+

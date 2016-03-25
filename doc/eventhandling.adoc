@@ -1,0 +1,109 @@
+
+=== Events handling
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/group__fl__events.html++[Events handling functions].#
+
+
+* *fl.belowmouse* (<<widget, _widget_>>) +
+* *fl.belowmouse* ( ) +
+-> <<widget, _widget_>>
+
+* *fl.disable_im* ( )
+
+* *fl.enable_im* ( )
+
+* *fl.event* ( ) +
+-> _event_
+
+* *fl.event_alt* ( ) +
+-> _boolean_
+
+* *fl.event_button* ( ) +
+-> _button_ +
+[small]#_button_: '_left_', '_middle_', '_right_' (or _nil_).#
+
+* *fl.event_button1* ( ) +
+-> _boolean_
+
+* *fl.event_button2* ( ) +
+-> _boolean_
+
+* *fl.event_button3* ( ) +
+-> _boolean_
+
+* *fl.event_buttons* ( ) +
+-> _left_, _middle_, _right_ +
+[small]#_left_, _middle_, _right_: booleans.#
+
+* *fl.event_clicks* (_nclicks_) +
+* *fl.event_clicks* ( ) +
+-> _nclicks_
+
+* *fl.event_clipboard* ( ) +
+-> <<image, _image_>> +
+[small]#Returns _nil_ if the pasted data is not an image.#
+
+* *fl.event_clipboard_type* ( ) +
+-> <<clipboardtype, _clipboardtype_>>
+
+* *fl.event_command* ( ) +
+-> _boolean_
+
+* *fl.event_ctrl* ( ) +
+-> _boolean_
+
+* *fl.event_dx* ( ) +
+*fl.event_dy* ( ) +
+-> _n_
+
+* *fl.event_inside* (_x_, _y_, _w_, _h_) +
+*fl.event_inside* (<<widget, _widget_>>) +
+-> _boolean_
+
+* *fl.event_is_click* (_boolean_) +
+* *fl.event_is_click* ( ) +
+-> _boolean_
+
+* *fl.event_key* (<<key, _key_>>) +
+* *fl.event_key* ( ) +
+-> <<key, _key_>>
+
+* *fl.event_lenght* ( ) +
+-> _n_
+
+* *fl.event_shift* ( ) +
+-> _boolean_
+
+* *fl.event_state* ( ) +
+-> <<modifiers, _modifiers_>> +
+* *fl.event_state* (<<modifiers, _modifiers_>>) +
+-> _boolean_
+
+* *fl.event_text* ( ) +
+-> _text_
+
+* *fl.event_x* ( ) +
+*fl.event_x_root* ( ) +
+*fl.event_y* ( ) +
+*fl.event_y_root* ( ) +
+-> _pos_
+
+* *fl.focus* (<<widget, _widget_>>) +
+* *fl.focus* ( ) +
+-> <<widget, _widget_>>
+
+* *fl.get_key* (<<key, _key_>>) +
+-> _boolean_
+
+* *fl.get_mouse* ( ) +
+-> _x_, _y_
+
+////
+* *fl.* ( )
+
+* *fl.* (__) +
+* *fl.* ( ) +
+-> __
+
+boolean
+////
+

@@ -1,0 +1,21 @@
+
+////
+=== Unicode & UTF-8
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/group__fl__unicode.html++[Unicode and UTF-8 functions].#
+
+Not supported.
+
+(Notice that Lua already provides basic 
+http://www.lua.org/manual/5.3/manual.html#6.5[UTF-8 Support].)
+
+
+//@@TODO
+* *fl.* ( )
+
+* *fl.* (__) +
+* *fl.* ( ) +
+-> __
+
+boolean
+////
+

@@ -1,0 +1,198 @@
+
+<<<
+
+[[enumerations]]
+== Enumerations, bitfields, etc.
+
+An *enumeration* is a string (a literal) from a well defined set of values.
+
+A *bitfield*, when used as a function argument it may be passed either as an integer code, or as a sequence of strings from a well defined set of values. When it is not the last argument of the function, it may be passed only as an integer code. Functions returning a *bitfield* return the integer code only (utilities are provided to <<additional, encode/decode bitfields>>, if needed).
+
+
+[[alignment]]
+* *alignment*: bitfield. +
+[small]#Code: a combination of fl.ALIGN_XXX values (corresponding to FL_ALIGN_XXX defines). +
+Strings: 
+'_default_', '_center_', '_top_', '_bottom_', '_left_', '_right_', '_inside_', '_outside_', '_text over image_', '_image over text_', '_image next to text_', '_text next to image_', '_image backdrop_', '_clip_', '_no clip_', '_wrap_', '_no wrap_'.#
+
+[[beep]] 
+* *beep*: enumeration. +
+[small]#Values: '_default_', '_message_', '_error_', '_question_', '_password_', '_notification_'.#
+
+[[boxtype]]
+* *boxtype*: enumeration. +
+[small]#Values:
+'_no box_', '_flat box_', '_up box_', '_down box_', '_up frame_', '_down frame_', '_thin up box_', '_thin down box_', '_thin up frame_', '_thin down frame_', '_engraved box_', '_embossed box_', '_engraved frame_', '_embossed frame_', '_border box_', '_shadow box_', '_border frame_', '_shadow frame_', '_rounded box_', '_rshadow box_', '_rounded frame_', '_rflat box_', '_round up box_', '_round down box_', '_diamond up box_', '_diamond down box_', '_oval box_', '_oshadow box_', '_oval frame_', '_oflat box_', '_plastic up box_', '_plastic down box_', '_plastic up frame_', '_plastic down frame_', '_plastic thin up box_', '_plastic thin down box_', '_plastic round up box_', '_plastic round down box_', '_gtk up box_', '_gtk down box_', '_gtk up frame_', '_gtk down frame_', '_gtk thin up box_', '_gtk thin down box_', '_gtk thin up frame_', '_gtk thin down frame_', '_gtk round up box_', '_gtk round down box_', '_gleam up box_', '_gleam down box_', '_gleam up frame_', '_gleam down frame_', '_gleam thin up box_', '_gleam thin down box_', '_gleam round up box_', '_gleam round down box_'.# 
+
+[[clipboardtype]]
+* *clipboardtype*: enumeration. +
+[small]#Values:
+'_text/plain_', '_image_'.#
+
+[[color]]
+* *color*: RGBI integer code. +
+[small]#FLTK defines for colors are available as fields of the *fl* table
+(e.g. fl.FOREGROUND_COLOR for FL_FOREGROUND_COLOR, fl.RED for FL_RED, etc).#
+
+[[colorchoosermode]]
+* *colorchoosermode*: enumeration. +
+[small]#Values:
+'_default_', '_rgb_', '_byte_', '_hex_', '_hsv_'.#
+
+[[cursorstyle]]
+* *cursorstyle*: enumeration. +
+[small]#Values:
+'_normal_', '_caret_', '_dim_', '_block_', '_heavy_', '_simple_'.#
+
+[[cursortype]]
+* *cursortype*: enumeration. +
+[small]#Values:
+'_default_', '_arrow_', '_cross_', '_wait_', '_insert_', '_hand_', '_help_', '_move_', '_ns_', '_we_', '_nwse_', '_nesw_', '_n_', '_ne_', '_e_', '_se_', '_s_', '_sw_', '_w_', '_nw_', '_none_'.#
+
+[[damagebits]]
+* *damagebits*: bitfield. +
+[small]#Code: a combination of fl.DAMAGE_XXX values (corresponding to FL_DAMAGE_XXX defines). +
+Strings: '_nothing_', '_child_', '_expose_', '_scroll_', '_overlay_', '_user1_', '_user2_', '_all_'.#
+
+[[event]]
+* *event*: enumeration. +
+[small]#Values:
+'_no event_', '_push_', '_release_', '_enter_', '_leave_', '_drag_', '_focus_', '_unfocus_', '_keydown_', '_keyup_', '_close_', '_move_', '_shortcut_', '_deactivate_', '_activate_', '_hide_', '_show_', '_paste_', '_selectionclear_', '_mousewheel_', '_dnd enter_', '_dnd drag_', '_dnd leave_', '_dnd release_', '_screen configuration changed_', '_fullscreen_'.# 
+
+[[filesort]]
+* *filesort*: enumeration. +
+[small]#Values:
+'_alphasort_', '_casealphasort_', '_numericsort_', '_casenumericsort_'.#
+
+[[filetype]]
+* *filetype*: enumeration. +
+[small]#Values:
+'_files_' or '_directories_'.#
+
+[[font]]
+* *font*: integer code encoding the font index and attributes. +
+[small]#FLTK defines for fonts are available as fields of the *fl* table 
+(e.g. fl.HELVETICA for FL_HELVETICA, fl.ITALIC for FL_ITALIC, etc).#
+
+[[key]]
+* *key*: enumeration. + 
+[small]#Values: '_button1_' .. '_button8_', '_backspace_', '_tab_', '_iso key_', '_enter_', '_pause_', '_scroll lock_', '_escape_', '_kana_', '_eisu_', '_yen_', '_jis underscore_', '_home_', '_left_', '_up_', '_right_', '_down_', '_page up_', '_page down_', '_end_', '_print_', '_insert_', '_menu_', '_help_', '_num lock_', '_kp 0_' .. '_kp 9_', '_kp +_', '_kp -_', '_kp *_', '_kp /_', '_kp ._', '_kp =_', '_kp enter_', '_kp middle_', '_f1_' .. '_f20_', '_shift l_', '_shift r_', '_control l_', '_control r_', '_caps lock_', '_meta l_', '_meta r_', '_alt l_', '_alt r_', '_alt gr_', '_delete_', '_volume down_', '_volume mute_', '_volume up_', '_media play_', '_media stop_', '_media prev_', '_media next_', '_home page_', '_mail_', '_search_', '_back_', '_forward_', '_stop_', '_refresh_', '_sleep_', '_favorites_', and any printable UTF-8 character in the code-point range 0..255 (see link:++http://www.fltk.org/doc-1.3/group__fl__events.html++[Fl::event_key]( )).#
+
+[[labeltype]]
+* *labeltype*: enumeration. +
+[small]#Values:
+ '_none_', '_normal_', '_shadow_', '_engraved_', '_embossed_'.#
+
+[[lineposition]]
+* *lineposition*: enumeration. +
+[small]#Values:
+'_top_', '_middle_', '_bottom_'.#
+
+[[linestyle]]
+* *linestyle*: bitfield. +
+[small]#Code: a combination of fl.XXX values corresponding to FL_XXX defines for line styles 
+(i.e. FL_SOLID, FL_CAP_FLAT, etc.); +
+Strings:
+'_solid_', '_dash_', '_dot_', '_dashdot_', '_dashdotdot_', '_cap flat_', '_cap round_', '_cap square_', '_join miter_', '_join round_', '_join bevel_'.#
+
+
+[[menuitemflags]]
+* *menuitemflags*: bitfield. +
+[small]#Code: a combination of fl.MENU_XXX values (corresponding to FL_MENU_XXX defines); +
+Strings:
+'_inactive_', '_toggle_', '_value_', '_radio_', '_invisible_', '_submenu_', '_divider_', '_horizontal_'.#
+
+[[mode]]
+* *mode*: bitfield. +
+[small]#Code: a combination of fl.XXX values corresponding to FL_XXX defines for mode 
+(i.e. FL_RGB, FL_DOUBLE, etc.); +
+Strings:
+'_rgb_', '_index_', '_single_', '_double_', '_accum_', '_alpha_', '_depth_', '_stencil_', '_rgb8_',
+'_multisample_', '_stereo_', '_fake single_'.#
+
+[[modifiers]]
+* *modifiers*: bitfield. +
+[small]#Code: a combination of fl.XXX values corresponding to FL_XXX defines for modifiers 
+(i.e. FL_SHIFT, FL_CAPS_LOCK, etc.); +
+Strings:
+'_Shift_', '_Caps Lock_', '_Ctrl_', '_Alt_', '_Num Lock_', '_Meta_', '_Scroll Lock_', 
+'_Button1_' .. '_Button8_'.#
+
+[[mousebutton]]
+* *mousebutton*: enumeration. +
+[small]#Values:
+ '_left_', '_middle_', '_right_'.#
+
+[[nativefilechooseroption]]
+* *nativefilechooseroption*: sequence of strings. +
+[small]#Values: '_no options_', '_saveas confirm_', '_new folder_', '_preview_', '_use filter ext_'.#
+
+[[option]]
+* *option*:  enumeration. +
+[small]#Values:
+'_arrow focus_', '_visible focus_', '_dnd text_', '_show tooltips_', '_uses gtk_'.#
+
+[[rgbscaling]]
+* *rgbscaling*: enumeration. +
+[small]#Values:
+ '_nearest_' , '_bilinear_'.#
+
+[[rtti]]
+* *rtti*: integer code or enumeration. +
+[small]#The FLTK 'RTTI' integer code for the Fl_Widget:type() method, or a string value, 
+if applicable for the specific class (admitted RTTI string values are listed at the
+beginning of each section describing a class).#
+
+[[scrollbarmode]]
+* *scrollbarmode*: enumeration. +
+[small]#Values:
+ '_none_', '_horizontal_', '_vertical_', '_both_', '_always on_', '_horizontal always_', '_vertical always_', '_both always_'.#
+
+[[shortcut]]
+* *shortcut*: FLTK shortcut integer code. +
+[small]#May be produced with the <<fl.shortcut, fl.shortcut>>( ) utility.#
+
+[[tablecontext]]
+* *tablecontext*: enumeration. +
+[small]#Values:
+ '_none_', '_startpage_', '_endpage_', '_row header_', '_col header_', '_cell_', '_table_', '_rc resize_'.#
+
+[[treeconnector]]
+* *treeconnector*: enumeration. +
+[small]#Values:
+ '_none_', '_dotted_', '_solid_'.#
+
+[[treereason]]
+* *treereason*: enumeration. +
+[small]#Values:
+'_none_', '_startpage_', '_endpage_', '_row header_', '_col header_', '_cell_', '_table_', '_rc resize_'.#
+
+[[treeselect]]
+* *treeselect*: enumeration. +
+[small]#Values:
+ '_none_', '_single_', '_multi_', '_single draggable_'.#
+
+[[treesort]]
+* *treesort*: enumeration. +
+[small]#Values:
+ '_none_', '_ascending_', '_descending_'.#
+
+
+[[whenfd]]
+* *whenfd*: bitfield. +
+[small]#Code: a combination of fl.READ, fl.WRITE and fl.EXCEPT values; +
+Strings: 
+'_read_', '_write_', '_except_'.#
+
+[[whenflags]]
+* *whenflags*: bitfield. +
+[small]#Code: a combination of fl.WHEN_XXX values (corresponding to FL_WHEN_XXX defines); +
+Strings:
+'_never_', '_changed_', '_not changed_', '_release_', '_enter key_'.#
+
+[[wrapmode]]
+* *wrapmode*: enumeration. +
+[small]#Values:
+ '_none_', '_at column_', '_at pixel_', '_at bounds_'.#
+
+

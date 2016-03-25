@@ -1,0 +1,85 @@
+
+[[widgets]]
+=== Widgets
+
+.Widget hierarchy
+****
+[small]#<<widget, *widget*>> (<<subclassing, sub>>) +
+{tH}<<box, *box*>> (<<subclassing, sub>>) +
+{tH}<<button, *button*>> +
+{tI}{tH}<<light_button, light_button>> +
+{tI}{tI}{tH}<<check_button, check_button>> +
+{tI}{tI}{tH}<<radio_light_button, radio_light_button>> +
+{tI}{tI}{tL}<<round_button, round_button>> +
+{tI}{tI}{tS}{tL}<<radio_round_button, radio_round_button>> +
+{tI}{tH}<<radio_button, radio_button>> +
+{tI}{tH}<<repeat_button, repeat_button>> +
+{tI}{tH}<<return_button, return_button>> +
+{tI}{tL}<<toggle_button, toggle_button>> +
+{tH}<<chart, *chart*>> +
+{tH}<<clock_output, *clock_output*>> +
+{tI}{tL}<<clock, clock>> +
+{tI}{tS}{tL}<<round_clock, round_clock>> +
+{tH}<<group, *group*>> (<<subclassing, sub>>) +
+{tI}{tH}<<browser_, browser_>> +
+{tI}{tI}{tH}<<browser, browser>> (<<subclassing, sub>>) +
+{tI}{tI}{tI}{tH}<<file_browser, file_browser>> +
+{tI}{tI}{tI}{tH}<<hold_browser, hold_browser>> +
+{tI}{tI}{tI}{tH}<<multi_browser, multi_browser>> +
+{tI}{tI}{tI}{tL}<<select_browser, select_browser>> +
+{tI}{tI}{tL}<<check_browser, check_browser>> +
+{tI}{tH}<<color_chooser, color_chooser>> +
+{tI}{tH}<<help_view, help_view>> +
+{tI}{tH}<<input_choice, input_choice>> +
+{tI}{tH}<<pack, pack>> +
+{tI}{tH}<<scroll, scroll>> +
+{tI}{tH}<<spinner, spinner>> +
+{tI}{tH}<<table, table>> (<<subclassing, sub>>) +
+{tI}{tI}{tL}<<table_row, table_row>> (<<subclassing, sub>>) +
+{tI}{tH}<<tabs, tabs>> (<<subclassing, sub>>) +
+{tI}{tH}<<text_display, text_display>> +
+{tI}{tI}{tL}<<text_editor, text_editor>> +
+{tI}{tH}<<tile, tile>> +
+{tI}{tH}<<tree, tree>> +
+{tI}{tH}<<window, window>> (<<subclassing, sub>>) +
+{tI}{tI}{tH}<<double_window, double_window>> (<<subclassing, sub>>) +
+{tI}{tI}{tI}{tL}<<overlay_window, overlay_window>> (<<subclassing, sub>>) +
+{tI}{tI}{tH}<<gl_window, gl_window>> (<<subclassing, sub>>) +
+{tI}{tI}{tL}<<single_window, single_window>> (<<subclassing, sub>>) +
+{tI}{tI}{tS}{tL}<<menu_window, menu_window>> (<<subclassing, sub>>) +
+{tI}{tL}<<wizard, wizard>> +
+{tH}<<input_, *input_*>> +
+{tI}{tL}<<input, input>> +
+{tI}{tS}{tH}<<file_input, file_input>> +
+{tI}{tS}{tH}<<float_input, float_input>> +
+{tI}{tS}{tH}<<int_input, int_input>> +
+{tI}{tS}{tH}<<multiline_input, multiline_input>> +
+{tI}{tS}{tH}<<output, output>> +
+{tI}{tS}{tI}{tL}<<multiline_output, multiline_output>> +
+{tI}{tS}{tL}<<secret_input, secret_input>> +
+{tH}<<menu_, *menu_*>> +
+{tI}{tH}<<choice, choice>> +
+{tI}{tH}<<menu_bar, menu_bar>> +
+{tI}{tL}<<menu_button, menu_button>> +
+{tH}<<progress, *progress*>> +
+{tL}<<valuator, *valuator*>> +
+{tS}{tH}<<adjuster, adjuster>> +
+{tS}{tH}<<counter, counter>> +
+{tS}{tI}{tL}<<simple_counter, simple_counter>> +
+{tS}{tH}<<dial, dial>> +
+{tS}{tI}{tH}<<fill_dial, fill_dial>> +
+{tS}{tI}{tL}<<line_dial, line_dial>> +
+{tS}{tH}<<roller, roller>> +
+{tS}{tH}<<slider, slider>> +
+{tS}{tI}{tH}<<fill_slider, fill_slider>> +
+{tS}{tI}{tH}<<hor_fill_slider, hor_fill_slider>> +
+{tS}{tI}{tH}<<hor_nice_slider, hor_nice_slider>> +
+{tS}{tI}{tH}<<hor_slider, hor_slider>> +
+{tS}{tI}{tH}<<nice_slider, nice_slider>> +
+{tS}{tI}{tH}<<scrollbar, scrollbar>> +
+{tS}{tI}{tL}<<value_slider, value_slider>> +
+{tS}{tI}{tS}{tL}<<hor_value_slider, hor_value_slider>> +
+{tS}{tH}<<value_input, value_input>> +
+{tS}{tL}<<value_output, value_output>>#
+****
+

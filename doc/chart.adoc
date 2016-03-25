@@ -1,0 +1,61 @@
+
+[[chart]]
+==== chart
+
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Chart.html++[Fl_Chart]. +
+Inherits from: <<widget, widget>>. +
+RTTI: '_bar_', '_horbar_', '_line_', '_fill_', '_spike_', '_pie_', '_specialpie_'.#
+
+* *fl.chart* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _chart_
+
+* *chart:autosize* (_boolean_) +
+* *chart:autosize* ( ) +
+-> _boolean_
+
+* *chart:add* (_value_ [, _label_ [<<color, _color_>>]])
+
+* *chart:bounds* (_lower_, _upper_) +
+* *chart:bounds* ( ) +
+-> _lower_, _upper_
+
+* *chart:clear* ( )
+
+* *chart:insert* (_pos_, _value_ [, _label_ [<<color, _color_>>]])
+
+* *chart:maxsize* (_n_) +
+* *chart:maxsize* ( ) +
+-> _n_
+
+* *chart:replace* (_pos_, _value_ [, _label_ [<<color, _color_>>]])
+
+* *chart:size* (_w_, _h_) +
+* *chart:size* ( ) +
+-> _n_
+
+* *chart:textcolor* (<<color, _color_>>) +
+* *chart:textcolor* ( ) +
+-> <<color, _color_>>
+
+* *chart:textfont* (<<font, _font_>>) +
+* *chart:textfont* ( ) +
+-> <<font, _font_>>
+
+* *chart:textsize* (_fontsize_) +
+* *chart:textsize* ( ) +
+-> _fontsize_
+
+
+////
+* *chart:* ( )
+
+* *chart:* (__) +
+* *chart:* ( ) +
+-> __
+
+boolean
+////
+
+
+
+

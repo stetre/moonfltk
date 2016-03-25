@@ -1,0 +1,29 @@
+
+== Introduction
+
+MoonFLTK exposes *FLTK functions and static methods* as Lua functions contained in 
+the *fl* table. For example, *fl.draw*( ) exposes *fl_draw*( ), *fl.run*( ) 
+exposes *Fl::run*( ), and so on. 
+
+*FLTK classes* are exposed as Lua 'objects', that is, userdata with methods. 
+For each (concrete) class there is a constructor function in the *fl* table that instantiates
+an object of that class, bounds it to a userdatum and returns the latter. For example:
+
+[source,lua]
+----
+win = fl.double_window(0, 0, 600, 400) -- creates an Fl_Double_Window.
+win:label('My Window') -- a method
+----
+
+MoonFLTK userdata preserve the FLTK class hierarchy: the _win_ object in the above
+example is not only a <<double_window, _double_window_>>, 
+but also a <<window, _window_>>, a <<group, _group_>>, and a <<widget, _widget_>>. 
+This means that it inherits their methods and it can be used wherever a _window_, 
+a _group_, or a _widget_ is expected.
+
+Exposed functions, classes, and their methods are listed in the sections that follow.
+For most of them, their functionalities and usages are not described in this manual
+(please refer to the http://www.fltk.org/doc-1.3/index.html[FLTK Programming Manual] instead).
+
+<<<
+

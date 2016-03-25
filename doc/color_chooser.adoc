@@ -1,0 +1,36 @@
+
+[[color_chooser]]
+==== color_chooser
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Color__Chooser.html++[Fl_Color_Chooser]. +
+Inherits from: <<widget, widget>>, <<group, group>>.#
+
+* *fl.color_chooser* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _color_chooser_
+
+* *color_chooser:b* ( ) +
+-> _b_
+
+* *color_chooser:g* ( ) +
+-> _g_
+
+* *color_chooser:hue* ( ) +
+-> _hue_
+
+* *color_chooser:mode* (<<colorchoosermode, _colorchoosermode_>>) +
+* *color_chooser:mode* ( ) +
+-> <<colorchoosermode, _colorchoosermode_>>
+
+* *color_chooser:r* ( ) +
+-> _r_
+
+* *color_chooser:rgb* (_r_, _g_, _b_) +
+-> _boolean_
+
+* *color_chooser:saturation* ( ) +
+-> _saturation_
+
+* *color_chooser:value* ( ) +
+-> _brightness_
+
+//@@ aggiungere link a hsv2rgb e rgb2hsv (spostate in flcolor.cc)
+

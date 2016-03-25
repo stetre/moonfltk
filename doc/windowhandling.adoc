@@ -1,0 +1,28 @@
+
+=== Windows handling
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/group__fl__windows.html++[Windows handling functions].#
+
+* *fl.first_window* (<<window, _window_>>) +
+* *fl.first_window* ( ) +
+-> <<window, _window_>>
+
+* *fl.grab* (<<window, _window_>>) +
+* *fl.grab* ( ) +
+-> <<window, _window_>>
+
+* *fl.modal* ( ) +
+-> <<window, _window_>>
+
+* *fl.next_window* (<<window, _window_>>) +
+-> <<window, _window_>>
+
+////
+* *fl.* ( )
+
+* *fl.* (__) +
+* *fl.* ( ) +
+-> __
+
+boolean
+////
+

@@ -1,0 +1,61 @@
+
+=== Fonts
+[small]#Rfr: 
+link:++http://www.fltk.org/doc-1.3/group__fl__attributes.html++[Color & Font functions] -
+link:++http://www.fltk.org/doc-1.3/classFl.html++[Fl].#
+
+* *fl.descent* ( ) +
+-> _d_
+
+* *fl.font* (<<font, _font_>> [, _fontsize_]) +
+* *fl.font* ( ) +
+-> <<font, _font_>>
+
+* *fl.height* ( ) +
+*fl.height* (<<font, _font_>>, _fontsize_) +
+-> _height_
+
+* *fl.get_font* (<<font, _font_>>) +
+-> _descr_
+
+* *fl.get_font_name* (<<font, _font_>>) +
+-> _fontname_, _fontattr_
+
+* *fl.get_font_sizes* (<<font, _font_>>) +
+-> _size1_, _..._, _sizeN_ +
+[small]#Returns _nil_ if _font_ is scalable.#
+
+* *fl.latin1_to_local* (_text_ [, _n_]) +
+* *fl.local_to_latin1* (_text_ [, _n_]) +
+-> _text_
+
+* *fl.nfonts* ( ) +
+-> _nfonts_ +
+[small]#Returns the number of available fonts (i.e. the first free font index).#
+
+* *fl.set_font* (_index_, _fromindex_) +
+*fl.set_font* (_index_, _name_)
+
+* *fl.setfonts* ([_xstarname_]) +
+-> _nfonts_
+
+* *fl.text_extents* (_text_) +
+-> _dx_, _dy_, _w_, _h_
+
+* *fl.size* ( ) +
+-> _fontsize_
+
+* *fl.width* (_text_) +
+-> _width_
+
+
+////
+* *fl.* ( )
+
+* *fl.* (__) +
+* *fl.* ( ) +
+-> __
+
+boolean
+////
+

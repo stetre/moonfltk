@@ -1,0 +1,22 @@
+
+[[progress]]
+==== progress
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Progress.html++[Fl_Progress]. +
+Inherits from: <<widget, widget>>.#
+
+* *fl.progress* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _progress_
+
+* *progress:maximum* (_number_) +
+* *progress:maximum* ( ) +
+-> _number_
+
+* *progress:minimum* (_number_) +
+* *progress:minimum* ( ) +
+-> _number_
+
+* *progress:value* (_number_) +
+* *progress:value* ( ) +
+-> _number_
+
+

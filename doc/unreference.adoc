@@ -1,0 +1,29 @@
+
+[[unreference]]
+== Unreferencing objects
+
+Usually you need not care about deletion of MoonFLTK objects
+(<<widgets, widgets>>, <<images, images>>, etc)
+because they are automatically garbage collected when the process exits,
+provided it exits cleanly closing the Lua state.
+ 
+There may be, however, situations when you want objects to be collected
+before than that. For example if you dynamically create lots of them for
+temporary use only.
+
+To force garbage collection of an object, you need to remove all the
+references to it and let the Lua garbage collector do its job, like
+you would do with any other Lua value you want to be collected.
+
+Besides the variables holding the object, there are other references to remove.
+One is the anchor to the Lua registry (all MoonFLTK objects are anchored to the
+Lua registry when they are created): this counts as a reference, that you can 
+remove with the <<fl.unreference, fl.unreference>>( ) function. 
+Other references are the callbacks' arguments:
+if you use the object as argument for some callback (e.g. if you pass it
+as _arg_ to the <<widget:callback, widget:callback>>( ) method), this also
+creates a reference that you need to remove; you can do this by unregistering
+the callback, or by changing its argument to something different than the
+object you want to delete.
+
+

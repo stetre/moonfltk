@@ -1,0 +1,158 @@
+
+[[text_display]]
+==== text_display
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Text__Display.html++[Fl_Text_Display]. +
+Inherits from: <<widget, widget>>, <<group, group>>.#
+
+
+IMPORTANT: See <<text_buffer, text_buffer>> indexing.
+
+
+* *fl.text_display* (_x_, _y_, _w_, _h_ [, _label_]) +
+-> _text_display_
+
+* *text_display:buffer* (<<text_buffer, _text_buffer_>>)
+* *text_display:buffer* ( ) +
+-> <<text_buffer, _text_buffer_>>
+
+* *text_display:count_lines* (_start_ [, _end_ [, _islinestart_]]) +
+-> _nlines_
+
+* *text_display:cursor_color* (<<color, _color_>>) +
+* *text_display:cursor_color* ( ) +
+-> <<color, _color_>>
+
+* *text_display:cursor_style* (<<cursorstyle,_cursorstyle_>>)
+
+* *text_display:hide_cursor* ( )
+
+* *text_display:highlight_data* (_stylebuffer_, _styletable_ [, _unfinishedstyle_, _func_]) +
+[small]#_stylebuffer_: a <<text_buffer, _text_buffer_>>. +
+_styletable_: an array (integer-indexed table) of style-describing arrays, each of which in the
+form: *{ color, font, fontsize, fontattr }* (_fontattr_ is optional and defaults to 0). 
+Characters in the _stylebuffer_ indicate styles in the _styletable_: 'A', denotes the first
+style, 'B' the second, and so on (up to '~'). +
+_unfinishedstyle_: (optional) the character denoting the unfinished style that triggers the 
+callback below. +
+_func_: (optional) callback triggered by _unfinishedstyle_. The callback is executed as
+*func(text_display, pos)* where _text_display_ is this widget.#
+
+* *text_display:in_selection* (_x_, _y_) +
+-> _boolean_
+
+* *text_display:insert* (_text_)
+
+* *text_display:insert_position* (_pos_) +
+* *text_display:insert_position* ( ) +
+-> _pos_
+
+* *text_display:line_end* (_pos_ [, _islinestart_]) +
+-> _pos_
+
+* *text_display:line_start* (_pos_) +
+-> _pos_
+
+* *text_display:linenumber_align* (<<alignment,_alignment_>>) +
+* *text_display:linenumber_align* ( ) +
+-> <<alignment,_alignment_>>
+
+* *text_display:linenumber_bgcolor* (<<color, _color_>>) +
+* *text_display:linenumber_bgcolor* ( ) +
+-> <<color, _color_>>
+
+* *text_display:linenumber_fgcolor* (<<color, _color_>>) +
+* *text_display:linenumber_fgcolor* ( ) +
+-> <<color, _color_>>
+
+* *text_display:linenumber_font* (<<font,_font_>>) +
+* *text_display:linenumber_font* ( ) +
+-> <<font,_font_>>
+
+* *text_display:linenumber_format* (_fmt_) +
+* *text_display:linenumber_format* ( ) +
+-> _fmt_
+
+* *text_display:linenumber_size* (_fontsize_) +
+* *text_display:linenumber_size* ( ) +
+-> _fontsize_
+
+* *text_display:linenumber_width* (_w_) +
+* *text_display:linenumber_width* ( ) +
+-> _w_
+
+* *text_display:move_down* ( ) +
+*text_display:move_left* ( ) +
+*text_display:move_right* ( ) +
+*text_display:move_up* ( ) +
+-> _boolean_
+
+* *text_display:next_word* ( )
+
+* *text_display:overstrike* ( )
+
+* *text_display:position_to_xy* (_pos_) +
+-> _x_, _y_ +
+[small]#Returns _nil_ if character is vertically out of view.#
+
+* *text_display:previous_word* ( )
+
+* *text_display:redisplay_index* (_start_, _end_)
+
+* *text_display:rewind_lines* (_start_, _nlines_) +
+-> _pos_
+
+////
+* *text_display:scroll* ( ) +
+-> __
+////
+
+* *text_display:scrollbar_align* (<<alignment,_alignment_>>) +
+* *text_display:scrollbar_align* ( ) +
+-> <<alignment,_alignment_>>
+
+* *text_display:scrollbar_width* (_w_) +
+* *text_display:scrollbar_width* ( ) +
+-> _w_
+
+* *text_display:shortcut* (<<shortcut,_shortcut_>>) +
+* *text_display:shortcut* ( ) +
+-> <<shortcut,_shortcut_>>
+
+* *text_display:show_cursor* (_boolean_)
+
+* *text_display:show_insert_position* ( )
+
+* *text_display:skip_lines* (_start_, _nlines_ [, _islinestart_]) +
+-> _pos_
+
+* *text_display:textcolor* (<<color, _color_>>) +
+* *text_display:textcolor* ( ) +
+-> <<color, _color_>>
+
+* *text_display:textfont* (<<font,_font_>>) +
+* *text_display:textfont* ( ) +
+-> <<font,_font_>>
+
+* *text_display:textsize* (_fontsize_) +
+* *text_display:textsize* ( ) +
+-> _fontsize_
+
+* *text_display:word_end* (_pos_) +
+-> _end + 1_
+
+* *text_display:word_start* (_pos_) +
+-> _start_
+
+* *text_display:wrap_mode* (<<wrapmode, _wrapmode_>>, _margin_)
+
+
+////
+* *text_display:* ( )
+
+* *text_display:* (__) +
+* *text_display:* ( ) +
+-> __
+
+boolean
+////
+

@@ -1,0 +1,19 @@
+
+[[functions]]
+== Functions
+
+include::main.adoc[]
+include::windowhandling.adoc[]
+include::eventhandling.adoc[]
+include::clipboard.adoc[]
+include::screen.adoc[]
+include::colors.adoc[]
+include::fonts.adoc[]
+include::drawing.adoc[]
+include::unicode.adoc[]
+include::common.adoc[]
+include::filename.adoc[]
+include::tooltip.adoc[]
+include::handlers.adoc[]
+include::additional.adoc[]
+

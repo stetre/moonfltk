@@ -1,0 +1,147 @@
+
+[[subclassing]]
+=== Subclassing
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/subclassing.html++[Adding and Extending Widgets].#
+
+In order to extend widgets, and to use widgets such as <<gl_window, gl_window>> that
+require subclassing, MoonFLTK provides *subclass objects*.
+These are Lua userdata bound to instances of subclasses of FLTK widgets, and provided 
+with means to override a few methods of their superclass (_draw_( ), _handle_( ), etc.),
+and to invoke those of the superclass.
+
+NOTE: Widgets that currently support subclassing are tagged with '*(sub)*' in 
+the <<widgets, widget hierarchy>> tree.
+
+The following example shows how to subclass the <<window, window>> widget:
+
+.Window subclassing example
+[source,lua]
+----
+fl = require("moonfltk")
+
+-- Subclass 'constructor':
+function MyWindow(w, h, label)
+    -- Create a 'window sub' object:
+    local win = fl.window_sub(w, h, label)
+    print("created window", win)
+    -- Override the basic window methods:
+    win:override_draw(mydraw)
+    win:override_handle(myhandle)
+    win:override_hide(myhide)
+    win:override_resize(myresize)
+    return win
+end
+
+function mydraw(win)
+   assert(win == mywin)
+   print("draw()") 
+   win:super_draw() -- this executes window:draw()
+end
+
+function myhandle(win, event)
+   assert(win == mywin)
+   print("handle('" .. event .. "')")
+   -- this must return true or false (see Fl_Widget::handle())
+   return win:super_handle(event) 
+end
+
+function myhide(win) 
+   assert(win == mywin)
+   print("hide()") 
+   win:super_hide()
+end
+
+function myresize(win, x, y, w, h) 
+   assert(win == win)
+   print(string.format("resize(%d, %d, %d, %d)", x, y, w, h))
+   win:super_resize(x, y, w, h) 
+end
+
+mywin = MyWindow(340, 180, arg[0])
+mywin:resizable(mywin) -- so that we can try myresize()
+mywin:done()
+mywin:show()
+return fl.run()
+
+----
+
+
+A subclass object is instantiated by means of the *subclass constructor function*
+(*fl.window_sub* ( ) in the above example). This function accepts the same parameters
+as the constructor of the super-class (*fl.window* ( ), in the example), and has 
+the same name but with a trailing '*_sub*'. 
+
+The object inherits all the methods of the superclass (except for the overridable
+ones), plus those listed hereafter.
+
+Methods available to all subclasses:
+
+* *subwidget:override_draw* (_func_) +
+[small]#Overrides the <<widget.draw, _draw_>>( ) method with the _func_ callback,
+which will be executed as *func(subwidget)*.#
+
+* *subwidget:override_handle* (_func_) +
+[small]#Overrides the <<widget.handle, _handle_>>( ) method with the _func_ callback,
+which will be executed as *func(subwidget, event)* and must return a boolean indicating
+whether the <<event, _event_>> has been consumed or not.#
+
+* *subwidget:override_hide* (_func_) +
+[small]#Overrides the <<widget.hide, _hide_>>( ) method with the _func_ callback,
+which will be executed as *func(subwidget)*.#
+
+* *subwidget:override_resize* (_func_) +
+[small]#Overrides the <<widget.resize, _resize_>>( ) method with the _func_ callback,
+which will be executed as *func(subwidget, x, y, w, h)*.#
+
+* *subwidget:override_show* (_func_) +
+[small]#Overrides the <<widget.show, _show_>>( ) method with the _func_ callback,
+which will be executed as *func(subwidget)*.#
+
+* *subwidget:super_draw* ( ) +
+[small]#Executes the <<widget.draw, _draw_>>( ) method of the superclass.#
+
+* *subwidget:super_handle* (<<event, _event_>>) +
+-> _boolean_ +
+[small]#Executes the <<widget.handle, _handle_>>( ) method of the superclass.#
+
+* *subwidget:super_hide* ( ) +
+[small]#Executes the <<widget.hide, _hide_>>( ) method of the superclass.#
+
+* *subwidget:super_resize* (_x_, _y_, _w_, _h_) +
+[small]#Executes the <<widget.resize, _resize_>>( ) method of the superclass.#
+
+* *subwidget:super_show* ( ) +
+[small]#Executes the <<widget.show, _show_>>( ) method of the superclass.#
+
+Methods available only to <<overlay_window, overlay_window_sub>>:
+
+* *subwidget:override_draw_overlay* (_func_) +
+[small]#Overrides the <<widget.draw_overlay, _draw_overlay_>>( ) method with the _func_ callback,
+which will be executed as *func(subwidget)*.#
+
+Methods available only to <<table, table_sub>> and <<table_row, table_row_sub>>:
+
+* *subwidget:override_draw_cell* (_func_) +
+[small]#Overrides the <<table.draw_cell, _draw_cell_>>( ) method with the _func_ callback,
+which will be executed as *func(subwidget, context, r, c, x, y, w, h)*.#
+
+* *subwidget:super_draw_cell* (_context_, _r_, _c_, _x_, _y_, _w_, _h_) +
+[small]#Executes the <<table.draw_cell, _draw_cell_>>( ) method of the superclass.#
+
+////
+
+* *subwidget:override_* ( )
+
+* *subwidget:super_* ( )
+
+* *zzz:* ( )
+
+* *zzz:* (__) +
+* *zzz:* ( ) +
+-> __
+
+boolean
+////
+
+
+
