@@ -13,9 +13,38 @@ _Authored by:_ _[Stefano Trettel](https://www.linkedin.com/in/stetre)_
 
 MIT/X11 license (same as Lua). See [LICENSE](./LICENSE).
 
-#### Documentation, Getting and installing, etc.
+#### Documentation
 
 See the [Reference Manual](https://stetre.github.io/moonfltk/doc/index.html).
+
+#### Getting and installing (on Ubuntu)
+
+Install Lua:
+
+```sh
+$ sudo apt-get install libreadline-dev
+$ wget https://www.lua.org/ftp/lua-5.3.2.tar.gz
+$ tar -zxpvf lua-5.3.2.tar.gz
+$ cd lua-5.3.2
+lua-5.3.2$ make linux
+lua-5.3.2$ sudo make install
+```
+
+Install FLTK:
+
+```sh
+$ sudo apt-get install libfltk1.3-dev
+```
+
+Download MoonFLTK's [latest release](https://github.com/stetre/moonfltk/releases)
+(e.g. moonfltk-0.1.tar.gz), unpack, compile and install it:
+
+```sh
+$ tar -zxpvf moonfltk-0.1.tar.gz
+$ cd moonfltk-0.1
+moonfltk-0.1$ make
+moonfltk-0.1$ sudo make install
+```
 
 #### Example
 
