@@ -49,7 +49,8 @@ $ pacman -S mingw-w64-x86_64-gcc          # (64bit)
 
 Assuming MSYS2 is installed in _C:\msys32_, append the following paths
 to the PATH environment variable:
-- _C:\msys32\mingw\bin_   (corresponding to _/mingw/bin_ under MSYS2), and
+- _C:\msys32\mingw32\bin_   (corresponding to _/mingw32/bin_ under MSYS2, for 32-bit), or
+- _C:\msys32\mingw64\bin_   (corresponding to _/mingw64/bin_ under MSYS2, for 64-bit), and
 - _C:\msys32\usr\local\bin_ (corresponding to _/usr/local/bin_ . We will install the DLLs here).
 
 (To edit PATH, right click My Computer -> Properties -> Advanced ->  Environment variables).
