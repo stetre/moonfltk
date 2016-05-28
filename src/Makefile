@@ -30,10 +30,21 @@ ifeq ($(D),1)
 DEBUG=1
 endif
 
-LINUX=1
-ifeq ("$(platform)","mingw")
+ifeq ("$(platform)","")
+platform=linux
+endif
 LINUX=
+MINGW=
+
+ifeq ("$(platform)","linux")
+LINUX=1
+INCDIR = -I/usr/include
+LIBDIR = -L/usr/lib
+endif
+ifeq ("$(platform)","mingw")
 MINGW=1
+INCDIR = -I/usr/local/include
+LIBDIR = -L/usr/bin -L/usr/local/bin -L/usr/local/lib
 endif
 
 # Translates 5.3 into 503:
@@ -54,17 +65,6 @@ CxxSrc := $(wildcard *.cc)
 CObjs := $(CSrc:.c=.o)
 CxxObjs := $(CxxSrc:.cc=.o)
 
-
-ifdef LINUX
-INCDIR = -I/usr/include
-LIBDIR = -L/usr/lib
-endif
-ifdef MINGW
-INCDIR = -I/usr/local/include
-LIBDIR = -L/usr/bin
-LIBDIR += -L/usr/local/bin
-LIBDIR += -L/usr/local/lib
-endif
 
 # C/C++ common options
 OPT	+= -O2
@@ -143,7 +143,6 @@ endif
 ifdef MINGW
 	@-$(CXX) -shared -o $(Tgt).dll $(CObjs) $(CxxObjs) $(LIBDIR) $(LDFLAGS) -l$(LUADLL)
 endif
-	@-rm -f $(CObjs)
 	@-rm -f *.o
 	@echo
 
