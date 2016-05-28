@@ -158,10 +158,10 @@ F(fl_yxline, Yxline)
 
 
 static int DrawCb = LUA_NOREF;
-static lua_State *DrawState = NULL;
+static lua_State *DrawStateXXX = NULL; /* DrawState() is a global function in Windows .. */
 static void DrawCallthis(const char *str, int n, int x, int y)
     {
-    lua_State *L = DrawState;
+    lua_State *L = DrawStateXXX;
     if(pushvalue(L, DrawCb) != LUA_TFUNCTION)
         { unexpected(L); return; }
     lua_pushlstring(L, str, n);
@@ -209,7 +209,7 @@ static int Draw(lua_State *L)
         return luaL_argerror(L, 9, "function expected");
     unreference(L, DrawCb);
     reference(L, DrawCb, 9);
-    DrawState = L;
+    DrawStateXXX = L;
     fl_draw(str, x, y, w, h, align, DrawCallthis, img, draw_symbols);
     return 0;
     }

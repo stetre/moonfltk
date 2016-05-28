@@ -32,7 +32,7 @@
 
 #include <lua.hpp>
 
-#define MOONFLTK_VERSION        "0.2"
+#define MOONFLTK_VERSION        "0.3"
 
 #endif /* moonfltkDEFINED */
 

@@ -591,8 +591,8 @@ static const struct luaL_Reg Tiled_ImageMetaMethods[] =
 /* The constructor is protected and cannot be called directly 
  * by a program: we have to use get() or find() instead.
  */
-  static Fl_Shared_Image *find(const char *n, int W = 0, int H = 0);
-  static Fl_Shared_Image *get(const char *n, int W = 0, int H = 0);
+//  static Fl_Shared_Image *find(const char *n, int W = 0, int H = 0);
+//  static Fl_Shared_Image *get(const char *n, int W = 0, int H = 0);
 #define F(func, Func)                                   \
 static int Func(lua_State *L)                           \
     {                                                   \

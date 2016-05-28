@@ -9,12 +9,14 @@ V=5.3
 PREFIX = /usr/local
 # Directory where to install Lua modules:
 L_DIR = $(PREFIX)/share/lua/$(V)
-# Directory where to install C modules:
+# Directory where to install C Lua modules (xxx.so):
 C_DIR = $(PREFIX)/lib/lua/$(V)
 # Directory where to install C headers:
 H_DIR = $(PREFIX)/include
-# Directory where to install C libraries:
+# Directory where to install C libraries (libxxx.so):
 S_DIR = $(PREFIX)/lib
+# Directory where to install DLLs:
+D_DIR = $(PREFIX)/bin
 
 ifeq ("$(V)","")
 $(error Missing Lua version)
@@ -24,8 +26,19 @@ ifeq ("$(PREFIX)","")
 $(error Missing base install directory)
 endif
 
+ifeq ($(D),1)
+DEBUG=1
+endif
+
+LINUX=1
+ifeq ("$(platform)","mingw")
+LINUX=
+MINGW=1
+endif
+
 # Translates 5.3 into 503:
 LUAVER=$(shell lua -e "print((string.gsub("$(V)",'%.','0')))")
+LUADLL=lua$(shell lua -e "print((string.gsub("$(V)",'%.','')))")
 
 # Check the Lua version of the installed lua interpreter:
 INSTLUAVER=$(shell lua -e "print(_VERSION:sub(5))")
@@ -34,46 +47,49 @@ ifneq ("$(V)","$(INSTLUAVER)")
 $(warning Warning: using Lua $(V) but Lua interpreter version is $(INSTLUAVER))
 endif
 
+
 Tgt	:= moonfltk
 CSrc := $(wildcard *.c)
 CxxSrc := $(wildcard *.cc)
 CObjs := $(CSrc:.c=.o)
 CxxObjs := $(CxxSrc:.cc=.o)
 
+
+ifdef LINUX
 INCDIR = -I/usr/include
 LIBDIR = -L/usr/lib
-
-LIBS := -lfltk
+endif
+ifdef MINGW
+INCDIR = -I/usr/local/include
+LIBDIR = -L/usr/bin
+LIBDIR += -L/usr/local/bin
+LIBDIR += -L/usr/local/lib
+endif
 
 # C/C++ common options
 OPT	+= -O2
-#OPT	+= -O0 -g
 OPT	+= -Wall -Wextra -Wpedantic
+OPT += -DLUAVER=$(LUAVER) -DUSE_GL=1 -DUSE_IMAGES=1
+ifdef LINUX
+OPT += -DLINUX
 OPT += -fpic
-OPT += -DLUAVER=$(LUAVER)
-ifeq ($(D),1)
+endif
+ifdef MINGW
+OPT += -DMINGW
+OPT += -Wno-unused-parameter -Wno-long-long
+endif
+ifdef DEBUG
 OPT	+= -DDEBUG
 OPT += -Wfatal-errors
 OPT += -Wshadow -Wsign-compare -Wundef -Wwrite-strings
 OPT	+= -Wdisabled-optimization
 endif
 
-ifeq ($(no-gl),1)
-else
-OPT += -DUSE_GL=1
-LIBS += -lfltk_gl
-endif
-ifeq ($(no-images),1)
-else
-OPT += -DUSE_IMAGES=1
-LIBS += -lfltk_images
-endif
-
 
 # C only options
 COPT = $(OPT)
 COPT += -std=gnu99
-ifeq ($(D),1)
+ifdef DEBUG
 COPT += -Wdeclaration-after-statement
 COPT += -Wmissing-prototypes -Wstrict-prototypes -Wnested-externs
 COPT += -Wc++-compat -Wold-style-definition
@@ -82,38 +98,37 @@ override CFLAGS = $(COPT) $(INCDIR)
 
 # C++ only options
 CXXOPT = $(OPT)
-override CXXFLAGS = $(CXXOPT) $(shell fltk-config --cxxflags )
+override CXXFLAGS = $(CXXOPT) $(shell fltk-config  --use-gl --use-images --cxxflags )
+
+override LDFLAGS = $(shell fltk-config --use-gl --use-images --ldflags )
 
 default: build
 
 clean:
-	@-rm -f *.so
+	@-rm -f *.so *.dll *.o *.err *.map *.S *~ *.log
 	@-rm -f $(Tgt).symbols
-	@-rm -f *~
-	@-rm -f *.log
-	@-rm -f *.o *.err *.map *.S
-
-check:
-	@-echo $(Tgt)".so will be installed in "$(C_DIR)
-	@-echo $(Tgt)"/*.lua will be installed in "$(L_DIR)"/"$(Tgt)
-	@-echo $(Tgt)".h will be installed in "$(H_DIR)
-	@-echo lib$(Tgt)".so will be installed in "$(S_DIR)
-	@-echo
 
 install:
 	@-mkdir -pv $(H_DIR)
 	@-mkdir -pv $(C_DIR)
 	@-mkdir -pv $(S_DIR)
 	@-mkdir -pv $(L_DIR)
+	@-mkdir -pv $(D_DIR)
 	@-cp -fpv $(Tgt).h $(H_DIR)
+	@-cp -fpvr ../$(Tgt) $(L_DIR)
+ifdef MINGW
+	@-cp -fpv $(Tgt).dll $(D_DIR)
+endif
+ifdef LINUX
 	@-cp -fpv $(Tgt).so $(C_DIR)
 	@-ln -fsv $(C_DIR)/$(Tgt).so $(S_DIR)/lib$(Tgt).so
-	@-cp -fpvr ../$(Tgt) $(L_DIR)
+endif
 
 uninstall:
 	@-rm -f $(H_DIR)/$(Tgt).h
 	@-rm -f $(C_DIR)/$(Tgt).so
 	@-rm -f $(S_DIR)/lib$(Tgt).so
+	@-rm -f $(D_DIR)/$(Tgt).dll
 	@-rm -fr $(L_DIR)/$(Tgt)
 
 build:	clean $(Tgt) 
@@ -122,7 +137,12 @@ symbols: build
 	@objdump -T $(Tgt).so > $(Tgt).symbols
 
 $(Tgt):	$(CxxObjs) $(CObjs)
-	@-$(CC) -shared -Wl,-soname,$(Tgt).so,$(LIBDIR) -o $(Tgt).so $(CObjs) $(CxxObjs) $(LIBS)
+ifdef LINUX
+	@-$(CXX) -shared -o $(Tgt).so $(CObjs) $(CxxObjs) $(LIBDIR) $(LDFLAGS)
+endif
+ifdef MINGW
+	@-$(CXX) -shared -o $(Tgt).dll $(CObjs) $(CxxObjs) $(LIBDIR) $(LDFLAGS) -l$(LUADLL)
+endif
 	@-rm -f $(CObjs)
 	@-rm -f *.o
 	@echo

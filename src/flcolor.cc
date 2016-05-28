@@ -94,6 +94,7 @@ static int Show_colormap(lua_State *L)
     return push_Color(L, fl_show_colormap(check_Color(L, 1)));
     }
 
+#ifdef LINUX
 static int Xpixel(lua_State *L)
     {
     ulong n;
@@ -104,6 +105,7 @@ static int Xpixel(lua_State *L)
     lua_pushinteger(L, n);
     return 1;
     }
+#endif
 
 static int Free_color(lua_State *L)
     {
@@ -209,7 +211,9 @@ static const struct luaL_Reg Functions[] =
         { "rgb_color", Rgb_color },
         { "set_color", Set_color },
         { "show_colormap", Show_colormap },
+#ifdef LINUX
         { "xpixel", Xpixel },
+#endif
         /* From Fl_Color_Chooser: */
         { "hsv2rgb",  Hsv2rgb },
         { "rgb2hsv",  Rgb2hsv },

@@ -20,9 +20,11 @@ http://www.fltk.org/doc-1.3/index.html[FLTK Programming Manual].
 
 === Getting and installing
 
-The *official repository* of MoonFLTK is on GitHub at the following link:
-*https://github.com/stetre/moonfltk* .
+For installation intructions, refer to the README file in the 
+https://github.com/stetre/moonfltk[*MoonFLTK official repository*]
+on GitHub.
 
+////
 MoonFLTK runs on GNU/Linux and requires 
 *http://www.lua.org[Lua]* version 5.3 or greater, and
 *http://www.fltk.org/software.php[FLTK]* version 1.3.3 or greater.
@@ -36,12 +38,9 @@ https://github.com/stetre/moonfltk/releases[latest release] and do the following
 [ ]$ tar -zxpvf moonfltk-0.1.tar.gz
 [ ]$ cd moonfltk-0.1
 [moonfltk-0.1]$ make
-[moonfltk-0.1]$ make check
 [moonfltk-0.1]$ sudo make install
 ----
 
-The _$make check_ command shows you what will be installed and where (please read
-its output before executing _$make install_).
 By default, MoonFLTK installs its components in subdirectories of `/usr/local/`
 (and creates such directories, if needed).
 This behaviour can be changed by defining PREFIX with the desired alternative 
@@ -70,6 +69,7 @@ following example:
 [moonfltk-0.1]$ make check
 [moonfltk-0.1]$ sudo make install
 ----
+////
 
 === Module organization
 

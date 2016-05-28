@@ -101,6 +101,13 @@ void moonfltk_sectots(struct timespec *ts, double seconds)
     ts->tv_nsec=(long)((seconds-((double)ts->tv_sec))*1.0e9);
     }
 
+#ifdef MINGW
+#include <windows.h>
+#define SleepSec(s) Sleep((s)*1.0e3)
+#else
+#define SleepSec(s) usleep((useconds_t)((s)*1.0e6))
+#endif
+
 #if _POSIX_C_SOURCE >= 199309L
 void moonfltk_sleep(double seconds)
     {
@@ -121,7 +128,7 @@ void moonfltk_sleep(double seconds)
 #else
 void moonfltk_sleep(double seconds)
     {
-    usleep((useconds_t)(seconds*1.0e6));
+	SleepSec(seconds);
     }
 #endif
 

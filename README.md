@@ -2,7 +2,7 @@
 
 MoonFLTK is a Lua binding library for the [Fast Light Toolkit (FLTK)](http://www.fltk.org/).
 
-It runs on GNU/Linux and requires [Lua](http://www.lua.org/) (>=5.3)
+It runs on GNU/Linux and on Windows (MSYS2/MinGW) and requires [Lua](http://www.lua.org/) (>=5.3)
 and [FLTK](http://www.fltk.org/software.php) (>=1.3.3).
 
 _Authored by:_ _[Stefano Trettel](https://www.linkedin.com/in/stetre)_
@@ -17,34 +17,9 @@ MIT/X11 license (same as Lua). See [LICENSE](./LICENSE).
 
 See the [Reference Manual](https://stetre.github.io/moonfltk/doc/index.html).
 
-#### Getting and installing (on Ubuntu)
+#### Getting and installing
 
-Install Lua:
-
-```sh
-$ sudo apt-get install libreadline-dev
-$ wget https://www.lua.org/ftp/lua-5.3.2.tar.gz
-$ tar -zxpvf lua-5.3.2.tar.gz
-$ cd lua-5.3.2
-lua-5.3.2$ make linux
-lua-5.3.2$ sudo make install
-```
-
-Install FLTK:
-
-```sh
-$ sudo apt-get install libfltk1.3-dev
-```
-
-Download MoonFLTK's [latest release](https://github.com/stetre/moonfltk/releases)
-(e.g. moonfltk-0.1.tar.gz), unpack, compile and install it:
-
-```sh
-$ tar -zxpvf moonfltk-0.1.tar.gz
-$ cd moonfltk-0.1
-moonfltk-0.1$ make
-moonfltk-0.1$ sudo make install
-```
+See [INSTALL](./INSTALL.md).
 
 #### Example
 

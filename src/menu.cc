@@ -29,6 +29,7 @@
  | Test, check and push functions based on the item index                       |
  *------------------------------------------------------------------------------*/
 
+#if 0
 static int TestIndex(lua_State *L, Fl_Menu_ *menu, int arg)
 /* Given the menu and the pathname at arg, returns the item's index or -1 on error */
     {
@@ -38,6 +39,7 @@ static int TestIndex(lua_State *L, Fl_Menu_ *menu, int arg)
         return menu->find_index(pathname);
     return -1;
     }
+#endif
 
 static int CheckIndex(lua_State *L, Fl_Menu_ *menu, int arg)
 /* Given the menu and the pathname at arg, returns the item's index or raises an error */
