@@ -19,7 +19,14 @@ See the [Reference Manual](https://stetre.github.io/moonfltk/doc/index.html).
 
 #### Getting and installing
 
-See [INSTALL](./INSTALL.md).
+Setup the build environment as described [here](./SETUP.md), then:
+
+```sh
+$ git clone https://github.com/stetre/moonfltk
+$ cd moonfltk
+moonfltk$ make
+moonfltk$ make install # or 'sudo make install' (Ubuntu)
+```
 
 #### Example
 

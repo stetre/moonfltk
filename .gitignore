@@ -1,4 +1,5 @@
 *.log
 *.so
+*.o
 core.*
 local/

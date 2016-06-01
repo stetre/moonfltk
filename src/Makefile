@@ -1,40 +1,42 @@
 
-# To override the defaults, do (for example):
-# $ make V=5.4
-# $ make install V=5.4 PREFIX=/home/joe/local
+ifdef MINGW_PREFIX
+MINGW=1
+else
+LINUX=1
+endif
 
 # Lua version:
 V=5.3
 # Base install directory:
+ifdef LINUX
 PREFIX = /usr/local
+endif
+ifdef MINGW
+PREFIX = $(MINGW_PREFIX)
+endif
+
 # Directory where to install Lua modules:
 L_DIR = $(PREFIX)/share/lua/$(V)
-# Directory where to install C Lua modules (xxx.so):
+# Directory where to install C modules:
 C_DIR = $(PREFIX)/lib/lua/$(V)
 # Directory where to install C headers:
 H_DIR = $(PREFIX)/include
-# Directory where to install C libraries (libxxx.so):
+# Directory where to install C libraries:
 S_DIR = $(PREFIX)/lib
-# Directory where to install DLLs:
-D_DIR = $(PREFIX)/bin
-
-ifeq ("$(V)","")
-$(error Missing Lua version)
-endif
-
-ifeq ("$(PREFIX)","")
-$(error Missing base install directory)
-endif
 
 ifeq ($(D),1)
 DEBUG=1
 endif
 
-ifeq ("$(platform)","")
-platform=linux
+ifdef LINUX
+INCDIR = -I/usr/include
+LIBDIR = -L/usr/lib
+LIBS =
 endif
-LINUX=
-MINGW=
+ifdef MINGW
+LIBS = -llua
+endif
+
 
 ifeq ("$(platform)","linux")
 LINUX=1
@@ -69,7 +71,7 @@ CxxObjs := $(CxxSrc:.cc=.o)
 # C/C++ common options
 OPT	+= -O2
 OPT	+= -Wall -Wextra -Wpedantic
-OPT += -DLUAVER=$(LUAVER) -DUSE_GL=1 -DUSE_IMAGES=1
+OPT += -DUSE_GL=1 -DUSE_IMAGES=1
 ifdef LINUX
 OPT += -DLINUX
 OPT += -fpic
@@ -84,6 +86,7 @@ OPT += -Wfatal-errors
 OPT += -Wshadow -Wsign-compare -Wundef -Wwrite-strings
 OPT	+= -Wdisabled-optimization
 endif
+OPT +=  $(INCDIR)
 
 
 # C only options
@@ -94,7 +97,7 @@ COPT += -Wdeclaration-after-statement
 COPT += -Wmissing-prototypes -Wstrict-prototypes -Wnested-externs
 COPT += -Wc++-compat -Wold-style-definition
 endif
-override CFLAGS = $(COPT) $(INCDIR)
+override CFLAGS = $(COPT)
 
 # C++ only options
 CXXOPT = $(OPT)
@@ -113,11 +116,10 @@ install:
 	@-mkdir -pv $(C_DIR)
 	@-mkdir -pv $(S_DIR)
 	@-mkdir -pv $(L_DIR)
-	@-mkdir -pv $(D_DIR)
 	@-cp -fpv $(Tgt).h $(H_DIR)
 	@-cp -fpvr ../$(Tgt) $(L_DIR)
 ifdef MINGW
-	@-cp -fpv $(Tgt).dll $(D_DIR)
+	@-cp -fpv $(Tgt).dll $(C_DIR)
 endif
 ifdef LINUX
 	@-cp -fpv $(Tgt).so $(C_DIR)
@@ -128,7 +130,7 @@ uninstall:
 	@-rm -f $(H_DIR)/$(Tgt).h
 	@-rm -f $(C_DIR)/$(Tgt).so
 	@-rm -f $(S_DIR)/lib$(Tgt).so
-	@-rm -f $(D_DIR)/$(Tgt).dll
+	@-rm -f $(C_DIR)/$(Tgt).dll
 	@-rm -fr $(L_DIR)/$(Tgt)
 
 build:	clean $(Tgt) 
@@ -138,10 +140,10 @@ symbols: build
 
 $(Tgt):	$(CxxObjs) $(CObjs)
 ifdef LINUX
-	@-$(CXX) -shared -o $(Tgt).so $(CObjs) $(CxxObjs) $(LIBDIR) $(LDFLAGS)
+	@-$(CXX) -shared -o $(Tgt).so $(CObjs) $(CxxObjs) $(LIBDIR) $(LDFLAGS) $(LIBS)
 endif
 ifdef MINGW
-	@-$(CXX) -shared -o $(Tgt).dll $(CObjs) $(CxxObjs) $(LIBDIR) $(LDFLAGS) -l$(LUADLL)
+	@-$(CXX) -shared -o $(Tgt).dll $(CObjs) $(CxxObjs) $(LIBDIR) $(LDFLAGS) $(LIBS)
 endif
 	@-rm -f *.o
 	@echo
