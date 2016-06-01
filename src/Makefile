@@ -49,18 +49,6 @@ INCDIR = -I/usr/local/include
 LIBDIR = -L/usr/bin -L/usr/local/bin -L/usr/local/lib
 endif
 
-# Translates 5.3 into 503:
-LUAVER=$(shell lua -e "print((string.gsub("$(V)",'%.','0')))")
-LUADLL=lua$(shell lua -e "print((string.gsub("$(V)",'%.','')))")
-
-# Check the Lua version of the installed lua interpreter:
-INSTLUAVER=$(shell lua -e "print(_VERSION:sub(5))")
-ifneq ("$(V)","$(INSTLUAVER)")
-#$(info $(V))
-$(warning Warning: using Lua $(V) but Lua interpreter version is $(INSTLUAVER))
-endif
-
-
 Tgt	:= moonfltk
 CSrc := $(wildcard *.c)
 CxxSrc := $(wildcard *.cc)
