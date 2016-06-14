@@ -5,24 +5,25 @@ else
 LINUX=1
 endif
 
-# Lua version:
-V=5.3
-# Base install directory:
+# Lua version
+LUAVER?=5.3
+
+# Base install directory
 ifdef LINUX
-PREFIX = /usr/local
+PREFIX?=/usr/local
 endif
 ifdef MINGW
-PREFIX = $(MINGW_PREFIX)
+PREFIX?=$(MINGW_PREFIX)
 endif
 
-# Directory where to install Lua modules:
-L_DIR = $(PREFIX)/share/lua/$(V)
-# Directory where to install C modules:
-C_DIR = $(PREFIX)/lib/lua/$(V)
-# Directory where to install C headers:
-H_DIR = $(PREFIX)/include
-# Directory where to install C libraries:
-S_DIR = $(PREFIX)/lib
+# Directory where to install Lua modules
+L_DIR=$(PREFIX)/share/lua/$(LUAVER)
+# Directory where to install Lua C modules
+C_DIR=$(PREFIX)/lib/lua/$(LUAVER)
+# Directory where to install C headers
+H_DIR=$(PREFIX)/include
+# Directory where to install C libraries
+S_DIR=$(PREFIX)/lib
 
 ifeq ($(D),1)
 DEBUG=1
@@ -59,6 +60,7 @@ CxxObjs := $(CxxSrc:.cc=.o)
 # C/C++ common options
 OPT	+= -O2
 OPT	+= -Wall -Wextra -Wpedantic
+OPT += -DLUAVER=$(LUAVER)
 OPT += -DUSE_GL=1 -DUSE_IMAGES=1
 ifdef LINUX
 OPT += -DLINUX
@@ -94,6 +96,14 @@ override CXXFLAGS = $(CXXOPT) $(shell fltk-config  --use-gl --use-images --cxxfl
 override LDFLAGS = $(shell fltk-config --use-gl --use-images --ldflags )
 
 default: build
+
+where:
+	@echo "PREFIX="$(PREFIX)
+	@echo "LUAVER="$(LUAVER)
+	@echo $(L_DIR)
+	@echo $(C_DIR)
+	@echo $(H_DIR)
+	@echo $(S_DIR)
 
 clean:
 	@-rm -f *.so *.dll *.o *.err *.map *.S *~ *.log

@@ -49,6 +49,14 @@
 #define TOSTR_(x) #x
 #define TOSTR(x) TOSTR_(x)
 
+#if 0
+//#pragma message ("LUAVER="TOSTR(LUAVER))
+#if LUA_VERSION_NUM < 503
+#error "MoonFLTK requires Lua version >= 5.3"
+#endif
+#endif
+
+
 /* Note: all the dynamic symbols of this library (should) start with 'moonfltk_' .
  * The only exception is the luaopen_moonfltk() function, which is searched for
  * with that name by Lua.
