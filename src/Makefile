@@ -22,8 +22,6 @@ L_DIR=$(PREFIX)/share/lua/$(LUAVER)
 C_DIR=$(PREFIX)/lib/lua/$(LUAVER)
 # Directory where to install C headers
 H_DIR=$(PREFIX)/include
-# Directory where to install C libraries
-S_DIR=$(PREFIX)/lib
 
 ifeq ($(D),1)
 DEBUG=1
@@ -103,7 +101,6 @@ where:
 	@echo $(L_DIR)
 	@echo $(C_DIR)
 	@echo $(H_DIR)
-	@echo $(S_DIR)
 
 clean:
 	@-rm -f *.so *.dll *.o *.err *.map *.S *~ *.log
@@ -112,7 +109,6 @@ clean:
 install:
 	@-mkdir -pv $(H_DIR)
 	@-mkdir -pv $(C_DIR)
-	@-mkdir -pv $(S_DIR)
 	@-mkdir -pv $(L_DIR)
 	@-cp -fpv $(Tgt).h $(H_DIR)
 	@-cp -fpvr ../$(Tgt) $(L_DIR)
@@ -121,13 +117,11 @@ ifdef MINGW
 endif
 ifdef LINUX
 	@-cp -fpv $(Tgt).so $(C_DIR)
-	@-ln -fsv $(C_DIR)/$(Tgt).so $(S_DIR)/lib$(Tgt).so
 endif
 
 uninstall:
 	@-rm -f $(H_DIR)/$(Tgt).h
 	@-rm -f $(C_DIR)/$(Tgt).so
-	@-rm -f $(S_DIR)/lib$(Tgt).so
 	@-rm -f $(C_DIR)/$(Tgt).dll
 	@-rm -fr $(L_DIR)/$(Tgt)
 
