@@ -52,7 +52,7 @@ static int Wait(lua_State *L)
         }
     double time = luaL_checknumber(L, 1);
     double rc = Fl::wait(time);
-    if(rc==0)
+    if(rc<0)
         return 0; /* an error occurred */
     lua_pushboolean(L, rc > 0);
     return 1;
