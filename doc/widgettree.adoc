@@ -69,8 +69,8 @@
 {tS}{tH}<<dial, dial>> +
 {tS}{tI}{tH}<<fill_dial, fill_dial>> +
 {tS}{tI}{tL}<<line_dial, line_dial>> +
-{tS}{tH}<<roller, roller>> +
-{tS}{tH}<<slider, slider>> +
+{tS}{tH}<<roller, roller>> (<<subclassing, sub>>) +
+{tS}{tH}<<slider, slider>> (<<subclassing, sub>>) +
 {tS}{tI}{tH}<<fill_slider, fill_slider>> +
 {tS}{tI}{tH}<<hor_fill_slider, hor_fill_slider>> +
 {tS}{tI}{tH}<<hor_nice_slider, hor_nice_slider>> +

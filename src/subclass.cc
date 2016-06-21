@@ -668,6 +668,48 @@ static const struct luaL_Reg Menu_WindowSUBMetaMethods[] =
         { NULL, NULL } /* sentinel */
     };
 
+/*----------------------------------------------------------------------*
+ | Fl_Roller subclass                                                   |
+ *----------------------------------------------------------------------*/
+
+ROLLER_NEW(RollerSUB, RollerSUBNew)
+ROLLER_DELETE(RollerSUB, RollerSUBDelete)
+DRAWETC(Roller)
+
+static const struct luaL_Reg RollerSUBMethods[] = 
+    {
+        REGISTER_DRAWETC(Roller)
+        { NULL, NULL } /* sentinel */
+    };
+
+static const struct luaL_Reg RollerSUBMetaMethods[] = 
+    {
+        { "__gc",  RollerSUBDelete },
+        { NULL, NULL } /* sentinel */
+    };
+
+
+/*----------------------------------------------------------------------*
+ | Fl_Slider subclass                                                   |
+ *----------------------------------------------------------------------*/
+
+SLIDER_NEW(SliderSUB, SliderSUBNew)
+SLIDER_DELETE(SliderSUB, SliderSUBDelete)
+DRAWETC(Slider)
+
+static const struct luaL_Reg SliderSUBMethods[] = 
+    {
+        REGISTER_DRAWETC(Slider)
+        { NULL, NULL } /* sentinel */
+    };
+
+static const struct luaL_Reg SliderSUBMetaMethods[] = 
+    {
+        { "__gc",  SliderSUBDelete },
+        { NULL, NULL } /* sentinel */
+    };
+
+
 /*------------------------------------------------------------------------------*
  | Registration                                                                 |
  *------------------------------------------------------------------------------*/
@@ -697,6 +739,8 @@ static const struct luaL_Reg Functions[] =
 #endif
         { "single_window_sub",  Single_WindowSUBNew },
         { "menu_window_sub",  Menu_WindowSUBNew },
+        { "roller_sub",  RollerSUBNew },
+        { "slider_sub",  SliderSUBNew },
         { NULL, NULL } /* sentinel */
     };
 
@@ -763,6 +807,12 @@ void moonfltk_open_Subclass(lua_State *L)
 
     udata_define(L, MT_Menu_WindowSUB, Menu_WindowSUBMethods, Menu_WindowSUBMetaMethods);
     udata_inherit(L, MT_Menu_WindowSUB, MT_Menu_Window);
+
+    udata_define(L, MT_RollerSUB, RollerSUBMethods, RollerSUBMetaMethods);
+    udata_inherit(L, MT_RollerSUB, MT_Roller);
+
+    udata_define(L, MT_SliderSUB, SliderSUBMethods, SliderSUBMetaMethods);
+    udata_inherit(L, MT_SliderSUB, MT_Slider);
 
     luaL_setfuncs(L, Functions, 0);
     }

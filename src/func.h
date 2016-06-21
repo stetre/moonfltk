@@ -100,6 +100,12 @@ static int Func(lua_State *L)                       \
 #define BUTTON_NEW WIDGET_NEW
 #define BUTTON_DELETE WIDGET_DELETE
 
+#define SLIDER_NEW WIDGET_NEW
+#define SLIDER_DELETE WIDGET_DELETE
+
+#define ROLLER_NEW WIDGET_NEW
+#define ROLLER_DELETE WIDGET_DELETE
+
 #define GROUP_NEW WIDGET_NEW
 #define GROUP_DELETE(T, Func)                       \
 /* Generic destructor (removes all elements before deleting) */\

@@ -706,6 +706,30 @@ public :
 #define MT_Menu_WindowSUB "moonfltk_Menu_WindowSUB"
 TESTCHECKPUSH(Menu_WindowSUB)
 
+//--------------------------------------------------------------------------------
+
+class Fl_RollerSUB : public Fl_Roller {
+    DRAWETC
+public : 
+    Fl_RollerSUB(int x, int y, int w, int h, const char* l) : Fl_Roller(x,y,w,h,l) { }
+    SUPER_DRAWETC(Roller)
+};
+#define MT_RollerSUB "moonfltk_RollerSUB"
+TESTCHECKPUSH(RollerSUB)
+
+
+//--------------------------------------------------------------------------------
+
+class Fl_SliderSUB : public Fl_Slider {
+    DRAWETC
+public : 
+    Fl_SliderSUB(int x, int y, int w, int h, const char* l) : Fl_Slider(x,y,w,h,l) { }
+    SUPER_DRAWETC(Slider)
+};
+#define MT_SliderSUB "moonfltk_SliderSUB"
+TESTCHECKPUSH(SliderSUB)
+
+
 
 #undef DRAWETC
 #undef SUPER_DRAWETC
