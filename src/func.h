@@ -97,6 +97,8 @@ static int Func(lua_State *L)                       \
     return 1;                                       \
     }
 
+#define BUTTON_NEW WIDGET_NEW
+#define BUTTON_DELETE WIDGET_DELETE
 
 #define GROUP_NEW WIDGET_NEW
 #define GROUP_DELETE(T, Func)                       \

@@ -493,6 +493,18 @@ TESTCHECKPUSH(BoxSUB)
 
 //--------------------------------------------------------------------------------
 
+class Fl_ButtonSUB : public Fl_Button {
+    DRAWETC
+public : 
+    Fl_ButtonSUB(int x, int y, int w, int h, const char* l) : Fl_Button(x,y,w,h,l) { }
+    SUPER_DRAWETC(Button)
+};
+#define MT_ButtonSUB "moonfltk_ButtonSUB"
+TESTCHECKPUSH(ButtonSUB)
+
+
+//--------------------------------------------------------------------------------
+
 class Fl_GroupSUB : public Fl_Group {
     DRAWETC
 public : 

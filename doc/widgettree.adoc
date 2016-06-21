@@ -6,7 +6,7 @@
 ****
 [small]#<<widget, *widget*>> (<<subclassing, sub>>) +
 {tH}<<box, *box*>> (<<subclassing, sub>>) +
-{tH}<<button, *button*>> +
+{tH}<<button, *button*>> (<<subclassing, sub>>) +
 {tI}{tH}<<light_button, light_button>> +
 {tI}{tI}{tH}<<check_button, check_button>> +
 {tI}{tI}{tH}<<radio_light_button, radio_light_button>> +

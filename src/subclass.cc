@@ -294,6 +294,27 @@ static const struct luaL_Reg BoxSUBMetaMethods[] =
         { NULL, NULL } /* sentinel */
     };
 
+
+/*----------------------------------------------------------------------*
+ | Fl_Button subclass                                                   |
+ *----------------------------------------------------------------------*/
+
+BUTTON_NEW(ButtonSUB, ButtonSUBNew)
+BUTTON_DELETE(ButtonSUB, ButtonSUBDelete)
+DRAWETC(Button)
+
+static const struct luaL_Reg ButtonSUBMethods[] = 
+    {
+        REGISTER_DRAWETC(Button)
+        { NULL, NULL } /* sentinel */
+    };
+
+static const struct luaL_Reg ButtonSUBMetaMethods[] = 
+    {
+        { "__gc",  ButtonSUBDelete },
+        { NULL, NULL } /* sentinel */
+    };
+
 /*----------------------------------------------------------------------*
  | Fl_Group subclass                                                    |
  *----------------------------------------------------------------------*/
@@ -418,7 +439,7 @@ static const struct luaL_Reg Select_BrowserSUBMetaMethods[] =
 
 
 /*----------------------------------------------------------------------*
- | Fl_Check_Browser subclass                                                        |
+ | Fl_Check_Browser subclass                                            |
  *----------------------------------------------------------------------*/
 
 BROWSER_NEW(Check_BrowserSUB, Check_BrowserSUBNew)
@@ -655,6 +676,7 @@ static const struct luaL_Reg Functions[] =
     {
         { "widget_sub",  WidgetSUBNew },
         { "box_sub",  BoxSUBNew },
+        { "button_sub",  ButtonSUBNew },
         { "group_sub",  GroupSUBNew },
         { "browser_sub",  BrowserSUBNew },
 #if 0
@@ -685,6 +707,9 @@ void moonfltk_open_Subclass(lua_State *L)
 
     udata_define(L, MT_BoxSUB, BoxSUBMethods, BoxSUBMetaMethods);
     udata_inherit(L, MT_BoxSUB, MT_Box);
+
+    udata_define(L, MT_ButtonSUB, ButtonSUBMethods, ButtonSUBMetaMethods);
+    udata_inherit(L, MT_ButtonSUB, MT_Button);
 
     udata_define(L, MT_GroupSUB, GroupSUBMethods, GroupSUBMetaMethods);
     udata_inherit(L, MT_GroupSUB, MT_Group);
