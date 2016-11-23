@@ -114,8 +114,8 @@ Returns the _pathname_ of the newly inserted item.#
 * *tree:openicon* ( ) +
 -> <<image, _image_>>
 
-* *tree:openchild_margintop* (_pixels_) +
-* *tree:openchild_margintop* ( ) +
+* *tree:openchild_marginbottom* (_pixels_) +
+* *tree:openchild_marginbottom* ( ) +
 -> _pixels_
 
 * *tree:prev* (_pathname_) +

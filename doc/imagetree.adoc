@@ -44,7 +44,7 @@ Inherits from: - .#
 
 * *pass:[image:desaturate]* ( )
 
-* *pass:[image:draw]* (_x_, _y_, [, _w_, _h_ [, _cx_, _cy_]])
+* *pass:[image:draw]* (_x_, _y_ [, _w_, _h_ [, _cx_, _cy_]])
 
 * *pass:[image:h]* ( ) +
 -> _height_

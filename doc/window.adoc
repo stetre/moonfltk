@@ -90,7 +90,7 @@ _args_: a table with the command-line arguments in its array part (i.e starting 
 * *window:shown* ( ) +
 -> _boolean_
 
-* *window:size_range* (_minw_, _minh_ , [_maxw_ [, _maxh_ [, _dw_ [, _dh_ [, _aspect_]]]]])
+* *window:size_range* (_minw_, _minh_ [, _maxw_ [, _maxh_ [, _dw_ [, _dh_ [, _aspect_]]]]])
 
 * *window:tooltip_window* ( ) +
 -> _boolean_
@@ -168,7 +168,7 @@ No constructor (abstract class).#
 * *gl_window:make_overlay_current* ( )
 
 * *gl_window:mode* (<<mode, _mode_>>) +
-* *gl_window:* ( ) +
+* *gl_window:mode* ( ) +
 -> <<mode, _mode_>>
 
 * *gl_window:redraw_overlay* ( )
