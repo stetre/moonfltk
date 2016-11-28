@@ -5,41 +5,33 @@
 Inherits from: <<widget, widget>>. +
 No constructor (abstract class).#
 
-* *valuator:bounds* (_min_, _max_)
+* *:bounds*(_min_, _max_)
 
-* *valuator:clamp* (_number_) +
--> _number_
+* _number_ = *:clamp*(_number_)
 
-* *valuator:format* ( ) +
--> _string_
+* _string_ = *:format*( )
 
-* *valuator:increment* (_step_, _n_) +
--> _number_
+* _number_ = *:increment*(_step_, _n_)
 
-* *valuator:maximum* (_number_) +
-* *valuator:maximum* ( ) +
--> _number_
+* *:maximum*(_number_) +
+_number_ = *:maximum*( )
 
-* *valuator:minimum* (_number_) +
-* *valuator:minimum* ( ) +
--> _number_
+* *:minimum*(_number_) +
+_number_ = *:minimum*( )
 
-* *valuator:precision* (_ndigits_)
+* *:precision*(_ndigits_)
 
-* *valuator:range* (_min_, _max_)
+* *:range*(_min_, _max_)
 
-* *valuator:round* (_number_) +
--> _number_
+* _number_ = *:round*(_number_)
 
-* *valuator:step* (_number_) +
-*valuator:step* (_a_, _n_) +
-* *valuator:step* ( ) +
--> _number_
 
-* *valuator:value* (_number_) +
--> _changed_ +
-* *valuator:* ( ) +
--> _number_
+* *:step*(_number_) +
+*:step*(_a_, _n_) +
+* _number_ = *:step*( )
+
+* _changed_  = *:value*(_number_) +
+_number_ = *:value*( )
 
 
 [[adjuster]]
@@ -47,12 +39,10 @@ No constructor (abstract class).#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Adjuster.html++[Fl_Adjuster]. +
 Inherits from: <<widget, widget>>, <<valuator, valuator>>.#
 
-* *fl.adjuster* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _adjuster_
+* _adjuster_ = *fl.adjuster*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *adjuster:soft* (_boolean_) +
-* *adjuster:soft* ( ) +
--> _boolean_
+* *:soft*(_boolean_) +
+_boolean_ = *:soft*( ) +
 
 
 [[counter]]
@@ -61,26 +51,20 @@ Inherits from: <<widget, widget>>, <<valuator, valuator>>.#
 Inherits from: <<widget, widget>>, <<valuator, valuator>>. +
 RTTI: '_normal_', '_simple_'.#
 
-* *fl.counter* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _counter_
+* _counter_ = *fl.counter*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *counter:lstep* (_number_)
+* *:lstep*(_number_) +
+*:step*(_number_) +
+*:step*(_step_, _lstep_)
 
-* *counter:step* (_number_)
+* *:textcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:textcolor*( )
 
-* *counter:step* (_step_, _lstep_)
+* *:textfont*(<<font, _font_>>) +
+<<font, _font_>> = *:textfont*( )
 
-* *counter:textcolor* (<<color, _color_>>) +
-* *counter:textcolor* ( ) +
--> <<color, _color_>>
-
-* *counter:textfont* (<<font, _font_>>) +
-* *counter:textfont* ( ) +
--> <<font, _font_>>
-
-* *counter:textsize* (_fontsize_) +
-* *counter:textsize* ( ) +
--> _fontsize_
+* *:textsize*(_fontsize_) +
+_fontsize_ = *:textsize*( )
 
 
 [[simple_counter]]
@@ -88,8 +72,8 @@ RTTI: '_normal_', '_simple_'.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Simple__Counter.html++[Fl_Simple_Counter]. +
 Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<counter, counter>>.#
 
-* *fl.simple_counter* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _simple_counter_
+* _simple_counter_ = *fl.simple_counter*(_x_, _y_, _w_, _h_ [, _label_])
+
 
 
 [[dial]]
@@ -98,26 +82,24 @@ Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<counter, counter>>.
 Inherits from: <<widget, widget>>, <<valuator, valuator>>. +
 RTTI: '_normal_', '_line_', '_fill_'.#
 
-* *fl.dial* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _dial_
+* _dial_ = *fl.dial*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *dial:angle1* (_deg_) +
-* *dial:angle1* ( ) +
--> _deg_
 
-* *dial:angle2* (_deg_) +
-* *dial:angle2* ( ) +
--> _deg_
+* *:angle1*(_deg_) +
+_deg_ = *:angle1*( )
 
-* *dial:angles* (_deg1_, _deg2_)
+* *:angle2*(_deg_) +
+_deg_ = *:angle2*( )
+
+* *:angles*(_deg1_, _deg2_)
 
 [[fill_dial]]
 ==== fill_dial
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Fill__Dial.html++[Fl_Fill_Dial]. +
 Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<dial, dial>>.#
 
-* *fl.fill_dial* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _fill_dial_
+* _fill_dial_ = *fl.fill_dial*(_x_, _y_, _w_, _h_ [, _label_])
+
 
 
 [[line_dial]]
@@ -125,8 +107,8 @@ Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<dial, dial>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Line__Dial.html++[Fl_Line_Dial]. +
 Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<dial, dial>>.#
 
-* *fl.line_dial* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _line_dial_
+* _line_dial_ = *fl.line_dial*(_x_, _y_, _w_, _h_ [, _label_])
+
 
 
 [[roller]]
@@ -135,8 +117,8 @@ Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<dial, dial>>.#
 Inherits from: <<widget, widget>>, <<valuator, valuator>>. +
 RTTI: '_vertical_', '_horizontal_'.#
 
-* *fl.roller* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _roller_
+* _roller_ = *fl.roller*(_x_, _y_, _w_, _h_ [, _label_])
+
 
 
 [[slider]]
@@ -146,21 +128,19 @@ Inherits from: <<widget, widget>>, <<valuator, valuator>>. +
 RTTI: '_vertical_', '_horizontal_',  '_vertical fill_', '_horizontal fill_', 
 '_vertical nice_', '_horizontal nice_'.#
 
-* *fl.slider* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _slider_
+* _slider_ = *fl.slider*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *slider:bounds* (_min_, _max_)
 
-* *slider:scrollvalue* (_pos_, _size_, _first_, _total_) +
--> _number_
+* *:bounds*(_min_, _max_)
 
-* *slider:slider* (<<boxtype, _boxtype_>>) +
-* *slider:slider* ( ) +
--> <<boxtype, _boxtype_>>
+* _number_ = *:scrollvalue*(_pos_, _size_, _first_, _total_)
 
-* *slider:slider_size* (_fraction_) +
-* *slider:slider_size* ( ) +
--> _fraction_
+
+* *:slider*(<<boxtype, _boxtype_>>) +
+<<boxtype, _boxtype_>> = *:slider*( )
+
+* *:slider_size*(_fraction_) +
+_fraction_ = *:slider_size*( )
 
 
 [[fill_slider]]
@@ -168,8 +148,8 @@ RTTI: '_vertical_', '_horizontal_',  '_vertical fill_', '_horizontal fill_',
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Fill__Slider.html++[Fl_Fill_Slider]. +
 Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>.#
 
-* *fl.fill_slider* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _fill_slider_
+* _fill_slider_ = *fl.fill_slider*(_x_, _y_, _w_, _h_ [, _label_])
+
 
 
 [[hor_fill_slider]]
@@ -177,8 +157,8 @@ Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Hor__Fill__Slider.html++[Fl_Hor_Fill_Slider]. +
 Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>.#
 
-* *fl.hor_fill_slider* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _hor_fill_slider_
+* _hor_fill_slider_ = *fl.hor_fill_slider*(_x_, _y_, _w_, _h_ [, _label_])
+
 
 
 [[hor_nice_slider]]
@@ -186,8 +166,8 @@ Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Hor__Nice__Slider.html++[Fl_Hor_Nice_Slider]. +
 Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>.#
 
-* *fl.hor_nice_slider* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _hor_nice_slider_
+* _hor_nice_slider_ = *fl.hor_nice_slider*(_x_, _y_, _w_, _h_ [, _label_])
+
 
 
 [[hor_slider]]
@@ -195,8 +175,8 @@ Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Hor__Slider.html++[Fl_Hor_Slider]. +
 Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>.#
 
-* *fl.hor_slider* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _hor_slider_
+* _hor_slider_ = *fl.hor_slider*(_x_, _y_, _w_, _h_ [, _label_])
+
 
 
 [[nice_slider]]
@@ -204,8 +184,8 @@ Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Nice__Slider.html++[Fl_Nice_Slider]. +
 Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>.#
 
-* *fl.nice_slider* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _nice_slider_
+* _nice_slider_ = *fl.nice_slider*(_x_, _y_, _w_, _h_ [, _label_])
+
 
 
 [[scrollbar]]
@@ -214,18 +194,16 @@ Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>.#
 Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>. +
 RTTI: '_vertical_', '_horizontal_'.#
 
-* *fl.scrollbar* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _scrollbar_
+* _scrollbar_ = *fl.scrollbar*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *scrollbar:linesize* (_step_) +
-* *scrollbar:linesize* ( ) +
--> _step_
 
-* *scrollbar:value* (_pos_) +
-*scrollbar:value* (_pos_, _winsize_, _first_, _total_) +
--> _boolean_
-* *scrollbar:value* ( ) +
--> _pos_
+* *:linesize*(_step_) +
+_step_ = *:linesize*( )
+
+* _boolean_ = *:value*(_pos_) +
+_boolean_ = *:value*(_pos_, _winsize_, _first_, _total_) +
+* _pos_ = *:value*( )
+
 
 
 [[value_slider]]
@@ -233,20 +211,17 @@ RTTI: '_vertical_', '_horizontal_'.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Value__Slider.html++[Fl_Value_Slider]. +
 Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>.#
 
-* *fl.value_slider* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _value_slider_
+* _value_slider_ = *fl.value_slider*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *value_slider:textcolor* (<<color, _color_>>) +
-* *value_slider:textcolor* ( ) +
--> <<color, _color_>>
 
-* *value_slider:textfont* (<<font, _font_>>) +
-* *value_slider:textfont* ( ) +
--> <<font, _font_>>
+* *:textcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:textcolor*( )
 
-* *value_slider:textsize* (_fontsize_) +
-* *value_slider:textsize* ( ) +
--> _fontsize_
+* *:textfont*(<<font, _font_>>) +
+<<font, _font_>> = *:textfont*( )
+
+* *:textsize*(_fontsize_) +
+_fontsize_ = *:textsize*( )
 
 
 [[hor_value_slider]]
@@ -254,8 +229,8 @@ Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Hor__Value__Slider.html++[Fl_Hor_Value_Slider]. +
 Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>, <<value_slider, value_slider>>.#
 
-* *fl.hor_value_slider* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _hor_value_slider_
+* _hor_value_slider_ = *fl.hor_value_slider*(_x_, _y_, _w_, _h_ [, _label_])
+
 
 
 [[value_input]]
@@ -263,32 +238,26 @@ Inherits from: <<widget, widget>>, <<valuator, valuator>>, <<slider, slider>>, <
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Value__Input.html++[Fl_Value_Input]. +
 Inherits from: <<widget, widget>>, <<valuator, valuator>>.#
 
-* *fl.value_input* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _value_input_
+* _value_input_ = *fl.value_input*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *value_input:cursor_color* (<<color, _color_>>) +
-* *value_input:cursor_color* ( ) +
--> <<color, _color_>>
 
-* *value_input:shortcut* (<<shortcut, _shortcut_>>) +
-* *value_input:shortcut* ( ) +
--> <<shortcut, _shortcut_>>
+* *:cursor_color*(<<color, _color_>>) +
+<<color, _color_>> = *:cursor_color*( )
 
-* *value_input:soft* (_boolean_) +
-* *value_input:* ( ) +
--> _boolean_
+* *:shortcut*(<<shortcut, _shortcut_>>) +
+<<shortcut, _shortcut_>> = *:shortcut*( )
 
-* *value_input:textcolor* (<<color, _color_>>) +
-* *value_input:textcolor* ( ) +
--> <<color, _color_>>
+* *:soft*(_boolean_) +
+_boolean_ = *:soft*( )
 
-* *value_input:textfont* (<<font, _font_>>) +
-* *value_input:textfont* ( ) +
--> <<font, _font_>>
+* *:textcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:textcolor*( )
 
-* *value_input:textsize* (_fontsize_) +
-* *value_input:textsize* ( ) +
--> _fontsize_
+* *:textfont*(<<font, _font_>>) +
+<<font, _font_>> = *:textfont*( )
+
+* *:textsize*(_fontsize_) +
+_fontsize_ = *:textsize*( )
 
 
 [[value_output]]
@@ -296,24 +265,18 @@ Inherits from: <<widget, widget>>, <<valuator, valuator>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Value__Output.html++[Fl_Value_Output]. +
 Inherits from: <<widget, widget>>, <<valuator, valuator>>.#
 
-* *fl.value_output* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _value_output_
+* _value_output_ = *fl.value_output*(_x_, _y_, _w_, _h_ [, _label_])
 
+* *:soft*(_boolean_) +
+_boolean_ = *:soft*( )
 
-* *value_output:soft* (_boolean_) +
-* *value_output:soft* ( ) +
--> _boolean_
+* *:textcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:textcolor*( )
 
-* *value_output:textcolor* (<<color, _color_>>) +
-* *value_output:textcolor* ( ) +
--> <<color, _color_>>
+* *:textfont*(<<font, _font_>>) +
+<<font, _font_>> = *:textfont*( )
 
-* *value_output:textfont* (<<font, _font_>>) +
-* *value_output:textfont* ( ) +
--> <<font, _font_>>
-
-* *value_output:textsize* (_fontsize_) +
-* *value_output:textsize* ( ) +
--> _fontsize_
+* *:textsize*(_fontsize_) +
+_fontsize_ = *:textsize*( )
 
 

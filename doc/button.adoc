@@ -6,29 +6,22 @@
 Inherits from: <<widget, widget>>. +
 RTTI: '_normal_', '_toggle_', '_radio_', '_hidden_'.#
 
-* *fl.button* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _button_
+* _button_ = *fl.button*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *button:clear* ( ) +
--> _boolean_
+* _boolean_ = *:clear*( )
 
-* *button:down_box* (<<boxtype, _boxtype_>>) +
-* *button:down_box* ( ) +
--> <<boxtype, _boxtype_>>
+* *:down_box*(<<boxtype, _boxtype_>>) +
+<<boxtype, _boxtype_>> = *:down_box*( )
 
-* *button:set* ( ) +
--> _boolean_
+* _boolean_ = *:set*( )
 
-* *button:setonly* ( )
+* *:setonly*( )
 
-* *button:shortcut* (<<shortcut, _shortcut_>>) +
-* *button:shortcut* ( ) +
--> <<shortcut, _shortcut_>>
+* *:shortcut*(<<shortcut, _shortcut_>>) +
+<<shortcut, _shortcut_>> = *:shortcut*( )
 
-* *button:value* (_boolean_) +
-* *button:value* ( ) +
--> _boolean_
-
+* *:value*(_boolean_) +
+_boolean_ = *:value*( )
 
 [[light_button]]
 ==== light_button
@@ -36,8 +29,7 @@ RTTI: '_normal_', '_toggle_', '_radio_', '_hidden_'.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Light__Button.html++[Fl_Light_Button]. +
 Inherits from: <<widget, widget>>, <<button, button>>.#
 
-* *fl.light_button* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _light_button_
+* _light_button_ = *fl.light_button*(_x_, _y_, _w_, _h_ [, _label_])
 
 
 [[check_button]]
@@ -46,8 +38,7 @@ Inherits from: <<widget, widget>>, <<button, button>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Check__Button.html++[Fl_Check_Button]. +
 Inherits from: <<widget, widget>>, <<button, button>>, <<light_button, light_button>>.#
 
-* *fl.check_button* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _check_button_
+* _check_button_ = *fl.check_button*(_x_, _y_, _w_, _h_ [, _label_])
 
 
 [[radio_light_button]]
@@ -56,8 +47,7 @@ Inherits from: <<widget, widget>>, <<button, button>>, <<light_button, light_but
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Radio__Light__Button.html++[Fl_Radio_Light_Button]. +
 Inherits from: <<widget, widget>>, <<button, button>>, <<light_button, light_button>>.#
 
-* *fl.radio_light_button* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _radio_light_button_
+* _radio_light_button_ = *fl.radio_light_button*(_x_, _y_, _w_, _h_ [, _label_])
 
 [[round_button]]
 ==== round_button
@@ -65,8 +55,7 @@ Inherits from: <<widget, widget>>, <<button, button>>, <<light_button, light_but
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Round__Button.html++[Fl_Round_Button]. +
 Inherits from: <<widget, widget>>, <<button, button>>, <<light_button, light_button>>.#
 
-* *fl.round_button* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _round_button_
+* _round_button_ = *fl.round_button*(_x_, _y_, _w_, _h_ [, _label_])
 
 
 [[radio_round_button]]
@@ -76,8 +65,7 @@ Inherits from: <<widget, widget>>, <<button, button>>, <<light_button, light_but
 Inherits from: <<widget, widget>>, <<button, button>>, <<light_button, light_button>>, 
 <<round_button, round_button>>.#
 
-* *fl.radio_round_button* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _radio_round_button_
+* _radio_round_button_ = *fl.radio_round_button*(_x_, _y_, _w_, _h_ [, _label_])
 
 
 [[radio_button]]
@@ -86,8 +74,7 @@ Inherits from: <<widget, widget>>, <<button, button>>, <<light_button, light_but
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Radio__Button.html++[Fl_Radio_Button]. +
 Inherits from: <<widget, widget>>, <<button, button>>.#
 
-* *fl.radio_button* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _radio_button_
+* _radio_button_ = *fl.radio_button*(_x_, _y_, _w_, _h_ [, _label_])
 
 [[repeat_button]]
 ==== repeat_button
@@ -95,10 +82,9 @@ Inherits from: <<widget, widget>>, <<button, button>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Repeat__Button.html++[Fl_Repeat_Button]. +
 Inherits from: <<widget, widget>>, <<button, button>>.#
 
-* *fl.repeat_button* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _repeat_button_
+* _repeat_button_ = *fl.repeat_button*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *repeat_button:deactivate* ( )
+* *:deactivate*( )
 
 [[return_button]]
 ==== return_button
@@ -106,8 +92,7 @@ Inherits from: <<widget, widget>>, <<button, button>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Return__Button.html++[Fl_Return_Button]. +
 Inherits from: <<widget, widget>>, <<button, button>>.#
 
-* *fl.return_button* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _return_button_
+* _return_button_ = *fl.return_button*(_x_, _y_, _w_, _h_ [, _label_])
 
 [[toggle_button]]
 ==== toggle_button
@@ -115,7 +100,6 @@ Inherits from: <<widget, widget>>, <<button, button>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Toggle__Button.html++[Fl_Toggle_Button]. +
 Inherits from: <<widget, widget>>, <<button, button>>.#
 
-* *fl.toggle_button* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _toggle_button_
+* _toggle_button_ = *fl.toggle_button*(_x_, _y_, _w_, _h_ [, _label_])
 
 

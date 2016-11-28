@@ -3,59 +3,40 @@
 
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Tooltip.html++[Fl_Tooltip].#
 
-* *fl.tooltip_color* (<<color, _color_>>) +
-* *fl.tooltip_color* ( ) +
--> <<color, _color_>>
+* *fl.tooltip_color*(<<color, _color_>>) +
+<<color, _color_>> = *fl.tooltip_color*( )
 
-* *fl.tooltip_current* (<<widget, _widget_>>) +
-* *fl.tooltip_current* ( ) +
--> <<widget, _widget_>>
+* *fl.tooltip_current*(<<widget, _widget_>>) +
+<<widget, _widget_>> = *fl.tooltip_current*( )
 
-* *fl.tooltip_delay* (_seconds_) +
-* *fl.tooltip_delay* ( ) +
--> _seconds_
+* *fl.tooltip_delay*(_seconds_) +
+_seconds_ = *fl.tooltip_delay*( )
 
-* *fl.tooltip_disable* ( )
+* *fl.tooltip_disable*( )
 
-* *fl.tooltip_enable* ([_boolean_])
+* *fl.tooltip_enable*([_boolean_])
 
-* *fl.tooltip_enabled* ( ) +
--> _boolean_
+* _boolean_ = *fl.tooltip_enabled*( )
 
-* *fl.tooltip_font* (<<font, _font_>>) +
-* *fl.tooltip_font* ( ) +
--> <<font, _font_>>
 
-* *fl.tooltip_hoverdelay* (_seconds_) +
-* *fl.tooltip_hoverdelay* ( ) +
--> _seconds_
+* *fl.tooltip_font*(<<font, _font_>>) +
+<<font, _font_>> = *fl.tooltip_font*( )
 
-* *fl.tooltip_margin_height* (_pixels_) +
-* *fl.tooltip_margin_height* ( ) +
--> _pixels_
+* *fl.tooltip_hoverdelay*(_seconds_) +
+_seconds_ = *fl.tooltip_hoverdelay*( )
 
-* *fl.tooltip_margin_width* (_pixels_) +
-* *fl.tooltip_margin_width* ( ) +
--> _pixels_
+* *fl.tooltip_margin_height*(_pixels_) +
+_pixels_ = *fl.tooltip_margin_height*( )
 
-* *fl.tooltip_size* (_fontsize_) +
-* *fl.tooltip_size* ( ) +
--> _fontsize_
+* *fl.tooltip_margin_width*(_pixels_) +
+_pixels_ = *fl.tooltip_margin_width*( )
 
-* *fl.tooltip_textcolor* (<<color, _color_>>) +
-* *fl.tooltip_textcolor* ( ) +
--> <<color, _color_>>
+* *fl.tooltip_size*(_fontsize_) +
+_fontsize_ = *fl.tooltip_size*( )
 
-* *fl.tooltip_wrap_width* (_pixels_) +
-* *fl.tooltip_wrap_width* ( ) +
--> _pixels_
+* *fl.tooltip_textcolor*(<<color, _color_>>) +
+<<color, _color_>> = *fl.tooltip_textcolor*( )
 
-////
-* *fl.tooltip_* ( )
-
-* *fl.tooltip_* (__) +
-* *fl.tooltip_* ( ) +
--> __
-
-////
+* *fl.tooltip_wrap_width*(_pixels_) +
+_pixels_ = *fl.tooltip_wrap_width*( )
 

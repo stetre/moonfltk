@@ -2,47 +2,26 @@
 === File names and URI
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/group__filenames.html++[File names and URI utility functions].#
 
-* *fl.decode_uri* (_uri_) +
--> _uri_
+* _uri_ = *fl.decode_uri*(_uri_)
 
-* *fl.filename_absolute* (_filename_) +
--> _filename_
+* _filename_ = *fl.filename_absolute*(_filename_)
 
-* *fl.filename_expand* (_filename_) +
--> _filename_
+* _filename_ = *fl.filename_expand*(_filename_)
 
-* *fl.filename_ext* (_filename_) +
--> _extension_ +
+* _extension_  = *fl.filename_ext*(_filename_) +
 [small]#Returns _nil_ if filename has no extension.#
 
-* *fl.filename_isdir* (_filename_) +
--> _boolean_
+* _boolean_ = *fl.filename_isdir*(_filename_)
 
-* *fl.filename_list* (_dirname_ [, <<filesort, _filesort_>>]) +
--> _filename1_, ..., _filenameN_
+* _filename1_, ..., _filenameN_ = *fl.filename_list*(_dirname_ [, <<filesort, _filesort_>>])
 
-* *fl.filename_match* (_string_, _pattern_) +
--> _boolean_
+* _boolean_ = *fl.filename_match*(_string_, _pattern_)
 
-* *fl.filename_name* (_pathname_) +
--> _filename_
+* _filename_ = *fl.filename_name*(_pathname_)
 
-* *fl.filename_relative* (_filename_) +
--> _filename_
+* _filename_ = *fl.filename_relative*(_filename_)
 
-* *fl.filename_setext* (_filename_, _extension_) +
--> _extension_
+* _extension_ = *fl.filename_setext*(_filename_, _extension_)
 
-* *fl.open_uri* (_uri_) +
--> _boolean_, _msg_
-
-////
-* *fl.filename_* ( )
-
-* *fl.filename_* (__) +
-* *fl.filename_* ( ) +
--> __
-
-boolean
-////
+* _boolean_, _msg_ = *fl.open_uri*(_uri_)
 

@@ -4,33 +4,23 @@
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Color__Chooser.html++[Fl_Color_Chooser]. +
 Inherits from: <<widget, widget>>, <<group, group>>.#
 
-* *fl.color_chooser* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _color_chooser_
+* _color_chooser_ = *fl.color_chooser*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *color_chooser:b* ( ) +
--> _b_
+* _hue_ = *:hue*( ) +
 
-* *color_chooser:g* ( ) +
--> _g_
+* *:mode*(<<colorchoosermode, _colorchoosermode_>>) +
+<<colorchoosermode, _colorchoosermode_>> = *:mode*( )
 
-* *color_chooser:hue* ( ) +
--> _hue_
+* _r_ = *:r*( ) +
+_g_ = *:g*( ) +
+_b_ = *:b*( )
 
-* *color_chooser:mode* (<<colorchoosermode, _colorchoosermode_>>) +
-* *color_chooser:mode* ( ) +
--> <<colorchoosermode, _colorchoosermode_>>
+* _boolean_ = *:rgb*(_r_, _g_, _b_)
 
-* *color_chooser:r* ( ) +
--> _r_
+* _saturation_ = *:saturation*( )
 
-* *color_chooser:rgb* (_r_, _g_, _b_) +
--> _boolean_
+* _brightness_ = *:value*( )
 
-* *color_chooser:saturation* ( ) +
--> _saturation_
-
-* *color_chooser:value* ( ) +
--> _brightness_
 
 //@@ aggiungere link a hsv2rgb e rgb2hsv (spostate in flcolor.cc)
 

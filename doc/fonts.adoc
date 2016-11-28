@@ -4,58 +4,37 @@
 link:++http://www.fltk.org/doc-1.3/group__fl__attributes.html++[Color & Font functions] -
 link:++http://www.fltk.org/doc-1.3/classFl.html++[Fl].#
 
-* *fl.descent* ( ) +
--> _d_
+* _d_ = *fl.descent*( )
 
-* *fl.font* (<<font, _font_>> [, _fontsize_]) +
-* *fl.font* ( ) +
--> <<font, _font_>>
 
-* *fl.height* ( ) +
-*fl.height* (<<font, _font_>>, _fontsize_) +
--> _height_
+* *fl.font*(<<font, _font_>> [, _fontsize_]) +
+<<font, _font_>> = *fl.font*( )
 
-* *fl.get_font* (<<font, _font_>>) +
--> _descr_
+* _height_ = *fl.height*( ) +
+_height_ = *fl.height*(<<font, _font_>>, _fontsize_)
 
-* *fl.get_font_name* (<<font, _font_>>) +
--> _fontname_, _fontattr_
+* _descr_ = *fl.get_font*(<<font, _font_>>)
 
-* *fl.get_font_sizes* (<<font, _font_>>) +
--> _size1_, _..._, _sizeN_ +
+* _fontname_, _fontattr_ = *fl.get_font_name*(<<font, _font_>>)
+
+* _size1_, _..._, _sizeN_ = *fl.get_font_sizes*(<<font, _font_>>) +
 [small]#Returns _nil_ if _font_ is scalable.#
 
-* *fl.latin1_to_local* (_text_ [, _n_]) +
-* *fl.local_to_latin1* (_text_ [, _n_]) +
--> _text_
+* *fl.latin1_to_local*(_text_ [, _n_]) +
+_text_ = *fl.local_to_latin1*(_text_ [, _n_])
 
-* *fl.nfonts* ( ) +
--> _nfonts_ +
+* _nfonts_  = *fl.nfonts*( ) +
 [small]#Returns the number of available fonts (i.e. the first free font index).#
 
-* *fl.set_font* (_index_, _fromindex_) +
-*fl.set_font* (_index_, _name_)
+* *fl.set_font*(_index_, _fromindex_) +
+*fl.set_font*(_index_, _name_)
 
-* *fl.setfonts* ([_xstarname_]) +
--> _nfonts_
+* _nfonts_ = *fl.setfonts*([_xstarname_])
 
-* *fl.text_extents* (_text_) +
--> _dx_, _dy_, _w_, _h_
+* _dx_, _dy_, _w_, _h_ = *fl.text_extents*(_text_)
 
-* *fl.size* ( ) +
--> _fontsize_
+* _fontsize_ = *fl.size*( )
 
-* *fl.width* (_text_) +
--> _width_
+* _width_ = *fl.width*(_text_)
 
-
-////
-* *fl.* ( )
-
-* *fl.* (__) +
-* *fl.* ( ) +
--> __
-
-boolean
-////
 

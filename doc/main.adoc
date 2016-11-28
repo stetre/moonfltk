@@ -2,67 +2,48 @@
 === Main loop
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl.html++[Fl].#
 
-* *fl.check* ( ) +
--> _boolean_
+* _boolean_ = *fl.check*( )
 
-* *fl.damage* ( ) +
--> _boolean_
+* _boolean_ = *fl.damage*( )
 
-* *fl.display* (_string_)
+* *fl.display*(_string_)
 
-* *fl.flush* ( )
+* *fl.flush*( )
 
-* *fl.gl_visual* (<<mode, _mode_>>) +
--> _boolean_
+* _boolean_ = *fl.gl_visual*(<<mode, _mode_>>)
 
-* *fl.is_scheme* (_name_) +
--> _boolean_
+* _boolean_ = *fl.is_scheme*(_name_)
 
-* *fl.option* (<<option, _option_>>, _boolean_) +
-* *fl.option* (<<option, _option_>>) +
--> _boolean_
+* *fl.option*(<<option, _option_>>, _boolean_) +
+_boolean_ = *fl.option*(<<option, _option_>>)
 
 ////
-* *fl.readqueue* ( ) +
--> <<widget, _widget_>>
+* <<widget, _widget_>> = *fl.readqueue*( )
 ////
 
-* *fl.ready* ( ) +
--> _boolean_
+* _boolean_ = *fl.ready*( )
 
-* *fl.redraw* ( )
 
-* *fl.reload_scheme* ( )
+* *fl.redraw*( )
 
-* *fl.scheme* (_name_) +
-* *fl.scheme* ( ) +
--> _name_
+* *fl.reload_scheme*( )
 
-* *fl.run* ( ) +
--> _boolean_
+* *fl.scheme*(_name_) +
+_name_ = *fl.scheme*( )
 
-* *fl.version* ( ) +
--> _number_
+* _boolean_ = *fl.run*( )
 
-* *fl.visible_focus* (_boolean_) +
-* *fl.visible_focus* ( ) +
--> _boolean_
 
-* *fl.visual* (<<mode, _mode_>>) +
--> _boolean_
+* _number_ = *fl.version*( )
 
-* *fl.wait* ([_seconds_]) +
-*fl.wait* ( ) +
--> _boolean_ +
+
+* *fl.visible_focus*(_boolean_) +
+_boolean_ = *fl.visible_focus*( )
+
+* _boolean_ = *fl.visual*(<<mode, _mode_>>)
+
+
+* *fl.wait*([_seconds_]) +
+_boolean_ =fl.wait*( ) +
 [small]#Returns _nil_ if an error occurred.#
-
-////
-* *fl.* ( )
-
-* *fl.* (__) +
-* *fl.* ( ) +
--> __
-
-boolean
-////
 

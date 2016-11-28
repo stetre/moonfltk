@@ -4,107 +4,91 @@
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Window.html++[Fl_Window]. +
 Inherits from: <<widget, widget>>, <<group, group>>.#
 
-* *fl.window* (_x_, _y_, _w_, _h_ [, _label_]) +
-* *fl.window* (_w_, _h_ [, _label_]) +
--> _window_
+* _window_ = *fl.window*(_x_, _y_, _w_, _h_ [, _label_]) +
+_window_ = *fl.window*(_w_, _h_ [, _label_])
 
-* *window:border* (_boolean_) +
-* *window:border* ( ) +
--> _boolean_
 
-* *window:clear_border* ( )
+* *:border*(_boolean_) +
+_boolean_ = *:border*( )
 
-* *window:clear_modal_states* ( )
+* *:clear_border*( )
 
-* *window:cursor* (<<cursortype, _cursortype_>>) +
-*window:cursor* (<<rgb_image, _rgb_image_>>, _hotx_, _hoty_)
+* *:clear_modal_states*( )
 
-* *window:decorated_h* ( ) +
--> _height_
+* *:cursor*(<<cursortype, _cursortype_>>) +
+*:cursor*(<<rgb_image, _rgb_image_>>, _hotx_, _hoty_)
 
-* *window:decorated_w* ( ) +
--> _width_
+* _height_ = *:decorated_h*( ) +
+_width_ = *:decorated_w*( )
 
-* *window:default_cursor* (<<cursortype, _cursortype_>>) +
 
-* *window:fullscreen* ( )
+* *:default_cursor*(<<cursortype, _cursortype_>>) +
 
-* *window:fullscreen_active* ( ) +
--> _boolean_
+* *:fullscreen*( )
 
-* *window:fullscreen_off* ( ) +
-*window:fullscreen_off* (_x_, _y_, _w_, _h_)
+* _boolean_ = *:fullscreen_active*( )
 
-* *window:fullscreen_screens* (_top_, _bottom_, _left_, _right_)
 
-* *window:hotspot* (_widget_ [, _offscreen_]) +
-*window:hotspot* (_x_, _y_ [, _offscreen_])
+* *:fullscreen_off*( ) +
+*:fullscreen_off*(_x_, _y_, _w_, _h_)
 
-* *window:icon* (<<rgb_image, _rgb_image_>>)
+* *:fullscreen_screens*(_top_, _bottom_, _left_, _right_)
 
-* *window:iconize* ( )
+* *:hotspot*(_widget_ [, _offscreen_]) +
+*:hotspot*(_x_, _y_ [, _offscreen_])
 
-* *window:iconlabel* (_label_) +
-* *window:iconlabel* ( ) +
--> _label_
+* *:icon*(<<rgb_image, _rgb_image_>>)
 
-* *window:label* (_label_) +
-* *window:label* ( ) +
--> _label_
+* *:iconize*( )
 
-* *window:make_current* ( )
+* *:iconlabel*(_label_) +
+_label_ = *:iconlabel*( )
 
-* *window:menu_window* ( ) +
--> _boolean_
+* *:label*(_label_) +
+_label_ = *:label*( )
 
-* *window:modal* ( ) +
--> _boolean_
 
-* *window:non_modal* ( ) +
--> _boolean_
+* *:make_current*( )
 
-* *window:override* ( ) +
--> _boolean_
+* _boolean_ = *:menu_window*( ) +
+_boolean_ = *:modal*( ) +
+_boolean_ = *:non_modal*( ) +
+_boolean_ = *:override*( )
 
-* *window:set_menu_window* ( )
+* *:set_menu_window*( ) +
+*:set_modal*( ) +
+*:set_non_modal*( ) +
+*:set_override*( )
 
-* *window:set_modal* ( )
+* *:set_tooltip_window*( )
 
-* *window:set_non_modal* ( )
-
-* *window:set_override* ( )
-
-* *window:set_tooltip_window* ( )
-
-* *window:shape* (<<image, _image_>>)
+* *:shape*(<<image, _image_>>)
 
 [[window:show]]
-* *window:show* ( ) +
-*window:show* (_progname_) +
-*window:show* (_args_) +
-*window:show* (_progname_ [, _args_]) +
+* *:show*( ) +
+*:show*(_progname_) +
+*:show*(_args_) +
+*:show*(_progname_ [, _args_]) +
 [small]#_progname_: a string denoting the program name. +
 _args_: a table with the command-line arguments in its array part (i.e starting from index=1). +
 (A typical invocation is _window:show(arg[0], arg)_).#
 
-* *window:shown* ( ) +
--> _boolean_
+* _boolean_ = *:shown*( )
 
-* *window:size_range* (_minw_, _minh_ [, _maxw_ [, _maxh_ [, _dw_ [, _dh_ [, _aspect_]]]]])
 
-* *window:tooltip_window* ( ) +
--> _boolean_
+* *:size_range*(_minw_, _minh_ [, _maxw_ [, _maxh_ [, _dw_ [, _dh_ [, _aspect_]]]]])
 
-* *window:wait_for_expose* ( )
+* _boolean_ = *:tooltip_window*( )
 
-* *window:xclass* ( ) +
--> _xclass_
 
-* *window:x_root* ( ) +
--> _x_
+* *:wait_for_expose*( )
 
-* *window:y_root* ( ) +
--> _y_
+* _xclass_ = *:xclass*( )
+
+
+* _x_ = *:x_root*( ) +
+_y_ = *:y_root*( )
+
 
 
 [[double_window]]
@@ -112,11 +96,11 @@ _args_: a table with the command-line arguments in its array part (i.e starting 
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Double__Window.html++[Fl_Double_Window]. +
 Inherits from: <<widget, widget>>, <<group, group>>, <<window, window>>.#
 
-* *fl.double_window* (_x_, _y_, _w_, _h_ [, _label_]) +
-* *fl.double_window* (_w_, _h_ [, _label_]) +
--> _double_window_
+* _double_window_ = *fl.double_window*(_x_, _y_, _w_, _h_ [, _label_]) +
+_double_window_ = *fl.double_window*(_w_, _h_ [, _label_]) +
 
-* *double_window:flush* ( )
+
+* *:flush*( )
 
 //==== cairo_window
 
@@ -128,13 +112,12 @@ Inherits from: <<widget, widget>>, <<group, group>>, <<window, window>>,
 <<double_window, double_window>>. +
 No constructor (abstract class).#
 
-* *overlay_window:can_do_overlay* ( ) +
--> _boolean_
+* _boolean_ = *:can_do_overlay*( )
+
 
 [[widget.draw_overlay]]
-* *overlay_window:draw_overlay* ( )
-
-* *overlay_window:redraw_overlay* ( )
+* *:draw_overlay*( ) +
+*:redraw_overlay*( )
 
 
 [[gl_window]]
@@ -143,52 +126,42 @@ No constructor (abstract class).#
 Inherits from: <<widget, widget>>, <<group, group>>, <<window, window>>. +
 No constructor (abstract class).#
 
-////
-* *fl.gl_window* (_x_, _y_, _w_, _h_ [, _label_]) +
-* *fl.gl_window* (_w_, _h_ [, _label_]) +
--> _gl_window_
-////
+* *:can_do*( ) +
+_boolean_ = *:can_do_overlay*( )
 
-* *gl_window:can_do* ( ) +
-* *gl_window:can_do_overlay* ( ) +
--> _boolean_
 
-* *gl_window:context_valid* (_boolean_) +
-* *gl_window:context_valid* ( ) +
--> _boolean_
+* *:context_valid*(_boolean_) +
+_boolean_ = *:context_valid*( )
 
-* *gl_window:hide_overlay* ( )
 
-* *gl_window:invalidate* ( )
+* *:hide_overlay*( )
 
-* *gl_window:flush* ( )
+* *:invalidate*( )
 
-* *gl_window:make_current* ( )
+* *:flush*( )
 
-* *gl_window:make_overlay_current* ( )
+* *:make_current*( )
 
-* *gl_window:mode* (<<mode, _mode_>>) +
-* *gl_window:mode* ( ) +
--> <<mode, _mode_>>
+* *:make_overlay_current*( )
 
-* *gl_window:redraw_overlay* ( )
+* *:mode*(<<mode, _mode_>>) +
+<<mode, _mode_>> = *:mode*( )
 
-* *gl_window:swap_buffers* ( )
+* *:redraw_overlay*( )
 
-* *gl_window:valid* (_boolean_) +
-* *gl_window:valid* ( ) +
--> _boolean_
+* *:swap_buffers*( )
 
-//==== glut_window
+* *:valid*(_boolean_) +
+_boolean_ = *:valid*( )
+
 
 [[single_window]]
 ==== single_window
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Single__Window.html++[Fl_Single_Window]. +
 Inherits from: <<widget, widget>>, <<group, group>>, <<window, window>>.#
 
-* *fl.single_window* (_x_, _y_, _w_, _h_ [, _label_]) +
-* *fl.single_window* (_w_, _h_ [, _label_]) +
--> _single_window_
+* _single_window_ = *fl.single_window*(_x_, _y_, _w_, _h_ [, _label_]) +
+_single_window_ = *fl.single_window*(_w_, _h_ [, _label_])
 
 
 [[menu_window]]
@@ -196,19 +169,18 @@ Inherits from: <<widget, widget>>, <<group, group>>, <<window, window>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Menu__Window.html++[Fl_Menu_Window]. +
 Inherits from: <<widget, widget>>, <<group, group>>, <<window, window>>.#
 
-* *fl.menu_window* (_x_, _y_, _w_, _h_ [, _label_]) +
-* *fl.menu_window* (_w_, _h_ [, _label_]) +
--> _menu_window_
+* _menu_window_ = *fl.menu_window*(_x_, _y_, _w_, _h_ [, _label_]) +
+_menu_window_ = *fl.menu_window*(_w_, _h_ [, _label_])
 
-* *menu_window:clear_overlay* ( )
+* *:clear_overlay*( )
 
-* *menu_window:erase* ( )
+* *:erase*( )
 
-* *menu_window:flush* ( )
+* *:flush*( )
 
-* *menu_window:set_overlay* ( )
+* *:set_overlay*( )
 
-* *menu_window:overlay* ( ) +
--> _boolean_
+* _boolean_ = *:overlay*( )
+
 
 

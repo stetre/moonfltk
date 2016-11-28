@@ -3,42 +3,30 @@
 
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/group__fl__clipboard.html++[Selection & Clipboard functions].#
 
-* *fl.add_clipboard_notify* ([_func_]) +
+* *fl.add_clipboard_notify*([_func_]) +
 [small]#Registers _func_ as 'clipboard notify callback'. If _func_ is none or _nil_, unregisters the current callback. +
 The callback is executed as *func(source)* where _source_ (a string) may be either
 '_selection buffer_' or '_clipboard_'.#
 
-* *fl.clipboard_contains* (<<clipboardtype, _clipboardtype_>>) +
--> _boolean_
+* _boolean_ = *fl.clipboard_contains*(<<clipboardtype, _clipboardtype_>>)
 
-* *fl.copy* (_text_ [, _destination_]) +
+
+* *fl.copy*(_text_ [, _destination_]) +
 [small]#_destination_: '_selection buffer_' or '_clipboard_'.#
 
-* *fl.dnd* ( )
+* *fl.dnd*( )
 
-* *fl.dnd_text_ops* (_boolean_) +
-* *fl.dnd_text_ops* ( ) +
--> _boolean_
+* *fl.dnd_text_ops*(_boolean_) +
+_boolean_ = *fl.dnd_text_ops*( )
 
-* *fl.paste* (_receiver_, _source_ [, <<clipboardtype, _clipboardtype_>>]) +
+* *fl.paste*(_receiver_, _source_ [, <<clipboardtype, _clipboardtype_>>]) +
 [small]#_receiver_: a <<widget, _widget_>>. +
 _destination_: '_selection buffer_' or '_clipboard_'.#
 
-* *fl.remove_clipboard_notify* ( ) +
+* *fl.remove_clipboard_notify*( ) +
 [small]#Unregisters the current 'clipboard notify callback', if any.# 
 
-* *fl.selection* (_owner_, _text_) +
+* *fl.selection*(_owner_, _text_) +
 [small]#_owner_: a <<widget, _widget_>>.#
-
-
-////
-* *fl.clipboard_* ( )
-
-* *fl.clipboard_* (__) +
-* *fl.clipboard_* ( ) +
--> __
-
-boolean
-////
 
 

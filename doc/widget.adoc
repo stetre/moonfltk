@@ -5,212 +5,161 @@
 [small]#Rfr: http://www.fltk.org/doc-1.3/classFl__Widget.html[Fl_Widget]. +
 No constructor (abstract class).#
 
-* *widget:activate* ( )
+* *:activate*( )
 
-* *widget:active* ( ) +
--> _boolean_
+* _boolean_ = *:active*( )
 
-* *widget:active_r* ( ) +
--> _boolean_
+* _boolean_ = *:active_r*( )
 
-* *widget:align* (<<alignment, _alignment_>>) +
-* *widget:align* ( ) +
--> <<alignment, _alignment_>>
+* *:align*(<<alignment, _alignment_>>) +
+<<alignment, _alignment_>> = *:align*( )
 
-* *widget:argument* (_arg_) +
-* *widget:argument* ( ) +
--> _arg_ +
+
+* *:argument*(_arg_) +
+_arg_ = *:argument*( ) +
 [small]#_arg_: any Lua value.#
 
-* *widget:box* (<<boxtype, _boxtype_>>) +
-* *widget:box* ( ) +
+* *:box*(<<boxtype, _boxtype_>>) +
+* *:box*( ) +
 -> <<boxtype, _boxtype_>>
 
-[[widget:callback]]
-* *widget:callback* (_func_ [, _arg_]) +
-* *widget:callback* ( ) +
--> _func_ +
+[[widget.callback]]
+* *:callback*(_func_ [, _arg_]) +
+_func_ = *:callback*( ) +
 [small]#The _func_ callback (a Lua function) is executed as *func(widget, arg)*. +
 The optional argument _arg_ may be any Lua value.#
 
-* *widget:changed* ( ) +
--> _boolean_
+* _boolean_ = *:changed*( )
 
-* *widget:clear_active* ( )
+* *:clear_active*( ) +
+*:clear_changed*( ) +
+*:clear_damage*(<<damagebits, _damagebits_>>) +
+*:clear_output*( ) +
+*:clear_visible*( ) +
+*:clear_visible_focus*( )
 
-* *widget:clear_changed* ( )
+* *:color*(<<color, _bgcolor_>> [, <<color, _selcolor_>>]) +
+<<color, _bgcolor_>> = *:color*( )
 
-* *widget:clear_damage* (<<damagebits, _damagebits_>>)
+* _boolean_ = *:contains*(_widget_)
 
-* *widget:clear_output* ( )
+* *:damage*(<<damagebits, _damagebits_>>)
+*:damage*(_x_, _y_, _w_, _h_, <<damagebits, _damagebits_>>) +
+<<damagebits, _damagebits_>> = *:damage*( )
 
-* *widget:clear_visible* ( )
+* *:deactivate*( )
 
-* *widget:clear_visible_focus* ( )
+* *:deimage*(<<image, _image_>>) +
+ <<image, _image_>> = *:deimage*( )
 
-* *widget:color* (<<color, _bgcolor_>> [, <<color, _selcolor_>>]) +
-* *widget:color* ( ) +
--> <<color, _bgcolor_>>
-
-* *widget:contains* (_widget_) +
--> _boolean_
-
-* *widget:damage* (<<damagebits, _damagebits_>>) +
-* *widget:damage* (_x_, _y_, _w_, _h_, <<damagebits, _damagebits_>>) +
-* *widget:damage* ( ) +
--> <<damagebits, _damagebits_>>
-
-* *widget:deactivate* ( )
-
-* *widget:deimage* (<<image, _image_>>) +
-* *widget:deimage* ( ) +
--> <<image, _image_>>
-
-* *widget:do_callback* ([_arg_]) +
+* *:do_callback*([_arg_]) +
 [small]#The optional argument _arg_ may be any Lua value. +
 If _arg_ is not passed, the current argument is used. +
 If _arg_=_nil_, the callback receives _nil_ as argument.#
 
 [[widget.draw]]
-* *widget:draw* ( )
+* *:draw*( )
 
-* *widget:draw_label* ( ) +
-* *widget:draw_label* (_x_, _y_, _w_, _h_ [, <<alignment, _alignment_>>]) +
-
-* *widget:h* ( ) +
--> _h_
+* *:draw_label*( ) +
+*:draw_label*(_x_, _y_, _w_, _h_ [, <<alignment, _alignment_>>])
 
 [[widget.handle]]
-* *widget:handle* (<<event, _event_>>) +
--> _boolean_
+* _boolean_ = *:handle*(<<event, _event_>>)
 
 [[widget.hide]]
-* *widget:hide* ( )
+* *:hide*( )
 
-* *widget:image* (<<image, _image_>>) +
-* *widget:image* ( ) +
--> <<image, _image_>>
+* *:image*(<<image, _image_>>) +
+<<image, _image_>> = *:image*( )
 
-* *widget:inside* (_widget_) +
--> _boolean_
+* _boolean_ = *:inside*(_widget_)
 
-* *widget:label* (_label_) +
-* *widget:label* ( ) +
--> _label_
+* *:label*(_label_) +
+_label_ = *:label*( )
 
-* *widget:labelcolor* (<<color, _color_>>) +
-* *widget:labelcolor* ( ) +
--> <<color, _color_>>
+* *:labelcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:labelcolor*( )
 
-* *widget:labelfont* (<<font, _font_>>) +
-* *widget:labelfont* ( ) +
--> <<font, _font_>>
+* *:labelfont*(<<font, _font_>>) +
+<<font, _font_>> = *:labelfont*( )
 
-* *widget:labelsize* (_fontsize_) +
-* *widget:labelsize* ( ) +
--> _fontsize_
+* *:labelsize*(_fontsize_) +
+_fontsize_ = *:labelsize*( )
 
-* *widget:labeltype* (<<labeltype, _labeltype_>>) +
-* *widget:labeltype* ( ) +
--> <<labeltype, _labeltype_>>
+* *:labeltype*(<<labeltype, _labeltype_>>) +
+<<labeltype, _labeltype_>> = *:labeltype*( )
 
-* *widget:measure_label* ( ) +
--> _width_, _height_
+* _width_, _height_ = *:measure_label*( )
 
-* *widget:output* ( ) +
--> _boolean_
+* _boolean_ = *:output*( )
 
-* *widget:parent* ( ) +
--> _group_
+* _group_ = *:parent*( )
 
-* *widget:position* (_x_, _y_)
+* *:position*(_x_, _y_)
 
-* *widget:redraw* ( )
-
-* *widget:redraw_label* ( )
+* *:redraw*( ) +
+*:redraw_label*( )
 
 [[widget.resize]]
-* *widget:resize* (_x_, _y_, _w_, _h_)
+* *:resize*(_x_, _y_, _w_, _h_)
 
-* *widget:selection_color* (<<color, _color_>>) +
-* *widget:selection_color* ( ) +
--> <<color, _color_>>
+* *:selection_color*(<<color, _color_>>) +
+<<color, _color_>> = *:selection_color*( )
 
-* *widget:set_active* ( )
-
-* *widget:set_changed* ( )
-
-* *widget:set_output* ( )
-
-* *widget:set_visible* ( )
-
-* *widget:set_visible_focus* ( )
+* *:set_active*( ) +
+*:set_changed*( ) +
+*:set_output*( ) +
+*:set_visible*( ) +
+*:set_visible_focus*( ) +
 
 [[widget.show]]
-* *widget:show* ( )
+* *:show*( )
 
-* *widget:size* (_w_, _h_)
+* *:size*(_w_, _h_)
 
-* *widget:take_focus* ( ) +
--> _boolean_
+* _boolean_ = *:take_focus*( )
 
-* *widget:takesevents* ( ) +
--> _boolean_
+* _boolean_ = *:takesevents*( )
 
-* *widget:tooltip* (_text_) +
-* *widget:tooltip* ( ) +
--> _text_
+* *:tooltip*(_text_) +
+_text_ = *:tooltip*( )
 
-* *widget:top_window* ( ) +
--> <<window, _window_>>
+* <<window, _window_>> = *:top_window*( )
 
-* *widget:top_window_offset* ( ) +
--> _xoffset_, _yoffset_
+* _xoffset_, _yoffset_ = *:top_window_offset*( )
 
-* *widget:type* (<<rtti, _rtti_>>) +
-* *widget:type* ( ) +
--> <<rtti, _rtti_>>
+* *:type*(<<rtti, _rtti_>>) +
+<<rtti, _rtti_>> = *:type*( )
 
-* *widget:userdata*: alias for *widget:argument*
+* *:userdata*: alias for *:argument*
 
-* *widget:visible* ( ) +
--> _boolean_
+* _boolean_ = *:visible*( )
 
-* *widget:visible_focus* (_boolean_) +
-* *widget:visible_focus* ( ) +
--> _boolean_
+* *:visible_focus*(_boolean_) +
+_boolean_ = *:visible_focus*( )
 
-* *widget:visible_r* ( ) +
--> _boolean_
+* _boolean_ = *:visible_r*( )
 
-* *widget:w* ( ) +
--> _w_
+* <<whenflags, _whenflags_>> = *:when*(<<whenflags, _whenflags_>>)
 
-* *widget:when* (<<whenflags, _whenflags_>>) +
--> <<whenflags, _whenflags_>>
+* <<window, _window_>> = *:window*( )
 
-* *widget:window* ( ) +
--> <<window, _window_>>
-
-* *widget:x* ( ) +
--> _x_
-
-* *widget:xywh* ( ) +
--> _x_, _y_, _w_, _h_
-
-* *widget:y* ( ) +
--> _y_
+* _x_, _y_, _w_, _h_ = *:xywh*( ) +
+_x_ = *:x*( ) +
+_y_ = *:y*( ) +
+_h_ = *:h*( ) +
+_w_ = *:w*( )
 
 '''
 
 Protected methods, exposed for subclassing:
 
-* *widget:draw_backdrop* ( )
+* *:draw_backdrop*( )
 
-* *widget:draw_box* ( ) +
-* *widget:draw_box* (<<boxtype, _boxtype_>>, <<color, _color_>>) +
-* *widget:draw_box* (<<boxtype, _boxtype_>>, _x_, _y_, _w_, _h_, <<color, _color_>>)
+* *:draw_box*( ) +
+*:draw_box*(<<boxtype, _boxtype_>>, <<color, _color_>>) +
+*:draw_box*(<<boxtype, _boxtype_>>, _x_, _y_, _w_, _h_, <<color, _color_>>)
 
-* *widget:draw_focus* ( ) +
-* *widget:draw_focus* (<<boxtype, _boxtype_>>, _x_, _y_, _w_, _h_, <<color, _color_>>)
+* *:draw_focus*( ) +
+*:draw_focus*(<<boxtype, _boxtype_>>, _x_, _y_, _w_, _h_, <<color, _color_>>)
 

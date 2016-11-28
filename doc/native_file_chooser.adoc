@@ -5,68 +5,45 @@
 RTTI: '_file_' (default), '_directory_', '_multi file_', '_multi directory_', 
 '_save file_', '_save directory_'.#
 
-* *fl.native_file_chooser* ([<<rtti, _rtti_>>]) +
--> _native_file_chooser_
+* _native_file_chooser_ = *fl.native_file_chooser*([<<rtti, _rtti_>>])
 
-* *native_file_chooser:count* ( ) +
--> _nitems_
+* _nitems_ = *:count*( )
 
-* *native_file_chooser:directory* (_dirname_) +
-* *native_file_chooser:directory* ( ) +
--> _dirname_
 
-* *native_file_chooser:errmsg* ( ) +
--> _errmsg_
+* *:directory*(_dirname_) +
+_dirname_ = *:directory*( )
 
-* *native_file_chooser:filenames* ([_i_ = 1]) +
--> _filename_ +
+* _errmsg_ = *:errmsg*( )
+
+* _filename_  = *:filenames*([_i_ = 1]) +
 [small]#The optional _i_ argument must be in the range _1 .. count()_.#
 
-* *native_file_chooser:filenames* () +
--> _filename1_, ..., _filenameN_ +
+* _filename1_, ..., _filenameN_ = *:filenames*() +
 [small]#Returns the names of all the selected items (N=count()).#
 
-* *native_file_chooser:filter* (_filter_) +
-* *native_file_chooser:filter* ( ) +
--> _filter_
+* *:filter*(_filter_) +
+_filter_ = *:filter*( )
 
-* *native_file_chooser:filter_value* (_i_) +
-* *native_file_chooser:filter_value* ( ) +
--> _i_ +
+* *:filter_value*(_i_) +
+_i_ = *:filter_value*( ) +
 [small]#The _i_ argument must be in the range _1 .. filters()_.#
 
-* *native_file_chooser:filters* ( ) +
--> _nfilters_
+* _nfilters_ = *:filters*( )
 
-* *native_file_chooser:options* (_opt1_, _..._, _optN_) +
-* *native_file_chooser:options* ( ) +
--> _opt1_, _..._, _optN_ +
+* *:options*(_opt1_, _..._, _optN_) +
+_opt1_, _..._, _optN_ = *:options*( ) +
 [small]#_opt_: '_no options_', '_saveas confirm_', '_new folder_', '_preview_',
 '_use filter ext_'.#
 
-* *native_file_chooser:preset_file* (_filename_) +
-* *native_file_chooser:preset_file* ( ) +
--> _filename_
+* *:preset_file*(_filename_) +
+_filename_ = *:preset_file*( )
 
-* *native_file_chooser:show* ( ) +
--> _retval_ +
+* _retval_ = *:show*( ) +
 [small]#_retval_: '_ok_', '_cancel_' or error message (same as _errmsg()_).#
 
-* *native_file_chooser:title* (_title_) +
-* *native_file_chooser:title* ( ) +
--> _title_
+* *:title*(_title_) +
+_title_ = *:title*( )
 
-* *native_file_chooser:type* (<<rtti, _rtti_>>) +
-* *native_file_chooser:type* ( ) +
--> <<rtti, _rtti_>>
-
-
-////
-* *native_file_chooser:* ( )
-
-* *native_file_chooser:* (__) +
-* *native_file_chooser:* ( ) +
--> __
-
-////
+* *:type*(<<rtti, _rtti_>>) +
+<<rtti, _rtti_>> = *:type*( )
 

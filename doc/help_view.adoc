@@ -5,77 +5,58 @@
 Inherits from: <<widget, widget>>, <<group, group>>.#
 
 
-* *fl.help_view* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _help_view_
+* _help_view_ = *fl.help_view*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *help_view:clear_selection* ( )
+* *:clear_selection*( )
 
-* *help_view:directory* ( ) +
--> _dirname_
+* _dirname_ = *:directory*( )
 
-* *help_view:filename* ( ) +
--> _filename_
+* _filename_ = *:filename*( )
 
-* *help_view:find* (_string_ [, _pos_]) +
--> _line_ +
+* _line_  = *:find*(_string_ [, _pos_]) +
 [small]#Returns _nil_ if _string_ is not found.#
 
-* *help_view:leftline* (_p_) +
-* *help_view:leftline* ( ) +
--> _p_
+* *:leftline*(_p_) +
+_p_ = *:leftline*( )
 
-* *help_view:link* (_func_) +
+
+* *:link*(_func_) +
 [small]#The _func_ callback (a function) is executed as *func(help_view, uri)* where
 _help_view_ is this widget and _uri_ is an URI or a pathname.
 It must return a pahname that can be opened as a local file, or _nil_ 
 (see Fl_Help_View::link() in the FLTK manual for more details).#
 
-* *help_view:load* (_filename_)
+* *:load*(_filename_)
 
-* *help_view:scrollbar_size* (_pixels_) +
-* *help_view:scrollbar_size* ( ) +
--> _pixels_ +
+* *:scrollbar_size*(_pixels_) +
+_pixels_  = *:scrollbar_size*( ) +
 [small]#Do not use this function, use <<fl.scrollbar_size, fl.scrollbar_size>>( ) instead.#
 
-* *help_view:select_all* ( )
+* *:select_all*( )
 
-* *help_view:size* (_w_, _h_) +
-* *help_view:size* ( ) +
--> _size_
-
-* *help_view:textcolor* (<<color, _color_>>) +
-* *help_view:textcolor* ( ) +
--> <<color, _color_>>
-
-* *help_view:textfont* (<<font, _font_>>) +
-* *help_view:textfont* ( ) +
--> <<font, _font_>>
-
-* *help_view:textsize* (_fontsize_) +
-* *help_view:textsize* ( ) +
--> _fontsize_
-
-* *help_view:title* ( ) +
--> _title_
-
-* *help_view:topline* (_line_) +
-*help_view:topline* (_name_) +
-* *help_view:topline* ( ) +
--> _line_
-
-* *help_view:value* (_text_) +
-* *help_view:value* ( ) +
--> _text_
+* *:size*(_w_, _h_) +
+_size_ = *:size*( )
 
 
-////
-* *help_view:* ( )
+* *:textcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:textcolor*( )
 
-* *help_view:* (__) +
-* *help_view:* ( ) +
--> __
+* *:textfont*(<<font, _font_>>) +
+<<font, _font_>> = *:textfont*( )
 
-boolean
-////
+* *:textsize*(_fontsize_) +
+_fontsize_ = *:textsize*( )
+
+
+* _title_ = *:title*( )
+
+
+* *:topline*(_line_) +
+*:topline*(_name_) +
+_line_ = *:topline*( )
+
+
+* *:value*(_text_) +
+_text_ = *:value*( )
 
 

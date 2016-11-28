@@ -23,197 +23,158 @@ buf:replace(1,0,"xxx")      --  replaces an empty range (i.e. inserts) before po
 print(buf:text())           --> xxxhello
 ----
 
-* *fl.text_buffer* ([_reqsize_ [, _prefgapsize_]]) +
--> _text_buffer_
+* _text_buffer_ = *fl.text_buffer*([_reqsize_ [, _prefgapsize_]])
 
-* *text_buffer:append* (_text_)
 
-* *text_buffer:appendfile* (_filename_ [, _buflen_]) +
--> _ok_, _errmsg_
+* *:append*(_text_)
 
-* *text_buffer:byte_at* (_pos_) +
--> _byte_ +
+* _ok_, _errmsg_ = *:appendfile*(_filename_ [, _buflen_])
+
+* _byte_  = *:byte_at*(_pos_) +
 [small]#Returns the raw byte found at _pos_.#
 
-* *text_buffer:can_undo* (_boolean_)
+* *:can_undo*(_boolean_)
 
-* *text_buffer:char_at* (_pos_) +
--> _char_, _codepoint_ +
+* _char_, _codepoint_ = *:char_at*(_pos_) +
 [small]#Returns the UTF-8 encoded character containing the byte at _pos_, and its codepoint. 
 The _pos_ argument need not be at a character boundary (the method takes care of
 aligning it).#
 
-* *text_buffer:copy* (_from_, _start_, _end_, _pos_) +
+* *:copy*(_from_, _start_, _end_, _pos_) +
 [small]#_from_ is the source _text_buffer_, (_start_, _end_) is the range to be copied
 and _pos_ is the destination position.#
 
-* *text_buffer:count_displayed_characters* (_linestartpos_, _targetpos_) +
--> _nchars_
+* _nchars_ = *:count_displayed_characters*(_linestartpos_, _targetpos_)
 
-* *text_buffer:count_lines* (_startpos_, _endpos_) +
--> _nlines_ +
+
+* _nlines_  = *:count_lines*(_startpos_, _endpos_) +
 [small]#This actually counts the number of newlines ('_\n_').
 Notice that the total number of lines is _count_lines(1) + 1.#
 
-* *text_buffer:findchar_backward* (_start_, _char_) +
-*text_buffer:findchar_forward* (_start_, _char_) +
--> _pos_ +
+* *:findchar_backward*(_start_, _char_) +
+_pos_ = *:findchar_forward*(_start_, _char_) +
 [small]#_char_: UTF8 encoded character. Returns _nil_ if _char_ is not found.#
 
-* *text_buffer:highlight* (_start_ [, _end_]) +
-* *text_buffer:highlight* ( ) +
--> _boolean_
+* *:highlight*(_start_ [, _end_]) +
+_boolean_ = *:highlight*( )
 
-* *text_buffer:highlight_position* ( ) +
--> _start_, _end_
+* _start_, _end_ = *:highlight_position*( )
 
-* *text_buffer:highlight_text* ( ) +
--> _text_
+* _text_ = *:highlight_text*( )
 
-* *text_buffer:input_file_was_transcoded* ( ) +
--> _boolean_
 
-* *text_buffer:insert* (_pos_, _text_)
+* _boolean_ = *:input_file_was_transcoded*( )
 
-* *text_buffer:insertfile* (_filename_, _pos_ [, _buflen_]) +
--> _ok_, _errmsg_
 
-* *text_buffer:length* ( ) +
--> _nbytes_
+* *:insert*(_pos_, _text_)
 
-* *text_buffer:line_end* (_pos_) +
--> _end_
+* _ok_, _errmsg_ = *:insertfile*(_filename_, _pos_ [, _buflen_])
 
-* *text_buffer:line_start* (_pos_) +
--> _start_
+* _nbytes_ = *:length*( )
 
-* *text_buffer:line_text* (_pos_) +
--> _text_
 
-* *text_buffer:loadfile* (_filename_ [, _buflen_]) +
--> _ok_, _errmsg_
+* _end_ = *:line_end*(_pos_)
 
-* *text_buffer:next_char* ([_pos_]) +
--> _start_, _end_ +
+
+* _start_ = *:line_start*(_pos_)
+
+
+* _text_ = *:line_text*(_pos_)
+
+
+* _ok_, _errmsg_ = *:loadfile*(_filename_ [, _buflen_])
+
+* _start_, _end_ = *:next_char*([_pos_]) +
 [small]#Returns the boundaries of the character following the one containing the byte at _pos_,
 or _nil_ if there are none. If _pos_ is none or _nil_, returns the 
 boundaries of the first character (i.e. _start_ = 1, _end_ = whatever).# 
 
 
-* *text_buffer:outputfile* (_filename_, _start_ [, _end_ [, _buflen_]]) +
--> _ok_, _errmsg_
+* _ok_, _errmsg_ = *:outputfile*(_filename_, _start_ [, _end_ [, _buflen_]])
 
-* *text_buffer:prev_char* (_pos_) +
--> _start_, _end_ +
+* _start_, _end_ = *:prev_char*(_pos_) +
 [small]#Returns the boundaries of the character preceding the one containing the byte at _pos_,
 or _nil_ if there are none. If _pos_ is none or _nil_, returns the 
 boundaries of the last character (i.e. _start_ = whatever, _end_ = _length()_).# 
 
 
-* *text_buffer:remove* (_start_ [, _end_])
+* *:remove*(_start_ [, _end_]) +
+*:remove_secondary_selection*( ) +
+*:remove_selection*( )
 
-* *text_buffer:remove_secondary_selection* ( )
+* *:replace*(_start_, _end_, _text_) +
+*:replace_secondary_selection*(_text_) +
+*:replace_selection*(_text_)
 
-* *text_buffer:remove_selection* ( )
+* _pos_ = *:rewind_lines*(_start_, _nlines_)
 
-* *text_buffer:replace* (_start_, _end_, _text_)
 
-* *text_buffer:replace_secondary_selection* (_text_)
+* _ok_, _errmsg_ = *:savefile*(_filename_ [, _buflen_])
 
-* *text_buffer:replace_selection* (_text_)
-
-* *text_buffer:rewind_lines* (_start_, _nlines_) +
--> _pos_
-
-* *text_buffer:savefile* (_filename_ [, _buflen_]) +
--> _ok_, _errmsg_
-
-* *text_buffer:search_backward* (_start_, _text_ [, _matchcase_]) +
-*text_buffer:search_forward* (_start_, _text_ [, _matchcase_]) +
--> _pos_ +
+* _pos_ = *:search_backward*(_start_, _text_ [, _matchcase_]) +
+_pos_ = *:search_forward*(_start_, _text_ [, _matchcase_]) +
 [small]#Returns _nil_ if _text_ is not found.#
 
-* *text_buffer:secondary_select* (_start_ [, _end_])
+* *:secondary_select*(_start_ [, _end_])
 
-* *text_buffer:secondary_selected* ( ) +
--> _boolean_
+* _boolean_ = *:secondary_selected*( )
 
-* *text_buffer:secondary_selection_position* ( ) +
--> _start_, _end_
+* _start_, _end_ = *:secondary_selection_position*( )
 
-* *text_buffer:secondary_selection_text* ( ) +
--> _text_
+* _text_ = *:secondary_selection_text*( )
 
-* *text_buffer:secondary_unselect* ( )
 
-* *text_buffer:select* (_start_ [, _end_])
+* *:secondary_unselect*( )
 
-* *text_buffer:selected* ( ) +
--> _boolean_
+* *:select*(_start_ [, _end_])
 
-* *text_buffer:selection_position* ( ) +
--> _start_, _end_
+* _boolean_ = *:selected*( )
 
-* *text_buffer:selection_text* ( ) +
--> _text_
 
-* *text_buffer:skip_displayed_characters* (_linestart_, _nchars_) +
--> _offset_
+* _start_, _end_ = *:selection_position*( )
 
-* *text_buffer:skip_lines* (_start_, _nlines_) +
--> _pos_
+* _text_ = *:selection_text*( )
 
-* *text_buffer:tabs_distance* (_n_) +
-* *text_buffer:tabs_distance* ( ) +
--> _n_
 
-* *text_buffer:text* (_text_) +
-* *text_buffer:text* ( ) +
--> _text_
+* _offset_ = *:skip_displayed_characters*(_linestart_, _nchars_)
 
-* *text_buffer:text_range* (_start_ [, _end_]) +
--> _text_ +
+* _pos_ = *:skip_lines*(_start_, _nlines_)
+
+* *:tabs_distance*(_n_) +
+_n_ = *:tabs_distance*( )
+
+* *:text*(_text_) +
+_text_ = *:text*( )
+
+* _text_  = *:text_range*(_start_ [, _end_]) +
 [small]#Returns the text between _start_ and _end_. 
 Raises an error if _start_ is greater than _end_ or than the buffer's length.#
 
-* *text_buffer:undo* ( ) +
--> _pos_
+* _pos_ = *:undo*( )
 
-* *text_buffer:unhighlight* ( )
 
-* *text_buffer:unselect* ( )
+* *:unhighlight*( )
 
-* *text_buffer:utf8_align* (_pos_) +
--> _pos_
+* *:unselect*( )
 
-* *text_buffer:word* (_pos_) +
--> _start_, _end_
+* _pos_ = *:utf8_align*(_pos_)
 
-* *text_buffer:word_at* (_pos_) +
--> _text_ +
+* _start_, _end_ = *:word*(_pos_)
+
+* _text_  = *:word_at*(_pos_) +
 [small]#Returns the UTF-8 encoded word containing the byte at _pos_.#
 
-
-////
-* *text_buffer:* ( )
-
-* *text_buffer:* (__) +
-* *text_buffer:* ( ) +
--> __
-
-boolean
-////
 
 '''
 *Modify and predelete callbacks*
 
 //@@TODO spiegare che ce n'è una sola ed eventualmente va multiplexata in Lua...
 
-* *text_buffer:call_modify_callback* ( )
+* *:call_modify_callback*( )
 
-* *text_buffer:call_predelete_callback* ( )
+* *:call_predelete_callback*( )
 
-* *text_buffer:modify_callback* (_func_ [, _argument_]) +
+* *:modify_callback*(_func_ [, _argument_]) +
 [small]#If _func_ = _nil_, unregisters the current callback and argument, otherwise
 registers _func_ (a function) as the 'modify callback' for this text_buffer. 
 The optional _argument_ may be any valid Lua type. +
@@ -221,7 +182,7 @@ The callback is executed as *func(buf, pos, nins, ndel, nrest, deltext, argument
 where _buf_ is this text_buffer, and the other parameters have the
 same meaning as in the *Fl_Text_Modify_Cb* type.#
 
-* *text_buffer:predelete_callback* (_func_ [, _argument_]) +
+* *:predelete_callback*(_func_ [, _argument_]) +
 [small]#If _func_ = _nil_, unregisters the current callback and argument, otherwise
 registers _func_ (a function) as the 'predelete callback' for this text_buffer. 
 The optional _argument_ may be any valid Lua type. +

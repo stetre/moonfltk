@@ -4,57 +4,37 @@
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Help__Dialog.html++[Fl_Help_Dialog]. +
 Inherits from: - .#
 
-* *fl.help_dialog* ( ) +
--> _help_dialog_
+* _help_dialog_ = *fl.help_dialog*( )
 
-* *help_dialog:h* ( ) +
--> _h_
+* *:hide*( )
 
-* *help_dialog:hide* ( )
+* *:load*(_filename_)
 
-* *help_dialog:load* (_filename_)
+* *:position*(_x_, _y_)
 
-* *help_dialog:position* (_x_, _y_)
+* *:resize*(_x_, _y_, _w_, _h_)
 
-* *help_dialog:resize* (_x_, _y_, _w_, _h_)
-
-* *help_dialog:show* ( ) +
-*help_dialog:show* (_progname_) +
-*help_dialog:show* (_args_) +
-*help_dialog:show* (_progname_ [, _args_]) +
+* *:show*( ) +
+*:show*(_progname_) +
+*:show*(_args_) +
+*:show*(_progname_ [, _args_]) +
 [small]#Same as <<window:show, window:show()>>( ).#
 
-* *help_dialog:textsize* (_fontsize_) +
-* *help_dialog:textsize* ( ) +
--> _fontsize_
+* *:textsize*(_fontsize_) +
+_fontsize_ = *:textsize*( )
 
-* *help_dialog:topline* (_name_) +
-*help_dialog:topline* (_n_)
 
-* *help_dialog:value* (_text_) +
-* *help_dialog:value* ( ) +
--> _text_
+* *:topline*(_name_) +
+*:topline*(_n_)
 
-* *help_dialog:visible* ( ) +
--> _boolean_
+* *:value*(_text_) +
+_text_ = *:value*( )
 
-* *help_dialog:w* ( ) +
--> _w_
+* _boolean_ = *:visible*( )
 
-* *help_dialog:x* ( ) +
--> _x_
-
-* *help_dialog:y* ( ) +
--> _y_
-
-////
-* *help_dialog:* ( )
-
-* *help_dialog:* (__) +
-* *help_dialog:* ( ) +
--> __
-
-boolean
-////
+* _x_ = *:x*( ) +
+_y_ = *:y*( ) +
+_w_ = *:w*( ) +
+_h_ = *:h*( )
 
 

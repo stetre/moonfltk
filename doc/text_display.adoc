@@ -8,28 +8,26 @@ Inherits from: <<widget, widget>>, <<group, group>>.#
 IMPORTANT: See <<text_buffer, text_buffer>> indexing.
 
 
-* *fl.text_display* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _text_display_
+* _text_display_ = *fl.text_display*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *text_display:buffer* (<<text_buffer, _text_buffer_>>)
-* *text_display:buffer* ( ) +
--> <<text_buffer, _text_buffer_>>
 
-* *text_display:count_lines* (_start_ [, _end_ [, _islinestart_]]) +
--> _nlines_
+* *:buffer*(<<text_buffer, _text_buffer_>>)
+<<text_buffer, _text_buffer_>> = *:buffer*( )
 
-* *text_display:cursor_color* (<<color, _color_>>) +
-* *text_display:cursor_color* ( ) +
--> <<color, _color_>>
+* _nlines_ = *:count_lines*(_start_ [, _end_ [, _islinestart_]])
 
-* *text_display:cursor_style* (<<cursorstyle,_cursorstyle_>>)
 
-* *text_display:hide_cursor* ( )
+* *:cursor_color*(<<color, _color_>>) +
+<<color, _color_>> = *:cursor_color*( )
 
-* *text_display:highlight_data* (_stylebuffer_, _styletable_ [, _unfinishedstyle_, _func_]) +
+* *:cursor_style*(<<cursorstyle,_cursorstyle_>>)
+
+* *:hide_cursor*( )
+
+* *:highlight_data*(_stylebuffer_, _styletable_ [, _unfinishedstyle_, _func_]) +
 [small]#_stylebuffer_: a <<text_buffer, _text_buffer_>>. +
 _styletable_: an array (integer-indexed table) of style-describing arrays, each of which in the
-form: *{ color, font, fontsize, fontattr }* (_fontattr_ is optional and defaults to 0). 
+form: *{ color, font, fontsize, fontattr }*(_fontattr_ is optional and defaults to 0). 
 Characters in the _stylebuffer_ indicate styles in the _styletable_: 'A', denotes the first
 style, 'B' the second, and so on (up to '~'). +
 _unfinishedstyle_: (optional) the character denoting the unfinished style that triggers the 
@@ -37,122 +35,90 @@ callback below. +
 _func_: (optional) callback triggered by _unfinishedstyle_. The callback is executed as
 *func(text_display, pos)* where _text_display_ is this widget.#
 
-* *text_display:in_selection* (_x_, _y_) +
--> _boolean_
+* _boolean_ = *:in_selection*(_x_, _y_)
 
-* *text_display:insert* (_text_)
 
-* *text_display:insert_position* (_pos_) +
-* *text_display:insert_position* ( ) +
--> _pos_
+* *:insert*(_text_)
 
-* *text_display:line_end* (_pos_ [, _islinestart_]) +
--> _pos_
+* *:insert_position*(_pos_) +
+_pos_ = *:insert_position*( )
 
-* *text_display:line_start* (_pos_) +
--> _pos_
 
-* *text_display:linenumber_align* (<<alignment,_alignment_>>) +
-* *text_display:linenumber_align* ( ) +
--> <<alignment,_alignment_>>
+* _pos_ = *:line_end*(_pos_ [, _islinestart_])
 
-* *text_display:linenumber_bgcolor* (<<color, _color_>>) +
-* *text_display:linenumber_bgcolor* ( ) +
--> <<color, _color_>>
 
-* *text_display:linenumber_fgcolor* (<<color, _color_>>) +
-* *text_display:linenumber_fgcolor* ( ) +
--> <<color, _color_>>
+* _pos_ = *:line_start*(_pos_)
 
-* *text_display:linenumber_font* (<<font,_font_>>) +
-* *text_display:linenumber_font* ( ) +
--> <<font,_font_>>
 
-* *text_display:linenumber_format* (_fmt_) +
-* *text_display:linenumber_format* ( ) +
--> _fmt_
+* *:linenumber_align*(<<alignment,_alignment_>>) +
+<<alignment,_alignment_>> = *:linenumber_align*( )
 
-* *text_display:linenumber_size* (_fontsize_) +
-* *text_display:linenumber_size* ( ) +
--> _fontsize_
+* *:linenumber_bgcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:linenumber_bgcolor*( )
 
-* *text_display:linenumber_width* (_w_) +
-* *text_display:linenumber_width* ( ) +
--> _w_
+* *:linenumber_fgcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:linenumber_fgcolor*( )
 
-* *text_display:move_down* ( ) +
-*text_display:move_left* ( ) +
-*text_display:move_right* ( ) +
-*text_display:move_up* ( ) +
--> _boolean_
+* *:linenumber_font*(<<font,_font_>>) +
+<<font,_font_>> = *:linenumber_font*( )
 
-* *text_display:next_word* ( )
+* *:linenumber_format*(_fmt_) +
+_fmt_ = *:linenumber_format*( )
 
-* *text_display:overstrike* ( )
 
-* *text_display:position_to_xy* (_pos_) +
--> _x_, _y_ +
+* *:linenumber_size*(_fontsize_) +
+_fontsize_ = *:linenumber_size*( )
+
+* *:linenumber_width*(_w_) +
+_w_ = *:linenumber_width*( )
+
+* _boolean_ = *:move_down*( ) +
+_boolean_ = *:move_left*( ) +
+_boolean_ = *:move_right*( ) +
+_boolean_ = *:move_up*( )
+
+* *:next_word*( )
+
+* *:overstrike*( )
+
+* _x_, _y_ = *:position_to_xy*(_pos_) +
 [small]#Returns _nil_ if character is vertically out of view.#
 
-* *text_display:previous_word* ( )
+* *:previous_word*( )
 
-* *text_display:redisplay_index* (_start_, _end_)
+* *:redisplay_index*(_start_, _end_)
 
-* *text_display:rewind_lines* (_start_, _nlines_) +
--> _pos_
-
-////
-* *text_display:scroll* ( ) +
--> __
-////
-
-* *text_display:scrollbar_align* (<<alignment,_alignment_>>) +
-* *text_display:scrollbar_align* ( ) +
--> <<alignment,_alignment_>>
-
-* *text_display:scrollbar_width* (_w_) +
-* *text_display:scrollbar_width* ( ) +
--> _w_
-
-* *text_display:shortcut* (<<shortcut,_shortcut_>>) +
-* *text_display:shortcut* ( ) +
--> <<shortcut,_shortcut_>>
-
-* *text_display:show_cursor* (_boolean_)
-
-* *text_display:show_insert_position* ( )
-
-* *text_display:skip_lines* (_start_, _nlines_ [, _islinestart_]) +
--> _pos_
-
-* *text_display:textcolor* (<<color, _color_>>) +
-* *text_display:textcolor* ( ) +
--> <<color, _color_>>
-
-* *text_display:textfont* (<<font,_font_>>) +
-* *text_display:textfont* ( ) +
--> <<font,_font_>>
-
-* *text_display:textsize* (_fontsize_) +
-* *text_display:textsize* ( ) +
--> _fontsize_
-
-* *text_display:word_end* (_pos_) +
--> _end + 1_
-
-* *text_display:word_start* (_pos_) +
--> _start_
-
-* *text_display:wrap_mode* (<<wrapmode, _wrapmode_>>, _margin_)
+* _pos_ = *:rewind_lines*(_start_, _nlines_)
 
 
-////
-* *text_display:* ( )
+* *:scrollbar_align*(<<alignment,_alignment_>>) +
+<<alignment,_alignment_>> = *:scrollbar_align*( )
 
-* *text_display:* (__) +
-* *text_display:* ( ) +
--> __
+* *:scrollbar_width*(_w_) +
+_w_ = *:scrollbar_width*( )
 
-boolean
-////
+* *:shortcut*(<<shortcut,_shortcut_>>) +
+<<shortcut,_shortcut_>> = *:shortcut*( )
+
+* *:show_cursor*(_boolean_)
+
+* *:show_insert_position*( )
+
+* _pos_ = *:skip_lines*(_start_, _nlines_ [, _islinestart_])
+
+* *:textcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:textcolor*( )
+
+* *:textfont*(<<font,_font_>>) +
+<<font,_font_>> = *:textfont*( )
+
+* *:textsize*(_fontsize_) +
+_fontsize_ = *:textsize*( )
+
+* _end + 1_ = *:word_end*(_pos_)
+
+* _start_ = *:word_start*(_pos_)
+
+* *:wrap_mode*(<<wrapmode, _wrapmode_>>, _margin_)
+
 

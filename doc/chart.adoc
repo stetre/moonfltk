@@ -6,56 +6,34 @@
 Inherits from: <<widget, widget>>. +
 RTTI: '_bar_', '_horbar_', '_line_', '_fill_', '_spike_', '_pie_', '_specialpie_'.#
 
-* *fl.chart* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _chart_
+* _chart_ = *fl.chart*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *chart:autosize* (_boolean_) +
-* *chart:autosize* ( ) +
--> _boolean_
+* *:autosize*(_boolean_) +
+_boolean_ = *:autosize*( )
 
-* *chart:add* (_value_ [, _label_ [<<color, _color_>>]])
+* *:add*(_value_ [, _label_ [<<color, _color_>>]])
 
-* *chart:bounds* (_lower_, _upper_) +
-* *chart:bounds* ( ) +
--> _lower_, _upper_
+* *:bounds*(_lower_, _upper_) +
+_lower_, _upper_ = *:bounds*( )
 
-* *chart:clear* ( )
+* *:clear*( )
 
-* *chart:insert* (_pos_, _value_ [, _label_ [<<color, _color_>>]])
+* *:insert*(_pos_, _value_ [, _label_ [<<color, _color_>>]])
 
-* *chart:maxsize* (_n_) +
-* *chart:maxsize* ( ) +
--> _n_
+* *:maxsize*(_n_) +
+* _n_ = *:maxsize*( )
 
-* *chart:replace* (_pos_, _value_ [, _label_ [<<color, _color_>>]])
+* *:replace*(_pos_, _value_ [, _label_ [<<color, _color_>>]])
 
-* *chart:size* (_w_, _h_) +
-* *chart:size* ( ) +
--> _n_
+* *:size*(_w_, _h_) +
+_n_ = *:size*( )
 
-* *chart:textcolor* (<<color, _color_>>) +
-* *chart:textcolor* ( ) +
--> <<color, _color_>>
+* *:textcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:textcolor*( )
 
-* *chart:textfont* (<<font, _font_>>) +
-* *chart:textfont* ( ) +
--> <<font, _font_>>
+* *:textfont*(<<font, _font_>>) +
+<<font, _font_>> = *:textfont*( )
 
-* *chart:textsize* (_fontsize_) +
-* *chart:textsize* ( ) +
--> _fontsize_
-
-
-////
-* *chart:* ( )
-
-* *chart:* (__) +
-* *chart:* ( ) +
--> __
-
-boolean
-////
-
-
-
+* *:textsize*(_fontsize_) +
+_fontsize_ = *:textsize*( )
 

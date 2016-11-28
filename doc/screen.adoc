@@ -4,48 +4,27 @@
 
 NOTE: Screens are numbered from 1 to *fl.screen_count*( ) inclusive.
 
-* *fl.h* ( ) +
--> _h_
 
-* *fl.screen_count* ( ) +
--> _nscreens_
+* _nscreens_ = *fl.screen_count*( )
 
-* *fl.screen_dpi* ([_screen_ = 1]) +
--> _h_, _v_
+* _h_, _v_ = *fl.screen_dpi*([_screen_ = 1]) +
 
-* *fl.screen_num* (_x_, _y_ [,_w_, _h_]) +
--> _screen_
+* _screen_ = *fl.screen_num*(_x_, _y_ [,_w_, _h_])
 
-* *fl.screen_work_area* (_mx_, _my_) +
-*fl.screen_work_area* (_screen_) +
-*fl.screen_work_area* ( ) +
--> _x_, _y_, _w_, _h_
+* _x_, _y_, _w_, _h_ = *fl.screen_work_area*(_mx_, _my_) +
+_x_, _y_, _w_, _h_ = *fl.screen_work_area*(_screen_) +
+_x_, _y_, _w_, _h_ = *fl.screen_work_area*( )
 
-* *fl.screen_xywh* ( ) +
-*fl.screen_xywh* (_mx_, _my_) +
-*fl.screen_xywh* (_screen_) +
-*fl.screen_xywh* (_mx_, _my_, _mw_, _mh_) +
--> _x_, _y_, _w_, _h_
+* _x_, _y_, _w_, _h_ = *fl.screen_xywh*( ) +
+_x_, _y_, _w_, _h_ = *fl.screen_xywh*(_mx_, _my_) +
+_x_, _y_, _w_, _h_ = *fl.screen_xywh*(_screen_) +
+_x_, _y_, _w_, _h_ = *fl.screen_xywh*(_mx_, _my_, _mw_, _mh_)
 
-* *fl.w* ( ) +
--> _w_
+* _x_ = *fl.x*( ) +
+_y_ = *fl.y*( ) +
+_w_ = *fl.w*( ) +
+_h_ = *fl.h*( )
 
-* *fl.x* ( ) +
--> _x_
+* _x_, _y_, _w_, _h_ = *fl.xywh*( )
 
-* *fl.y* ( ) +
--> _y_
-
-* *fl.xywh* ( ) +
--> _x_, _y_, _w_, _h_
-
-////
-* *fl.* ( )
-
-* *fl.* (__) +
-* *fl.* ( ) +
--> __
-
-boolean
-////
 

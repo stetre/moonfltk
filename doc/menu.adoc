@@ -5,176 +5,139 @@
 Inherits from: <<widget, widget>>. +
 No constructor (abstract class).#
 
-* *menu_:add* (_pathname_ [, <<shortcut, _shortcut_>> [, _func_ [, _argument_ [, <<menuitemflags, _menuitemflags_>>]]]]) +
--> _index_ +
+* _index_  = *:add*(_pathname_ [, <<shortcut, _shortcut_>> [, _func_ [, _argument_ [, <<menuitemflags, _menuitemflags_>>]]]]) +
 [small]#The _func_ callback, if any, is executed as *func(menu, pathname, argument)*. +
 The _argument_ may be any valid Lua value.#
 
 NOTE: In MoonFLTK a menu item is identified by its pathname and the menu it belongs to
 (the index is not used). 
-There is no *menu_item* object. Insead, the methods of the Fl_Menu_Item class are exposed
+There is no *menu_item* object. Instead, the methods of the Fl_Menu_Item class are exposed
 as methods of the *menu_* userdata, they are renamed with a leading '_item__' prefix and they
 accept the item's pathname as first argument.
 Similarly, FLTK menu methods accepting or returning an item index or an item pointer map 
 to MoonFLTK *menu_* methods accepting or returning the item's pathname.
 
-* *menu_:clear* ( )
+* *:clear*( )
 
-* *menu_:clear_submenu* (_pathname_)
+* *:clear_submenu*(_pathname_)
 
-* *menu_:down_box* (<<boxtype, _boxtype_>>) +
-* *menu_:down_box* ( ) +
--> <<boxtype, _boxtype_>>
+* *:down_box*(<<boxtype, _boxtype_>>) +
+<<boxtype, _boxtype_>> = *:down_box*( )
 
-* *menu_:global* ( )
+* *:global*( )
 
-* *menu_:mode* (_pathname_, <<menuitemflags, _menuitemflags_>>)
-* *menu_:mode* (_pathname_) +
--> <<menuitemflags, _menuitemflags_>>
+* *:mode*(_pathname_, <<menuitemflags, _menuitemflags_>>)
+<<menuitemflags, _menuitemflags_>> = *:mode*(_pathname_)
 
-* *menu_:mvalue* ( ) +
--> _pathname_
+* _pathname_ = *:mvalue*( )
 
-* *menu_:remove* (_pathname_)
 
-* *menu_:replace* (_pathname_, _newlabel_)
+* *:remove*(_pathname_)
 
-* *menu_:shortcut* (_pathname_, <<shortcut, _shortcut_>>) +
-* *menu_:shortcut* (_pathname_) +
--> <<shortcut, _shortcut_>>
+* *:replace*(_pathname_, _newlabel_)
 
-* *menu_:size* (_w_, _h_) +
-* *menu_:size* ( ) +
--> _nitems_
+* *:shortcut*(_pathname_, <<shortcut, _shortcut_>>) +
+<<shortcut, _shortcut_>> = *:shortcut*(_pathname_)
 
-* *menu_:test_shortcut* ( ) +
--> _pathname_
+* *:size*(_w_, _h_) +
+_nitems_ = *:size*( )
 
-* *menu_:text* ([_pathname_]) +
--> _label_ +
+* _pathname_ = *:test_shortcut*( )
+
+
+* _label_  = *:text*([_pathname_]) +
 [small]#If _pathname_ is not passed, the label of the last picked item is returned
 (i.e., _pathname_ defaults to _menu:mvalue()_).#
 
-* *menu_:textcolor* (<<color, _color_>>) +
-* *menu_:textcolor* ( ) +
--> <<color, _color_>>
+* *:textcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:textcolor*( ) +
 
-* *menu_:textfont* (<<font, _font_>>) +
-* *menu_:textfont* ( ) +
--> <<font, _font_>>
+* *:textfont*(<<font, _font_>>) +
+<<font, _font_>> = *:textfont*( )
 
-* *menu_:textsize* (_fontsize_) +
-* *menu_:textsize* ( ) +
--> _fontsize_
+* *:textsize*(_fontsize_) +
+_fontsize_ = *:textsize*( )
 
-* *menu_:value* (_pathname_) +
--> _changed_ +
-* *menu_:value* ( ) +
--> _pathname_
+* _changed_ = *:value*(_pathname_) +
+* _pathname_ = *:value*( )
+
 
 '''
 
-* *menu_:item_activate* (_pathname_)
+* *:item_activate*(_pathname_)
 
-* *menu_:item_active* (_pathname_) +
--> _boolean_
+* _boolean_ = *:item_active*(_pathname_)
 
-* *menu_:item_activevisible* (_pathname_) +
--> _boolean_
-
-* *menu_:item_argument* (_pathname_, _argument_) +
-* *menu_:item_argument* (_pathname_) +
--> _argument_
-
-* *menu_:item_callback* (_pathname_, _func_) +
-* *menu_:item_callback* (_pathname_) +
--> _func_
-
-* *menu_:item_checkbox* (_pathname_) +
--> _boolean_
-
-* *menu_:item_clear* (_pathname_)
-
-* *menu_:item_deactivate* (_pathname_)
-
-* *menu_:item_flags* (_pathname_) +
--> <<menuitemflags, _menuitemflags_>>
-
-* *menu_:item_hide* (_pathname_)
-
-* *menu_:item_image* (_pathname_, <<image, _image_>>)
-
-* *menu_:item_label* (_pathname_, _label_) +
-*menu_:item_label* (_pathname_, <<labeltype, _labeltype_>>, _label_) +
-* *menu_:item_label* (_pathname_) +
--> _label_
+* _boolean_ = *:item_activevisible*(_pathname_)
 
 
-* *menu_:item_labelcolor* (_pathname_, <<color, _color_>>) +
-* *menu_:item_labelcolor* (_pathname_) +
--> <<color, _color_>>
+* *:item_argument*(_pathname_, _argument_) +
+_argument_ = *:item_argument*(_pathname_)
 
-* *menu_:item_labelfont* (_pathname_, <<font, _font_>>) +
-* *menu_:item_labelfont* (_pathname_) +
--> <<font, _font_>>
+* *:item_callback*(_pathname_, _func_) +
+_func_ = *:item_callback*(_pathname_)
 
-* *menu_:item_labelsize* (_pathname_, _fontsize_) +
-* *menu_:item_labelsize* (_pathname_) +
--> _fontsize_
+* _boolean_ = *:item_checkbox*(_pathname_)
 
-* *menu_:item_labeltype* (_pathname_, <<labeltype, _labeltype_>>) +
-* *menu_:item_labeltype* (_pathname_) +
--> <<labeltype, _labeltype_>>
 
-* *menu_:item_radio* (_pathname_) +
--> _boolean_
+* *:item_clear*(_pathname_)
 
-* *menu_:item_set* (_pathname_)
+* *:item_deactivate*(_pathname_)
 
-* *menu_:item_setonly* (_pathname_)
+* <<menuitemflags, _menuitemflags_>> = *:item_flags*(_pathname_)
 
-* *menu_:item_shortcut* (_pathname_, <<shortcut, _shortcut_>>) +
-* *menu_:item_shortcut* (_pathname_) +
--> <<shortcut, _shortcut_>>
+* *:item_hide*(_pathname_)
 
-* *menu_:item_show* (_pathname_)
+* *:item_image*(_pathname_, <<image, _image_>>)
 
-* *menu_:item_size* (_pathname_) +
--> _nitems_ +
+* *:item_label*(_pathname_, _label_) +
+*:item_label*(_pathname_, <<labeltype, _labeltype_>>, _label_) +
+_label_ = *:item_label*(_pathname_)
+
+* *:item_labelcolor*(_pathname_, <<color, _color_>>) +
+<<color, _color_>> = *:item_labelcolor*(_pathname_)
+
+* *:item_labelfont*(_pathname_, <<font, _font_>>) +
+<<font, _font_>> = *:item_labelfont*(_pathname_)
+
+* *:item_labelsize*(_pathname_, _fontsize_) +
+_fontsize_ = *:item_labelsize*(_pathname_)
+
+* *:item_labeltype*(_pathname_, <<labeltype, _labeltype_>>) +
+<<labeltype, _labeltype_>> = *:item_labeltype*(_pathname_)
+
+* _boolean_ = *:item_radio*(_pathname_)
+
+
+* *:item_set*(_pathname_)
+
+* *:item_setonly*(_pathname_)
+
+* *:item_shortcut*(_pathname_, <<shortcut, _shortcut_>>) +
+<<shortcut, _shortcut_>> = *:item_shortcut*(_pathname_)
+
+* *:item_show*(_pathname_)
+
+* _nitems_  = *:item_size*(_pathname_) +
 [small]#Returns the no. of items from this one to the end.#
 
-* *menu_:item_submebu* (_pathname_) +
--> _boolean_
+* _boolean_ = *:item_submenu*(_pathname_)
 
-* *menu_:item_value* (_pathname_) +
--> _boolean_
+* _boolean_ = *:item_value*(_pathname_)
 
-* *menu_:item_visible* (_pathname_) +
--> _boolean_
+* _boolean_ = *:item_visible*(_pathname_)
 
-////
-* *menu_:item_* (_pathname_)
-
-* *menu_:item_* (_pathname_, __) +
-* *menu_:item_* (_pathname_) +
--> __
-
-boolean
-////
 
 [[choice]]
 ==== choice
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Choice.html++[Fl_Choice]. +
 Inherits from: <<widget, widget>>, <<menu_, menu_>>.#
 
-* *fl.choice* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _choice_
+* _choice_ = *fl.choice*(_x_, _y_, _w_, _h_ [, _label_])
 
 
-* *choice:value* (_pathname_) +
--> _changed_ +
-* *choice:value* ( ) +
--> _pathname_
+* _changed_  = *:value*(_pathname_) +
+_pathname_ = *:value*( )
 
 
 [[menu_bar]]
@@ -182,8 +145,8 @@ Inherits from: <<widget, widget>>, <<menu_, menu_>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Menu__Bar.html++[Fl_Menu_Bar]. +
 Inherits from: <<widget, widget>>, <<menu_, menu_>>.#
 
-* *fl.menu_bar* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _menu_bar_
+* _menu_bar_ = *fl.menu_bar*(_x_, _y_, _w_, _h_ [, _label_])
+
 
 
 [[menu_button]]
@@ -192,10 +155,9 @@ Inherits from: <<widget, widget>>, <<menu_, menu_>>.#
 Inherits from: <<widget, widget>>, <<menu_, menu_>>. +
 RTTI: '_popup1_', '_popup2_', '_popup12_', '_popup3_', '_popup13_', '_popup23_', '_popup123_'.# 
 
-* *fl.menu_button* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _menu_button_
+* _menu_button_ = *fl.menu_button*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *menu_button:popup* ( ) +
--> _pathname_
+* _pathname_ = *:popup*( )
+
 
 

@@ -5,40 +5,36 @@
 Inherits from: <<widget, widget>>, <<group, group>>. +
 RTTI: '_float_', '_int_'.#
 
-* *fl.spinner* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _spinner_
+* _spinner_ = *fl.spinner*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *spinner:format* (_fmt_) +
-* *spinner:format* ( ) +
--> _fmt_
+* *:format*(_fmt_) +
+_fmt_ = *:format*( )
 
-* *spinner:maximum* (_number_) +
-* *spinner:maximum* ( ) +
--> _number_
 
-* *spinner:minimum* (_number_) +
-* *spinner:minimum* ( ) +
--> _number_
+* *:maximum*(_number_) +
+_number_ = *:maximum*( )
 
-* *spinner:range* (_min_, _max_)
 
-* *spinner:step* (_number_) +
-* *spinner:step* ( ) +
--> _number_
+* *:minimum*(_number_) +
+_number_ = *:minimum*( )
 
-* *spinner:textcolor* (<<color, _color_>>) +
-* *spinner:textcolor* ( ) +
--> <<color, _color_>>
 
-* *spinner:textfont* (<<font, _font_>>) +
-* *spinner:textfont* ( ) +
--> <<font, _font_>>
+* *:range*(_min_, _max_)
 
-* *spinner:textsize* (_fontsize_) +
-* *spinner:textsize* ( ) +
--> _fontsize_
+* *:step*(_number_) +
+_number_ = *:step*( )
 
-* *spinner:value* (_number_) +
-* *spinner:value* ( ) +
--> _number_
+
+* *:textcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:textcolor*( )
+
+* *:textfont*(<<font, _font_>>) +
+<<font, _font_>> = *:textfont*( )
+
+* *:textsize*(_fontsize_) +
+_fontsize_ = *:textsize*( )
+
+* *:value*(_number_) +
+_number_ = *:value*( )
+
 

@@ -6,43 +6,35 @@ Inherits from: <<widget, widget>>, <<group, group>>. +
 RTTI: '_normal_', '_select_', '_hold_', '_multi_'. +
 No constructor (abstract class).#
 
-* *browser_:deselect* ( ) +
--> _boolean_
+* _boolean_ = *:deselect*( ) +
 
-* *browser_:has_scrollbars* (<<scrollbarsmode, _scrollbarsmode_>>) +
-* *browser_:has_scrollbars* ( ) +
--> <<scrollbarsmode, _scrollbarsmode_>>
 
-* *browser_:hposition* (_pos_) +
-* *browser_:hposition* ( ) +
--> _pos_
+* *:has_scrollbars*(<<scrollbarsmode, _scrollbarsmode_>>) +
+<<scrollbarsmode, _scrollbarsmode_>> = *:has_scrollbars*( )
 
-* *browser_:position* (_pos_) +
-* *browser_:position* ( ) +
--> _pos_
+* *:hposition*(_pos_) +
+_pos_ = *:hposition*( )
 
-* *browser_:scrollbar_left* ( )
+* *:position*(_pos_) +
+_pos_ = *:position*( )
 
-* *browser_:scrollbar_right* ( )
+* *:scrollbar_left*( ) +
+*:scrollbar_right*( )
 
-* *browser_:scrollbar_size* (_size_) +
-* *browser_:scrollbar_size* ( ) +
--> _size_
+* *:scrollbar_size*(_size_) +
+_size_ = *:scrollbar_size*( )
 
-* *browser_:sort* (_order_) +
+* *:sort*(_order_) +
 [small]_order_: '_ascending_' or '_descending_'.#
 
-* *browser_:textcolor* (<<color, _color_>>) +
-* *browser_:textcolor* ( ) +
--> <<color, _color_>>
+* *:textcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:textcolor*( )
 
-* *browser_:textfont* (<<font, _font_>>) +
-* *browser_:textfont* ( ) +
--> <<font, _font_>>
+* *:textfont*(<<font, _font_>>) +
+<<font, _font_>> = *:textfont*( )
 
-* *browser_:textsize* (_fontsize_) +
-* *browser_:textsize* ( ) +
--> _fontsize_
+* *:textsize*(_fontsize_) +
+_fontsize_ = *:textsize*( )
 
 
 [[browser]]
@@ -50,118 +42,102 @@ No constructor (abstract class).#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Browser.html++[Fl_Browser]. +
 Inherits from: <<widget, widget>>, <<group, group>>, <<browser_, browser_>>.#
 
-* *fl.browser* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _browser_
+* _browser_ = *fl.browser*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *browser:add* ([_text_ [, <<browser:data, _data_>>]])
 
-* *browser:bottomline* (_line_)
+* *:add*([_text_ [, <<browser:data, _data_>>]])
 
-* *browser:clear* ( )
+* *:bottomline*(_line_)
 
-* *browser:column_char* (_c_) +
-* *browser:column_char* ( ) +
--> _c_ +
+* *:clear*( )
+
+* *:column_char*(_c_) +
+_c_ = *:column_char*( ) +
 [small]#_c_: ASCII character.#
 
 
-* *browser:column_widths* (_w1_, _w2_, _..._, _wN_) +
-* *browser:column_widths* ( ) +
--> _w1_, _w2_, _..._, _wN_
+* *:column_widths*(_w1_, _w2_, _..._, _wN_) +
+_w1_, _w2_, _..._, _wN_ = *:column_widths*( )
 
 [[browser:data]]
-* *browser:data* (_line_, _data_) +
-* *browser:data* (_line_) +
--> _data_ +
+* *:data*(_line_, _data_) +
+_data_ = *:data*(_line_) +
 [small]#_data_: an integer value to associate with the item (defaults to 0). +
 This value may be used as index in a Lua table containing more complex data associated
 with the item.#
 
-* *browser:displayed* (_line_) +
--> _boolean_
+* _boolean_ = *:displayed*(_line_)
 
-* *browser:format_char* (_c_) +
-* *browser:format_char* ( ) +
--> _c_ +
+
+* *:format_char*(_c_) +
+_c_ = * *:format_char*( ) +
 [small]#_c_: ASCII character.#
 
-* *browser:hide* (_line_) +
-*browser:hide* ( )
+* *:hide*(_line_) +
+*:hide*( )
 
-* *browser:icon* (_line_, <<image, _image_>>) +
-* *browser:icon* (_line_) +
--> <<image, _image_>>
+* *:icon*(_line_, <<image, _image_>>) +
+<<image, _image_>> = *:icon*(_line_)
 
-* *browser:insert* (_line_ [, _text_ [, <<browser:data, _data_>>]])
+* *:insert*(_line_ [, _text_ [, <<browser:data, _data_>>]])
 
-* *browser:lineposition* (_line_, _linepos_)
+* *:lineposition*(_line_, _linepos_)
 
-* *browser:load* (_filename_) +
--> _ok_, _err_ +
+* _ok_, _err_ = *:load*(_filename_) +
 [small]#Returns _true_ or _false_ and an error string.#
 
-* *browser:make_visible* (_line_)
+* *:make_visible*(_line_)
 
-* *browser:middleline* (_line_)
+* *:middleline*(_line_)
 
-* *browser:move* (_to_, _from_)
+* *:move*(_to_, _from_)
 
-* *browser:remove* (_line_)
+* *:remove*(_line_)
 
-* *browser:remove_icon* (_line_)
+* *:remove_icon*(_line_)
 
-* *browser:select* (_line_ [, _boolean_]) +
--> _boolean_
+* _boolean_ = *:select*(_line_ [, _boolean_])
 
-* *browser:selected* (_line_) +
--> _boolean_
+* _boolean_ = *:selected*(_line_)
 
-* *browser:show* (_line_) +
-*browser:show* ( )
+* *:show*(_line_) +
+*:show*( )
 
-* *browser:swap* (_line1_, _line2_)
+* *:swap*(_line1_, _line2_)
 
-* *browser:size* (_w_, _h_) +
-* *browser:size* ( ) +
--> _nlines_
+* *:size*(_w_, _h_) +
+_nlines_ = *:size*( )
 
-* *browser:text* (_line_ [, _text_]) +
-* *browser:text* ( ) +
--> _text_
 
-* *browser:topline* (_line_) +
-* *browser:topline* ( ) +
--> _line_
+* *:text*(_line_ [, _text_]) +
+_text_ = *:text*( )
 
-* *browser:visible* (_line_) +
--> _boolean_
+* *:topline*(_line_) +
+_line_ = *:topline*( )
 
-* *browser:value* (_line_) +
-* *browser:value* ( ) +
--> _line_
+* _boolean_ = *:visible*(_line_)
+
+* *:value*(_line_) +
+_line_ = *:value*( )
 
 [[file_browser]]
 ==== file_browser
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__File__Browser.html++[Fl_File_Browser]. +
 Inherits from: <<widget, widget>>, <<group, group>>, <<browser_, browser_>>, <<browser, browser>>.#
 
-* *fl.file_browser* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _file_browser_
+* _file_browser_ = *fl.file_browser*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *file_browser:filetype* (<<filetype, _filetype_>>) +
-* *file_browser:filetype* ( ) +
--> <<filetype, _filetype_>>
+* *:filetype*(<<filetype, _filetype_>>) +
+<<filetype, _filetype_>> = *:filetype*( )
 
-* *file_browser:filter* (_pattern_) +
-* *file_browser:filter* ( ) +
--> _pattern_
+* *:filter*(_pattern_) +
+_pattern_ = *:filter*( )
 
-* *file_browser:iconsize* (_size_) +
-* *file_browser:iconsize* ( ) +
--> _size_
+* *:iconsize*(_size_) +
+_size_ = *:iconsize*( )
 
-* *file_browser:load* (_filename_ [, <<sortfunc, _sortfunc_>>]) +
--> _boolean_
+* _boolean_ = *:load*(_filename_ [, <<sortfunc, _sortfunc_>>])
+
 
 
 [[hold_browser]]
@@ -169,24 +145,24 @@ Inherits from: <<widget, widget>>, <<group, group>>, <<browser_, browser_>>, <<b
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Hold__Browser.html++[Fl_Hold_Browser]. +
 Inherits from: <<widget, widget>>, <<group, group>>, <<browser_, browser_>>, <<browser, browser>>.#
 
-* *fl.hold_browser* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _hold_browser_
+* _hold_browser_ = *fl.hold_browser*(_x_, _y_, _w_, _h_ [, _label_])
+
 
 [[multi_browser]]
 ==== multi_browser
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Multi__Browser.html++[Fl_Multi_Browser]. +
 Inherits from: <<widget, widget>>, <<group, group>>, <<browser_, browser_>>, <<browser, browser>>.#
 
-* *fl.multi_browser* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _multi_browser_
+* _multi_browser_ = *fl.multi_browser*(_x_, _y_, _w_, _h_ [, _label_])
+
 
 [[select_browser]]
 ==== select_browser
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Select__Browser.html++[Fl_Select_Browser]. +
 Inherits from: <<widget, widget>>, <<group, group>>, <<browser_, browser_>>, <<browser, browser>>.#
 
-* *fl.select_browser* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _select_browser_
+* _select_browser_ = *fl.select_browser*(_x_, _y_, _w_, _h_ [, _label_])
+
 
 [[check_browser]]
 ==== check_browser
@@ -194,38 +170,30 @@ Inherits from: <<widget, widget>>, <<group, group>>, <<browser_, browser_>>, <<b
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Check__Browser.html++[Fl_Check_Browser]. +
 Inherits from: <<widget, widget>>, <<group, group>>, <<browser_, browser_>>.#
 
-* *fl.check_browser* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _check_browser_
+* _check_browser_ = *fl.check_browser*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *check_browser:add* ([_text_ [, _boolean_]]) +
--> _index_
+* _index_ = *:add*([_text_ [, _boolean_]])
 
 NOTE: The item _index_ is an integer in the range 1 to check_browser:nitems() inclusive.
 
-* *check_browser:check_all* ( )
+* *:check_all*( )
 
-* *check_browser:check_none* ( )
+* *:check_none*( )
 
-* *check_browser:checked* (_index_, _boolean_) +
-* *check_browser:checked* (_index_) +
--> _boolean_
+* *:checked*(_index_, _boolean_) +
+_boolean_ = *:checked*(_index_)
 
-* *check_browser:clear* ( )
+* *:clear*( )
 
-* *check_browser:nchecked* ( ) +
--> _n_
+* _n_ = *:nchecked*( )
 
-* *check_browser:nitems* ( ) +
--> _n_
+* _n_ = *:nitems*( )
 
-* *check_browser:remove* (_index_) +
--> _n_
+* _n_ = *:remove*(_index_)
 
-* *check_browser:set_checked* (_index_)
+* *:set_checked*(_index_)
 
-* *check_browser:text* (_index_) +
--> _text_
+* _text_ = *:text*(_index_)
 
-* *check_browser:value* ( ) +
--> _index_
+* _index_ = *:value*( )
 

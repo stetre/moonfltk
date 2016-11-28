@@ -4,45 +4,40 @@
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Input__Choice.html++[Fl_Input_Choice]. +
 Inherits from: <<widget, widget>>, <<group, group>>.#
 
-* *fl.input_choice* (_x_, _y_, _w_, _h_ [, _label_]) +
--> _input_choice_
+* _input_choice_ = *fl.input_choice*(_x_, _y_, _w_, _h_ [, _label_])
 
-* *input_choice:add* (_item_) +
+
+* *:add*(_item_) +
 [small]#_item_: a string.#
 
-* *input_choice:changed* ( ) +
--> _boolean_
+* _boolean_ = *:changed*( )
 
-* *input_choice:clear* ( )
 
-* *input_choice:clear_changed* ( )
+* *:clear*( )
 
-* *input_choice:down_box* (<<boxtype, _boxtype_>>) +
-* *input_choice:down_box* ( ) +
--> <<boxtype, _boxtype_>>
+* *:clear_changed*( )
 
-* *input_choice:input* ( ) +
--> <<input, _input_>>
+* *:down_box*(<<boxtype, _boxtype_>>) +
+<<boxtype, _boxtype_>> = *:down_box*( )
 
-* *input_choice:menubutton* ( ) +
--> <<menu_button, _menu_button_>>
+* <<input, _input_>> = *:input*( )
 
-* *input_choice:set_changed* ( )
+* <<menu_button, _menu_button_>> = *:menubutton*( ) +
 
-* *input_choice:textcolor* (<<color, _color_>>) +
-* *input_choice:textcolor* ( ) +
--> <<color, _color_>>
+* *:set_changed*( )
 
-* *input_choice:textfont* (<<font, _font_>>) +
-* *input_choice:textfont* ( ) +
--> <<font, _font_>>
+* *:textcolor*(<<color, _color_>>) +
+<<color, _color_>> = *:textcolor*( )
 
-* *input_choice:textsize* (_fontsize_) +
-* *input_choice:textsize* ( ) +
--> _fontsize_
+* *:textfont*(<<font, _font_>>) +
+<<font, _font_>> = *:textfont*( ) +
 
-* *input_choice:value* (_index_) +
-* *input_choice:value* (_item_) +
-* *input_choice:value* ( ) +
--> _item_
+* *:textsize*(_fontsize_) +
+_fontsize_ = *:textsize*( )
+
+
+* *:value*(_index_) +
+*:value*(_item_) +
+*:_item_ = value*( )
+
 

@@ -4,14 +4,13 @@
 
 ==== Check handler
 
-* *fl.has_check* ( ) +
--> _boolean_ +
+* _boolean_  = *fl.has_check*( ) +
 [small]#Returns _true_ if the check handler is set and has not yet been
 called, _false_ otherwise.#
 
-* *fl.set_check* (_func_) +
+* *fl.set_check*(_func_) +
 [small]#Sets _func_ (a function) as the check handler. It will be executed
-as *func()* (i.e. passing it no arguments). 
+as *func()*(i.e. passing it no arguments). 
 If called with no arguments, removes the handler.#
 
 NOTE: There is a single check handler in MoonFLTK. If multiple
@@ -20,12 +19,11 @@ handlers are needed, multiplex it in Lua.
 
 ==== File descriptors handler
 
-* *fl.has_fd_handler* ( ) +
--> _boolean_ +
+* _boolean_  = *fl.has_fd_handler*( ) +
 [small]#Returns _true_ if the fd handler is set, _false_ otherwise.#
 
 [[fl.set_fd_handler]]
-* *fl.set_fd_handler* (_func_) +
+* *fl.set_fd_handler*(_func_) +
 [small]#Sets _func_ (a function) as the fd handler. It will be executed
 as *func(fd)* where _fd_ is the affected file handler. 
 If called with no arguments, removes the handler.#
@@ -37,23 +35,22 @@ http://www.lua.org/manual/5.3/manual.html#6.8[io library] file handle
 can be obtained with the <<fl.fileno, fl.fileno>>( ) function.
 
 [[fl.add_fd]]
-* *fl.add_fd* (_fd_, <<whenfd, _whenfd_>>) +
+* *fl.add_fd*(_fd_, <<whenfd, _whenfd_>>) +
 [small]#Monitor the file descriptor _fd_. When the file descriptor is ready
 (depending on the _whenfd_ argument) the <<fl.set_fd_handler, fd handler>> is executed.#
 
-* *fl.remove_fd* (_fd_) +
+* *fl.remove_fd*(_fd_) +
 [small]#Stop monitoring the file descriptor _fd_.#
 
 
 ==== Idle handler
 
-* *fl.has_idle* ( ) +
--> _boolean_ +
+* _boolean_  = *fl.has_idle*( ) +
 [small]#Returns _true_ if the idle handler is set, _false_ otherwise.#
 
-* *fl.set_idle* (_func_) +
+* *fl.set_idle*(_func_) +
 [small]#Sets _func_ (a function) as the idle handler. It will be executed
-as *func()* (i.e. passing it no arguments).
+as *func()*(i.e. passing it no arguments).
 If called with no arguments, removes the handler.#
 
 NOTE: There is a single idle handler in MoonFLTK. If multiple
@@ -61,12 +58,11 @@ handlers are needed, multiplex it in Lua.
 
 ==== Timeout handler
 
-* *fl.has_timeout* ( ) +
--> _boolean_ +
+* _boolean_  = *fl.has_timeout*( ) +
 [small]#Returns _true_ if the timeout handler is set, _false_ otherwise#.
 
 [[fl.set_timeout]]
-* *fl.set_timeout* (_seconds_, _repeat_, _func_) +
+* *fl.set_timeout*(_seconds_, _repeat_, _func_) +
 [small]#Sets the timer so to expire after _seconds_.
 At the timer expiration, the _func_ callback will be executed as *func()*
 (passing it no arguments).
@@ -126,11 +122,10 @@ The *moonfltk.timer* module provides the functions described below. Time
 values are obtained with the <<fl.gettime, fl.gettime>>( ) function. 
 On error, all these functions return _nil_ followed by an error message.
 
-* *timer.init* ( ) +
+* *timer.init*( ) +
 [small]#Inits the module.#
 
-* *timer.create* (_timeout_, _func_) +
--> _tid_ +
+* _tid_  = *timer.create*(_timeout_, _func_) +
 [small]#Creates a new timer and returns a unique timer identifier (_tid_) for
 subsequent operations. 
 The _timeout_ argument is the default timeout in seconds, which will be used
@@ -138,32 +133,27 @@ to compute the expiration time if it is not specified when the timer is started.
 The _func_ argument (a function) is the callback that will be executed
 as *func(tid)* at timer expiration.#
 
-* *timer.delete* (_tid_) +
+* *timer.delete*(_tid_) +
 [small]#Deletes the timer identified by _tid_.#
 
-* *timer.deleteall* ( ) +
+* *timer.deleteall*( ) +
 [small]#Deletes all the timers.#
 
-* *timer.start* (_tid_ [, _exptime_]) +
--> _startime_ +
+* _startime_  = *timer.start*(_tid_ [, _exptime_]) +
 [small]#Starts the timer identified by _tid_ so to expire at the time 
 _exptime_.#
 
-* *timer.stop* (_tid_) +
+* *timer.stop*(_tid_) +
 [small]#Stops the timer identified by _tid_.#
 
-* *timer.timeout* (_tid_ [, _timeout_]) +
--> _timeut_ +
+* _timeut_  = *timer.timeout*(_tid_ [, _timeout_]) +
 [small]#Gets/sets the default timeout (in seconds) for the timer identified by _tid_.#
 
-* *timer.callback* (_tid_ [, _func_]) +
--> _func_ +
+* _func_  = *timer.callback*(_tid_ [, _func_]) +
 [small]#Gets/sets the callback for the timer identified by _tid_.#
 
-* *timer.isrunning* (_tid_) +
--> _boolean_, _exptime_ +
+* _boolean_, _exptime_ = *timer.isrunning*(_tid_) +
 [small]#If the timer is running, returns _true_ and the expiration time,
 otherwise returns _false_.#
-
 
 
