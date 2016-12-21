@@ -16,7 +16,7 @@ v0.5, 2016-06-14
 :tH: &#9500;&#9472;&#8192;
 :tL: &#9492;&#9472;&#8192;
 
-image::powered-by-lua.png[Lua logo, link=http://www.lua.org]
+image::powered-by-lua.gif[Lua logo, link=http://www.lua.org]
 
 include::preface.adoc[]
 
