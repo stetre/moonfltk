@@ -73,6 +73,9 @@ that come with the FLTK distribution).
 [MoonAssimp](https://github.com/stetre/moonassimp),
 [MoonSOIL](https://github.com/stetre/moonsoil).
 
+* Font rendering:
+[MoonFreeType](https://github.com/stetre/moonfreetype).
+
 * Audio:
 [LuaJACK](https://github.com/stetre/luajack).
 
