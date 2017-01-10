@@ -59,23 +59,5 @@ that come with the FLTK distribution).
 
 #### See also
 
-* Windowing:
-[MoonGLFW](https://github.com/stetre/moonglfw),
-[MoonGLUT](https://github.com/stetre/moonglut).
-
-* Rendering:
-[MoonGL](https://github.com/stetre/moongl).
-
-* Math:
-[MoonGLMATH](https://github.com/stetre/moonglmath).
-
-* Image and model loading:
-[MoonAssimp](https://github.com/stetre/moonassimp),
-[MoonSOIL](https://github.com/stetre/moonsoil).
-
-* Font rendering:
-[MoonFreeType](https://github.com/stetre/moonfreetype).
-
-* Audio:
-[LuaJACK](https://github.com/stetre/luajack).
+* [MoonLibs - Graphics and Audio Lua Libraries](https://github.com/stetre/moonlibs).
 
