@@ -1,4 +1,4 @@
-##MoonFLTK: Lua bindings for FLTK
+## MoonFLTK: Lua bindings for FLTK
 
 MoonFLTK is a Lua binding library for the [Fast Light Toolkit (FLTK)](http://www.fltk.org/).
 
