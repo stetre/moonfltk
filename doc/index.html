@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.4">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
 <meta name="author" content="Stefano Trettel">
 <title>MoonFLTK Reference Manual</title>
 <style>
@@ -696,12 +696,14 @@ p.tableblock.header { color: #6d6e71; }
 </style>
 <style>
 .listingblock .pygments .hll { background-color: #ffffcc }
-.listingblock .pygments  { background: #ffffff; }
+.listingblock .pygments, .listingblock .pygments code { background: #ffffff; }
 .listingblock .pygments .tok-c { color: #aaaaaa; font-style: italic } /* Comment */
 .listingblock .pygments .tok-err { color: #FF0000; background-color: #FFAAAA } /* Error */
 .listingblock .pygments .tok-k { color: #0000aa } /* Keyword */
+.listingblock .pygments .tok-ch { color: #aaaaaa; font-style: italic } /* Comment.Hashbang */
 .listingblock .pygments .tok-cm { color: #aaaaaa; font-style: italic } /* Comment.Multiline */
 .listingblock .pygments .tok-cp { color: #4c8317 } /* Comment.Preproc */
+.listingblock .pygments .tok-cpf { color: #aaaaaa; font-style: italic } /* Comment.PreprocFile */
 .listingblock .pygments .tok-c1 { color: #aaaaaa; font-style: italic } /* Comment.Single */
 .listingblock .pygments .tok-cs { color: #0000aa; font-style: italic } /* Comment.Special */
 .listingblock .pygments .tok-gd { color: #aa0000 } /* Generic.Deleted */
@@ -739,8 +741,10 @@ p.tableblock.header { color: #6d6e71; }
 .listingblock .pygments .tok-mh { color: #009999 } /* Literal.Number.Hex */
 .listingblock .pygments .tok-mi { color: #009999 } /* Literal.Number.Integer */
 .listingblock .pygments .tok-mo { color: #009999 } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sa { color: #aa5500 } /* Literal.String.Affix */
 .listingblock .pygments .tok-sb { color: #aa5500 } /* Literal.String.Backtick */
 .listingblock .pygments .tok-sc { color: #aa5500 } /* Literal.String.Char */
+.listingblock .pygments .tok-dl { color: #aa5500 } /* Literal.String.Delimiter */
 .listingblock .pygments .tok-sd { color: #aa5500 } /* Literal.String.Doc */
 .listingblock .pygments .tok-s2 { color: #aa5500 } /* Literal.String.Double */
 .listingblock .pygments .tok-se { color: #aa5500 } /* Literal.String.Escape */
@@ -751,9 +755,11 @@ p.tableblock.header { color: #6d6e71; }
 .listingblock .pygments .tok-s1 { color: #aa5500 } /* Literal.String.Single */
 .listingblock .pygments .tok-ss { color: #0000aa } /* Literal.String.Symbol */
 .listingblock .pygments .tok-bp { color: #00aaaa } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-fm { color: #00aa00 } /* Name.Function.Magic */
 .listingblock .pygments .tok-vc { color: #aa0000 } /* Name.Variable.Class */
 .listingblock .pygments .tok-vg { color: #aa0000 } /* Name.Variable.Global */
 .listingblock .pygments .tok-vi { color: #aa0000 } /* Name.Variable.Instance */
+.listingblock .pygments .tok-vm { color: #aa0000 } /* Name.Variable.Magic */
 .listingblock .pygments .tok-il { color: #009999 } /* Literal.Number.Integer.Long */
 </style>
 </head>
@@ -856,7 +862,7 @@ table is named <strong>fl</strong>, i.e. that it is loaded with:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="lua"> <span class="tok-n">fl</span> <span class="tok-o">=</span> <span class="tok-nb">require</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">moonfltk&quot;</span><span class="tok-p">)</span></code></pre>
+<pre class="pygments highlight"><code data-lang="lua"><span></span> <span class="tok-n">fl</span> <span class="tok-o">=</span> <span class="tok-nb">require</span><span class="tok-p">(</span><span class="tok-s2">&quot;moonfltk&quot;</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -899,8 +905,8 @@ an object of that class, bounds it to a userdatum and returns the latter. For ex
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">win</span> <span class="tok-o">=</span> <span class="tok-n">fl</span><span class="tok-p">.</span><span class="tok-n">double_window</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">600</span><span class="tok-p">,</span> <span class="tok-mi">400</span><span class="tok-p">)</span> <span class="tok-c1">-- creates an Fl_Double_Window.</span>
-<span class="tok-n">win</span><span class="tok-p">:</span><span class="tok-n">label</span><span class="tok-p">(</span><span class="tok-s1">&#39;</span><span class="tok-s">My Window&#39;</span><span class="tok-p">)</span> <span class="tok-c1">-- a method</span></code></pre>
+<pre class="pygments highlight"><code data-lang="lua"><span></span><span class="tok-n">win</span> <span class="tok-o">=</span> <span class="tok-n">fl</span><span class="tok-p">.</span><span class="tok-n">double_window</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">600</span><span class="tok-p">,</span> <span class="tok-mi">400</span><span class="tok-p">)</span> <span class="tok-c1">-- creates an Fl_Double_Window.</span>
+<span class="tok-n">win</span><span class="tok-p">:</span><span class="tok-n">label</span><span class="tok-p">(</span><span class="tok-s1">&#39;My Window&#39;</span><span class="tok-p">)</span> <span class="tok-c1">-- a method</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4673,14 +4679,14 @@ The indices <em>start</em> and <em>end</em> = <em>start - 1</em> denote a zero l
 <div class="listingblock">
 <div class="title">text_buffer indexing example</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">buf</span> <span class="tok-o">=</span> <span class="tok-n">fl</span><span class="tok-p">.</span><span class="tok-n">text_buffer</span><span class="tok-p">()</span>
-<span class="tok-n">buf</span><span class="tok-p">:</span><span class="tok-n">text</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">hello&quot;</span><span class="tok-p">)</span>
+<pre class="pygments highlight"><code data-lang="lua"><span></span><span class="tok-n">buf</span> <span class="tok-o">=</span> <span class="tok-n">fl</span><span class="tok-p">.</span><span class="tok-n">text_buffer</span><span class="tok-p">()</span>
+<span class="tok-n">buf</span><span class="tok-p">:</span><span class="tok-n">text</span><span class="tok-p">(</span><span class="tok-s2">&quot;hello&quot;</span><span class="tok-p">)</span>
                    <span class="tok-c1">-- position: 123456789</span>
 <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">buf</span><span class="tok-p">:</span><span class="tok-n">text</span><span class="tok-p">())</span>           <span class="tok-c1">--&gt; hello</span>
 <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">buf</span><span class="tok-p">:</span><span class="tok-n">text_range</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">1</span><span class="tok-p">))</span>  <span class="tok-c1">--&gt; h</span>
 <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">buf</span><span class="tok-p">:</span><span class="tok-n">text_range</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">2</span><span class="tok-p">))</span>  <span class="tok-c1">--&gt; he</span>
 <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">buf</span><span class="tok-p">:</span><span class="tok-n">text_range</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">))</span>    <span class="tok-c1">--&gt; hello</span>
-<span class="tok-n">buf</span><span class="tok-p">:</span><span class="tok-n">replace</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-s2">&quot;</span><span class="tok-s">xxx&quot;</span><span class="tok-p">)</span>      <span class="tok-c1">--  replaces an empty range (i.e. inserts) before pos=1</span>
+<span class="tok-n">buf</span><span class="tok-p">:</span><span class="tok-n">replace</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-s2">&quot;xxx&quot;</span><span class="tok-p">)</span>      <span class="tok-c1">--  replaces an empty range (i.e. inserts) before pos=1</span>
 <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">buf</span><span class="tok-p">:</span><span class="tok-n">text</span><span class="tok-p">())</span>           <span class="tok-c1">--&gt; xxxhello</span></code></pre>
 </div>
 </div>
@@ -4928,51 +4934,51 @@ the <a href="#widgets">widget hierarchy</a> tree.
 <div class="listingblock">
 <div class="title">Window subclassing example</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">fl</span> <span class="tok-o">=</span> <span class="tok-nb">require</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">moonfltk&quot;</span><span class="tok-p">)</span>
+<pre class="pygments highlight"><code data-lang="lua"><span></span><span class="tok-n">fl</span> <span class="tok-o">=</span> <span class="tok-nb">require</span><span class="tok-p">(</span><span class="tok-s2">&quot;moonfltk&quot;</span><span class="tok-p">)</span>
 
 <span class="tok-c1">-- Subclass &#39;constructor&#39;:</span>
-<span class="tok-k">function</span> <span class="tok-nf">MyWindow</span><span class="tok-p">(</span><span class="tok-n">w</span><span class="tok-p">,</span> <span class="tok-n">h</span><span class="tok-p">,</span> <span class="tok-n">label</span><span class="tok-p">)</span>
+<span class="tok-kr">function</span> <span class="tok-nf">MyWindow</span><span class="tok-p">(</span><span class="tok-n">w</span><span class="tok-p">,</span> <span class="tok-n">h</span><span class="tok-p">,</span> <span class="tok-n">label</span><span class="tok-p">)</span>
     <span class="tok-c1">-- Create a &#39;window sub&#39; object:</span>
     <span class="tok-kd">local</span> <span class="tok-n">win</span> <span class="tok-o">=</span> <span class="tok-n">fl</span><span class="tok-p">.</span><span class="tok-n">window_sub</span><span class="tok-p">(</span><span class="tok-n">w</span><span class="tok-p">,</span> <span class="tok-n">h</span><span class="tok-p">,</span> <span class="tok-n">label</span><span class="tok-p">)</span>
-    <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">created window&quot;</span><span class="tok-p">,</span> <span class="tok-n">win</span><span class="tok-p">)</span>
+    <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;created window&quot;</span><span class="tok-p">,</span> <span class="tok-n">win</span><span class="tok-p">)</span>
     <span class="tok-c1">-- Override the basic window methods:</span>
     <span class="tok-n">win</span><span class="tok-p">:</span><span class="tok-n">override_draw</span><span class="tok-p">(</span><span class="tok-n">mydraw</span><span class="tok-p">)</span>
     <span class="tok-n">win</span><span class="tok-p">:</span><span class="tok-n">override_handle</span><span class="tok-p">(</span><span class="tok-n">myhandle</span><span class="tok-p">)</span>
     <span class="tok-n">win</span><span class="tok-p">:</span><span class="tok-n">override_hide</span><span class="tok-p">(</span><span class="tok-n">myhide</span><span class="tok-p">)</span>
     <span class="tok-n">win</span><span class="tok-p">:</span><span class="tok-n">override_resize</span><span class="tok-p">(</span><span class="tok-n">myresize</span><span class="tok-p">)</span>
-    <span class="tok-k">return</span> <span class="tok-n">win</span>
-<span class="tok-k">end</span>
+    <span class="tok-kr">return</span> <span class="tok-n">win</span>
+<span class="tok-kr">end</span>
 
-<span class="tok-k">function</span> <span class="tok-nf">mydraw</span><span class="tok-p">(</span><span class="tok-n">win</span><span class="tok-p">)</span>
+<span class="tok-kr">function</span> <span class="tok-nf">mydraw</span><span class="tok-p">(</span><span class="tok-n">win</span><span class="tok-p">)</span>
    <span class="tok-nb">assert</span><span class="tok-p">(</span><span class="tok-n">win</span> <span class="tok-o">==</span> <span class="tok-n">mywin</span><span class="tok-p">)</span>
-   <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">draw()&quot;</span><span class="tok-p">)</span>
+   <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;draw()&quot;</span><span class="tok-p">)</span>
    <span class="tok-n">win</span><span class="tok-p">:</span><span class="tok-n">super_draw</span><span class="tok-p">()</span> <span class="tok-c1">-- this executes window:draw()</span>
-<span class="tok-k">end</span>
+<span class="tok-kr">end</span>
 
-<span class="tok-k">function</span> <span class="tok-nf">myhandle</span><span class="tok-p">(</span><span class="tok-n">win</span><span class="tok-p">,</span> <span class="tok-n">event</span><span class="tok-p">)</span>
+<span class="tok-kr">function</span> <span class="tok-nf">myhandle</span><span class="tok-p">(</span><span class="tok-n">win</span><span class="tok-p">,</span> <span class="tok-n">event</span><span class="tok-p">)</span>
    <span class="tok-nb">assert</span><span class="tok-p">(</span><span class="tok-n">win</span> <span class="tok-o">==</span> <span class="tok-n">mywin</span><span class="tok-p">)</span>
-   <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">handle(&#39;&quot;</span> <span class="tok-o">..</span> <span class="tok-n">event</span> <span class="tok-o">..</span> <span class="tok-s2">&quot;</span><span class="tok-s">&#39;)&quot;</span><span class="tok-p">)</span>
+   <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;handle(&#39;&quot;</span> <span class="tok-o">..</span> <span class="tok-n">event</span> <span class="tok-o">..</span> <span class="tok-s2">&quot;&#39;)&quot;</span><span class="tok-p">)</span>
    <span class="tok-c1">-- this must return true or false (see Fl_Widget::handle())</span>
-   <span class="tok-k">return</span> <span class="tok-n">win</span><span class="tok-p">:</span><span class="tok-n">super_handle</span><span class="tok-p">(</span><span class="tok-n">event</span><span class="tok-p">)</span>
-<span class="tok-k">end</span>
+   <span class="tok-kr">return</span> <span class="tok-n">win</span><span class="tok-p">:</span><span class="tok-n">super_handle</span><span class="tok-p">(</span><span class="tok-n">event</span><span class="tok-p">)</span>
+<span class="tok-kr">end</span>
 
-<span class="tok-k">function</span> <span class="tok-nf">myhide</span><span class="tok-p">(</span><span class="tok-n">win</span><span class="tok-p">)</span>
+<span class="tok-kr">function</span> <span class="tok-nf">myhide</span><span class="tok-p">(</span><span class="tok-n">win</span><span class="tok-p">)</span>
    <span class="tok-nb">assert</span><span class="tok-p">(</span><span class="tok-n">win</span> <span class="tok-o">==</span> <span class="tok-n">mywin</span><span class="tok-p">)</span>
-   <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">hide()&quot;</span><span class="tok-p">)</span>
+   <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;hide()&quot;</span><span class="tok-p">)</span>
    <span class="tok-n">win</span><span class="tok-p">:</span><span class="tok-n">super_hide</span><span class="tok-p">()</span>
-<span class="tok-k">end</span>
+<span class="tok-kr">end</span>
 
-<span class="tok-k">function</span> <span class="tok-nf">myresize</span><span class="tok-p">(</span><span class="tok-n">win</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">w</span><span class="tok-p">,</span> <span class="tok-n">h</span><span class="tok-p">)</span>
+<span class="tok-kr">function</span> <span class="tok-nf">myresize</span><span class="tok-p">(</span><span class="tok-n">win</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">w</span><span class="tok-p">,</span> <span class="tok-n">h</span><span class="tok-p">)</span>
    <span class="tok-nb">assert</span><span class="tok-p">(</span><span class="tok-n">win</span> <span class="tok-o">==</span> <span class="tok-n">win</span><span class="tok-p">)</span>
-   <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-nb">string.format</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">resize(%d, %d, %d, %d)&quot;</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">w</span><span class="tok-p">,</span> <span class="tok-n">h</span><span class="tok-p">))</span>
+   <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-nb">string.format</span><span class="tok-p">(</span><span class="tok-s2">&quot;resize(%d, %d, %d, %d)&quot;</span><span class="tok-p">,</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">w</span><span class="tok-p">,</span> <span class="tok-n">h</span><span class="tok-p">))</span>
    <span class="tok-n">win</span><span class="tok-p">:</span><span class="tok-n">super_resize</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">w</span><span class="tok-p">,</span> <span class="tok-n">h</span><span class="tok-p">)</span>
-<span class="tok-k">end</span>
+<span class="tok-kr">end</span>
 
 <span class="tok-n">mywin</span> <span class="tok-o">=</span> <span class="tok-n">MyWindow</span><span class="tok-p">(</span><span class="tok-mi">340</span><span class="tok-p">,</span> <span class="tok-mi">180</span><span class="tok-p">,</span> <span class="tok-n">arg</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">])</span>
 <span class="tok-n">mywin</span><span class="tok-p">:</span><span class="tok-n">resizable</span><span class="tok-p">(</span><span class="tok-n">mywin</span><span class="tok-p">)</span> <span class="tok-c1">-- so that we can try myresize()</span>
 <span class="tok-n">mywin</span><span class="tok-p">:</span><span class="tok-n">done</span><span class="tok-p">()</span>
 <span class="tok-n">mywin</span><span class="tok-p">:</span><span class="tok-n">show</span><span class="tok-p">()</span>
-<span class="tok-k">return</span> <span class="tok-n">fl</span><span class="tok-p">.</span><span class="tok-n">run</span><span class="tok-p">()</span></code></pre>
+<span class="tok-kr">return</span> <span class="tok-n">fl</span><span class="tok-p">.</span><span class="tok-n">run</span><span class="tok-p">()</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6023,8 +6029,8 @@ The following example shows how to use it.</p>
 <div class="listingblock">
 <div class="title">moonfltk.timer example</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="lua"><span class="tok-n">fl</span> <span class="tok-o">=</span> <span class="tok-nb">require</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">moonfltk&quot;</span><span class="tok-p">)</span>
-<span class="tok-n">timer</span> <span class="tok-o">=</span> <span class="tok-nb">require</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">moonfltk.timer&quot;</span><span class="tok-p">)</span>
+<pre class="pygments highlight"><code data-lang="lua"><span></span><span class="tok-n">fl</span> <span class="tok-o">=</span> <span class="tok-nb">require</span><span class="tok-p">(</span><span class="tok-s2">&quot;moonfltk&quot;</span><span class="tok-p">)</span>
+<span class="tok-n">timer</span> <span class="tok-o">=</span> <span class="tok-nb">require</span><span class="tok-p">(</span><span class="tok-s2">&quot;moonfltk.timer&quot;</span><span class="tok-p">)</span>
 
 <span class="tok-c1">-- Init the timer module</span>
 <span class="tok-n">timer</span><span class="tok-p">.</span><span class="tok-n">init</span><span class="tok-p">()</span>
@@ -6033,28 +6039,28 @@ The following example shows how to use it.</p>
 <span class="tok-n">tstart</span> <span class="tok-o">=</span> <span class="tok-p">{}</span> <span class="tok-c1">-- tstart[tid] = starting time</span>
 
 <span class="tok-c1">-- Callback for timers&#39; expiration:</span>
-<span class="tok-k">function</span> <span class="tok-nf">texpired</span><span class="tok-p">(</span><span class="tok-n">tid</span><span class="tok-p">)</span>
+<span class="tok-kr">function</span> <span class="tok-nf">texpired</span><span class="tok-p">(</span><span class="tok-n">tid</span><span class="tok-p">)</span>
    <span class="tok-kd">local</span> <span class="tok-n">now</span> <span class="tok-o">=</span> <span class="tok-n">fl</span><span class="tok-p">.</span><span class="tok-n">gettime</span><span class="tok-p">()</span>
-   <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-nb">string.format</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-s">timer %s expired (elapsed time: %g seconds)&quot;</span><span class="tok-p">,</span>
+   <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-nb">string.format</span><span class="tok-p">(</span><span class="tok-s2">&quot;timer %s expired (elapsed time: %g seconds)&quot;</span><span class="tok-p">,</span>
           <span class="tok-n">tname</span><span class="tok-p">[</span><span class="tok-n">tid</span><span class="tok-p">],</span> <span class="tok-n">now</span> <span class="tok-o">-</span> <span class="tok-n">tstart</span><span class="tok-p">[</span><span class="tok-n">tid</span><span class="tok-p">]))</span>
    <span class="tok-c1">-- restart timer:</span>
    <span class="tok-n">tstart</span><span class="tok-p">[</span><span class="tok-n">tid</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-n">timer</span><span class="tok-p">.</span><span class="tok-n">start</span><span class="tok-p">(</span><span class="tok-n">tid</span><span class="tok-p">)</span>
-<span class="tok-k">end</span>
+<span class="tok-kr">end</span>
 
 <span class="tok-c1">-- Create a few timers:</span>
 <span class="tok-n">t1</span> <span class="tok-o">=</span> <span class="tok-n">timer</span><span class="tok-p">.</span><span class="tok-n">create</span><span class="tok-p">(</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-n">texpired</span><span class="tok-p">)</span>
-<span class="tok-n">tname</span><span class="tok-p">[</span><span class="tok-n">t1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;</span><span class="tok-s">T1&quot;</span>
+<span class="tok-n">tname</span><span class="tok-p">[</span><span class="tok-n">t1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;T1&quot;</span>
 <span class="tok-n">t2</span> <span class="tok-o">=</span> <span class="tok-n">timer</span><span class="tok-p">.</span><span class="tok-n">create</span><span class="tok-p">(</span><span class="tok-mf">3.1</span><span class="tok-p">,</span> <span class="tok-n">texpired</span><span class="tok-p">)</span>
-<span class="tok-n">tname</span><span class="tok-p">[</span><span class="tok-n">t2</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;</span><span class="tok-s">T2&quot;</span>
+<span class="tok-n">tname</span><span class="tok-p">[</span><span class="tok-n">t2</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;T2&quot;</span>
 
 <span class="tok-c1">-- Start them:</span>
 <span class="tok-n">tstart</span><span class="tok-p">[</span><span class="tok-n">t1</span><span class="tok-p">],</span> <span class="tok-n">errmsg</span> <span class="tok-o">=</span> <span class="tok-n">timer</span><span class="tok-p">.</span><span class="tok-n">start</span><span class="tok-p">(</span><span class="tok-n">t1</span><span class="tok-p">)</span>
 <span class="tok-n">tstart</span><span class="tok-p">[</span><span class="tok-n">t2</span><span class="tok-p">],</span> <span class="tok-n">errmsg</span> <span class="tok-o">=</span> <span class="tok-n">timer</span><span class="tok-p">.</span><span class="tok-n">start</span><span class="tok-p">(</span><span class="tok-n">t2</span><span class="tok-p">)</span>
 
 <span class="tok-c1">-- Enter the FLTK main loop:</span>
-<span class="tok-k">while</span> <span class="tok-kc">true</span> <span class="tok-k">do</span>
+<span class="tok-kr">while</span> <span class="tok-kc">true</span> <span class="tok-kr">do</span>
    <span class="tok-n">fl</span><span class="tok-p">.</span><span class="tok-n">wait</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">)</span>
-<span class="tok-k">end</span></code></pre>
+<span class="tok-kr">end</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6237,7 +6243,7 @@ only to emulate work in progress in the examples.#</p>
 <li>
 <p><strong>fl.unreference</strong>(<em>object</em>)<br>
 <span class="small">Remove the anchor of the MoonFLTK <em>object</em> to the Lua registry
-(see <a href="#unreference">Unreferencing objects</a>).</span></p>
+(see <a href="#unreference">"Unreferencing objects"</a>).</span></p>
 </li>
 </ul>
 </div>
@@ -6857,7 +6863,7 @@ Fl::default_at_close( ), Fl::warning/error/fatal( ).</p>
 <div id="footer">
 <div id="footer-text">
 Version 0.5<br>
-Last updated 2016-12-21 10:35:49 CET
+Last updated 2017-08-09 20:11:15 CEST
 </div>
 </div>
 </body>
