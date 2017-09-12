@@ -14,15 +14,31 @@ function DemoTable(x,y,w,h,l)
    local info = { self = self }
    info.cell_bgcolor = fl.WHITE  -- color of cell's bg color
    info.cell_fgcolor = fl.BLACK  -- color of cell's fg color
+
    self:callback(event_callback, info)
+
+   -- FLTK does not know how to draw a cell, so we have to override the draw_cell
+   -- method with a function that does it.
+   -- We override it with a function that calls my_draw_cell(), that does the job
+   -- (notice that by doing so we can also add the info parameter).
    self:override_draw_cell(function (_, context, r, c, x, y, w, h)
-      draw_cell(info, context, r, c, x, y, w, h) end)
+      my_draw_cell(info, context, r, c, x, y, w, h) end)
    self:done()
+
    return self, info
 end
 
--- Handle drawing all cells in table
-function draw_cell(info, context, R, C, X, Y, W, H)
+
+function my_draw_cell(info, context, R, C, X, Y, W, H)
+-- This function doese the job for our draw_cell() method.
+-- The draw_cell() method is called by FLTK whenever it has to draw cells, headers
+-- and in a few other situations. The context argument tells us what particular
+-- 'situation' caused the call. For example, context='startpage' means that FLTK
+-- is about to redraw the table, context='cell' means that FLTK wants us to draw a
+-- cell, context='row header' means that it wants us to draw a cell of the row header,
+-- and so on.
+-- The other parameters tell us what cell we have to draw (R,C), where to draw it (X,Y)
+-- and how big (W,H).
    local s = string.format("%d/%d", R, C)    -- text for each cell
    local self = info.self
 
@@ -65,17 +81,29 @@ function draw_cell(info, context, R, C, X, Y, W, H)
 end
 
 
-
--- Callback whenever someone clicks on different parts of the table
 function event_callback(self, info)
+-- This is the event callback for our table widget. It is called by FLTK whenever
+-- someone clicks on different parts of the table.
+-- Logically, the callback should pass us detailed information about the event that
+-- caused it (e.g. the user clicked on the cell R=21 C=15).
+-- Since the generic callback for widgets has only standard arguments, we have to
+-- retrieve those informations by ourselves using the table:callback_xxx() methods.
+-- In this example we just retrieve the callback information and print it on stdout,
+-- but in a real world application we can anything we like, even control other widgets
+-- or launch a shuttle to Mars (if we have a function that does it ;-).
    local R, C = self:callback_row(), self:callback_col()
    local context = self:callback_context()
    local label = self:label() or "?"
-   print( string.format("'%s' callback: " ..
+   print(string.format("'%s' callback: " ..
             "Row=%d Col=%d Context=%s Event=%s InteractiveResize? %s\n",
       label, R, C, context, fl.event(), tostring(self:is_interactive_resize())))
 end
 
+-- Now that our table widget is defined, we define a few other widget to control its
+-- properties. These widgets control the table widget by calling its methods from
+-- within their own callback.
+-- In the 'main' section below we'll create a window containing the table widget itself
+-- and these control widgets.
 
 function setrows_cb(_, inp)
    local rows = tonumber(inp:value())
@@ -184,7 +212,6 @@ function setcellbgcolor_cb(_, inp)
    end
    G_table:redraw()
 end
-
 
 function tablebox_choice_cb(_, boxtype)
    G_table:table_box(boxtype)
