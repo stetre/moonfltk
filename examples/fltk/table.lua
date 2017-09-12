@@ -30,8 +30,8 @@ end
 
 
 function my_draw_cell(info, context, R, C, X, Y, W, H)
--- This function doese the job for our draw_cell() method.
--- The draw_cell() method is called by FLTK whenever it has to draw cells, headers
+-- This function does the job for our draw_cell() method.
+-- The draw_cell() method is called by FLTK whenever it has to draw cells, headers,
 -- and in a few other situations. The context argument tells us what particular
 -- 'situation' caused the call. For example, context='startpage' means that FLTK
 -- is about to redraw the table, context='cell' means that FLTK wants us to draw a
@@ -89,8 +89,8 @@ function event_callback(self, info)
 -- Since the generic callback for widgets has only standard arguments, we have to
 -- retrieve those informations by ourselves using the table:callback_xxx() methods.
 -- In this example we just retrieve the callback information and print it on stdout,
--- but in a real world application we can anything we like, even control other widgets
--- or launch a shuttle to Mars (if we have a function that does it ;-).
+-- but in a real world application we can do anything we like, even control other
+-- widgets or launch a shuttle to Mars (if we have a function that does it ;-).
    local R, C = self:callback_row(), self:callback_col()
    local context = self:callback_context()
    local label = self:label() or "?"
@@ -99,7 +99,7 @@ function event_callback(self, info)
       label, R, C, context, fl.event(), tostring(self:is_interactive_resize())))
 end
 
--- Now that our table widget is defined, we define a few other widget to control its
+-- Now that our table widget is defined, we define a few other widgets to control its
 -- properties. These widgets control the table widget by calling its methods from
 -- within their own callback.
 -- In the 'main' section below we'll create a window containing the table widget itself
