@@ -33,6 +33,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include "moonfltk.h"
 #include <FL/Fl.H>
 #include "udata.h"
