@@ -68,6 +68,7 @@ static int Lock(lua_State *L)
 
 static int Unlock(lua_State *L)
     {
+    (void)L; 
     Fl::unlock();
     return 0;
     }
