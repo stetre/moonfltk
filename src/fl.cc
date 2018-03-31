@@ -61,8 +61,7 @@ static int Wait(lua_State *L)
 
 static int Lock(lua_State *L)
     {
-    int rslt = Fl::lock();
-    lua_pushinteger(L, rslt);
+    lua_pushinteger(L, Fl::lock());
     return 1;
     }
 
@@ -72,43 +71,122 @@ static int Unlock(lua_State *L)
     Fl::unlock();
     return 0;
     }
-    
-struct AwakeMessage {
-    size_t len;
-};
 
+// Handling thread messages that can be send to the main thread.
+// 
+// The FLTK documentation says: 
+//      The default message handler saves the last message which can be 
+//      accessed using the Fl::thread_message() function.
+//
+// With this we can get the problem, that dropped message pointers 
+// will not be freed on the main thread leading to a memory leak.
+//
+// To solve this, we implement a message handler, that handles a
+// message queue. FLTK itself manages a queue of these message handlers. 
+
+struct AwakeMessage {
+    size_t        len;
+    AwakeMessage* next;
+};
+static AwakeMessage* firstAwakeMessage = 0; // should only be accessed on main thread
+static AwakeMessage* lastAwakeMessage  = 0; // should only be accessed on main thread
+
+// this message handler is invoked by FLTK on the main thread
+static void handleAwake(void *data)
+    {
+    if (data != 0)
+        {
+        AwakeMessage* m = (AwakeMessage*) data;
+        if (lastAwakeMessage != 0)
+            {
+            lastAwakeMessage->next = m;
+            lastAwakeMessage = m;
+            }
+        else
+            {
+            firstAwakeMessage = m;
+            lastAwakeMessage  = m;
+            }
+        }
+    }
+
+// Awakes the FLTK main thread.
+//
+// If invoked with an optional message string argument, this function will
+// also queues this message string. The queued message string can be obtained
+// using the function fl.thread_mesesage.
+//
+// If message strings are queued, fl.thread_message should be called to 
+// remove messages from the queue.
+// 
+// Returns true if the message could be queued or no message was given,
+// returns false, if the message could not be queued.
+//
+// In all cases the main FLTK thread will be awaken from wait.
+//
 static int Awake(lua_State *L)
     {
-        AwakeMessage* m;
+        int isOk = 1;
+
         if (lua_gettop(L) == 0 || lua_isnil(L, 1))
-            m = 0;
+            Fl::awake();
         else if (lua_isstring(L, 1))
             {
             size_t len;
             const char* s = lua_tolstring(L, 1, &len);
-            m = (AwakeMessage*)malloc(sizeof(AwakeMessage) + len); 
+            AwakeMessage* m = (AwakeMessage*)malloc(sizeof(AwakeMessage) + len); 
             if (m != 0)
                 {
+                // do not use firstAwakeMessage and lastAwakeMessage,
+                // since code here can be running on any thread.
                 memcpy(m + 1, s, len);
-                m->len = len;
+                m->len  = len;
+                m->next = 0;
+                isOk = (Fl::awake(handleAwake, m) == 0);
+                if (!isOk)
+                    // Handler could not be queued, but 
+                    // FLTK has awaken the main thread.
+                    free(m);
+                }
+            else
+                {
+                // out of memory ->
+                // awake the main thread without message handler
+                isOk = 0;
+                Fl::awake();
                 }
             }
         else
             return luaL_argerror(L, 1, "string expected");
-        Fl::awake(m);
-        return 0;
+        lua_pushboolean(L, isOk);
+        return 1;
     }
+
+// Obtains next message string that was put into
+// the queue with the function fl.awake.
+// The returned message string is removed from the queue.
+// Returns nil if there are no more message strings in the queue.
+//
 static int Thread_message(lua_State *L)
     {
-        AwakeMessage* m = (AwakeMessage*)Fl::thread_message();
-        if (m != 0)
+        Fl::lock(); // lock is needed, because Thread_message 
+                    // could be invoked from any thread.
+        if (firstAwakeMessage != 0)
             {
+            AwakeMessage* m = firstAwakeMessage;
+            firstAwakeMessage = m->next;
+            if (lastAwakeMessage == m)
+                lastAwakeMessage = 0;
             lua_pushlstring(L, (char*)(m + 1), m->len);
             free(m);
+            Fl::unlock();
             return 1;
             }
         else
+            {
+            Fl::unlock();
             return 0;
+            }
     }
     
 static int Check(lua_State *L)
