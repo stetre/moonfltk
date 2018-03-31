@@ -58,10 +58,10 @@ static int Wait(lua_State *L)
     return 1;
     }
 
-
+// returns true if multithreading is available
 static int Lock(lua_State *L)
     {
-    lua_pushinteger(L, Fl::lock());
+    lua_pushboolean(L, Fl::lock() == 0);
     return 1;
     }
 
