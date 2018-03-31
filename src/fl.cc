@@ -58,6 +58,59 @@ static int Wait(lua_State *L)
     return 1;
     }
 
+
+static int Lock(lua_State *L)
+    {
+    int rslt = Fl::lock();
+    lua_pushinteger(L, rslt);
+    return 1;
+    }
+
+static int Unlock(lua_State *L)
+    {
+    (void)L; 
+    Fl::unlock();
+    return 0;
+    }
+    
+struct AwakeMessage {
+    size_t len;
+};
+
+static int Awake(lua_State *L)
+    {
+        AwakeMessage* m;
+        if (lua_gettop(L) == 0 || lua_isnil(L, 1))
+            m = 0;
+        else if (lua_isstring(L, 1))
+            {
+            size_t len;
+            const char* s = lua_tolstring(L, 1, &len);
+            m = (AwakeMessage*)malloc(sizeof(AwakeMessage) + len); 
+            if (m != 0)
+                {
+                memcpy(m + 1, s, len);
+                m->len = len;
+                }
+            }
+        else
+            return luaL_argerror(L, 1, "string expected");
+        Fl::awake(m);
+        return 0;
+    }
+static int Thread_message(lua_State *L)
+    {
+        AwakeMessage* m = (AwakeMessage*)Fl::thread_message();
+        if (m != 0)
+            {
+            lua_pushlstring(L, (char*)(m + 1), m->len);
+            free(m);
+            return 1;
+            }
+        else
+            return 0;
+    }
+    
 static int Check(lua_State *L)
     {
     lua_pushboolean(L, Fl::check());
@@ -168,6 +221,10 @@ static const struct luaL_Reg Functions[] =
         { "visible_focus", Visible_focus },
         { "visual", Visuallll },
         { "wait", Wait },
+        { "lock", Lock },
+        { "unlock", Unlock },
+        { "awake", Awake },
+        { "thread_message",  Thread_message },
         { NULL, NULL } /* sentinel */
     };
 

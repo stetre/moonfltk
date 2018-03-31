@@ -289,34 +289,68 @@ static int Utf_nb_char(lua_State *L) //
     return 0;
     }
 
+#endif
+
 //int   fl_utf_strcasecmp(const char *s1, const char *s2)
 static int Utf_strcasecmp(lua_State *L) // 
     {
-    (void)L;
-    return 0;
+    size_t len1;
+    const char *s1 = luaL_checklstring(L, 1, &len1);
+    size_t len2;
+    const char *s2 = luaL_checklstring(L, 2, &len2);
+    
+    size_t len = (len1 < len2) ? len1 : len2;
+    
+    int rslt = fl_utf_strncasecmp(s1, s2, len);
+    if (rslt != 0)
+        {
+        lua_pushinteger(L, (rslt < 0) ? -1 : +1);
+        }
+    else if (len1 != len2)
+        {
+        lua_pushinteger(L, (len1 < len2) ? -1 : +1);
+        }
+    else
+        {
+        lua_pushinteger(L, 0);
+        }
+    return 1;
     }
 
+#if 0
 //int   fl_utf_strncasecmp(const char *s1, const char *s2, int n)
 static int Utf_strncasecmp(lua_State *L) // 
     {
     (void)L;
     return 0;
     }
+#endif
 
 //int   fl_utf_tolower(const unsigned char *str, int len, char *buf)
 static int Utf_tolower(lua_State *L) // 
     {
-    (void)L;
-    return 0;
+    size_t len;
+    const char *s = luaL_checklstring(L, 1, &len);
+    luaL_Buffer buffer;
+    char *outPtr = luaL_buffinitsize(L, &buffer, 3 * len + 1);
+    int outLen = fl_utf_tolower((const unsigned char*)s, len, outPtr);
+    luaL_pushresultsize(&buffer, outLen);
+    return 1;
     }
 
 //int   fl_utf_toupper(const unsigned char *str, int len, char *buf)
 static int Utf_toupper(lua_State *L) // 
     {
-    (void)L;
-    return 0;
+    size_t len;
+    const char *s = luaL_checklstring(L, 1, &len);
+    luaL_Buffer buffer;
+    char *outPtr = luaL_buffinitsize(L, &buffer, 3 * len + 1);
+    int outLen = fl_utf_toupper((const unsigned char*)s, len, outPtr);
+    luaL_pushresultsize(&buffer, outLen);
+    return 1;
     }
 
+#if 0
 //int   fl_wcwidth(const char *src)
 static int Wcwidth(lua_State *L) // 
     {
@@ -324,6 +358,7 @@ static int Wcwidth(lua_State *L) //
     return 0;
     }
 #endif
+
 
 /*------------------------------------------------------------------------------*
  | Registration                                                                 |
@@ -369,10 +404,12 @@ static const struct luaL_Reg Functions[] =
         { "utf8toUtf16", Utf8toUtf16 },
         { "utf8towc", Utf8towc },
         { "utf_nb_char", Utf_nb_char },
+#endif
         { "utf_strcasecmp", Utf_strcasecmp },
-        { "utf_strncasecmp", Utf_strncasecmp },
+//      { "utf_strncasecmp", Utf_strncasecmp },
         { "utf_tolower", Utf_tolower },
         { "utf_toupper", Utf_toupper },
+#if 0
         { "wcwidth", Wcwidth },
 #endif
         { NULL, NULL } /* sentinel */
