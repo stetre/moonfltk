@@ -67,9 +67,8 @@ win:show()
 timer.start(T1)
 
 -- GUI thread main loop:
-while true do 
+while fl.wait() do 
    jack.testcancel() -- cancellation point
-   if not fl.check() then os.exit() end -- check for GUI events
 
    repeat
       local tag, data = jack.ringbuffer_read(rbuf_in)
@@ -79,6 +78,7 @@ while true do
    until not tag
 
 end
+os.exit()
 ]]
 
 -----------------------------------------------------------------------
@@ -87,6 +87,8 @@ end
 
 PROCESS = [[
 client, port_in, port_out, gui, rbuf_in, rbuf_out = table.unpack(arg)
+
+fl = require("moonfltk.background")
 
 tot_frames = 0
 mute = false
@@ -103,6 +105,7 @@ function process(nframes)
       elseif tag==3 then              -- frames count request
          jack.ringbuffer_write(rbuf_out, 4, tostring(tot_frames))
          jack.signal(client, gui)
+         fl.awake()
       else -- ignore
       end
    end
