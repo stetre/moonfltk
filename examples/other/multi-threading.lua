@@ -7,8 +7,10 @@
 local lanes = require"lanes".configure()
 local fl    = require"moonfltk"
 
-fl.lock() -- "start" the FLTK lock mechanism
-          -- this is needed for initializing fl.await and fl.thread_message
+if not fl.lock()  -- "start" the FLTK lock mechanism
+then              -- this is needed for initializing fl.await and fl.thread_message
+    error("Multi threading not available in FLTK.")
+end
 
 local START_NUMBER = 15
 local DEBUG        = false
