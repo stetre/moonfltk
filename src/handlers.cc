@@ -33,6 +33,8 @@
 /* The problem: FLTK allows registering multiple timeout callbacks, but it
  * identifies them by the callback address, so we cannot use a single C
  * callback as entry point for multiple Lua callbacks.
+ *
+ * @@TODO: is this still true?
  * 
  *  Fortunately, we know how to create a timer wheel in Lua (see LunaSDL), so
  *  we can live with a single timeout callback.
@@ -49,21 +51,23 @@ static double Seconds = 0;
     Repeat = 0;                                 \
 } while (0)
 
-static void TmrHandler(void *state)
+static void TmrHandler(void *data)
     {
-#define L (lua_State*)state
+    (void)data;
+    lua_State* L = main_lua_state;
+    if (!L)
+        return;
     if(pushvalue(L, TmrRef) != LUA_TFUNCTION)
         { unexpected(L); return; }
     /* restart or reset the timer before executing the callback
      * (the callback code may reset, or set a new handler)
      */
     if(Repeat)
-        Fl::repeat_timeout(Seconds, TmrHandler, (void*)L);
+        Fl::repeat_timeout(Seconds, TmrHandler, (void*)0);
     else
         Reset();
     if(lua_pcall(L, 0, 0, 0) != LUA_OK)
         { lua_error(L); return; }
-#undef L
     }
 
 static int HasTimeout(lua_State *L)
@@ -87,7 +91,7 @@ static int SetTimeout(lua_State *L)
     if(!lua_isfunction(L, 3))
         return luaL_argerror(L, 3, "function expected");
     reference(L, TmrRef, 3);
-    Fl::add_timeout(Seconds, TmrHandler, (void*)L);
+    Fl::add_timeout(Seconds, TmrHandler, (void*)0);
     return 0;
     }
 
@@ -97,14 +101,16 @@ static int SetTimeout(lua_State *L)
  *------------------------------------------------------------------------------*/
 
 static int CheckRef = LUA_NOREF;
-static void CheckHandler(void *state)
+static void CheckHandler(void *data)
     {
-#define L (lua_State*)state
+    (void)data;
+    lua_State* L = main_lua_state;
+    if (!L)
+        return;
     if(pushvalue(L, CheckRef) != LUA_TFUNCTION)
         { unexpected(L); return; }
     if(lua_pcall(L, 0, 0, 0) != LUA_OK)
         { lua_error(L); return; }
-#undef L
     }
 
 static int Has_check(lua_State *L)
@@ -129,7 +135,7 @@ static int Set_check(lua_State *L)
     if(!lua_isfunction(L, 1))
         return luaL_argerror(L, 1, "function expected");
     reference(L, CheckRef, 1);
-    Fl::add_check(CheckHandler, (void*)L);
+    Fl::add_check(CheckHandler, (void*)0);
     return 0;
     }
 
@@ -138,14 +144,16 @@ static int Set_check(lua_State *L)
  *------------------------------------------------------------------------------*/
 
 static int IdleRef = LUA_NOREF;
-static void IdleHandler(void *state)
+static void IdleHandler(void *data)
     {
-#define L (lua_State*)state
+    (void)data;
+    lua_State* L = main_lua_state;
+    if (!L)
+        return;
     if(pushvalue(L, IdleRef) != LUA_TFUNCTION)
         { unexpected(L); return; }
     if(lua_pcall(L, 0, 0, 0) != LUA_OK)
         { lua_error(L); return; }
-#undef L
     }
 
 static int Has_idle(lua_State *L)
@@ -167,7 +175,7 @@ static int Set_idle(lua_State *L)
     if(!lua_isfunction(L, 1))
         return luaL_argerror(L, 1, "function expected");
     reference(L, IdleRef, 1);
-    Fl::add_idle(IdleHandler, (void*)L);
+    Fl::add_idle(IdleHandler, (void*)0);
     return 0;
     }
 
@@ -194,16 +202,18 @@ static int Fileno(lua_State *L) /* POSIX */
  *------------------------------------------------------------------------------*/
 
 static int FdRef = LUA_NOREF;
-static void FdHandler(int fd, void *state)
+static void FdHandler(int fd, void *data)
     {
-#define L (lua_State*)state
+    (void)data;
+    lua_State* L = main_lua_state;
+    if (!L)
+        return;
     if(pushvalue(L, FdRef) != LUA_TFUNCTION)
 //      { unexpected(L); return; } 
         { luaL_error(L, "missing fd handler"); }
     lua_pushinteger(L, fd);
     if(lua_pcall(L, 1, 0, 0) != LUA_OK)
         { lua_error(L); return; }
-#undef L
     }
 
 static int Has_fd_handler(lua_State *L)
@@ -229,7 +239,7 @@ static int Add_fd(lua_State *L)
     {
     int fd = luaL_checkinteger(L, 1);
     int when = check_WhenFd(L, 2);
-    Fl::add_fd(fd, when, FdHandler, (void*)L);  
+    Fl::add_fd(fd, when, FdHandler, (void*)0);  
     return 0;
     }
 
