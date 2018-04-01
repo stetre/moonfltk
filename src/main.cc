@@ -347,7 +347,9 @@ int moonfltk_open_background_main(lua_State *L)
         AddConstants(L);
         
         moonfltk_open_Fl_for_background(L);
-
+        moonfltk_open_FlFile(L);
+        moonfltk_open_FlUnicode(L);
+        
         return 1;
     }
 
