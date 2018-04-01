@@ -31,7 +31,9 @@
 
 static void CommonCallback(Fl_Widget *p, void *not_used)
     {
-#define L ud->state
+    lua_State *L = main_lua_state;
+    if (!L) 
+        return;
     (void)not_used;
     int nargs = 1;
     ud_t *ud = userdata(p);
@@ -45,7 +47,6 @@ static void CommonCallback(Fl_Widget *p, void *not_used)
         { pushvalue(L, ud->argref); nargs++; }
     if(lua_pcall(L, nargs, 0, 0) != LUA_OK)
         { lua_error(L); return; }
-#undef L
     }
 
 #define SetUserData(L, ud, arg) do {                        \

@@ -69,7 +69,6 @@ extern lua_State* main_lua_state;
 #define ud_t moonfltk_ud_t
 typedef struct {
     void *obj;  /* the object (FL_##T*) bound to this userdata */
-    lua_State *state; /* the Lua state where to execute the callbacks */
     int refcnt; /* reference counter(for shared images) */
     /* references on the Lua registry --------------------*/
     int cbref;  /* callback */

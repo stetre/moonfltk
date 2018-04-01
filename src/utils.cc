@@ -149,7 +149,6 @@ ud_t *newuserdata(lua_State *L, void *ptr, const char *mt)
         }
     ud = (ud_t*)udata_new(L, sizeof(ud_t), ptr, mt);
     memset(ud, 0, sizeof(ud_t));
-    ud->state = L;
     ud->refcnt = 1;
     ud->cbref = ud->argref = LUA_NOREF;
     ud->draw = ud->handle = ud->show = ud->hide = ud->resize = ud->draw_overlay = LUA_NOREF;

@@ -75,9 +75,9 @@ GETSET_BOOLEAN(Text_Editor, insert_mode, Text_Editorinsert_mode)
 static int KeyCallback(int key, Fl_Text_Editor* p)
     {
     ud_t *ud = userdata(p);
-    if(!ud)
+    lua_State *L = main_lua_state;
+    if(!ud || !L)
         return 0;
-    lua_State *L =ud->state;
     if(pushvalue(L, ud->key_func) != LUA_TFUNCTION)
         return unexpected(L);
     push_Text_Editor(L, p);

@@ -48,7 +48,8 @@ void Fl_##T##SUB::what()                                    \
     if(!ud) return;                                         \
     if(ud->what == LUA_NOREF)                               \
         { Fl_##T::what(); return; }                         \
-    lua_State *L =ud->state;                                \
+    lua_State *L = main_lua_state;                          \
+    if (!L) return;                                         \
     if(pushvalue(L, ud->what) != LUA_TFUNCTION)             \
         { unexpected(L); return; }                          \
     push_Widget(L, this);                                   \
@@ -63,7 +64,8 @@ int Fl_##T##SUB::handle(int event)                          \
     if(!ud) return 0;                                       \
     if(ud->handle == LUA_NOREF)                             \
         { return Fl_##T::handle(event); }                   \
-    lua_State *L =ud->state;                                \
+    lua_State *L = main_lua_state;                          \
+    if (!L) return 0;                                       \
     if(pushvalue(L, ud->handle) != LUA_TFUNCTION)           \
         { unexpected(L); return 0; }                        \
     push_Widget(L, this);                                   \
@@ -80,7 +82,8 @@ void Fl_##T##SUB::resize(int x, int y, int w, int h)        \
     if(!ud) return;                                         \
     if(ud->resize == LUA_NOREF)                             \
         { Fl_##T::resize(x,y,w,h); return; }                \
-    lua_State *L =ud->state;                                \
+    lua_State *L = main_lua_state;                          \
+    if (!L) return;                                         \
     if(pushvalue(L, ud->resize) != LUA_TFUNCTION)           \
         { unexpected(L); return; }                          \
     push_Widget(L, this);                                   \
@@ -107,7 +110,8 @@ void Fl_##T##SUB::draw_cell(TableContext context, int r, int c, int x, int y, in
     if(!ud) return;                                         \
     if(ud->draw_cell == LUA_NOREF)                          \
         { Fl_##T::draw_cell(context,r,c,x,y,w,h); return; } /*@@NO: error */ \
-    lua_State *L = ud->state;                               \
+    lua_State *L = main_lua_state;                          \
+    if (!L) return;                                         \
     if(pushvalue(L, ud->draw_cell) != LUA_TFUNCTION)        \
         { unexpected(L); return; }                          \
     push_Widget(L, this);                                   \
