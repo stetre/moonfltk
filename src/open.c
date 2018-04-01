@@ -26,11 +26,18 @@
 #include <lua.h>
 
 int moonfltk_open_main(lua_State *L);
+int moonfltk_open_background_main(lua_State *L);
 int luaopen_moonfltk(lua_State *L);
 
 int luaopen_moonfltk(lua_State *L)
 /* Lua calls this function to load the module */
     {
     return moonfltk_open_main(L);
+    }
+
+int luaopen_moonfltk_background(lua_State *L)
+/* Lua calls this function to load the module */
+    {
+    return moonfltk_open_background_main(L);
     }
 

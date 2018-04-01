@@ -30,7 +30,7 @@ static void AddVersions(lua_State *L) //@@DOC
 /* Add version strings to the fltk table */
     {
     lua_pushstring(L, "_VERSION");
-    lua_pushstring(L, "MoonFLTK "MOONFLTK_VERSION);
+    lua_pushstring(L, "MoonFLTK " MOONFLTK_VERSION);
     lua_settable(L, -3);
 
     lua_pushstring(L, "_FLTK_VERSION");
@@ -244,59 +244,111 @@ static const struct luaL_Reg Functions[] =
         { NULL, NULL } /* sentinel */
     };
 
+static bool initialized = false;
+lua_State* main_lua_state = 0;
 
 extern "C" { /* because it is called by luaopen_moonfltk() */
 
+static int handleClosingLuaState(lua_State *L)
+    {
+        (void)L;
+        main_lua_state = 0;
+        return 0;
+    }
+
+int moonfltk_open_background_main(lua_State *L);
+
 int moonfltk_open_main(lua_State *L)
     {
-    lua_newtable(L); /* the fltk table */
-    AddVersions(L);
-    AddConstants(L);
+    Fl::lock();
+    
+    lua_rawgeti(L, LUA_REGISTRYINDEX, LUA_RIDX_MAINTHREAD);
+    lua_State* thisMain = lua_tothread(L, -1);
+    lua_pop(L, 1);
+    
+    if (!initialized)
+        {
+        main_lua_state = thisMain;
+        lua_newuserdata(L, 1); // sentinel for closing lua state
+            lua_newtable(L); // metatable for sentinel
+                lua_pushstring(L, "__gc");
+                lua_pushcfunction(L, handleClosingLuaState);
+                lua_rawset(L, -3); // metatable.__gc = handleClosingLuaState
+            lua_setmetatable(L, -2); // sets metatable for sentinal table
+        luaL_ref(L, LUA_REGISTRYINDEX); // keeps reference for sentinel in registry
+        initialized = true;
+        }
+    
+    if (main_lua_state == thisMain)
+        {
+        lua_newtable(L); /* the fltk table */
+        AddVersions(L);
+        AddConstants(L);
+    
+        /* add fltk functions: */
+        luaL_setfuncs(L, Functions, 0);
+        moonfltk_open_Fl(L);
+        moonfltk_open_Additional(L);
+        moonfltk_open_FlColor(L);
+        moonfltk_open_FlFont(L);
+        moonfltk_open_FlWindow(L);
+        moonfltk_open_FlClipboard(L);
+        moonfltk_open_FlScreen(L);
+        moonfltk_open_FlDraw(L);
+        moonfltk_open_FlFile(L);
+        moonfltk_open_FlUnicode(L);
+        moonfltk_open_FlCommon(L);
+        moonfltk_open_FlTooltip(L);
+        moonfltk_open_Widget(L);
+        moonfltk_open_Button(L);
+        moonfltk_open_Clock(L);
+        moonfltk_open_Group(L);
+        moonfltk_open_Window(L);
+        moonfltk_open_Image(L);
+        moonfltk_open_Browser(L);
+        moonfltk_open_Menu(L);
+        moonfltk_open_Input(L);
+        moonfltk_open_Valuator(L);
+        moonfltk_open_Slider(L);
+        moonfltk_open_Tabs(L);
+        moonfltk_open_Input_Choice(L);
+        moonfltk_open_Color_Chooser(L);
+        moonfltk_open_FlEvent(L);
+        moonfltk_open_Text_Buffer(L);
+        moonfltk_open_Text_Display(L);
+        moonfltk_open_Text_Editor(L);
+        moonfltk_open_Native_File_Chooser(L);
+        moonfltk_open_Handlers(L);
+        moonfltk_open_Table(L);
+        moonfltk_open_Subclass(L);
+        moonfltk_open_Chart(L);
+        moonfltk_open_Help_Dialog(L);
+        moonfltk_open_Help_View(L);
+        moonfltk_open_Tree(L);
+    
+        Fl::scheme(NULL); /* this is needed otherwise fl_input() does a segv */
 
-    /* add fltk functions: */
-    luaL_setfuncs(L, Functions, 0);
-    moonfltk_open_Fl(L);
-    moonfltk_open_Additional(L);
-    moonfltk_open_FlColor(L);
-    moonfltk_open_FlFont(L);
-    moonfltk_open_FlWindow(L);
-    moonfltk_open_FlClipboard(L);
-    moonfltk_open_FlScreen(L);
-    moonfltk_open_FlDraw(L);
-    moonfltk_open_FlFile(L);
-    moonfltk_open_FlUnicode(L);
-    moonfltk_open_FlCommon(L);
-    moonfltk_open_FlTooltip(L);
-    moonfltk_open_Widget(L);
-    moonfltk_open_Button(L);
-    moonfltk_open_Clock(L);
-    moonfltk_open_Group(L);
-    moonfltk_open_Window(L);
-    moonfltk_open_Image(L);
-    moonfltk_open_Browser(L);
-    moonfltk_open_Menu(L);
-    moonfltk_open_Input(L);
-    moonfltk_open_Valuator(L);
-    moonfltk_open_Slider(L);
-    moonfltk_open_Tabs(L);
-    moonfltk_open_Input_Choice(L);
-    moonfltk_open_Color_Chooser(L);
-    moonfltk_open_FlEvent(L);
-    moonfltk_open_Text_Buffer(L);
-    moonfltk_open_Text_Display(L);
-    moonfltk_open_Text_Editor(L);
-    moonfltk_open_Native_File_Chooser(L);
-    moonfltk_open_Handlers(L);
-    moonfltk_open_Table(L);
-    moonfltk_open_Subclass(L);
-    moonfltk_open_Chart(L);
-    moonfltk_open_Help_Dialog(L);
-    moonfltk_open_Help_View(L);
-    moonfltk_open_Tree(L);
+        // hold the lock, no Fl::unlock on main thread, this is done by Fl::wait
+        return 1;
+        }
+    else
+        {
+        Fl::unlock(); // release lock on background thread
 
-    Fl::scheme(NULL); /* this is needed otherwise fl_input() does a segv */
+        return luaL_error(L, "MoonFLTK is already initialized for another lua state");
+        }
+    }
+    
+int moonfltk_open_background_main(lua_State *L)
+    {
+        lua_newtable(L); /* the fltk table for background threads */
 
-    return 1;
+        AddVersions(L);
+        AddConstants(L);
+        
+        moonfltk_open_Fl_for_background(L);
+
+        return 1;
     }
 
 } /* extern "C" */

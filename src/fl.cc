@@ -58,20 +58,6 @@ static int Wait(lua_State *L)
     return 1;
     }
 
-// returns true if multithreading is available
-static int Lock(lua_State *L)
-    {
-    lua_pushboolean(L, Fl::lock() == 0);
-    return 1;
-    }
-
-static int Unlock(lua_State *L)
-    {
-    (void)L; 
-    Fl::unlock();
-    return 0;
-    }
-
 // Handling thread messages that can be send to the main thread.
 // 
 // The FLTK documentation says: 
@@ -299,17 +285,24 @@ static const struct luaL_Reg Functions[] =
         { "visible_focus", Visible_focus },
         { "visual", Visuallll },
         { "wait", Wait },
-        { "lock", Lock },
-        { "unlock", Unlock },
-        { "awake", Awake },
         { "thread_message",  Thread_message },
         { NULL, NULL } /* sentinel */
     };
 
+static const struct luaL_Reg BackgroundFunctions[] = 
+    {
+        { "awake", Awake },
+        { NULL, NULL } /* sentinel */
+    };
 
 void moonfltk_open_Fl(lua_State *L)
     {
     luaL_setfuncs(L, Functions, 0);
+    }
+
+void moonfltk_open_Fl_for_background(lua_State *L)
+    {
+    luaL_setfuncs(L, BackgroundFunctions, 0);
     }
 
 #if(0) //@@ not/not yet implemented stuff:
