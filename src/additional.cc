@@ -147,7 +147,7 @@ static int Unreference(lua_State *L)
     {
     void *p = test_Widget(L, 1);
     if(!p) p = test_Image(L, 1); //@@ ragionare sul caso di shared images
-    if(!p) p = test_Device(L, 1);
+//  if(!p) p = test_Device(L, 1); @@ not implemented, so metatable is not defined
     if(!p) p = test_Help_Dialog(L, 1);
     if(!p) p = test_Native_File_Chooser(L, 1);
     if(!p) p = test_Text_Buffer(L, 1);
