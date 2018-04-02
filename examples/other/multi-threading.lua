@@ -7,11 +7,6 @@
 local lanes = require"lanes".configure()
 local fl    = require"moonfltk"
 
-if not fl.lock()  -- "start" the FLTK lock mechanism
-then              -- this is needed for initializing fl.await and fl.thread_message
-    error("Multi threading not available in FLTK.")
-end
-
 local START_NUMBER = 15
 local DEBUG        = false
 local TRACE        = DEBUG and print or function() end
@@ -23,8 +18,11 @@ local function background_code(threadName, initialSleepSeconds)
     -- transfered to another thread, see the LuaLanes documentation 
     -- for more details: http://lualanes.github.io/lanes/
     TRACE(threadName..": started.")
-    local lanes = require"lanes"    -- module cannot be serialized
-    local fl    = require"moonfltk" -- module cannot be serialized
+
+    -- open modules for the background thread
+    local lanes = require"lanes"
+    local fl    = require"moonfltk.background" -- fltk access for background threads
+
     lanes.sleep(initialSleepSeconds)
     for i = START_NUMBER, 0, -1 do
         linda1:send(threadName, i)
@@ -40,8 +38,17 @@ end
 
 local createThread = lanes.gen("*", background_code)
 
-local thread1 = createThread("thread1", 2)
-local thread2 = createThread("thread2", 2.5)
+local thread1 = createThread("thread1", 1)
+local thread2 = createThread("thread2", 1.5)
+
+local function checkForThreadErrors()
+    for _, t in ipairs {thread1, thread2} do
+        if t.status == "error" then
+            local _, err, stack = t:join()
+            error(err..":\n\t"..table.concat(stack, "\n\t"))
+        end
+    end
+end
 
 local win = fl.window(440, 180, arg[0])
 local box = fl.box(20, 40, 400, 100, "Hello, World!");
@@ -57,10 +64,14 @@ local m1 = ""
 local m2 = ""
 local finished = {}
 
+checkForThreadErrors()
+
 TRACE("main: starting event loop.")
 while fl.wait() do
     TRACE("main: ------------- event loop activated -------------")
 
+    checkForThreadErrors()
+    
     -- Read all thread messages.
     -- If fl.awake was called with an optional message string,
     -- tl.thread_message must be called to remove message

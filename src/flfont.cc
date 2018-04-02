@@ -177,7 +177,8 @@ static int Set_font(lua_State *L)
          * to free() all strdup'd strings at exit... so we reference it on the
          * Lua registry, and leave the GC do the job for us.
          */
-        (void)ref; /* we won't use this any more */
+        // @@TODO: put the font for index into a lua table and store this table into registry
+         (void)ref; /* we won't use this any more */
         }
     return 0;
     }

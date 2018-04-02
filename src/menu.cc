@@ -142,7 +142,8 @@ static int ItemDelete(lua_State *L, Fl_Menu_ *menu, Fl_Menu_Item *item)
  */
 static void CommonCallback(Fl_Widget *menu_, void *ud_)
     {
-#define L ud->state
+    lua_State *L = main_lua_state;
+    if (!L) return;
     Fl_Menu_ *menu = (Fl_Menu_*)menu_;
     ud_t *ud = (ud_t*)ud_; /* note that this is the ud bound to the menu item, not to the menu */
     //printf("Menu callback: menu: %p, menu_item: %p\n", userdata(menu), ud);
@@ -161,7 +162,6 @@ static void CommonCallback(Fl_Widget *menu_, void *ud_)
         { pushvalue(L, ud->argref); nargs++; }
     if(lua_pcall(L, nargs, 0, 0) != LUA_OK)
         { lua_error(L); return; }
-#undef L
     }
 
 /*------------------------------------------------------------------------------*
@@ -200,7 +200,6 @@ static int Menu_add(lua_State *L)
     if(!ud)
         return luaL_error(L, "cannot allocate memory");
     memset(ud, 0, sizeof(ud_t));
-    ud->state = L;
     ud->cbref = cbref;
     ud->argref = argref;
     

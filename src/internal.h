@@ -57,6 +57,8 @@
 #endif
 #endif
 
+#define main_lua_state moonfltk_main_lua_state
+extern lua_State* main_lua_state;
 
 /* Note: all the dynamic symbols of this library (should) start with 'moonfltk_' .
  * The only exception is the luaopen_moonfltk() function, which is searched for
@@ -67,7 +69,6 @@
 #define ud_t moonfltk_ud_t
 typedef struct {
     void *obj;  /* the object (FL_##T*) bound to this userdata */
-    lua_State *state; /* the Lua state where to execute the callbacks */
     int refcnt; /* reference counter(for shared images) */
     /* references on the Lua registry --------------------*/
     int cbref;  /* callback */
@@ -156,6 +157,7 @@ Fl_Menu_Item * check_Pathname(lua_State *L, Fl_Menu_ *menu, int arg);
 
 /* main.c */
 void moonfltk_open_Fl(lua_State *L);
+void moonfltk_open_Fl_for_background(lua_State *L);
 void moonfltk_open_Additional(lua_State *L);
 void moonfltk_open_FlColor(lua_State *L);
 void moonfltk_open_FlFont(lua_State *L);

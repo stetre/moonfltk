@@ -640,8 +640,10 @@ static void Callback(Fl_Widget *p_, void *not_used)
  * func(tree, item, reason, arg)
  */
     {
-#define L ud->state
 #define p ((Fl_Tree*)p_) /* dirty downcast */
+    lua_State *L = main_lua_state;
+    if (!L) 
+        return;
     (void)not_used;
     int nargs = 3; 
     ud_t *ud = userdata(p);
@@ -660,7 +662,6 @@ static void Callback(Fl_Widget *p_, void *not_used)
     if(lua_pcall(L, nargs, 0, 0) != LUA_OK)
         { lua_error(L); return; }
 #undef p
-#undef L
     }
 
 #define SetUserData(L, ud, arg) do {                        \

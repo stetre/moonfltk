@@ -247,7 +247,9 @@ static void Callback(int pos, void* ud_)
     {
     ud_t *ud = (ud_t*)ud_;
     Fl_Text_Display *p = (Fl_Text_Display*)(ud->obj);
-    lua_State *L = ud->state;
+    lua_State *L = main_lua_state;
+    if (!L)
+        return;
     if(pushvalue(L, ud->style) != LUA_TFUNCTION)
         { unexpected(L); return; }
     push_Text_Display(L, p);
