@@ -62,6 +62,7 @@ static int Args(lua_State *L)
     for(i = 0; i < argc; i++)
         free(argv[i]);
     free(argv);
+    return 0;
     }
 
 
