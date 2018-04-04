@@ -68,7 +68,7 @@ int push_Option(lua_State *L, Fl::Fl_Option option)
 
 Fl_Boxtype check_Boxtype(lua_State *L, int arg)
     {
-    if (lua_isstring(L, arg))
+    if (lua_type(L, arg) == LUA_TSTRING)
         {
         const char *s = lua_tostring(L, arg);
 #define CASE(CODE,str) if((strcmp(s, str)==0)) return CODE

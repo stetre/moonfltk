@@ -80,7 +80,8 @@ static int Func(lua_State *L)                       \
     int x, y, w, h, bt = 0;                         \
     const char* label;                              \
     int arg = 1;                                    \
-    if(!lua_isinteger(L, arg))                      \
+    int n = lua_gettop(L);                          \
+    if (n >= 6 || (n == 5 && lua_isinteger(L, 5)))  \
         { boxtype = check_Boxtype(L, arg++); bt=1; }\
     x = luaL_checkinteger(L, arg++);                \
     y = luaL_checkinteger(L, arg++);                \
