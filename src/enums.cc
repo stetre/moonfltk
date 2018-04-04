@@ -68,7 +68,9 @@ int push_Option(lua_State *L, Fl::Fl_Option option)
 
 Fl_Boxtype check_Boxtype(lua_State *L, int arg)
     {
-    const char *s = luaL_checkstring(L, arg);
+    if (lua_type(L, arg) == LUA_TSTRING)
+        {
+        const char *s = lua_tostring(L, arg);
 #define CASE(CODE,str) if((strcmp(s, str)==0)) return CODE
         CASE(FL_NO_BOX, "no box");
         CASE(FL_FLAT_BOX, "flat box");
@@ -128,7 +130,15 @@ Fl_Boxtype check_Boxtype(lua_State *L, int arg)
         CASE(FL_GLEAM_ROUND_DOWN_BOX, "gleam round down box");
         //CASE(FL_FREE_BOXTYPE, "free boxtype");
 #undef CASE
-    return (Fl_Boxtype)luaL_argerror(L, arg, badvalue(L,s));
+        return (Fl_Boxtype)luaL_argerror(L, arg, badvalue(L,s));
+        }
+    else
+        {
+        int i = luaL_checkinteger(L, arg);
+        if (i < 0 || i > 255) 
+            luaL_argerror(L, arg, "string or integer between 0 and 255 expected");
+        return (Fl_Boxtype)i;
+        }
     }
 
 int push_Boxtype(lua_State *L, Fl_Boxtype boxtype)
@@ -195,6 +205,11 @@ int push_Boxtype(lua_State *L, Fl_Boxtype boxtype)
 //      default:
 //          return unexpected(L);
 //      }
+    if (0 <= boxtype && boxtype <= 255)
+        {
+        lua_pushinteger(L, boxtype);
+        return 1;
+        }
     return unexpected(L);
     }
 

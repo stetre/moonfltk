@@ -25,6 +25,47 @@
 
 #include "internal.h"
 
+//static void Fl::args(int argc, char **argv);
+// args(progname)
+// args(args)
+// args(progname [, args])
+static int Args(lua_State *L)
+    {
+    int table_index = 1;
+    char **argv;
+    const char *arg = NULL;
+    int i, argc = 1;
+    if(!lua_istable(L, 1))
+        {
+        table_index = 2;
+        arg = luaL_checkstring(L, 1);
+        }
+    if(lua_istable(L, table_index))
+        argc += luaL_len(L, table_index);
+    argv = (char**)malloc(sizeof(char*) * argc);
+    argv[0] = strdup(arg ? arg : "moonfltk");
+    if(!argv)
+        return luaL_error(L, "cannot allocate memory");
+    if(argc > 1)
+        {
+        for(i = 1; i < argc; i++)
+            {
+            lua_geti(L, table_index, i);
+            arg = luaL_checkstring(L, -1);
+            argv[i] = strdup(arg);
+            if(!argv[i])
+                return luaL_error(L, "cannot allocate memory");
+            lua_pop(L, 1);
+            }
+        }
+    Fl::args(argc, argv);
+    for(i = 0; i < argc; i++)
+        free(argv[i]);
+    free(argv);
+    return 0;
+    }
+
+
 FUNC_DOUBLE_VOID(Fl::version, Version)
 
 static int Option(lua_State *L)
@@ -268,6 +309,7 @@ FUNC_GETSET_BOOLEAN(Fl::visible_focus, Visible_focus)
 
 static const struct luaL_Reg Functions[] = 
     {
+        { "args", Args },
         { "check", Check },
         { "damage", Damage },
         { "display", Displayyyy },

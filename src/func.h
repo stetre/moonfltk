@@ -80,7 +80,8 @@ static int Func(lua_State *L)                       \
     int x, y, w, h, bt = 0;                         \
     const char* label;                              \
     int arg = 1;                                    \
-    if(!lua_isinteger(L, arg))                      \
+    int n = lua_gettop(L);                          \
+    if (n >= 6 || (n == 5 && lua_isinteger(L, 5)))  \
         { boxtype = check_Boxtype(L, arg++); bt=1; }\
     x = luaL_checkinteger(L, arg++);                \
     y = luaL_checkinteger(L, arg++);                \
@@ -295,12 +296,12 @@ static int Func(lua_State *L)                   \
 /* show(args)           */                      \
     {                                           \
     Fl_##T *window = check_##T(L, 1);           \
-    int i, argc = 1;                            \
-    int table_index = 2;                        \
-    char **argv;                                \
-    const char *arg = NULL;                     \
     if(!lua_isnoneornil(L, 2))                  \
         {                                       \
+        int table_index = 2;                    \
+        char **argv;                            \
+        const char *arg = NULL;                 \
+        int i, argc = 1;                        \
         if(!lua_istable(L, 2))                  \
             {                                   \
             table_index = 3;                    \
@@ -308,28 +309,34 @@ static int Func(lua_State *L)                   \
             }                                   \
         if(lua_istable(L, table_index))         \
             argc += luaL_len(L, table_index);   \
-        }                                       \
-    argv = (char**)malloc(sizeof(char*) * argc);        \
-    argv[0] = strdup(arg ? arg : "moonfltk");           \
-    if(!argv)                                           \
-        return luaL_error(L, "cannot allocate memory"); \
-    if(argc > 1)                                        \
-        {                                               \
-        for(i = 1; i < argc; i++)                       \
-            {                                           \
-            lua_geti(L, table_index, i);                \
-            arg = luaL_checkstring(L, -1);              \
-            argv[i] = strdup(arg);                      \
-            if(!argv[i])                                \
-                return luaL_error(L, "cannot allocate memory");\
-            lua_pop(L, 1);                              \
-            }                                           \
-        }                                               \
-    window->show(argc, argv);                           \
-    for(i = 0; i < argc; i++)                           \
-        free(argv[i]);                                  \
-    free(argv);                                         \
-    return 0;                                           \
+        argv = (char**)malloc(sizeof(char*) * argc);        \
+        argv[0] = strdup(arg ? arg : "moonfltk");           \
+        if(!argv)                                           \
+            return luaL_error(L, "cannot allocate memory"); \
+        if(argc > 1)                                        \
+            {                                               \
+            for(i = 1; i < argc; i++)                       \
+                {                                           \
+                lua_geti(L, table_index, i);                \
+                arg = luaL_checkstring(L, -1);              \
+                argv[i] = strdup(arg);                      \
+                if(!argv[i])                                \
+                    return luaL_error(L, "cannot allocate memory");\
+                lua_pop(L, 1);                              \
+                }                                           \
+            }                                               \
+        /* show(argc, argv) opens displays and           */ \
+        /* re-evealuates global settings                 */ \
+        /* (e.g. boxtype drawing styles)                 */ \
+        window->show(argc, argv);                           \
+        for(i = 0; i < argc; i++)                           \
+            free(argv[i]);                                  \
+        free(argv);                                         \
+        }                                                   \
+    else                                                    \
+        /* show() does not re-evaluate global settings.  */ \
+        window->show();                                     \
+    return 0;                                               \
     }
 
 

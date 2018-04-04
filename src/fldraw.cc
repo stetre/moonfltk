@@ -25,6 +25,9 @@
 
 #include "internal.h"
 
+#include "fldraw_boxtype.h" // for boxtype_FunctionRefs
+
+
 /*----------------------------------------------------------------------*
  | Draw Functions                                                       |
  *----------------------------------------------------------------------*/
@@ -308,6 +311,95 @@ static int Draw_box(lua_State *L)
     return 0;
     }
 
+static void boxtypeDrawFunction(uchar n, int x, int y, int w, int h, Fl_Color color)
+    {
+    lua_State* L = main_lua_state;
+    int luaRef = boxtype_FunctionRefs[n].luaRef;
+    if (L == 0 || luaRef == LUA_NOREF)
+        return;
+    int type = lua_rawgeti(L, LUA_REGISTRYINDEX, luaRef);
+    if (type != LUA_TFUNCTION) 
+        { lua_pop(L, 1); return; }
+    lua_pushinteger(L, x);
+    lua_pushinteger(L, y);
+    lua_pushinteger(L, w);
+    lua_pushinteger(L, h);
+    lua_pushinteger(L, color);
+    lua_call(L, 5, 0);
+    }
+    
+// typedef void (Fl_Box_Draw_F)(int x, int y, int w, int h, Fl_Color color);
+// static void Fl::set_boxtype(Fl_Boxtype, Fl_Box_Draw_F*,uchar,uchar,uchar,uchar);
+// static void Fl::set_boxtype(Fl_Boxtype, Fl_Boxtype from);
+static int Set_boxtype(lua_State *L)
+    {
+    Fl_Boxtype bt = check_Boxtype(L, 1);
+    if (lua_isfunction(L, 2))
+        {
+        uchar dx = (uchar)luaL_checkinteger(L, 3);
+        uchar dy = (uchar)luaL_checkinteger(L, 4);
+        uchar dw = (uchar)luaL_checkinteger(L, 5);
+        uchar dh = (uchar)luaL_checkinteger(L, 6);
+
+        if (boxtype_FunctionRefs[bt].luaRef != LUA_NOREF)
+            luaL_unref(L, LUA_REGISTRYINDEX, boxtype_FunctionRefs[bt].luaRef);
+        lua_pushvalue(L, 2);
+        boxtype_FunctionRefs[bt].luaRef = luaL_ref(L, LUA_REGISTRYINDEX);
+        Fl::set_boxtype(bt, boxtype_FunctionRefs[bt].func, dx, dy, dw, dh);
+        }
+    else
+        {   
+        Fl_Boxtype fromBt = check_Boxtype(L, 2);
+
+        if (boxtype_FunctionRefs[bt].luaRef != LUA_NOREF)
+            luaL_unref(L, LUA_REGISTRYINDEX, boxtype_FunctionRefs[bt].luaRef);
+        Fl_Box_Draw_F* fromFunc = Fl::get_boxtype(fromBt);
+        if (   boxtype_FunctionRefs[fromBt].func   == fromFunc
+            && boxtype_FunctionRefs[fromBt].luaRef != LUA_NOREF)
+            {
+            lua_rawgeti(L, LUA_REGISTRYINDEX, boxtype_FunctionRefs[fromBt].luaRef);
+            boxtype_FunctionRefs[bt].luaRef = luaL_ref(L, LUA_REGISTRYINDEX);
+            Fl::set_boxtype(bt, boxtype_FunctionRefs[fromBt].func, 
+                            Fl::box_dx(fromBt), 
+                            Fl::box_dy(fromBt), 
+                            Fl::box_dw(fromBt), 
+                            Fl::box_dh(fromBt));
+            }
+        else
+            Fl::set_boxtype(bt, fromBt);
+        }
+    return 0;
+    }
+
+static int native_boxtype_draw_function(lua_State *L)
+{
+    Fl_Box_Draw_F* func = (Fl_Box_Draw_F*)lua_touserdata(L, lua_upvalueindex(1));
+    int x = luaL_checkinteger(L, 1);
+    int y = luaL_checkinteger(L, 2);
+    int w = luaL_checkinteger(L, 3);
+    int h = luaL_checkinteger(L, 4);
+    Fl_Color c =  check_Color(L, 5);
+    func(x, y, w, h, c);
+    return 0;
+}
+
+// static Fl_Box_Draw_F *Fl::get_boxtype(Fl_Boxtype);
+static int Get_boxtype(lua_State *L)
+{
+    Fl_Boxtype bt = check_Boxtype(L, 1);
+    Fl_Box_Draw_F* func = Fl::get_boxtype(bt);
+    if (   boxtype_FunctionRefs[bt].func   == func
+        && boxtype_FunctionRefs[bt].luaRef != LUA_NOREF)
+        {
+        lua_rawgeti(L, LUA_REGISTRYINDEX, boxtype_FunctionRefs[bt].luaRef);
+        }
+    else
+        {
+        lua_pushlightuserdata(L, (void*)func);
+        lua_pushcclosure(L, native_boxtype_draw_function, 1);
+        }
+    return 1;
+}
 
 //typedef void (*Fl_Draw_Image_Cb)(void* data,int x,int y,int w,uchar* buf);
 //void  fl_draw_image(Fl_Draw_Image_Cb cb, void *data, int X, int Y, int W, int H, int D=3) @@
@@ -703,6 +795,8 @@ static const struct luaL_Reg Functions[] =
         { "scale", Scale },
         { "scroll", Scroll },
         { "scrollbar_size", Scrollbar_size },
+        { "set_boxtype", Set_boxtype },
+        { "get_boxtype", Get_boxtype },
         { "set_spot", Set_spot },
         { "set_status", Set_status },
         { "shortcut_label", Shortcut_label },
