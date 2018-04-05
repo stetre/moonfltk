@@ -35,7 +35,17 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "moonfltk.h"
+
+#ifdef BEGIN_FLTK_INCLUDE
+    BEGIN_FLTK_INCLUDE // {
+#endif
+
 #include <FL/Fl.H>
+
+#ifdef END_FLTK_INCLUDE
+    END_FLTK_INCLUDE   // }
+#endif
+
 #include "udata.h"
 
 #ifndef USE_GL

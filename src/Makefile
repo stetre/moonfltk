@@ -8,6 +8,8 @@ endif
 # Lua version
 LUAVER?=5.3
 
+FLTK_CONFIG = fltk-config
+
 # Base install directory
 ifdef LINUX
 PREFIX?=/usr/local
@@ -48,6 +50,14 @@ INCDIR = -I/usr/local/include
 LIBDIR = -L/usr/bin -L/usr/local/bin -L/usr/local/lib
 endif
 
+ifdef LINUX
+FLTK_INC_OPT = -DBEGIN_FLTK_INCLUDE='_Pragma("GCC diagnostic push") \
+                                     _Pragma("GCC diagnostic ignored \"-Wunused-parameter\"")' \
+               -DEND_FLTK_INCLUDE='_Pragma("GCC diagnostic pop")'
+else
+FLTK_INC_OPT = 
+endif
+
 Tgt	:= moonfltk
 CSrc := $(wildcard *.c)
 CxxSrc := $(wildcard *.cc)
@@ -60,6 +70,7 @@ OPT	+= -O2
 OPT	+= -Wall -Wextra -Wpedantic
 OPT += -DLUAVER=$(LUAVER)
 OPT += -DUSE_GL=1 -DUSE_IMAGES=1
+OPT += $(FLTK_INC_OPT)
 ifdef LINUX
 OPT += -DLINUX
 OPT += -fpic
@@ -89,9 +100,9 @@ override CFLAGS = $(COPT)
 
 # C++ only options
 CXXOPT = $(OPT)
-override CXXFLAGS = $(CXXOPT) $(shell fltk-config  --use-gl --use-images --cxxflags )
+override CXXFLAGS = $(CXXOPT) $(shell $(FLTK_CONFIG)  --use-gl --use-images --cxxflags )
 
-override LDFLAGS = $(shell fltk-config --use-gl --use-images --ldflags )
+override LDFLAGS = $(shell $(FLTK_CONFIG) --use-gl --use-images --ldflags )
 
 default: build
 

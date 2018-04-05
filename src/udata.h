@@ -45,6 +45,8 @@ int udata_free(lua_State*, const void*);
 void *udata_mem(const void*);
 #define udata_push moonfltk_udata_push
 int udata_push(lua_State*, const void*);
+#define udata_push_ifvalid moonfltk_udata_push_ifvalid
+int udata_push_ifvalid(lua_State*, const void*);
 #define udata_free_all moonfltk_udata_free_all
 void udata_free_all(void);
 

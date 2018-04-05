@@ -26,7 +26,9 @@
 #ifndef mtDEFINED
 #define mtDEFINED
 
-
+#ifdef BEGIN_FLTK_INCLUDE
+    BEGIN_FLTK_INCLUDE // {
+#endif
 #include <FL/Fl_Adjuster.H>
 #include <FL/Fl_Bitmap.H>
 #include <FL/Fl_BMP_Image.H>
@@ -44,7 +46,7 @@
 #include <FL/Fl_Color_Chooser.H>
 #include <FL/Fl_Copy_Surface.H>
 #include <FL/Fl_Counter.H>
-#include <FL/Fl_Device.H>
+//#include <FL/Fl_Device.H>
 #include <FL/Fl_Dial.H>
 #include <FL/Fl_Double_Window.H>
 //#include <FL/Fl_Export.H>
@@ -93,7 +95,7 @@
 #include <FL/Fl_Output.H>
 #include <FL/Fl_Overlay_Window.H>
 #include <FL/Fl_Pack.H>
-#include <FL/Fl_Paged_Device.H>
+//#include <FL/Fl_Paged_Device.H>
 #include <FL/Fl_Pixmap.H>
 //#include <FL/Fl_Plugin.H>
 #include <FL/Fl_PNG_Image.H>
@@ -151,6 +153,9 @@
 //#include <FL/glut.H>
 //#include <FL/forms.H>
 
+#ifdef END_FLTK_INCLUDE
+    END_FLTK_INCLUDE   // }
+#endif
 
 /* metatables names in the Lua registry */
 #define MT_Adjuster "moonfltk_Adjuster"
@@ -171,7 +176,7 @@
 #define MT_Color_Chooser "moonfltk_Color_Chooser"
 #define MT_Copy_Surface "moonfltk_Copy_Surface"
 #define MT_Counter "moonfltk_Counter"
-#define MT_Device "moonfltk_Device"
+//#define MT_Device "moonfltk_Device"
 #define MT_Dial "moonfltk_Dial"
 #define MT_Double_Window "moonfltk_Double_Window"
 //#define MT_Export "moonfltk_Export"
@@ -220,7 +225,7 @@
 #define MT_Output "moonfltk_Output"
 #define MT_Overlay_Window "moonfltk_Overlay_Window"
 #define MT_Pack "moonfltk_Pack"
-#define MT_Paged_Device "moonfltk_Paged_Device"
+//#define MT_Paged_Device "moonfltk_Paged_Device"
 #define MT_Pixmap "moonfltk_Pixmap"
 //#define MT_Plugin "moonfltk_Plugin"
 #define MT_PNG_Image "moonfltk_PNG_Image"
@@ -321,7 +326,10 @@ inline Fl_##T *check_##T(lua_State *L, int arg)         \
     }                                                   \
                                                         \
 inline int push_##T(lua_State *L, Fl_##T *p)            \
-    { return udata_push(L, p); }
+    { return udata_push(L, p); }                        \
+                                                        \
+inline int push_##T##IfValid(lua_State *L, Fl_##T *p)   \
+    { return udata_push_ifvalid(L, p); }
 
 
 TESTCHECKPUSH(Adjuster)
@@ -342,7 +350,7 @@ TESTCHECKPUSH(Clock_Output)
 TESTCHECKPUSH(Color_Chooser)
 TESTCHECKPUSH(Copy_Surface)
 TESTCHECKPUSH(Counter)
-TESTCHECKPUSH(Device)
+//TESTCHECKPUSH(Device)
 TESTCHECKPUSH(Dial)
 TESTCHECKPUSH(Double_Window)
 //TESTCHECKPUSH(Export)
@@ -391,7 +399,7 @@ TESTCHECKPUSH(Nice_Slider)
 TESTCHECKPUSH(Output)
 TESTCHECKPUSH(Overlay_Window)
 TESTCHECKPUSH(Pack)
-TESTCHECKPUSH(Paged_Device)
+//TESTCHECKPUSH(Paged_Device)
 TESTCHECKPUSH(Pixmap)
 //TESTCHECKPUSH(Plugin)
 TESTCHECKPUSH(PNG_Image)
