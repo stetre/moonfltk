@@ -120,7 +120,23 @@ static int Event_dispatch(lua_State *L) //@@
  | Functions                                                            |
  *----------------------------------------------------------------------*/
 
-FUNC_GETSET_POINTER(Widget, Fl::focus, Focus)
+// FUNC_GETSET_POINTER(Widget, Fl::focus, Focus)
+static int Focus(lua_State *L)
+    {
+    if(lua_isnone(L, 1))
+        {
+        Fl_Widget *v = Fl::focus();
+        if(!v) return 0;
+        // Focus widget could be one belonging to FTLK unknown to 
+        // lua (e.g. scaling factor display for FLTK 1.4), therefore
+        // push_...IfValid pushes nil for unknown widgets.
+        return push_WidgetIfValid(L, v); 
+        }
+    Fl_Widget *v = check_Widget(L, 1);
+    Fl::focus(v);
+    return 0;
+    }
+    
 FUNC_GETSET_POINTER(Widget, Fl::belowmouse, Belowmouse)
 
 #if 0

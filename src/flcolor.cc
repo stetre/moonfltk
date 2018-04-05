@@ -24,7 +24,19 @@
  */
 
 #include "internal.h"
+
+#ifdef BEGIN_FLTK_INCLUDE
+    BEGIN_FLTK_INCLUDE // {
+#endif
+
 #include <FL/fl_show_colormap.H>
+#if defined(LINUX) && FL_MAJOR_VERSION >= 1 && FL_MINOR_VERSION >= 4
+    #include <FL/platform.H>
+#endif
+
+#ifdef END_FLTK_INCLUDE
+    END_FLTK_INCLUDE   // }
+#endif
 
 /*----------------------------------------------------------------------*
  | Fl_Color                                                             |

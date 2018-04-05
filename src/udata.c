@@ -164,6 +164,19 @@ int udata_push(lua_State *L, const void *ptr)
     return 1; /* one value pushed */
     }
 
+int udata_push_ifvalid(lua_State *L, const void *ptr)
+    {
+    udata_t *udata = udata_search((uintptr_t)ptr);
+//  printf("push object %p\n", ptr);
+    if(!udata) 
+        return 0;
+    if(udata->ref == LUA_NOREF)
+        return luaL_error(L, "unreferenced object");
+    if(lua_rawgeti(L, LUA_REGISTRYINDEX, udata->ref) != LUA_TUSERDATA)
+        return luaL_error(L, UNEXPECTED_ERROR);
+    return 1; /* one value pushed */
+    }
+
 void udata_free_all(void)
 /* free all without unreferencing (for atexit()) */
     {
