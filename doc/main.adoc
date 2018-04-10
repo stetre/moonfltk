@@ -2,6 +2,11 @@
 === Main loop
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl.html++[Fl].#
 
+* *fl.args*(_progname_, [_args_]) +
+*fl.args*(_args_) +
+[small]#_progname_: string, +
+_args_: {string}.#
+
 * _boolean_ = *fl.check*( )
 
 * _boolean_ = *fl.damage*( )
