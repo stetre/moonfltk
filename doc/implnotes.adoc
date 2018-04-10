@@ -3,7 +3,7 @@
 
 The following FLTK (1.3.3) features are not - or not yet - implemented in MoonFLTK:
 
-* link:++http://www.fltk.org/doc-1.3/group__fl__unicode.html++[Unicode and UTF-8 functions]
+* Most link:++http://www.fltk.org/doc-1.3/group__fl__unicode.html++[Unicode and UTF-8 functions]
 (notice however that Lua already provides basic 
 http://www.lua.org/manual/5.3/manual.html#6.5[UTF-8 Support]).
 

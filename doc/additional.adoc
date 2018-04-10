@@ -75,7 +75,7 @@ the shortcut 'Ctrl+Shift+S'.#
 [small]#Decodes an FLTK <<shortcut, _shortcut_>>.#
 
 * *fl.sleep*(_seconds_) +
-[small]# Sleep for _seconds_. This function should not be used, it has been added
+[small]#Sleep for _seconds_. This function should not be used, it has been added
 only to emulate work in progress in the examples.#
 
 [[fl.unreference]]

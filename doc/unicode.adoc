@@ -1,14 +1,16 @@
 
+[[unicode]]
+=== Unicode and UTF-8
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/group__fl__unicode.html++[Unicode and UTF-8 functions]. +
+See also Lua's native http://www.lua.org/manual/5.3/manual.html#6.5[UTF-8 Support].#
+
+
+* _string_ = *fl.utf_tolower*(_string_) +
+_string_ = *fl.utf_toupper*(_string_)
+
+* _-1|0|+1_ = *fl.utf_strcasecmp*(_string~1~_, _string~2~_)
+
 ////
-=== Unicode & UTF-8
-[small]#Rfr: link:++http://www.fltk.org/doc-1.3/group__fl__unicode.html++[Unicode and UTF-8 functions].#
-
-Not supported.
-
-(Notice that Lua already provides basic 
-http://www.lua.org/manual/5.3/manual.html#6.5[UTF-8 Support].)
-
-
 //@@TODO
 * *fl.* ( )
 

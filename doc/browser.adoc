@@ -25,7 +25,7 @@ _pos_ = *:position*( )
 _size_ = *:scrollbar_size*( )
 
 * *:sort*(_order_) +
-[small]_order_: '_ascending_' or '_descending_'.#
+[small]#_order_: '_ascending_' or '_descending_'.#
 
 * *:textcolor*(<<color, _color_>>) +
 <<color, _color_>> = *:textcolor*( )
