@@ -4,7 +4,7 @@
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Progress.html++[Fl_Progress]. +
 Inherits from: <<widget, widget>>.#
 
-* _progress_ = *fl.progress*(_x_, _y_, _w_, _h_ [, _label_])
+* _progress_ = *fl.progress*(_x_, _y_, _w_, _h_, [_label_])
 
 
 * *:maximum*(_number_) +

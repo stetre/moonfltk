@@ -17,7 +17,7 @@ No constructor (abstract class).#
 
 * _boolean_ = *:cut*( ) +
 _boolean_ = *:cut*(_n_) +
-_boolean_ = *:cut*(_n1_, _n2_)
+_boolean_ = *:cut*(_n~1~_, _n~2~_)
 
 * _ucs4_ = *:index*(_n_)
 
@@ -79,7 +79,7 @@ _boolean_ = *:wrap*( )
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Input.html++[Fl_Input]. +
 Inherits from: <<widget, widget>>, <<input_, input_>>.#
 
-* _input_ = *fl.input*(_x_, _y_, _w_, _h_ [, _label_])
+* _input_ = *fl.input*(_x_, _y_, _w_, _h_, [_label_])
 
 
 [[file_input]]
@@ -87,7 +87,7 @@ Inherits from: <<widget, widget>>, <<input_, input_>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__File__Input.html++[Fl_File_Input]. +
 Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
 
-* _file_input_ = *fl.file_input*(_x_, _y_, _w_, _h_ [, _label_])
+* _file_input_ = *fl.file_input*(_x_, _y_, _w_, _h_, [_label_])
 
 
 * *:down_box*(<<boxtype, _boxtype_>>) +
@@ -106,7 +106,7 @@ _text_ = *:value*( )
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Float__Input.html++[Fl_Float_Input]. +
 Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
 
-* _float_input_ = *fl.float_input*(_x_, _y_, _w_, _h_ [, _label_])
+* _float_input_ = *fl.float_input*(_x_, _y_, _w_, _h_, [_label_])
 
 
 
@@ -115,7 +115,7 @@ Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Int__Input.html++[Fl_Int_Input]. +
 Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
 
-* _int_input_ = *fl.int_input*(_x_, _y_, _w_, _h_ [, _label_])
+* _int_input_ = *fl.int_input*(_x_, _y_, _w_, _h_, [_label_])
 
 
 
@@ -124,7 +124,7 @@ Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Multiline__Input.html++[Fl_Multiline_Input]. +
 Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
 
-* _multiline_input_ = *fl.multiline_input*(_x_, _y_, _w_, _h_ [, _label_])
+* _multiline_input_ = *fl.multiline_input*(_x_, _y_, _w_, _h_, [_label_])
 
 
 
@@ -134,7 +134,7 @@ Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Output.html++[Fl_Output]. +
 Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
 
-* _output_ = *fl.output*(_x_, _y_, _w_, _h_ [, _label_])
+* _output_ = *fl.output*(_x_, _y_, _w_, _h_, [_label_])
 
 
 
@@ -143,7 +143,7 @@ Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Multiline__Output.html++[Fl_Multiline_Output]. +
 Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>, <<output, output>>.#
 
-* _multiline_output_ = *fl.multiline_output*(_x_, _y_, _w_, _h_ [, _label_])
+* _multiline_output_ = *fl.multiline_output*(_x_, _y_, _w_, _h_, [_label_])
 
 
 [[secret_input]]
@@ -151,6 +151,6 @@ Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>, <<outpu
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Secret__Input.html++[Fl_Secret_Input]. +
 Inherits from: <<widget, widget>>, <<input_, input_>>, <<input, input>>.#
 
-* _secret_input_ = *fl.secret_input*(_x_, _y_, _w_, _h_ [, _label_])
+* _secret_input_ = *fl.secret_input*(_x_, _y_, _w_, _h_, [_label_])
 
 

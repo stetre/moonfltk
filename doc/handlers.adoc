@@ -10,7 +10,7 @@ called, _false_ otherwise.#
 
 * *fl.set_check*(_func_) +
 [small]#Sets _func_ (a function) as the check handler. It will be executed
-as *func()*(i.e. passing it no arguments). 
+as *func()* (i.e. passing it no arguments). 
 If called with no arguments, removes the handler.#
 
 NOTE: There is a single check handler in MoonFLTK. If multiple
@@ -139,17 +139,17 @@ as *func(tid)* at timer expiration.#
 * *timer.deleteall*( ) +
 [small]#Deletes all the timers.#
 
-* _startime_  = *timer.start*(_tid_ [, _exptime_]) +
+* _startime_  = *timer.start*(_tid_, [_exptime_]) +
 [small]#Starts the timer identified by _tid_ so to expire at the time 
 _exptime_.#
 
 * *timer.stop*(_tid_) +
 [small]#Stops the timer identified by _tid_.#
 
-* _timeut_  = *timer.timeout*(_tid_ [, _timeout_]) +
+* _timeut_  = *timer.timeout*(_tid_, [_timeout_]) +
 [small]#Gets/sets the default timeout (in seconds) for the timer identified by _tid_.#
 
-* _func_  = *timer.callback*(_tid_ [, _func_]) +
+* _func_  = *timer.callback*(_tid_, [_func_]) +
 [small]#Gets/sets the callback for the timer identified by _tid_.#
 
 * _boolean_, _exptime_ = *timer.isrunning*(_tid_) +

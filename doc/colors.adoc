@@ -11,7 +11,7 @@ link:++http://www.fltk.org/doc-1.3/classFl.html++[Fl].#
 *fl.color*(_r_, _g_, _b_) +
 <<color, _color_>> = *fl.color*( )
 
-* <<color, _color_>> = *fl.color_average*(<<color, _color1_>>, <<color, _color2_>>, _weight_)
+* <<color, _color_>> = *fl.color_average*(<<color, _color~1~_>>, <<color, _color~2~_>>, _weight_)
 
 // see Enumerations.H
 * <<color, _color_>> = *fl.color_cube*(_r_, _g_, _b_) +
@@ -21,7 +21,7 @@ link:++http://www.fltk.org/doc-1.3/classFl.html++[Fl].#
 
 * <<color, _color_>> = *fl.darker*(<<color, _color_>>) +
 
-* *fl.free_color*(_index_ [, _overlay_]
+* *fl.free_color*(_index_, [_overlay_]
 
 * *fl.foreground*(_r_, _g_, _b_)
 

@@ -4,14 +4,12 @@
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Input__Choice.html++[Fl_Input_Choice]. +
 Inherits from: <<widget, widget>>, <<group, group>>.#
 
-* _input_choice_ = *fl.input_choice*(_x_, _y_, _w_, _h_ [, _label_])
-
+* _input_choice_ = *fl.input_choice*(_x_, _y_, _w_, _h_, [_label_])
 
 * *:add*(_item_) +
 [small]#_item_: a string.#
 
 * _boolean_ = *:changed*( )
-
 
 * *:clear*( )
 
@@ -38,6 +36,6 @@ _fontsize_ = *:textsize*( )
 
 * *:value*(_index_) +
 *:value*(_item_) +
-*:_item_ = value*( )
+_item_ = *:value*( )
 
 

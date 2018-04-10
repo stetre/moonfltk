@@ -5,7 +5,7 @@
 Inherits from: <<widget, widget>>. +
 No constructor (abstract class).#
 
-* _index_  = *:add*(_pathname_ [, <<shortcut, _shortcut_>> [, _func_ [, _argument_ [, <<menuitemflags, _menuitemflags_>>]]]]) +
+* _index_  = *:add*(_pathname_, [<<shortcut, _shortcut_>>], [_func_], [_argument_], [<<menuitemflags, _menuitemflags_>>]) +
 [small]#The _func_ callback, if any, is executed as *func(menu, pathname, argument)*. +
 The _argument_ may be any valid Lua value.#
 
@@ -26,7 +26,7 @@ to MoonFLTK *menu_* methods accepting or returning the item's pathname.
 
 * *:global*( )
 
-* *:mode*(_pathname_, <<menuitemflags, _menuitemflags_>>)
+* *:mode*(_pathname_, <<menuitemflags, _menuitemflags_>>) +
 <<menuitemflags, _menuitemflags_>> = *:mode*(_pathname_)
 
 * _pathname_ = *:mvalue*( )
@@ -133,7 +133,7 @@ _fontsize_ = *:item_labelsize*(_pathname_)
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Choice.html++[Fl_Choice]. +
 Inherits from: <<widget, widget>>, <<menu_, menu_>>.#
 
-* _choice_ = *fl.choice*(_x_, _y_, _w_, _h_ [, _label_])
+* _choice_ = *fl.choice*(_x_, _y_, _w_, _h_, [_label_])
 
 
 * _changed_  = *:value*(_pathname_) +
@@ -145,7 +145,7 @@ _pathname_ = *:value*( )
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Menu__Bar.html++[Fl_Menu_Bar]. +
 Inherits from: <<widget, widget>>, <<menu_, menu_>>.#
 
-* _menu_bar_ = *fl.menu_bar*(_x_, _y_, _w_, _h_ [, _label_])
+* _menu_bar_ = *fl.menu_bar*(_x_, _y_, _w_, _h_, [_label_])
 
 
 
@@ -155,7 +155,7 @@ Inherits from: <<widget, widget>>, <<menu_, menu_>>.#
 Inherits from: <<widget, widget>>, <<menu_, menu_>>. +
 RTTI: '_popup1_', '_popup2_', '_popup12_', '_popup3_', '_popup13_', '_popup23_', '_popup123_'.# 
 
-* _menu_button_ = *fl.menu_button*(_x_, _y_, _w_, _h_ [, _label_])
+* _menu_button_ = *fl.menu_button*(_x_, _y_, _w_, _h_, [_label_])
 
 * _pathname_ = *:popup*( )
 

@@ -5,7 +5,7 @@
 Inherits from: <<widget, widget>>, <<group, group>>. +
 RTTI: '_float_', '_int_'.#
 
-* _spinner_ = *fl.spinner*(_x_, _y_, _w_, _h_ [, _label_])
+* _spinner_ = *fl.spinner*(_x_, _y_, _w_, _h_, [_label_])
 
 * *:format*(_fmt_) +
 _fmt_ = *:format*( )

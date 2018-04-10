@@ -4,7 +4,7 @@
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Group.html++[Fl_Group]. +
 Inherits from: <<widget, widget>>.#
 
-* _group_ = *fl.group*(_x_, _y_, _w_, _h_ [, _label_])
+* _group_ = *fl.group*(_x_, _y_, _w_, _h_, [_label_])
 
 * *:add*(_widget_)
 
@@ -48,10 +48,10 @@ top-left corner. +
 
 The following are (un)protected methods to be used only when <<subclassing, subclassing>>.
 
-* *:draw_child*(<<widget, _widget_>>)  
-*:draw_children*( )  
-*:draw_outside_label*(<<widget, _widget_>>)  
-*:update_child*(<<widget, _widget_>>)  
+* *:draw_child*(<<widget, _widget_>>) + 
+*:draw_children*( ) +
+*:draw_outside_label*(<<widget, _widget_>>) + 
+*:update_child*(<<widget, _widget_>>)  +
 
 // SUBGROUPS ------------------------------------------------------------------
 
@@ -74,7 +74,7 @@ include::input_choice.adoc[]
 Inherits from: <<widget, widget>>, <<group, group>>. +
 RTTI: '_horizontal_', '_vertical_'.#
 
-* _pack_ = *fl.pack*(_x_, _y_, _w_, _h_ [, _label_])
+* _pack_ = *fl.pack*(_x_, _y_, _w_, _h_, [_label_])
 
 
 * *:spacing*(_pixels_) +
@@ -89,7 +89,7 @@ Inherits from: <<widget, widget>>, <<group, group>>. +
 RTTI: '_no scrollbar_', '_horizontal_', '_vertical_', '_both_', '_always on_' 
 '_horizontal always_', '_vertical always_', '_both always_'.#
 
-* _scroll_ = *fl.scroll*(_x_, _y_, _w_, _h_ [, _label_]) +
+* _scroll_ = *fl.scroll*(_x_, _y_, _w_, _h_, [_label_]) +
 
 * *:clear*( )
 
@@ -119,7 +119,7 @@ include::table.adoc[]
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Tabs.html++[Fl_Tabs]. +
 Inherits from: <<widget, widget>>, <<group, group>>.#
 
-* _tabs_ = *fl.tabs*(_x_, _y_, _w_, _h_ [, _label_])
+* _tabs_ = *fl.tabs*(_x_, _y_, _w_, _h_, [_label_])
 
 
 * _x_, _y_, _w_, _h_ = *:client_area*([_tabh_])
@@ -147,7 +147,7 @@ include::text_editor.adoc[]
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Tile.html++[Fl_Tile]. +
 Inherits from: <<widget, widget>>, <<group, group>>.#
 
-* _tile_ = *fl.tile*(_x_, _y_, _w_, _h_ [, _label_])
+* _tile_ = *fl.tile*(_x_, _y_, _w_, _h_, [_label_])
 
 * *:position*(_oldx_, _oldy_, _newx_, _newy_)
 
@@ -164,7 +164,7 @@ include::window.adoc[]
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Wizard.html++[Fl_Wizard]. +
 Inherits from: <<widget, widget>>, <<group, group>>.#
 
-* _wizard_ = *fl.wizard*(_x_, _y_, _w_, _h_ [, _label_])
+* _wizard_ = *fl.wizard*(_x_, _y_, _w_, _h_, [_label_])
 
 * *:next*( )
 *:prev*( )

@@ -7,7 +7,7 @@ link:++http://www.fltk.org/doc-1.3/classFl.html++[Fl].#
 * _d_ = *fl.descent*( )
 
 
-* *fl.font*(<<font, _font_>> [, _fontsize_]) +
+* *fl.font*(<<font, _font_>>, [_fontsize_]) +
 <<font, _font_>> = *fl.font*( )
 
 * _height_ = *fl.height*( ) +
@@ -17,11 +17,11 @@ _height_ = *fl.height*(<<font, _font_>>, _fontsize_)
 
 * _fontname_, _fontattr_ = *fl.get_font_name*(<<font, _font_>>)
 
-* _size1_, _..._, _sizeN_ = *fl.get_font_sizes*(<<font, _font_>>) +
+* _size~1~_, _..._, _size~N~_ = *fl.get_font_sizes*(<<font, _font_>>) +
 [small]#Returns _nil_ if _font_ is scalable.#
 
-* *fl.latin1_to_local*(_text_ [, _n_]) +
-_text_ = *fl.local_to_latin1*(_text_ [, _n_])
+* *fl.latin1_to_local*(_text_, [_n_]) +
+_text_ = *fl.local_to_latin1*(_text_, [_n_])
 
 * _nfonts_  = *fl.nfonts*( ) +
 [small]#Returns the number of available fonts (i.e. the first free font index).#

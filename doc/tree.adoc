@@ -13,7 +13,7 @@ in not directly exposed, while its methods are exposed as methods of the <<tree,
 object (renamed with a leading *item_* prefix, and accepting the item's _pathname_
 as first argument). Children items' indices are 1-based.
 
-* _tree_ = *fl.tree*(_x_, _y_, _w_, _h_ [, _label_])
+* _tree_ = *fl.tree*(_x_, _y_, _w_, _h_, [_label_])
 
 * *:add*(_pathname_)
 
@@ -21,7 +21,7 @@ as first argument). Children items' indices are 1-based.
 _arg_ + = *:argument*( ) +
 [small]#_arg_: any Lua value.#
 
-* *:callback*(_func_ [, _arg_]) +
+* *:callback*(_func_, [_arg_]) +
 _func_ + = *:callback*( ) +
 [small]#The _func_ callback (a Lua function) is executed as *func(tree, pathname, reason, arg)*,
 where _pathname_ is the affected item and _reason_ is the reason for calling back
@@ -42,8 +42,8 @@ where _pathname_ is the affected item and _reason_ is the reason for calling bac
 * *:connectorwidth*(_pixels_) +
 _pixels_ = *:connectorwidth*( )
 
-* *:extend_selection_up*(_from_, _to_ [, _op_ [, _visible_]]) +
-_n_ =:extend_selection_down*(_from_, _to_ [, _op_ [, _visible_]]) +
+* *:extend_selection_up*(_from_, _to_, [_op_], [_visible_]) +
+_n_ = *:extend_selection_down*(_from_, _to_, [_op_], [_visible_]) +
 [small]#_from_, _to_: items pathnames. +
 _op_: '_select_' (default), '_deselect_', '_toggle_'. +
 _visible_: boolean (default=_false_).#
@@ -116,7 +116,7 @@ _pathname_ = *:prev_visible_item*(_pathname_)
 * *:scrollbar_size*(_pixels_) +
 _pixels_ = *:scrollbar_size*( )
 
-* *:show_item*([_pathname_ [, _yoffset_]])
+* *:show_item*([_pathname_], [_yoffset_])
 
 * *:show_item_bottom*([_pathname_]) +
 *:show_item_middle*([_pathname_]) +
@@ -156,15 +156,15 @@ _v_ = *:vposition*( )
 
 * _n_ = *:item_children*(_pathname_)
 
-* _boolean_ = *:item_close*(_pathname_ [, _docallback_])
+* _boolean_ = *:item_close*(_pathname_, [_docallback_])
 
 * *:item_deactivate*(_pathname_)
 
 * _n_ = *:item_depth*(_pathname_)
 
 
-* _boolean_ = *:item_deselect*([_pathname_ [, _docallback_]]) +
-_boolean_ = *:item_deselect_all*([_pathname_ [, _docallback_]])
+* _boolean_ = *:item_deselect*([_pathname_], [_docallback_]) +
+_boolean_ = *:item_deselect_all*([_pathname_], [_docallback_])
 
 * *:item_display*([_pathname_])
 
@@ -215,26 +215,26 @@ _h_ = *:item_label_h*(_pathname_) +
 _fontsize_ = *:item_labelsize*([_pathname_]) +
 [small]#_pathname_=_nil_ to set/get the default font size.#
 
-* _boolean_ = *:item_open*(_pathname_ [, _docallback_])
+* _boolean_ = *:item_open*(_pathname_, [_docallback_])
 
 
-* _boolean_ = *:item_open_toggle*(_pathname_ [, _docallback_])
+* _boolean_ = *:item_open_toggle*(_pathname_, [_docallback_])
 
 
 * _pathname_ = *:item_parent*(_pathname_)
 
 
-* *:item_show_self*(_pathname_ [, _indent_])
+* *:item_show_self*(_pathname_, [_indent_])
 
-* _boolean_ = *:item_select*([_pathname_ [, _docallback_]]) +
-_boolean_ = *:item_select_all*([_pathname_ [, _docallback_]]) +
-_boolean_ = *:item_select_only*([_pathname_ [, _docallback_]]) +
-_boolean_ = *:item_select_toggle*([_pathname_ [, _docallback_]]) +
+* _boolean_ = *:item_select*([_pathname_], [_docallback_]) +
+_boolean_ = *:item_select_all*([_pathname_], [_docallback_]) +
+_boolean_ = *:item_select_only*([_pathname_], [_docallback_]) +
+_boolean_ = *:item_select_toggle*([_pathname_], [_docallback_]) +
 
-* *:item_swap_children*(_pathname_, _name1_, _name2_)
+* *:item_swap_children*(_pathname_, _name~1~_, _name~2~_)
 
 * *:item_user_data*(_pathname_, _val_) +
-_val_ =:item_user_data*(_pathname_) +
+_val_ = *:item_user_data*(_pathname_) +
 [small]#_val_: integer value to associate with the item (may be used to index
 a Lua table containing more complex data).#
 
@@ -243,7 +243,7 @@ a Lua table containing more complex data).#
 <<image, _image_>> = *:item_usericon*(_pathname_)
 
 * *:item_visible*(_pathname_) +
-_boolean_ =:item_visible_r*(_pathname_)
+_boolean_ = *:item_visible_r*(_pathname_)
 
 * _w_ = *:item_w*(_pathname_)
 

@@ -8,13 +8,13 @@ Inherits from: <<widget, widget>>, <<group, group>>.#
 IMPORTANT: See <<text_buffer, text_buffer>> indexing.
 
 
-* _text_display_ = *fl.text_display*(_x_, _y_, _w_, _h_ [, _label_])
+* _text_display_ = *fl.text_display*(_x_, _y_, _w_, _h_, [_label_])
 
 
 * *:buffer*(<<text_buffer, _text_buffer_>>)
 <<text_buffer, _text_buffer_>> = *:buffer*( )
 
-* _nlines_ = *:count_lines*(_start_ [, _end_ [, _islinestart_]])
+* _nlines_ = *:count_lines*(_start_, [_end_], [_islinestart_])
 
 
 * *:cursor_color*(<<color, _color_>>) +
@@ -24,10 +24,10 @@ IMPORTANT: See <<text_buffer, text_buffer>> indexing.
 
 * *:hide_cursor*( )
 
-* *:highlight_data*(_stylebuffer_, _styletable_ [, _unfinishedstyle_, _func_]) +
+* *:highlight_data*(_stylebuffer_, _styletable_, [_unfinishedstyle_, _func_]) +
 [small]#_stylebuffer_: a <<text_buffer, _text_buffer_>>. +
 _styletable_: an array (integer-indexed table) of style-describing arrays, each of which in the
-form: *{ color, font, fontsize, fontattr }*(_fontattr_ is optional and defaults to 0). 
+form: *{ color, font, fontsize, fontattr }* (_fontattr_ is optional and defaults to 0). 
 Characters in the _stylebuffer_ indicate styles in the _styletable_: 'A', denotes the first
 style, 'B' the second, and so on (up to '~'). +
 _unfinishedstyle_: (optional) the character denoting the unfinished style that triggers the 
@@ -44,7 +44,7 @@ _func_: (optional) callback triggered by _unfinishedstyle_. The callback is exec
 _pos_ = *:insert_position*( )
 
 
-* _pos_ = *:line_end*(_pos_ [, _islinestart_])
+* _pos_ = *:line_end*(_pos_, [_islinestart_])
 
 
 * _pos_ = *:line_start*(_pos_)
@@ -104,7 +104,7 @@ _w_ = *:scrollbar_width*( )
 
 * *:show_insert_position*( )
 
-* _pos_ = *:skip_lines*(_start_, _nlines_ [, _islinestart_])
+* _pos_ = *:skip_lines*(_start_, _nlines_, [_islinestart_])
 
 * *:textcolor*(<<color, _color_>>) +
 <<color, _color_>> = *:textcolor*( )

@@ -3,16 +3,16 @@
 === Additional utilities
 
 [[fl.alignment]]
-* _code_  = *fl.alignment*(_s1_, _..._, _sN_) +
-_s1_, _..._, _sN_ = *fl.alignment*(_code_) +
+* _code_  = *fl.alignment*(_s~1~_, _..._, _s~N~_) +
+_s~1~_, _..._, _s~N~_ = *fl.alignment*(_code_) +
 [small]#Encodes/decodes the FLTK <<alignment, alignment>> _code_ from/to 
-the string values _s1_, ..., _sN_.#
+the string values _s~1~_, ..., _s~N~_.#
 
 [[fl.damagebits]]
-* _code_  = *fl.damagebits*(_s1_, _..._, _sN_) +
-_s1_, _..._, _sN_ = *fl.damagebits*(_code_) +
+* _code_  = *fl.damagebits*(_s~1~_, _..._, _s~N~_) +
+_s~1~_, _..._, _s~N~_ = *fl.damagebits*(_code_) +
 [small]#Encodes/decodes the FLTK <<damagebits, damagebits>> _code_ from/to 
-the string values _s1_, ..., _sN_.#
+the string values _s~1~_, ..., _s~N~_.#
 
 [[fl.fileno]]
 * _fd_  = *fl.fileno*(_file_) +
@@ -28,28 +28,28 @@ _s_ = *fl.key*(_code_) +
 [small]#Translates the FLTK <<key, _key_>> _code_ to/from the corresponding string value _s_.#
 
 [[fl.linestyle]]
-* _code_  = *fl.linestyle*(_s1_, _..._, _sN_) +
-_s1_, _..._, _sN_ = *fl.linestyle*(_code_) +
+* _code_  = *fl.linestyle*(_s~1~_, _..._, _s~N~_) +
+_s~1~_, _..._, _s~N~_ = *fl.linestyle*(_code_) +
 [small]#Encodes/decodes the FLTK <<linestyle, linestyle>> _code_ from/to 
-the string values _s1_, ..., _sN_.#
+the string values _s~1~_, ..., _s~N~_.#
 
 [[fl.menuitemflags]]
-* _code_  = *fl.menuitemflags*(_s1_, _..._, _sN_) +
-_s1_, _..._, _sN_ = *fl.menuitemflags*(_code_) +
+* _code_  = *fl.menuitemflags*(_s~1~_, _..._, _s~N~_) +
+_s~1~_, _..._, _s~N~_ = *fl.menuitemflags*(_code_) +
 [small]#Encodes/decodes the FLTK <<menuitemflags, menuitemflags>> _code_ from/to 
-the string values _s1_, ..., _sN_.#
+the string values _s~1~_, ..., _s~N~_.#
 
 [[fl.mode]]
-* _code_  = *fl.mode*(_s1_, _..._, _sN_) +
-_s1_, _..._, _sN_ = *fl.mode*(_code_) +
+* _code_  = *fl.mode*(_s~1~_, _..._, _s~N~_) +
+_s~1~_, _..._, _s~N~_ = *fl.mode*(_code_) +
 [small]#Encodes/decodes the FLTK <<mode, mode>> _code_ from/to 
-the string values _s1_, ..., _sN_.#
+the string values _s~1~_, ..., _s~N~_.#
 
 [[fl.modifiers]]
-* _code_  = *fl.modifiers*(_s1_, _..._, _sN_) +
-_s1_, _..._, _sN_ = *fl.modifiers*(_code_) +
+* _code_  = *fl.modifiers*(_s~1~_, _..._, _s~N~_) +
+_s~1~_, _..._, _s~N~_ = *fl.modifiers*(_code_) +
 [small]#Encodes/decodes the FLTK <<modifiers, modifiers>> _code_ from/to 
-the string values _s1_, ..., _sN_.#
+the string values _s~1~_, ..., _s~N~_.#
 
 * _uuid_  = *fl.new_uuid*( ) +
 [small]#Binding to 
@@ -63,15 +63,15 @@ returns an universally unique identifier.#
 
 
 [[fl.shortcut]]
-* _code_  = *fl.shortcut*(_s1_, _..._, _sN_) +
+* _code_  = *fl.shortcut*(_s~1~_, _..._, _s~N~_) +
 [small]#Encodes an FLTK <<shortcut, _shortcut_>> _code_ by combining the string values
-_s1_, _..._, _sN_, which must comprise one (and only one) <<key, _key_>> and zero or more
+_s~1~_, _..._, _s~N~_, which must comprise one (and only one) <<key, _key_>> and zero or more
 <<modifiers,_modifiers_>>. For example, this produces the code for the 'Ctrl+S' shortcut: 
 _code = fl.shortcut('Ctrl', 's')_. Beware that the '_Shift_' modifier is implicit
 in upper-case keys, so passing '_S_' instead of '_s_' would produce the code for
 the shortcut 'Ctrl+Shift+S'.#
 
-* _s1_, _..._, _sN_ = *fl.shortcut*(_code_) +
+* _s~1~_, _..._, _s~N~_ = *fl.shortcut*(_code_) +
 [small]#Decodes an FLTK <<shortcut, _shortcut_>>.#
 
 * *fl.sleep*(_seconds_) +
@@ -84,8 +84,8 @@ only to emulate work in progress in the examples.#
 (see <<unreference, "Unreferencing objects">>).#
 
 [[fl.whenflags]]
-* _code_  = *fl.whenflags*(_s1_, _..._, _sN_) +
-_s1_, _..._, _sN_ = *fl.whenflags*(_code_) +
+* _code_  = *fl.whenflags*(_s~1~_, _..._, _s~N~_) +
+_s~1~_, _..._, _s~N~_ = *fl.whenflags*(_code_) +
 [small]#Encodes/decodes the FLTK <<whenflags, whenflags>> _code_ from/to 
-the string values _s1_, ..., _sN_.#
+the string values _s~1~_, ..., _s~N~_.#
 

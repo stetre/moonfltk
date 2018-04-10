@@ -5,7 +5,7 @@
 Inherits from: <<widget, widget>>, <<group, group>>.#
 
 
-* _help_view_ = *fl.help_view*(_x_, _y_, _w_, _h_ [, _label_])
+* _help_view_ = *fl.help_view*(_x_, _y_, _w_, _h_, [_label_])
 
 * *:clear_selection*( )
 
@@ -13,7 +13,7 @@ Inherits from: <<widget, widget>>, <<group, group>>.#
 
 * _filename_ = *:filename*( )
 
-* _line_  = *:find*(_string_ [, _pos_]) +
+* _line_  = *:find*(_string_, [_pos_]) +
 [small]#Returns _nil_ if _string_ is not found.#
 
 * *:leftline*(_p_) +

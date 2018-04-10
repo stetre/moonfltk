@@ -18,7 +18,7 @@ _dirname_ = *:directory*( )
 * _filename_  = *:filenames*([_i_ = 1]) +
 [small]#The optional _i_ argument must be in the range _1 .. count()_.#
 
-* _filename1_, ..., _filenameN_ = *:filenames*() +
+* _filename~1~_, ..., _filename~N~_ = *:filenames*() +
 [small]#Returns the names of all the selected items (N=count()).#
 
 * *:filter*(_filter_) +
@@ -30,8 +30,8 @@ _i_ = *:filter_value*( ) +
 
 * _nfilters_ = *:filters*( )
 
-* *:options*(_opt1_, _..._, _optN_) +
-_opt1_, _..._, _optN_ = *:options*( ) +
+* *:options*(_opt~1~_, _..._, _opt~N~_) +
+_opt~1~_, _..._, _opt~N~_ = *:options*( ) +
 [small]#_opt_: '_no options_', '_saveas confirm_', '_new folder_', '_preview_',
 '_use filter ext_'.#
 

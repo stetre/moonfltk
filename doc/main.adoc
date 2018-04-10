@@ -49,6 +49,6 @@ _boolean_ = *fl.visible_focus*( )
 
 
 * *fl.wait*([_seconds_]) +
-_boolean_ =fl.wait*( ) +
+_boolean_ = *fl.wait*( ) +
 [small]#Returns _nil_ if an error occurred.#
 

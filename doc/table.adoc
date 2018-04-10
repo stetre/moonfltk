@@ -4,7 +4,7 @@
 [small]#Rfr: link:++http://www.fltk.org/doc-1.3/classFl__Table.html++[Fl_Table]. +
 Inherits from: <<widget, widget>>, <<group, group>>.#
 
-* _table_ = *fl.table*(_x_, _y_, _w_, _h_ [, _label_])
+* _table_ = *fl.table*(_x_, _y_, _w_, _h_, [_label_])
 
 
 NOTE: Row and column numbers, as well as children indices, are 1-based (Lua-style).
@@ -60,7 +60,7 @@ _w_ = *:col_width*(_col_)
 
 * _boolean_ = *:is_selected*(_row_, _col_)
 
-* _boolean_ = *:move_cursor*(_row_, _col_ [, _shiftselect_])
+* _boolean_ = *:move_cursor*(_row_, _col_, [_shiftselect_])
 
 * *:row_header*(_boolean_) +
 _boolean_ = *:row_header*( )
@@ -103,7 +103,7 @@ _val_ = *:scrollbar_size*( )
 _boolean_ = *:tab_cell_nav*( )
 
 
-* _row1_, _row2_, _col1_, _col2_ = *:visible_cells*( )
+* _row~1~_, _row~2~_, _col~1~_, _col~2~_ = *:visible_cells*( )
 
 
 // -------------------------------------
@@ -114,7 +114,7 @@ _boolean_ = *:tab_cell_nav*( )
 Inherits from: <<widget, widget>>, <<group, group>>, <<table, table>>. +
 RTTI: 'none', 'single', 'multi'.#
 
-* _table_row_ = *fl.table_row*(_x_, _y_, _w_, _h_ [, _label_])
+* _table_row_ = *fl.table_row*(_x_, _y_, _w_, _h_, [_label_])
 
 
 NOTE: Row and column numbers, as well as children indices, are 1-based (Lua-style).
@@ -129,7 +129,7 @@ _nrows_ = *:rows*( )
 * *:select_all_rows*([_option_]) +
 [small]#_option_ = '_deselect_', '_select_' (default), '_toggle_'.#
 
-* _boolean_  = *:select_row*(_row_ [, _option_]) +
+* _boolean_  = *:select_row*(_row_, [_option_]) +
 [small]#_option_ = '_deselect_', '_select_' (default), '_toggle_'. +
 Returns _nil_, _errmsg_ if _row_ is out of range.#
 

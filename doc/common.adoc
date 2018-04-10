@@ -6,17 +6,17 @@
 
 * *fl.beep*(<<beep, _beep_>>)
 
-* *fl.color_chooser_b*(_label_, _r_, _g_, _b_ [, <<colorchoosermode, _colorchoosermode_>>]) +
-_r_, _g_, _b_ = *fl.color_chooser_f*(_label_, _r_, _g_, _b_ [, <<colorchoosermode, _colorchoosermode_>>]) +
+* *fl.color_chooser_b*(_label_, _r_, _g_, _b_, [<<colorchoosermode, _colorchoosermode_>>]) +
+_r_, _g_, _b_ = *fl.color_chooser_f*(_label_, _r_, _g_, _b_, [<<colorchoosermode, _colorchoosermode_>>]) +
 [small]#Returns _nil_ if the user cancelled the dialog. +
 The '_b' version works with byte components (0 .. 255), while the '_f' version works with 
 floating point components (0.0 .. 1.0).#
 
-* _dirname_ = *fl.dir_chooser*(_message_, _dirname_[, _relative_]) +
+* _dirname_ = *fl.dir_chooser*(_message_, _dirname_, [_relative_]) +
 [small]#Returns _nil_ if the user cancelled the dialog. +
 _relative_: a boolean (_true_ for relative path return, _false_ for absolute path).#
 
-* _filename_  = *fl.file_chooser*(_message_, _pattern_, _filename_ [, _relative_]) +
+* _filename_  = *fl.file_chooser*(_message_, _pattern_, _filename_, [_relative_]) +
 [small]#Returns _nil_ if the user cancelled the dialog. +
 _relative_: a boolean (_true_ for relative path return, _false_ for absolute path).#
 
@@ -34,7 +34,7 @@ _boolean_ = *fl.message_hotspot*( )
 
 * *fl.message_title_default*(_title_)
 
-* _text_  = *fl.password*(_message_ [, _default_]) +
+* _text_  = *fl.password*(_message_, [_default_]) +
 [small]#Returns _nil_ if the user cancelled the dialog.#
 
 

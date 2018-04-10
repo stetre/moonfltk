@@ -13,7 +13,7 @@
 
 * _boolean_ = *fl.filename_isdir*(_filename_)
 
-* _filename1_, ..., _filenameN_ = *fl.filename_list*(_dirname_ [, <<filesort, _filesort_>>])
+* _filename1_, ..., _filenameN_ = *fl.filename_list*(_dirname_, [<<filesort, _filesort_>>])
 
 * _boolean_ = *fl.filename_match*(_string_, _pattern_)
 

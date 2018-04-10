@@ -23,12 +23,12 @@ buf:replace(1,0,"xxx")      --  replaces an empty range (i.e. inserts) before po
 print(buf:text())           --> xxxhello
 ----
 
-* _text_buffer_ = *fl.text_buffer*([_reqsize_ [, _prefgapsize_]])
+* _text_buffer_ = *fl.text_buffer*([_reqsize_], [_prefgapsize_]])
 
 
 * *:append*(_text_)
 
-* _ok_, _errmsg_ = *:appendfile*(_filename_ [, _buflen_])
+* _ok_, _errmsg_ = *:appendfile*(_filename_, [_buflen_])
 
 * _byte_  = *:byte_at*(_pos_) +
 [small]#Returns the raw byte found at _pos_.#
@@ -55,7 +55,7 @@ Notice that the total number of lines is _count_lines(1) + 1.#
 _pos_ = *:findchar_forward*(_start_, _char_) +
 [small]#_char_: UTF8 encoded character. Returns _nil_ if _char_ is not found.#
 
-* *:highlight*(_start_ [, _end_]) +
+* *:highlight*(_start_, [_end_]) +
 _boolean_ = *:highlight*( )
 
 * _start_, _end_ = *:highlight_position*( )
@@ -68,7 +68,7 @@ _boolean_ = *:highlight*( )
 
 * *:insert*(_pos_, _text_)
 
-* _ok_, _errmsg_ = *:insertfile*(_filename_, _pos_ [, _buflen_])
+* _ok_, _errmsg_ = *:insertfile*(_filename_, _pos_, [_buflen_])
 
 * _nbytes_ = *:length*( )
 
@@ -82,7 +82,7 @@ _boolean_ = *:highlight*( )
 * _text_ = *:line_text*(_pos_)
 
 
-* _ok_, _errmsg_ = *:loadfile*(_filename_ [, _buflen_])
+* _ok_, _errmsg_ = *:loadfile*(_filename_, [_buflen_])
 
 * _start_, _end_ = *:next_char*([_pos_]) +
 [small]#Returns the boundaries of the character following the one containing the byte at _pos_,
@@ -90,7 +90,7 @@ or _nil_ if there are none. If _pos_ is none or _nil_, returns the
 boundaries of the first character (i.e. _start_ = 1, _end_ = whatever).# 
 
 
-* _ok_, _errmsg_ = *:outputfile*(_filename_, _start_ [, _end_ [, _buflen_]])
+* _ok_, _errmsg_ = *:outputfile*(_filename_, _start_, [_end_], [_buflen_])
 
 * _start_, _end_ = *:prev_char*(_pos_) +
 [small]#Returns the boundaries of the character preceding the one containing the byte at _pos_,
@@ -98,7 +98,7 @@ or _nil_ if there are none. If _pos_ is none or _nil_, returns the
 boundaries of the last character (i.e. _start_ = whatever, _end_ = _length()_).# 
 
 
-* *:remove*(_start_ [, _end_]) +
+* *:remove*(_start_, [_end_]) +
 *:remove_secondary_selection*( ) +
 *:remove_selection*( )
 
@@ -109,13 +109,13 @@ boundaries of the last character (i.e. _start_ = whatever, _end_ = _length()_).#
 * _pos_ = *:rewind_lines*(_start_, _nlines_)
 
 
-* _ok_, _errmsg_ = *:savefile*(_filename_ [, _buflen_])
+* _ok_, _errmsg_ = *:savefile*(_filename_, [_buflen_])
 
-* _pos_ = *:search_backward*(_start_, _text_ [, _matchcase_]) +
-_pos_ = *:search_forward*(_start_, _text_ [, _matchcase_]) +
+* _pos_ = *:search_backward*(_start_, _text_, [_matchcase_]) +
+_pos_ = *:search_forward*(_start_, _text_, [_matchcase_]) +
 [small]#Returns _nil_ if _text_ is not found.#
 
-* *:secondary_select*(_start_ [, _end_])
+* *:secondary_select*(_start_, [_end_])
 
 * _boolean_ = *:secondary_selected*( )
 
@@ -126,7 +126,7 @@ _pos_ = *:search_forward*(_start_, _text_ [, _matchcase_]) +
 
 * *:secondary_unselect*( )
 
-* *:select*(_start_ [, _end_])
+* *:select*(_start_, [_end_])
 
 * _boolean_ = *:selected*( )
 
@@ -146,7 +146,7 @@ _n_ = *:tabs_distance*( )
 * *:text*(_text_) +
 _text_ = *:text*( )
 
-* _text_  = *:text_range*(_start_ [, _end_]) +
+* _text_  = *:text_range*(_start_, [_end_]) +
 [small]#Returns the text between _start_ and _end_. 
 Raises an error if _start_ is greater than _end_ or than the buffer's length.#
 
@@ -174,7 +174,7 @@ Raises an error if _start_ is greater than _end_ or than the buffer's length.#
 
 * *:call_predelete_callback*( )
 
-* *:modify_callback*(_func_ [, _argument_]) +
+* *:modify_callback*(_func_, [_argument_]) +
 [small]#If _func_ = _nil_, unregisters the current callback and argument, otherwise
 registers _func_ (a function) as the 'modify callback' for this text_buffer. 
 The optional _argument_ may be any valid Lua type. +
@@ -182,7 +182,7 @@ The callback is executed as *func(buf, pos, nins, ndel, nrest, deltext, argument
 where _buf_ is this text_buffer, and the other parameters have the
 same meaning as in the *Fl_Text_Modify_Cb* type.#
 
-* *:predelete_callback*(_func_ [, _argument_]) +
+* *:predelete_callback*(_func_, [_argument_]) +
 [small]#If _func_ = _nil_, unregisters the current callback and argument, otherwise
 registers _func_ (a function) as the 'predelete callback' for this text_buffer. 
 The optional _argument_ may be any valid Lua type. +

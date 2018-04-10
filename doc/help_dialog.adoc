@@ -17,7 +17,7 @@ Inherits from: - .#
 * *:show*( ) +
 *:show*(_progname_) +
 *:show*(_args_) +
-*:show*(_progname_ [, _args_]) +
+*:show*(_progname_, [_args_]) +
 [small]#Same as <<window:show, window:show()>>( ).#
 
 * *:textsize*(_fontsize_) +

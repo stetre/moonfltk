@@ -6,24 +6,24 @@
 Inherits from: <<widget, widget>>. +
 RTTI: '_bar_', '_horbar_', '_line_', '_fill_', '_spike_', '_pie_', '_specialpie_'.#
 
-* _chart_ = *fl.chart*(_x_, _y_, _w_, _h_ [, _label_])
+* _chart_ = *fl.chart*(_x_, _y_, _w_, _h_, [_label_])
 
 * *:autosize*(_boolean_) +
 _boolean_ = *:autosize*( )
 
-* *:add*(_value_ [, _label_ [<<color, _color_>>]])
+* *:add*(_value_, [_label_], [<<color, _color_>>])
 
 * *:bounds*(_lower_, _upper_) +
 _lower_, _upper_ = *:bounds*( )
 
 * *:clear*( )
 
-* *:insert*(_pos_, _value_ [, _label_ [<<color, _color_>>]])
+* *:insert*(_pos_, _value_, [_label_], [<<color, _color_>>])
 
 * *:maxsize*(_n_) +
 * _n_ = *:maxsize*( )
 
-* *:replace*(_pos_, _value_ [, _label_ [<<color, _color_>>]])
+* *:replace*(_pos_, _value_, [_label_], [<<color, _color_>>])
 
 * *:size*(_w_, _h_) +
 _n_ = *:size*( )
