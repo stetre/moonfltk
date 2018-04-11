@@ -1,0 +1,22 @@
+
+[[multithreading]]
+=== Multithreading
+[small]#Rfr: link:++http://www.fltk.org/doc-1.3/group__fl__multithread.html++[Multithreading support functions].# 
+
+MoonFLTK can be used in conjunction with multithreading libraries such as link:https://github.com/LuaLanes/lanes[LuaLanes] (thanks to https://github.com/stetre/moonfltk/pull/7[Oliver]).
+
+The full *"moonfltk"* module may be required only by one main thread (the '_foreground thread_').
+This is the thread where the widgets are to be created and updated.
+
+Any other thread ('_background thread_') is only allowed to require the *"moonfltk.background"* module, which is a limited version of MoonFLTK containing only the _fl.awake(&nbsp;)_ function described
+below and a few other thread-safe utilities (currently, those listed in the sections
+<<filename, 'File names and URI'>>, and <<unicode, 'Unicode and UTF-8'>>).
+
+* _boolean_ = *fl.awake*([_message_]) +
+[small]#Only available in background threads. +
+Awakes the main thread, optionally queueing a string message. +
+Returns _true_ if the message was successfully queued or no message was given.#
+
+* _message_ = *fl.thread_message*( ) +
+[small]#Removes and returns the next message (string) queued with _fl.awake(&nbsp;)_, or _nil_ if the queue is empty.#
+

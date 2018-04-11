@@ -802,9 +802,10 @@ p.tableblock.header { color: #6d6e71; }
 <li><a href="#_colors">Colors</a></li>
 <li><a href="#_fonts">Fonts</a></li>
 <li><a href="#_drawing">Drawing</a></li>
+<li><a href="#multithreading">Multithreading</a></li>
 <li><a href="#unicode">Unicode and UTF-8</a></li>
 <li><a href="#_common_dialogs">Common Dialogs</a></li>
-<li><a href="#_file_names_and_uri">File names and URI</a></li>
+<li><a href="#filename">File names and URI</a></li>
 <li><a href="#_tooltips">Tooltips</a></li>
 <li><a href="#_handlers">Handlers</a></li>
 <li><a href="#additional">Additional utilities</a></li>
@@ -5726,6 +5727,38 @@ The <em>func</em> text drawing callback, if any, is executed as <strong>func(tex
 </div>
 </div>
 <div class="sect2">
+<h3 id="multithreading">Multithreading</h3>
+<div class="paragraph">
+<p><span class="small">Rfr: <a href="http://www.fltk.org/doc-1.3/group__fl__multithread.html">Multithreading support functions</a>.</span></p>
+</div>
+<div class="paragraph">
+<p>MoonFLTK can be used in conjunction with multithreading libraries such as <a href="https://github.com/LuaLanes/lanes">LuaLanes</a> (thanks to <a href="https://github.com/stetre/moonfltk/pull/7">Oliver</a>).</p>
+</div>
+<div class="paragraph">
+<p>The full <strong>"moonfltk"</strong> module may be required only by one main thread (the '<em>foreground thread</em>').
+This is the thread where the widgets are to be created and updated.</p>
+</div>
+<div class="paragraph">
+<p>Any other thread ('<em>background thread</em>') is only allowed to require the <strong>"moonfltk.background"</strong> module, which is a limited version of MoonFLTK containing only the <em>fl.awake(&nbsp;)</em> function described
+below and a few other thread-safe utilities (currently, those listed in the sections
+<a href="#filename">'File names and URI'</a>, and <a href="#unicode">'Unicode and UTF-8'</a>).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>boolean</em> = <strong>fl.awake</strong>([<em>message</em>])<br>
+<span class="small">Only available in background threads.<br>
+Awakes the main thread, optionally queueing a string message.<br>
+Returns <em>true</em> if the message was successfully queued or no message was given.</span></p>
+</li>
+<li>
+<p><em>message</em> = <strong>fl.thread_message</strong>( )<br>
+<span class="small">Removes and returns the next message (string) queued with <em>fl.awake(&nbsp;)</em>, or <em>nil</em> if the queue is empty.</span></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
 <h3 id="unicode">Unicode and UTF-8</h3>
 <div class="paragraph">
 <p><span class="small">Rfr: <a href="http://www.fltk.org/doc-1.3/group__fl__unicode.html">Unicode and UTF-8 functions</a>.<br>
@@ -5800,7 +5833,7 @@ The <em>func</em> callback is executed as <strong>func(filename)</strong>.</span
 </div>
 </div>
 <div class="sect2">
-<h3 id="_file_names_and_uri">File names and URI</h3>
+<h3 id="filename">File names and URI</h3>
 <div class="paragraph">
 <p><span class="small">Rfr: <a href="http://www.fltk.org/doc-1.3/group__filenames.html">File names and URI utility functions</a>.</span></p>
 </div>
@@ -6679,10 +6712,6 @@ object you want to delete.</p>
 <a href="http://www.lua.org/manual/5.3/manual.html#6.5">UTF-8 Support</a>).</p>
 </li>
 <li>
-<p><a href="http://www.fltk.org/doc-1.3/group__fl__multithread.html">Multithreading support functions</a>
-(MoonFLTK does not support multithreading and is not thread-safe).</p>
-</li>
-<li>
 <p><a href="http://www.fltk.org/doc-1.3/group__fl__del__widget.html">Safe widget deletion support functions</a>.</p>
 </li>
 <li>
@@ -6710,9 +6739,7 @@ object you want to delete.</p>
 <li>
 <p>The following functionalities of the
 <a href="http://www.fltk.org/doc-1.3/classFl.html">Fl</a> class:
-<span class="line-through">the command line argument parser (Fl::args( )),</span>
 the Fl::readqueue( ) callback mechanism,
-<span class="line-through">Fl::set/get_boxtype( ),</span>
 Fl::set/get_labeltype(),
 system handlers (Fl::add_system_handler( )),
 Fl::default_at_close( ), Fl::warning/error/fatal( ).</p>
