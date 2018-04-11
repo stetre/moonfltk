@@ -5551,6 +5551,13 @@ Screens are numbered from 1 to <strong>fl.screen_count</strong>( ) inclusive.
 <span class="small">Returns the 0-255 code for <em>boxtype</em>.</span></p>
 </li>
 <li>
+<p><em>boxdrawfunc</em> = <strong>fl.get_boxtype</strong>(<a href="#boxtype"><em>boxtype</em></a>)<br>
+<strong>fl.set_boxtype</strong>(<a href="#boxtype"><em>boxtype</em></a>, <em>boxdrawfunc</em>, <em>dx</em>, <em>dy</em>, <em>dw</em>, <em>dh</em>)<br>
+<strong>fl.set_boxtype</strong>(<a href="#boxtype"><em>boxtype</em></a>, <a href="#boxtype"><em>fromboxtype</em></a>)<br>
+<span class="small">Get/set the draw function for <em>boxtype</em>.
+The draw function is executed as <strong><em>boxdrawfunc(x, y, w, h, color)</em></strong>.</span></p>
+</li>
+<li>
 <p><em>boolean</em> = <strong>fl.can_do_alpha_blending</strong>( )</p>
 </li>
 <li>
@@ -6705,7 +6712,7 @@ object you want to delete.</p>
 <a href="http://www.fltk.org/doc-1.3/classFl.html">Fl</a> class:
 <span class="line-through">the command line argument parser (Fl::args( )),</span>
 the Fl::readqueue( ) callback mechanism,
-Fl::set/get_boxtype( ),
+<span class="line-through">Fl::set/get_boxtype( ),</span>
 Fl::set/get_labeltype(),
 system handlers (Fl::add_system_handler( )),
 Fl::default_at_close( ), Fl::warning/error/fatal( ).</p>

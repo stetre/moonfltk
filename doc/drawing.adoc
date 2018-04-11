@@ -21,6 +21,12 @@ _offset_ = *fl.box_dz*(<<boxtype, _boxtype_>>)
 * _code_ = *fl.boxtype_code*(<<boxtype, _boxtype_>>) +
 [small]#Returns the 0-255 code for _boxtype_.#
 
+* _boxdrawfunc_ = *fl.get_boxtype*(<<boxtype, _boxtype_>>) +
+*fl.set_boxtype*(<<boxtype, _boxtype_>>, _boxdrawfunc_, _dx_, _dy_, _dw_, _dh_) +
+*fl.set_boxtype*(<<boxtype, _boxtype_>>, <<boxtype, _fromboxtype_>>) +
+[small]#Get/set the draw function for _boxtype_.
+The draw function is executed as *_boxdrawfunc(x, y, w, h, color)_*.#
+
 * _boolean_ = *fl.can_do_alpha_blending*( )
 
 * *fl.circle*(_x_, _y_, _r_)
