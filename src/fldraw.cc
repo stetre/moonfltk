@@ -401,6 +401,13 @@ static int Get_boxtype(lua_State *L)
     return 1;
 }
 
+static int Boxtype_code(lua_State *L)
+    {
+    Fl_Boxtype bt = check_Boxtype(L, 1);
+    lua_pushinteger(L, bt);
+    return 1;
+    }
+
 //typedef void (*Fl_Draw_Image_Cb)(void* data,int x,int y,int w,uchar* buf);
 //void  fl_draw_image(Fl_Draw_Image_Cb cb, void *data, int X, int Y, int W, int H, int D=3) @@
 static int Draw_image(lua_State *L)
@@ -797,6 +804,7 @@ static const struct luaL_Reg Functions[] =
         { "scrollbar_size", Scrollbar_size },
         { "set_boxtype", Set_boxtype },
         { "get_boxtype", Get_boxtype },
+        { "boxtype_code", Boxtype_code },
         { "set_spot", Set_spot },
         { "set_status", Set_status },
         { "shortcut_label", Shortcut_label },

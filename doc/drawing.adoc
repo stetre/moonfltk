@@ -18,6 +18,9 @@ _offset_ = *fl.box_dw*(<<boxtype, _boxtype_>>) +
 _offset_ = *fl.box_dy*(<<boxtype, _boxtype_>>) +
 _offset_ = *fl.box_dz*(<<boxtype, _boxtype_>>)
 
+* _code_ = *fl.boxtype_code*(<<boxtype, _boxtype_>>) +
+[small]#Returns the 0-255 code for _boxtype_.#
+
 * _boolean_ = *fl.can_do_alpha_blending*( )
 
 * *fl.circle*(_x_, _y_, _r_)

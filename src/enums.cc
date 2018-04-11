@@ -128,7 +128,7 @@ Fl_Boxtype check_Boxtype(lua_State *L, int arg)
         CASE(FL_GLEAM_THIN_DOWN_BOX, "gleam thin down box");
         CASE(FL_GLEAM_ROUND_UP_BOX, "gleam round up box");
         CASE(FL_GLEAM_ROUND_DOWN_BOX, "gleam round down box");
-        //CASE(FL_FREE_BOXTYPE, "free boxtype");
+        CASE(FL_FREE_BOXTYPE, "free boxtype");
 #undef CASE
         return (Fl_Boxtype)luaL_argerror(L, arg, badvalue(L,s));
         }
@@ -200,7 +200,7 @@ int push_Boxtype(lua_State *L, Fl_Boxtype boxtype)
         CASE(FL_GLEAM_THIN_DOWN_BOX, "gleam thin down box");
         CASE(FL_GLEAM_ROUND_UP_BOX, "gleam round up box");
         CASE(FL_GLEAM_ROUND_DOWN_BOX, "gleam round down box");
-        //CASE(FL_FREE_BOXTYPE, "free boxtype");
+        CASE(FL_FREE_BOXTYPE, "free boxtype");
 #undef CASE
 //      default:
 //          return unexpected(L);

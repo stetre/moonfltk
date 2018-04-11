@@ -5547,6 +5547,10 @@ Screens are numbered from 1 to <strong>fl.screen_count</strong>( ) inclusive.
 <em>offset</em> = <strong>fl.box_dz</strong>(<a href="#boxtype"><em>boxtype</em></a>)</p>
 </li>
 <li>
+<p><em>code</em> = <strong>fl.boxtype_code</strong>(<a href="#boxtype"><em>boxtype</em></a>)<br>
+<span class="small">Returns the 0-255 code for <em>boxtype</em>.</span></p>
+</li>
+<li>
 <p><em>boolean</em> = <strong>fl.can_do_alpha_blending</strong>( )</p>
 </li>
 <li>
@@ -6316,9 +6320,9 @@ Strings:
 <div id="boxtype" class="ulist">
 <ul>
 <li>
-<p><strong>boxtype</strong>: enumeration.<br>
+<p><strong>boxtype</strong>: enumeration or 0-255 integer code (rfr: Fl_Boxtype).<br>
 <span class="small">Values:
-'<em>no box</em>', '<em>flat box</em>', '<em>up box</em>', '<em>down box</em>', '<em>up frame</em>', '<em>down frame</em>', '<em>thin up box</em>', '<em>thin down box</em>', '<em>thin up frame</em>', '<em>thin down frame</em>', '<em>engraved box</em>', '<em>embossed box</em>', '<em>engraved frame</em>', '<em>embossed frame</em>', '<em>border box</em>', '<em>shadow box</em>', '<em>border frame</em>', '<em>shadow frame</em>', '<em>rounded box</em>', '<em>rshadow box</em>', '<em>rounded frame</em>', '<em>rflat box</em>', '<em>round up box</em>', '<em>round down box</em>', '<em>diamond up box</em>', '<em>diamond down box</em>', '<em>oval box</em>', '<em>oshadow box</em>', '<em>oval frame</em>', '<em>oflat box</em>', '<em>plastic up box</em>', '<em>plastic down box</em>', '<em>plastic up frame</em>', '<em>plastic down frame</em>', '<em>plastic thin up box</em>', '<em>plastic thin down box</em>', '<em>plastic round up box</em>', '<em>plastic round down box</em>', '<em>gtk up box</em>', '<em>gtk down box</em>', '<em>gtk up frame</em>', '<em>gtk down frame</em>', '<em>gtk thin up box</em>', '<em>gtk thin down box</em>', '<em>gtk thin up frame</em>', '<em>gtk thin down frame</em>', '<em>gtk round up box</em>', '<em>gtk round down box</em>', '<em>gleam up box</em>', '<em>gleam down box</em>', '<em>gleam up frame</em>', '<em>gleam down frame</em>', '<em>gleam thin up box</em>', '<em>gleam thin down box</em>', '<em>gleam round up box</em>', '<em>gleam round down box</em>'.</span></p>
+'<em>no box</em>', '<em>flat box</em>', '<em>up box</em>', '<em>down box</em>', '<em>up frame</em>', '<em>down frame</em>', '<em>thin up box</em>', '<em>thin down box</em>', '<em>thin up frame</em>', '<em>thin down frame</em>', '<em>engraved box</em>', '<em>embossed box</em>', '<em>engraved frame</em>', '<em>embossed frame</em>', '<em>border box</em>', '<em>shadow box</em>', '<em>border frame</em>', '<em>shadow frame</em>', '<em>rounded box</em>', '<em>rshadow box</em>', '<em>rounded frame</em>', '<em>rflat box</em>', '<em>round up box</em>', '<em>round down box</em>', '<em>diamond up box</em>', '<em>diamond down box</em>', '<em>oval box</em>', '<em>oshadow box</em>', '<em>oval frame</em>', '<em>oflat box</em>', '<em>plastic up box</em>', '<em>plastic down box</em>', '<em>plastic up frame</em>', '<em>plastic down frame</em>', '<em>plastic thin up box</em>', '<em>plastic thin down box</em>', '<em>plastic round up box</em>', '<em>plastic round down box</em>', '<em>gtk up box</em>', '<em>gtk down box</em>', '<em>gtk up frame</em>', '<em>gtk down frame</em>', '<em>gtk thin up box</em>', '<em>gtk thin down box</em>', '<em>gtk thin up frame</em>', '<em>gtk thin down frame</em>', '<em>gtk round up box</em>', '<em>gtk round down box</em>', '<em>gleam up box</em>', '<em>gleam down box</em>', '<em>gleam up frame</em>', '<em>gleam down frame</em>', '<em>gleam thin up box</em>', '<em>gleam thin down box</em>', '<em>gleam round up box</em>', '<em>gleam round down box</em>', '<em>free boxtype</em>'.</span></p>
 </li>
 </ul>
 </div>
