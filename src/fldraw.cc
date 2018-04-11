@@ -824,6 +824,14 @@ static const struct luaL_Reg Functions[] =
 void moonfltk_open_FlDraw(lua_State *L)
     {
     luaL_setfuncs(L, Functions, 0);
+
+    /* Set free boxtypes to a default value, to avoid segv in case an integer boxtype code
+     * is used which was not previously set with set_boxtype. */
+    for(int bt = FL_FREE_BOXTYPE; bt<256; bt++)
+        {
+        Fl::set_boxtype((Fl_Boxtype)bt, Fl::get_boxtype(FL_NO_BOX),
+            Fl::box_dx(FL_NO_BOX), Fl::box_dy(FL_NO_BOX), Fl::box_dw(FL_NO_BOX), Fl::box_dh(FL_NO_BOX));
+        }
     }
 
 #if 0 //@@
