@@ -31,18 +31,15 @@ void browserclear(lua_State *L, Fl_Browser_ *p)
     int n = p->children();
     if(n<=0) 
         return;
-    Fl_Widget * const *arr = p->array();
-    if(!arr) 
-        return;
-    for(int i=0; i < n; i++)
+    for(int i=n-1; i >= 0; --i)
         {
-        Fl_Widget *c = arr[i];
+        Fl_Widget *c = p->child(i);
         /* skip scrollbars */
         if((c == &p->scrollbar) || (c == &p->hscrollbar))
             continue;
         if(userdata(c))
             {
-            p->remove(*c);
+            p->remove(i);
             userdata_unref(L, c);
             }
         }

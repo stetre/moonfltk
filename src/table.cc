@@ -45,17 +45,14 @@ void tableclear(lua_State *L, Fl_Table *p)
         return;
     p->rows(0);
     p->cols(0);
-    Fl_Widget * const *arr = p->array();
-    if(!arr)
-        return;
-    for(int i=0; i < n; i++)
+    for(int i=n-1; i >= 0; --i)
         {
-        Fl_Widget *c = arr[i];
+        Fl_Widget *c = p->child(i);
 //      if((c == Vscrollbar(p)) || (c == Hscrollbar(p))) continue;
         if(userdata(c))
             {
     //      printf("removing child %d\n", i);
-            p->remove(*c);
+            ((Fl_Group*)p)->remove(i);
             userdata_unref(L, c);
             }
         }
