@@ -25,11 +25,14 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdint.h>
+
 #include "tree.h"
 #include "udata.h"
 #include "lua.h"
 #include "lauxlib.h"
 #include "lualib.h"
+#include "compat-5.3.h"
 
 struct moonfltk_udata_s {
     RB_ENTRY(moonfltk_udata_s) entry;

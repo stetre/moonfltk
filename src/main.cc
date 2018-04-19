@@ -261,25 +261,41 @@ int moonfltk_open_background_main(lua_State *L);
 int moonfltk_open_main(lua_State *L)
     {
     Fl::lock();
-    
-    lua_rawgeti(L, LUA_REGISTRYINDEX, LUA_RIDX_MAINTHREAD);
-    lua_State* thisMain = lua_tothread(L, -1);
-    lua_pop(L, 1);
+
+    bool isInCorrectMainLuaState;
     
     if (!initialized)
         {
-        main_lua_state = thisMain;
-        lua_newuserdata(L, 1); // sentinel for closing lua state
-            lua_newtable(L); // metatable for sentinel
-                lua_pushstring(L, "__gc");
-                lua_pushcfunction(L, handleClosingLuaState);
-                lua_rawset(L, -3); // metatable.__gc = handleClosingLuaState
-            lua_setmetatable(L, -2); // sets metatable for sentinal table
-        luaL_ref(L, LUA_REGISTRYINDEX); // keeps reference for sentinel in registry
+        #if LUA_VERSION_NUM >= 502
+            lua_rawgeti(L, LUA_REGISTRYINDEX, LUA_RIDX_MAINTHREAD);
+                main_lua_state = lua_tothread(L, -1); // our main state is the current main state
+            lua_pop(L, 1);
+        #else
+            main_lua_state = lua_newthread(L); // our "main state" is a new state
+            luaL_ref(L, LUA_REGISTRYINDEX); // remember in registry to prevent garbage collection
+        #endif
+        
+        lua_pushlightuserdata(L, (void*)&initialized); // unique void* key
+            lua_newuserdata(L, 1); // sentinel for closing lua state
+                lua_newtable(L); // metatable for sentinel
+                    lua_pushstring(L, "__gc");
+                        lua_pushcfunction(L, handleClosingLuaState);
+                    lua_rawset(L, -3); // metatable.__gc = handleClosingLuaState
+                lua_setmetatable(L, -2); // sets metatable for sentinal table
+        lua_rawset(L, LUA_REGISTRYINDEX); // sets sentinel as value for unique void* in registry
         initialized = true;
+        isInCorrectMainLuaState = true;
+        }
+    else
+        {
+        // check if initialization has been done in a separate lua main state
+        lua_pushlightuserdata(L, (void*)&initialized); // unique void* key
+        lua_rawget(L, LUA_REGISTRYINDEX);
+            isInCorrectMainLuaState = !lua_isnil(L, -1);
+        lua_pop(L, 1);
         }
     
-    if (main_lua_state == thisMain)
+    if (isInCorrectMainLuaState)
         {
         lua_newtable(L); /* the fltk table */
         AddVersions(L);
