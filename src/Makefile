@@ -68,6 +68,7 @@ CxxObjs := $(CxxSrc:.cc=.o)
 # C/C++ common options
 OPT	+= -O2
 OPT	+= -Wall -Wextra -Wpedantic
+OPT += -DCOMPAT53_PREFIX=moonfltk_compat_
 OPT += -DLUAVER=$(LUAVER)
 OPT += -DUSE_GL=1 -DUSE_IMAGES=1
 OPT += $(FLTK_INC_OPT)

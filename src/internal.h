@@ -36,6 +36,10 @@
 #include <stdint.h>
 #include "moonfltk.h"
 
+extern "C" {
+#include "compat-5.3.h"
+}
+
 #ifdef BEGIN_FLTK_INCLUDE
     BEGIN_FLTK_INCLUDE // {
 #endif
