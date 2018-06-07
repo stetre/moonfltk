@@ -416,7 +416,7 @@ static int Treeitem_draw_mode(lua_State *L) //@@
 #endif
 
 #if defined(FLTK_ABI_VERSION) && (FLTK_ABI_VERSION >= 10303)
-VOID_VOID(Tree, calc_dimensions, Tree)
+VOID_VOID(Tree, calc_dimensions, Treecalc_dimensions)
 VOID_VOID(Tree, calc_tree, Treecalc_tree)
 VOID_VOID(Tree, recalc_tree, Treerecalc_tree)
 #endif
