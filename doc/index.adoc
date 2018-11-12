@@ -1,6 +1,6 @@
 = MoonFLTK Reference Manual
 Stefano Trettel
-v0.5, 2016-06-14
+v0.6, 2018-11-12
 :toc: left
 :toclevels: 2
 :stylesdir: ./
