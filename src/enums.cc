@@ -143,6 +143,7 @@ Fl_Boxtype check_Boxtype(lua_State *L, int arg)
 
 int push_Boxtype(lua_State *L, Fl_Boxtype boxtype)
     {
+    int bt;
 #define CASE(CODE,str) if(boxtype==CODE) do { lua_pushstring(L, str); return 1; } while(0)
         CASE(FL_NO_BOX, "no box");
         CASE(FL_FLAT_BOX, "flat box");
@@ -205,9 +206,10 @@ int push_Boxtype(lua_State *L, Fl_Boxtype boxtype)
 //      default:
 //          return unexpected(L);
 //      }
-    if (0 <= boxtype && boxtype <= 255)
+    bt = (int)boxtype; /* to avoid -Wtautological-constant-compare warning (clang) */
+    if (0 <= bt && bt <= 255)
         {
-        lua_pushinteger(L, boxtype);
+        lua_pushinteger(L, bt);
         return 1;
         }
     return unexpected(L);

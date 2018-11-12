@@ -105,6 +105,7 @@ void moonfltk_sectots(struct timespec *ts, double seconds)
 #include <windows.h>
 #define SleepSec(s) Sleep((s)*1.0e3)
 #else
+#include <unistd.h>
 #define SleepSec(s) usleep((useconds_t)((s)*1.0e6))
 #endif
 

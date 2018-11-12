@@ -1,8 +1,14 @@
 
+
 ifdef MINGW_PREFIX
 MINGW=1
 else
-LINUX=1
+ OS=$(shell uname)
+ ifeq ($(OS),Darwin)
+ MACOSX=1
+ else
+ LINUX=1
+ endif
 endif
 
 # Lua version
@@ -11,11 +17,10 @@ LUAVER?=5.3
 FLTK_CONFIG = fltk-config
 
 # Base install directory
-ifdef LINUX
-PREFIX?=/usr/local
-endif
 ifdef MINGW
 PREFIX?=$(MINGW_PREFIX)
+else # LINUX, MACOSX
+PREFIX?=/usr/local
 endif
 
 # Directory where to install Lua modules
@@ -30,9 +35,14 @@ DEBUG=1
 endif
 
 ifdef LINUX
-INCDIR = -I/usr/include
+INCDIR = -I/usr/include -I/usr/include/lua$(LUAVER)
 LIBDIR = -L/usr/lib
 LIBS =
+endif
+ifdef MACOSX
+INCDIR = -I/usr/include -I/usr/include/lua$(LUAVER)
+LIBDIR = -L/usr/lib
+LIBS = -llua
 endif
 ifdef MINGW
 LIBS = -llua
@@ -50,12 +60,12 @@ INCDIR = -I/usr/local/include
 LIBDIR = -L/usr/bin -L/usr/local/bin -L/usr/local/lib
 endif
 
-ifdef LINUX
+ifdef MINGW
+FLTK_INC_OPT =
+else # LINUX, MACOSX
 FLTK_INC_OPT = -DBEGIN_FLTK_INCLUDE='_Pragma("GCC diagnostic push") \
                                      _Pragma("GCC diagnostic ignored \"-Wunused-parameter\"")' \
                -DEND_FLTK_INCLUDE='_Pragma("GCC diagnostic pop")'
-else
-FLTK_INC_OPT = 
 endif
 
 Tgt	:= moonfltk
@@ -67,7 +77,7 @@ CxxObjs := $(CxxSrc:.cc=.o)
 
 # C/C++ common options
 OPT	+= -O2
-OPT	+= -Wall -Wextra -Wpedantic
+OPT	+= -Wall -Wextra
 OPT += -DCOMPAT53_PREFIX=moonfltk_compat_
 OPT += -DLUAVER=$(LUAVER)
 OPT += -DUSE_GL=1 -DUSE_IMAGES=1
@@ -76,13 +86,17 @@ ifdef LINUX
 OPT += -DLINUX
 OPT += -fpic
 endif
+ifdef MACOSX
+OPT += -DMACOSX
+OPT += -fpic
+endif
 ifdef MINGW
 OPT += -DMINGW
 OPT += -Wno-unused-parameter -Wno-long-long
 endif
 ifdef DEBUG
 OPT	+= -DDEBUG
-OPT += -Wfatal-errors
+OPT += -Wfatal-errors -Wpedantic
 OPT += -Wshadow -Wsign-compare -Wundef -Wwrite-strings
 OPT	+= -Wdisabled-optimization
 endif
@@ -126,8 +140,7 @@ install:
 	@-cp -fpvr ../$(Tgt) $(L_DIR)
 ifdef MINGW
 	@-cp -fpv $(Tgt).dll $(C_DIR)
-endif
-ifdef LINUX
+else # LINUX, MACOSX
 	@-cp -fpv $(Tgt).so $(C_DIR)
 endif
 
@@ -143,11 +156,10 @@ symbols: build
 	@objdump -T $(Tgt).so > $(Tgt).symbols
 
 $(Tgt):	$(CxxObjs) $(CObjs)
-ifdef LINUX
-	@-$(CXX) -shared -o $(Tgt).so $(CObjs) $(CxxObjs) $(LIBDIR) $(LDFLAGS) $(LIBS)
-endif
 ifdef MINGW
 	@-$(CXX) -shared -o $(Tgt).dll $(CObjs) $(CxxObjs) $(LIBDIR) $(LDFLAGS) $(LIBS)
+else # LINUX, MACOSX
+	@-$(CXX) -shared -o $(Tgt).so $(CObjs) $(CxxObjs) $(LIBDIR) $(LDFLAGS) $(LIBS)
 endif
 	@-rm -f *.o
 	@echo

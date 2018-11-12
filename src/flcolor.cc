@@ -121,9 +121,13 @@ static int Xpixel(lua_State *L)
 
 static int Free_color(lua_State *L)
     {
+#ifdef MACOSX
+    (void)L; /* @@ missing symbol, it seems */
+#else
     Fl_Color index = check_ColorIndex(L, 1);
     int overlay = optboolean(L, 2, 0);
     Fl::free_color(index, overlay);
+#endif
     return 0;
     }
 
