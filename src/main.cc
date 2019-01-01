@@ -245,14 +245,12 @@ static const struct luaL_Reg Functions[] =
     };
 
 static bool initialized = false;
-lua_State* main_lua_state = 0;
 
 extern "C" { /* because it is called by luaopen_moonfltk() */
 
 static int handleClosingLuaState(lua_State *L)
     {
         (void)L;
-        main_lua_state = 0;
         return 0;
     }
 
@@ -266,14 +264,6 @@ int moonfltk_open_main(lua_State *L)
     
     if (!initialized)
         {
-        #if LUA_VERSION_NUM >= 502
-            lua_rawgeti(L, LUA_REGISTRYINDEX, LUA_RIDX_MAINTHREAD);
-                main_lua_state = lua_tothread(L, -1); // our main state is the current main state
-            lua_pop(L, 1);
-        #else
-            main_lua_state = lua_newthread(L); // our "main state" is a new state
-            luaL_ref(L, LUA_REGISTRYINDEX); // remember in registry to prevent garbage collection
-        #endif
         
         lua_pushlightuserdata(L, (void*)&initialized); // unique void* key
             lua_newuserdata(L, 1); // sentinel for closing lua state

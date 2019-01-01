@@ -53,8 +53,7 @@ static double Seconds = 0;
 
 static void TmrHandler(void *data)
     {
-    (void)data;
-    lua_State* L = main_lua_state;
+    lua_State* L = (lua_State*)data;
     if (!L)
         return;
     if(pushvalue(L, TmrRef) != LUA_TFUNCTION)
@@ -63,7 +62,7 @@ static void TmrHandler(void *data)
      * (the callback code may reset, or set a new handler)
      */
     if(Repeat)
-        Fl::repeat_timeout(Seconds, TmrHandler, (void*)0);
+        Fl::repeat_timeout(Seconds, TmrHandler, data);
     else
         Reset();
     if(lua_pcall(L, 0, 0, 0) != LUA_OK)
@@ -91,7 +90,7 @@ static int SetTimeout(lua_State *L)
     if(!lua_isfunction(L, 3))
         return luaL_argerror(L, 3, "function expected");
     reference(L, TmrRef, 3);
-    Fl::add_timeout(Seconds, TmrHandler, (void*)0);
+    Fl::add_timeout(Seconds, TmrHandler, (void*)L);
     return 0;
     }
 
@@ -103,8 +102,7 @@ static int SetTimeout(lua_State *L)
 static int CheckRef = LUA_NOREF;
 static void CheckHandler(void *data)
     {
-    (void)data;
-    lua_State* L = main_lua_state;
+    lua_State* L = (lua_State*)data;
     if (!L)
         return;
     if(pushvalue(L, CheckRef) != LUA_TFUNCTION)
@@ -135,7 +133,7 @@ static int Set_check(lua_State *L)
     if(!lua_isfunction(L, 1))
         return luaL_argerror(L, 1, "function expected");
     reference(L, CheckRef, 1);
-    Fl::add_check(CheckHandler, (void*)0);
+    Fl::add_check(CheckHandler, (void*)L);
     return 0;
     }
 
@@ -146,8 +144,7 @@ static int Set_check(lua_State *L)
 static int IdleRef = LUA_NOREF;
 static void IdleHandler(void *data)
     {
-    (void)data;
-    lua_State* L = main_lua_state;
+    lua_State* L = (lua_State*)data;
     if (!L)
         return;
     if(pushvalue(L, IdleRef) != LUA_TFUNCTION)
@@ -175,7 +172,7 @@ static int Set_idle(lua_State *L)
     if(!lua_isfunction(L, 1))
         return luaL_argerror(L, 1, "function expected");
     reference(L, IdleRef, 1);
-    Fl::add_idle(IdleHandler, (void*)0);
+    Fl::add_idle(IdleHandler, (void*)L);
     return 0;
     }
 
@@ -204,8 +201,7 @@ static int Fileno(lua_State *L) /* POSIX */
 static int FdRef = LUA_NOREF;
 static void FdHandler(int fd, void *data)
     {
-    (void)data;
-    lua_State* L = main_lua_state;
+    lua_State* L = (lua_State*)data;
     if (!L)
         return;
     if(pushvalue(L, FdRef) != LUA_TFUNCTION)
@@ -239,7 +235,7 @@ static int Add_fd(lua_State *L)
     {
     int fd = luaL_checkinteger(L, 1);
     int when = check_WhenFd(L, 2);
-    Fl::add_fd(fd, when, FdHandler, (void*)0);  
+    Fl::add_fd(fd, when, FdHandler, (void*)L);  
     return 0;
     }
 

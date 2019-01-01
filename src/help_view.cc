@@ -93,9 +93,9 @@ static int Help_Viewfind(lua_State *L)
 
 static const char* Help_Func(Fl_Widget *p, const char *uri)
     {
-    lua_State *L = main_lua_state;
-    if (!L) return NULL;
     ud_t *ud = userdata(p);
+    lua_State *L = ud->L;
+    if (!L) return NULL;
     if(!ud) return NULL;
     if(pushvalue(L, ud->help_func) != LUA_TFUNCTION)
         { unexpected(L); return NULL; }

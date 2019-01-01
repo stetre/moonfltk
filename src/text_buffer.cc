@@ -466,7 +466,7 @@ static void Callback_modify(int pos, int nins, int ndel, int nrest, const char* 
     {
     ud_t *ud = (ud_t*)ud_;
     Fl_Text_Buffer *p = (Fl_Text_Buffer*)(ud->obj);
-    lua_State *L = main_lua_state;
+    lua_State *L = ud->L;
     if (!L) 
         return;
     if(pushvalue(L, ud->modify) != LUA_TFUNCTION)
@@ -488,7 +488,7 @@ static void Callback_predelete(int pos, int ndel, void* ud_)
     {
     ud_t *ud = (ud_t*)ud_;
     Fl_Text_Buffer *p = (Fl_Text_Buffer*)(ud->obj);
-    lua_State *L = main_lua_state;
+    lua_State *L = ud->L;
     if (!L)
         return;
     if(pushvalue(L, ud->predelete) != LUA_TFUNCTION)

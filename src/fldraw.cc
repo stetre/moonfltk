@@ -313,7 +313,7 @@ static int Draw_box(lua_State *L)
 
 static void boxtypeDrawFunction(uchar n, int x, int y, int w, int h, Fl_Color color)
     {
-    lua_State* L = main_lua_state;
+    lua_State *L = boxtype_FunctionRefs[n].L;
     int luaRef = boxtype_FunctionRefs[n].luaRef;
     if (L == 0 || luaRef == LUA_NOREF)
         return;
@@ -345,6 +345,7 @@ static int Set_boxtype(lua_State *L)
             luaL_unref(L, LUA_REGISTRYINDEX, boxtype_FunctionRefs[bt].luaRef);
         lua_pushvalue(L, 2);
         boxtype_FunctionRefs[bt].luaRef = luaL_ref(L, LUA_REGISTRYINDEX);
+        boxtype_FunctionRefs[bt].L = L;
         Fl::set_boxtype(bt, boxtype_FunctionRefs[bt].func, dx, dy, dw, dh);
         }
     else
@@ -359,6 +360,7 @@ static int Set_boxtype(lua_State *L)
             {
             lua_rawgeti(L, LUA_REGISTRYINDEX, boxtype_FunctionRefs[fromBt].luaRef);
             boxtype_FunctionRefs[bt].luaRef = luaL_ref(L, LUA_REGISTRYINDEX);
+            boxtype_FunctionRefs[bt].L = L;
             Fl::set_boxtype(bt, boxtype_FunctionRefs[fromBt].func, 
                             Fl::box_dx(fromBt), 
                             Fl::box_dy(fromBt), 

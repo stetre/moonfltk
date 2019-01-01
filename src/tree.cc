@@ -638,12 +638,12 @@ static void Callback(Fl_Widget *p_, void *not_used)
  */
     {
 #define p ((Fl_Tree*)p_) /* dirty downcast */
-    lua_State *L = main_lua_state;
+    ud_t *ud = userdata(p);
+    lua_State *L = ud->L;
     if (!L) 
         return;
     (void)not_used;
     int nargs = 3; 
-    ud_t *ud = userdata(p);
     if( p->callback() != Callback )
         return;
     if(pushvalue(L, ud->cbref) != LUA_TFUNCTION)

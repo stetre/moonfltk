@@ -144,6 +144,7 @@ ud_t *newuserdata(lua_State *L, void *ptr, const char *mt)
     ud = userdata(ptr);
     if(ud)
         {
+        ud->L = L;
         ud->refcnt++;
         udata_push(L, ptr);
         return ud;
@@ -160,6 +161,7 @@ ud_t *newuserdata(lua_State *L, void *ptr, const char *mt)
     ud->key_func = LUA_NOREF;
     ud->help_func = LUA_NOREF;
     ud->obj = ptr ? ptr : (void*)ud;
+    ud->L = L;
     return ud;
     }
 

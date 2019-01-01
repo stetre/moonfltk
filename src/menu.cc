@@ -142,10 +142,10 @@ static int ItemDelete(lua_State *L, Fl_Menu_ *menu, Fl_Menu_Item *item)
  */
 static void CommonCallback(Fl_Widget *menu_, void *ud_)
     {
-    lua_State *L = main_lua_state;
+    ud_t *ud = (ud_t*)ud_; /* note that this is the ud bound to the menu item, not to the menu */
+    lua_State *L = ud->L;
     if (!L) return;
     Fl_Menu_ *menu = (Fl_Menu_*)menu_;
-    ud_t *ud = (ud_t*)ud_; /* note that this is the ud bound to the menu item, not to the menu */
     //printf("Menu callback: menu: %p, menu_item: %p\n", userdata(menu), ud);
     if(!ud)
         { unexpected(L); return; }
@@ -202,6 +202,7 @@ static int Menu_add(lua_State *L)
     memset(ud, 0, sizeof(ud_t));
     ud->cbref = cbref;
     ud->argref = argref;
+    ud->L = L;
     
     int index = menu->add(pathname, shortcut, CommonCallback, ud, flags);
     if(moonfltk_trace_objects) 

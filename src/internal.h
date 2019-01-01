@@ -71,9 +71,6 @@ extern "C" {
 #endif
 #endif
 
-#define main_lua_state moonfltk_main_lua_state
-extern lua_State* main_lua_state;
-
 /* Note: all the dynamic symbols of this library (should) start with 'moonfltk_' .
  * The only exception is the luaopen_moonfltk() function, which is searched for
  * with that name by Lua.
@@ -111,6 +108,7 @@ typedef struct {
     char *bits;
     char **xpm; /* array of string pointers for XPM images */
     int nxpm; /* no. of strings in xpm */
+    lua_State* L;
 } moonfltk_ud_t;
 
 #include "mt.h"

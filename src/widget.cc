@@ -31,12 +31,12 @@
 
 static void CommonCallback(Fl_Widget *p, void *not_used)
     {
-    lua_State *L = main_lua_state;
+    ud_t *ud = userdata(p);
+    lua_State *L = ud->L;
     if (!L) 
         return;
     (void)not_used;
     int nargs = 1;
-    ud_t *ud = userdata(p);
     if( p->callback() != CommonCallback )
         return;
     /* retrieve Lua callback and execute it */
