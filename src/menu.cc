@@ -45,10 +45,14 @@ static int CheckIndex(lua_State *L, Fl_Menu_ *menu, int arg)
 /* Given the menu and the pathname at arg, returns the item's index or raises an error */
     {
 //  const char *pathname = luaL_optstring(L, arg, NULL); 
-    const char *pathname = lua_isnoneornil(L, arg) ? NULL : luaL_checkstring(L, arg);
-    if(pathname) 
-        return menu->find_index(pathname);
-    return luaL_argerror(L, arg, "cannot find item");
+    if (lua_isinteger(L, arg))
+        return lua_tointeger(L, arg);
+    else {
+        const char *pathname = lua_isnoneornil(L, arg) ? NULL : luaL_checkstring(L, arg);
+        if(pathname) 
+            return menu->find_index(pathname);
+        return luaL_argerror(L, arg, "cannot find item");
+    }
     }
 
 static const char *PushIndex(lua_State *L, Fl_Menu_ *menu, int index)
