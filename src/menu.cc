@@ -205,7 +205,7 @@ static int Menu_add(lua_State *L)
     ud->cbref = cbref;
     ud->argref = argref;
     
-    int index = menu->add(pathname, shortcut, setCallback ? CommonCallback : nullptr, setCallback ? ud : nullptr, flags);
+    int index = menu->add(pathname, shortcut, setCallback ? CommonCallback : NULL, setCallback ? ud : NULL, flags);
     if(moonfltk_trace_objects) 
         printf("added Menu_Item '%s' (index=%d) %p\n", pathname, index, (void*)ud);
     if(index==0) menu->value(0);
