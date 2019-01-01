@@ -364,8 +364,6 @@ static int Menu_mode(lua_State *L)
 static const struct luaL_Reg Menu_Methods[] = 
     {
         { "add",  Menu_add},
-//      { "callback", Menu_callback }, @@TODO: override widget:callback
-//      { "do_callback", Menu_do_callback }, @@TODO: override widget:do_callback
         { "clear", Menu_clear },
         { "clear_submenu", Menu_clear_submenu },
         { "down_box", Menu_down_box },
