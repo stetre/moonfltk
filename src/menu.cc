@@ -312,6 +312,13 @@ static int Menu_value(lua_State *L)
     return 1;
     }
 
+static int Menu_get_index(lua_State *L)
+    {
+    Fl_Menu_ *menu = check_Menu_(L, 1);
+    lua_pushinteger(L, menu->value());
+    return 1;
+    }
+
 static int Menu_size(lua_State *L)
     {
     Fl_Menu_ *menu = check_Menu_(L, 1);
@@ -369,6 +376,7 @@ static const struct luaL_Reg Menu_Methods[] =
         { "clear", Menu_clear },
         { "clear_submenu", Menu_clear_submenu },
         { "down_box", Menu_down_box },
+        { "get_index", Menu_get_index  },
         { "global", Menu_global },
         { "mode", Menu_mode },
         { "mvalue", Menu_mvalue  },
