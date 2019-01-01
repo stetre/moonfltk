@@ -67,11 +67,13 @@ static const char *PushIndex(lua_State *L, Fl_Menu_ *menu, int index)
 static void UdDelete(lua_State *L, Fl_Menu_ *menu, Fl_Menu_Item *item)
 /* Deletes the ud_t structure associated with the menu item (if any) */
     {
-    const char *pathname =  push_Pathname(L, menu, item);
     ud_t *ud = (ud_t*)item->user_data();
     if(!ud) return;
     if(moonfltk_trace_objects)
+        {
+        const char *pathname =  push_Pathname(L, menu, item);
         printf("deleting Menu_Item '%s' %p\n", pathname, (void*)ud);
+        }
     item->user_data(NULL);
     unreference(L, ud->cbref);
     unreference(L, ud->argref);
