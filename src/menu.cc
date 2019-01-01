@@ -182,12 +182,14 @@ static int Menu_add(lua_State *L)
      * function has no mechanism to signal errors... */
     int shortcut = luaL_optinteger(L, 3, 0);
 
+    bool setCallback = false;
     int cbref = LUA_NOREF;
     if(!lua_isnoneornil(L, 4))
         {
         if(!lua_isfunction(L,4))
             return luaL_argerror(L, 4, "function or nil expected");
         reference(L, cbref, 4);
+        setCallback = true;
         }
 
     int argref = LUA_NOREF;
@@ -203,7 +205,7 @@ static int Menu_add(lua_State *L)
     ud->cbref = cbref;
     ud->argref = argref;
     
-    int index = menu->add(pathname, shortcut, CommonCallback, ud, flags);
+    int index = menu->add(pathname, shortcut, setCallback ? CommonCallback : NULL, setCallback ? ud : NULL, flags);
     if(moonfltk_trace_objects) 
         printf("added Menu_Item '%s' (index=%d) %p\n", pathname, index, (void*)ud);
     if(index==0) menu->value(0);
@@ -364,8 +366,6 @@ static int Menu_mode(lua_State *L)
 static const struct luaL_Reg Menu_Methods[] = 
     {
         { "add",  Menu_add},
-//      { "callback", Menu_callback }, @@TODO: override widget:callback
-//      { "do_callback", Menu_do_callback }, @@TODO: override widget:do_callback
         { "clear", Menu_clear },
         { "clear_submenu", Menu_clear_submenu },
         { "down_box", Menu_down_box },
