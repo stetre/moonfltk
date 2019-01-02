@@ -67,11 +67,13 @@ static const char *PushIndex(lua_State *L, Fl_Menu_ *menu, int index)
 static void UdDelete(lua_State *L, Fl_Menu_ *menu, Fl_Menu_Item *item)
 /* Deletes the ud_t structure associated with the menu item (if any) */
     {
-    const char *pathname =  push_Pathname(L, menu, item);
     ud_t *ud = (ud_t*)item->user_data();
     if(!ud) return;
     if(moonfltk_trace_objects)
+        {
+        const char *pathname =  push_Pathname(L, menu, item);
         printf("deleting Menu_Item '%s' %p\n", pathname, (void*)ud);
+        }
     item->user_data(NULL);
     unreference(L, ud->cbref);
     unreference(L, ud->argref);
@@ -219,8 +221,11 @@ int menuclear(lua_State *L, Fl_Menu_ *menu)
     /* delete all ud_t before clearing the menu */
     int n = menu->size();
     Fl_Menu_Item *item = (Fl_Menu_Item*)menu->menu();
-    for(int i=0; i<n; i++)
-        UdDelete(L, menu, item+i);
+    if (n > 0)
+        {
+        for(int i=0; i<n-1; i++) // -1 to avoid calling UdDelete on the terminiator item. See: https://www.fltk.org/doc-1.3/classFl__Menu__.html#a56d014765ec71a15ecca109348180f45 for more information.
+            UdDelete(L, menu, item+i);
+        }
     return 0;
     }
 
