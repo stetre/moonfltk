@@ -182,9 +182,7 @@ static int Imagedata(lua_State *L) //@@DOC
         return 0;
     else if (count == 1) /* bitmap or color image */
         {
-        lua_pushstring(L, data[0]); /*@@ non va bene, è una binary string
-                                      lua_pushlstring(L, data[0], len);
-                                       ma dove prendere la len ?!? */
+        lua_pushlstring(L, data[0], p->w() * p->h() * p->d());
         return 1;
         } 
     else if (count > 2) // pixmap
