@@ -483,7 +483,7 @@ Fl_Tree_Item_Draw_Mode check_Tree_Item_Draw_Mode(lua_State *L, int arg)
     return (Fl_Tree_Item_Draw_Mode )flags;
     }
 
-int push_Tree_Item_Draw_Mode(lua_State *L, Fl_Tree_Item_Draw_Mode val, int pushcode)
+int push_Tree_Item_Draw_Mode(lua_State *L, Fl_Tree_Item_Draw_Mode flags, int pushcode)
     {
     if(pushcode)
         { lua_pushinteger(L, flags); return 1; }
