@@ -107,7 +107,7 @@ _c_ = *:format_char*( ) +
 _nlines_ = *:size*( )
 
 * *:text*(_line_, [_text_]) +
-_text_ = *:text*( )
+_text_ = *:text*(_line_)
 
 * *:topline*(_line_) +
 _line_ = *:topline*( )
