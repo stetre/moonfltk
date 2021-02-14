@@ -1,4 +1,4 @@
 NO_GL=0
 NO_IMAGES=0
 
-make D=$1 no-gl=$NO_GL no-images=$NO_IMAGES && sudo make install
+make D=$1 LUAVER=5.4 no-gl=$NO_GL no-images=$NO_IMAGES && sudo make LUAVER=5.4 install
