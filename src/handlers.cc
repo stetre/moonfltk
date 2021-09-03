@@ -202,7 +202,7 @@ static int Fileno(lua_State *L) /* POSIX */
  *------------------------------------------------------------------------------*/
 
 static int FdRef = LUA_NOREF;
-static void FdHandler(int fd, void *data)
+static void FdHandler(FL_SOCKET fd, void *data)
     {
     (void)data;
     lua_State* L = main_lua_state;
@@ -237,7 +237,7 @@ static int Set_fd_handler(lua_State *L)
 
 static int Add_fd(lua_State *L)
     {
-    int fd = luaL_checkinteger(L, 1);
+    FL_SOCKET fd = luaL_checkinteger(L, 1);
     int when = check_WhenFd(L, 2);
     Fl::add_fd(fd, when, FdHandler, (void*)0);  
     return 0;
@@ -245,7 +245,7 @@ static int Add_fd(lua_State *L)
 
 static int Remove_fd(lua_State *L)
     {
-    int fd = luaL_checkinteger(L, 1);
+    FL_SOCKET fd = luaL_checkinteger(L, 1);
     Fl::remove_fd(fd);  
     return 0;
     }
