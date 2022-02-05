@@ -144,9 +144,9 @@ static int Tableset_selection(lua_State *L)
 
 static int Tablemove_cursor(lua_State *L)
     {
-    Fl_Table *p = check_Table(L, 1);
-    int r = checkindex(L, 2);
-    int c = checkindex(L, 3);
+	Fl_Table *p = check_Table(L, 1);
+    int r = luaL_checkinteger(L, 2);
+    int c = luaL_checkinteger(L, 3);
     int rc = 0;
     if(lua_isnone(L, 4))
         rc = p->move_cursor(r, c);
