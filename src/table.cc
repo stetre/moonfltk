@@ -29,6 +29,9 @@ class Fl_TableEXPOSER : Fl_Table {
     public:
         Fl_Scrollbar *get_vscrollbar() { return Fl_Table::vscrollbar; }
         Fl_Scrollbar *get_hscrollbar() { return Fl_Table::hscrollbar; }
+        // use select_xxx instead of current_xxx to get the "last clicked"-cell
+        int get_current_row() const { return select_row; }
+        int get_current_col() const { return select_col; }
         int find_cell(TableContext context, int R, int C, int &X, int &Y, int &W, int &H)
             { return Fl_Table::find_cell(context, R, C, X, Y, W, H); }
 };
@@ -144,9 +147,9 @@ static int Tableset_selection(lua_State *L)
 
 static int Tablemove_cursor(lua_State *L)
     {
-    Fl_Table *p = check_Table(L, 1);
-    int r = checkindex(L, 2);
-    int c = checkindex(L, 3);
+	Fl_Table *p = check_Table(L, 1);
+    int r = luaL_checkinteger(L, 2);
+    int c = luaL_checkinteger(L, 3);
     int rc = 0;
     if(lua_isnone(L, 4))
         rc = p->move_cursor(r, c);
@@ -159,6 +162,28 @@ static int Tablemove_cursor(lua_State *L)
     return 1;
     }
   
+static int Tablecurrent_row(lua_State *L) 
+    {
+    Fl_TableEXPOSER *p = (Fl_TableEXPOSER*) check_Table(L, 1);
+    int r = p->get_current_row();
+    if (r >= 0) {
+        pushindex(L, r);
+        return 1;
+    }
+    return 0;
+    }
+
+
+static int Tablecurrent_col(lua_State *L) 
+    {
+    Fl_TableEXPOSER *p = (Fl_TableEXPOSER*) check_Table(L, 1);
+    int c = p->get_current_col();
+    if (c >= 0) {
+        pushindex(L, c);
+        return 1;
+    }
+    return 0;
+    }
 
 #if defined(FLTK_ABI_VERSION) && (FLTK_ABI_VERSION >= 10301)
 GETSET_INT(Table, scrollbar_size, Tablescrollbar_size)
@@ -276,6 +301,8 @@ static const struct luaL_Reg TableMethods[] =
         { "is_interactive_resize", Tableis_interactive_resize },
         { "is_selected", Tableis_selected },
         { "move_cursor", Tablemove_cursor },
+        { "current_row", Tablecurrent_row },
+        { "current_col", Tablecurrent_col },
         { "row_header", Tablerow_header },
         { "row_header_color", Tablerow_header_color },
         { "row_header_width", Tablerow_header_width },
