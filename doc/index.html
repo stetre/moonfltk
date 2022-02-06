@@ -2323,7 +2323,12 @@ Row and column numbers, as well as children indices, are 1-based (Lua-style).
 <p><em>boolean</em> = <strong>:is_selected</strong>(<em>row</em>, <em>col</em>)</p>
 </li>
 <li>
-<p><em>boolean</em> = <strong>:move_cursor</strong>(<em>row</em>, <em>col</em>, [<em>shiftselect</em>])</p>
+<p><em>boolean</em> = <strong>:move_cursor</strong>(<em>deltarow</em>, <em>deltacol</em>, [<em>shiftselect</em>])</p>
+</li>
+<li>
+<p><em>row</em> = <strong>:current_row</strong>( )<br>
+<em>col</em> = <strong>:current_col</strong>( )<br>
+<span class="small">Return <em>nil</em> if none is selected.</span></p>
 </li>
 <li>
 <p><strong>:row_header</strong>(<em>boolean</em>)<br>

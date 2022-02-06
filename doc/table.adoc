@@ -60,11 +60,14 @@ _w_ = *:col_width*(_col_)
 
 * _boolean_ = *:is_selected*(_row_, _col_)
 
-* _boolean_ = *:move_cursor*(_row_, _col_, [_shiftselect_])
+* _boolean_ = *:move_cursor*(_deltarow_, _deltacol_, [_shiftselect_])
+
+* _row_ = *:current_row*( ) +
+_col_ = *:current_col*( ) +
+[small]#Return _nil_ if none is selected.#
 
 * *:row_header*(_boolean_) +
 _boolean_ = *:row_header*( )
-
 
 * *:row_header_color*(<<color, _color_>>) +
 <<color, _color_>> = *:row_header_color*( )
@@ -79,7 +82,6 @@ _h_ = *:row_height*(_row_)
 
 * *:row_position*(_row_) +
 _row_ = *:row_position*( )
-
 
 * *:row_resize*(_boolean_) +
 _boolean_ = *:row_resize*( )
